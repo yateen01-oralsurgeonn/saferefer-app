@@ -4,7 +4,7 @@
 
 ## Before you start (you, about 20 minutes)
 
-1. Use Chrome desktop, latest version. Open `chrome://on-device-internals` and check that Gemini Nano is downloaded. If not, let it download.
+1. Use Chrome desktop, latest version (139 or higher). Set `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` to Enabled and restart. Press F12, open Console, run `await LanguageModel.availability()`. `available` is good. `downloadable`: run `await LanguageModel.create()` and wait. `unavailable`: stop and tell Claude; the laptop needs 22 GB free disk and either a GPU with more than 4 GB VRAM or 16 GB RAM.
 2. At console.firebase.google.com, create a project called `saferefer`. Stay on the free plan.
 3. Check `node -v` prints version 20 or higher.
 
@@ -13,7 +13,7 @@
 Open Claude Code in `C:\Users\Dr Yatin\Desktop\BuildHybridAI`, switch to Sonnet 5.5, and paste:
 
 ```
-Read RULES.md, IDEA-DECISION.md and PLAN.md in full. Do task T1 from PLAN.md and nothing else.
+Read RULES.md, IDEA-DECISION.md, PLAN.md and DOCS-CHECK.md in full. Do task T1 from PLAN.md and nothing else.
 
 T1: set up the project and prove one hybrid call works.
 
@@ -24,17 +24,19 @@ T1: set up the project and prove one hybrid call works.
    and a .gitignore that excludes .env files and node_modules.
 3. I have created a Firebase project called `saferefer`. Walk me through the console
    steps one at a time: register a web app, enable Firebase AI Logic with the Gemini
-   Developer API, enable App Check, register a debug token. Wait for me after each step.
+   Developer API, enable App Check (reCAPTCHA Enterprise, enforcement on for AI Logic),
+   register a debug token. Wait for me after each step.
 4. Put the Firebase web config in `app/.env.local` and add `app/.env.example` with
    empty values. Never commit the debug token.
 5. Build one page: a text box, a "Ask" button, the model's reply, and a badge that
-   says "on-device" or "cloud" depending on which model answered. Use the
-   prefer-on-device mode. Initialise App Check before the AI call.
+   says "on-device" or "cloud", read from `result.response.inferenceSource`. Use
+   `InferenceMode.PREFER_ON_DEVICE`. Initialise App Check before the AI call.
 6. Run it and check it yourself in the browser before telling me it works.
 
 Done-check I will verify by eye: I type "Say hello", click Ask, and see a reply
-with an "on-device" badge. Then I turn Nano off (you tell me how) and see the
-same page answer with a "cloud" badge.
+with an "on-device" badge. Then I turn Nano off (set the Chrome flag to Disabled,
+restart, confirm `LanguageModel.availability()` says `unavailable`; if that does
+not work, find another way and tell me) and see the same page answer with a "cloud" badge.
 
 Rules: synthetic data only, no real patient details anywhere. No extra features.
 If a doc contradicts PLAN.md, follow the doc and tell me what changed.

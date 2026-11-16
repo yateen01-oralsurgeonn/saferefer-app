@@ -28,14 +28,14 @@ Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
 | Need | Choice | From |
 |---|---|---|
 | Platform | Web, Chrome desktop, Gemini Nano 4 | RULES: one platform |
-| AI calls | Firebase AI Logic web SDK (`firebase/ai`), all three modes: on-device only (redaction), cloud only (letter), prefer on-device (tooth lines) | RULES: required, hybrid |
-| Abuse guard | App Check: debug token locally, reCAPTCHA on the hosted site | RULES: required |
+| AI calls | Firebase AI Logic web SDK (`firebase/ai`), three modes: `ONLY_ON_DEVICE` (redaction), `ONLY_IN_CLOUD` (letter), `PREFER_ON_DEVICE` (tooth lines). JSON output via `responseConstraint` on-device and `responseSchema` in cloud | RULES: required, hybrid |
+| Abuse guard | App Check, enforced, limited-use tokens: debug token locally, reCAPTCHA Enterprise on the hosted site | RULES: required |
 | Extras | Anonymous Auth, Firestore (offline queue of anonymous notes), Remote Config (cloud model name, letter template) | RULES: encouraged |
 | App | Vite + React + TypeScript, plain CSS, PWA service worker | Builder's choice |
 | Host | Firebase Hosting, Gemini Developer API on the free plan | RULES: free judge access |
 | Licence | Apache-2.0 | RULES: visible licence |
 
-Install latest versions on day 1 and commit `package-lock.json`. Take SDK and model names from the current Firebase docs, not memory.
+Install latest versions on day 1 and commit `package-lock.json`. Take SDK and model names from DOCS-CHECK.md (checked 16 Nov): `firebase` v13.0.0 or higher, cloud model `gemini-3.5-flash-lite`. If the live docs differ, the docs win.
 
 ## 3. Tasks
 
