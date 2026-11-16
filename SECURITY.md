@@ -1,0 +1,43 @@
+# SECURITY: SafeRefer design review (16 Nov 2026)
+
+Scope: the design in PLAN.md and PROMPTS.md. No app code exists yet. Repo history was not scanned; the T13 list below does that.
+Severity: H = an identifier or secret can leave the browser. M = needs a second failure first. L = hygiene.
+Rows: A = identifier reaches the cloud. B = token map leaks. C = secrets and debug tokens. D = Nano fails mid-redaction.
+
+| # | Risk | Sev | Fix | Task |
+|---|---|---|---|---|
+| A1 | Nano silently misses a name. The send guard only knows map values, so the note passes | H | Keep the Approve gate and amber underline; publish the miss rate; README says the dentist's check is the real control | T4, T5, T8 |
+| A2 | Note is edited after Approve, or Send reads the live text, so unapproved text goes out | H | Any edit clears approval. Send, queue and retry all use one frozen approved string | T5 |
+| A3 | Tooth lines (`PREFER_ON_DEVICE`) fall back to the cloud without asking; fed the raw note, they leak it | H | T9 takes only the approved string, after the send guard. Never run it while the dentist types | T9 |
+| A4 | `ONLY_ON_DEVICE` is assumed never to call the cloud | H | Prove it: Nano off, Network panel open; the call must throw and send zero requests | T1 |
+| A5 | Items Nano found but code dropped ("could not be placed", clinical-term match) stay visible in the note | H | Show the dropped text on screen (local only); Approve needs a tick against it | T4 |
+| A6 | Send guard gaps: values under 3 characters; whole-word match misses "Rameshs" or "RameshPatil" | M | Substring match for values of 4+ characters; run the guard on the Firestore write too | T5, T10 |
+| A7 | Firestore queue keeps anonymous notes in the cloud; default test rules let anyone read them | H | Rules: owner `uid` only, create and delete only, size cap. Store the approved string only, delete it when the letter arrives. Never the note, map or restored letter | T10 |
+| A8 | `console.log` of a note or prompt; SDK error text that echoes the request | M | ESLint `no-console`; one error mapper to fixed messages; no note text inside thrown errors | T3-T7, T12 |
+| A9 | An analytics, crash or performance SDK captures page text | M | Add none (Analytics, Crashlytics, Performance, Sentry); no `measurementId`; leave AI monitoring off in the console | T1, T13 |
+| A10 | Free Gemini Developer API: Google may keep and review prompts (check the current terms) | M | Synthetic data only; say so in the README; make no privacy claim for real patients | T2, T13 |
+| A11 | Remote Config template is pasted into the system prompt; a bad value weakens the token rules | L | Template fills the section list only; cap length, strip brackets, allow-list model names, fall back to defaults | T11 |
+| A12 | Service worker caches API replies or note text | L | Precache the app shell only; no runtime caching of POST or Google API calls | T10 |
+| A13 | App Check sends browser signals to reCAPTCHA, not note text: no content risk | L | Nothing to fix. Never put note text in a URL or query string | T1 |
+| A14 | Chrome enhanced spellcheck or an extension reads the text box | L | `spellcheck="false"` and `autocomplete="off"` on both boxes; record the demo in a clean profile | T5 |
+| B1 | Map, original note or restored letter gets persisted (draft autosave, sessionStorage, Firestore) | H | React ref or state only. Storage APIs are used in the queue module alone; grep for them in T13 | T5, T7, T10 |
+| B2 | Map printed to the console or hung on `window` for debugging | M | No logging of map or note; no debug handle; no map values inside error objects | T3, T4 |
+| B3 | Crash report carries the map | L | No crash reporter (A9); the error boundary shows fixed text only | T12 |
+| B4 | Copy button puts the named letter into clipboard history or cloud clipboard sync | L | Intended use. Copy plain letter text only, never the map; one line about it in the README | T7 |
+| B5 | Cloud letter rendered as HTML runs script that reads the map | M | Render as text nodes, no `dangerouslySetInnerHTML`; CSP in `firebase.json` with `connect-src` limited to Google endpoints | T7, T13 |
+| C1 | App Check debug token committed, or debug mode active in the production build | H | Token in `.env.local`, gitignored before the first T1 commit; set only under `import.meta.env.DEV`. If it was ever committed, delete it in the console: rewriting history is not enough | T1, T13 |
+| C2 | Gemini API key or service-account JSON in the client or repo | H | Never add one. AI Logic keeps the Gemini key on Google's side | T1 |
+| C3 | Firebase web config is public by design, but unrestricted, so anyone can drain the free quota before 21 Dec | M | Enforce App Check on AI Logic and Firestore; restrict the key to the hosting domain and localhost; set the per-user rate limit | T1, T13 |
+| D1 | Nano fails on one chunk of a long note; the partial result looks complete | H | All chunks succeed or the whole run is manual mode. Keep what was found, show the failure | T4 |
+| D2 | Dentist edits during a Nano run: a stale result is applied, or Approve is clicked mid-run | H | Abort the run and bump a run counter on edit; Approve is disabled while running or stale; ignore replies that arrive after the 20 s timeout | T4, T5 |
+| D3 | A catch block or shared helper "helpfully" retries redaction on the cloud model | H | The redaction module cannot import the cloud model. State is `ok` or `manual`, with no default. T8 asserts zero requests with Nano off | T4, T8 |
+| D4 | Manual mode: dentist approves with nothing hidden; the guard knows only T3 values | M | Manual mode needs a second tick, "I hid every name by hand"; the amber underline still runs | T5 |
+| D5 | Reply stops at `maxItems` 40, so later identifiers are cut off | L | Treat exactly 40 items as incomplete and re-run in smaller chunks | T4 |
+
+## T13 checklist (secrets and leaks)
+- [ ] `git ls-files` shows no `.env*`, `*-debug.log` or service-account JSON
+- [ ] gitleaks over the full history is clean (or `git log -p --all | grep -iE "DEBUG_TOKEN|private_key"` finds nothing)
+- [ ] `dist/` contains no `DEBUG_TOKEN`, and no storage API outside the queue module
+- [ ] Console: unused debug tokens deleted, App Check enforced, rules deployed and a second `uid` is denied, Analytics and AI monitoring off, key restricted
+- [ ] Hosted site, fresh profile: run note 1 and search every request body for the name and phone: zero hits. With Nano off, redaction sends zero requests
+- [ ] Repo, screenshots and video show synthetic patients only; `npm audit` has no high findings
