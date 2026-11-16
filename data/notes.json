@@ -1,0 +1,306 @@
+[
+  {
+    "id": "N01",
+    "text": "Patient: Arvind Testwala. Phone: 00000 55501. Seen on 03/11/2026. Referred for endodontic assessment of tooth 36. Deep distal caries with lingering pain to cold for one week. Tender to percussion. IOPA attached. Please evaluate and manage.",
+    "identifiers": [
+      {"type": "name", "value": "Arvind Testwala"},
+      {"type": "phone", "value": "00000 55501"},
+      {"type": "date", "value": "03/11/2026"}
+    ]
+  },
+  {
+    "id": "N02",
+    "text": "Patient name: Meera Samplekar. Contact: 00000 55502. Date of referral: 05/11/2026. Referred for surgical extraction of impacted 48. Two episodes of pericoronitis in the last three months. OPG enclosed. No known drug allergies.",
+    "identifiers": [
+      {"type": "name", "value": "Meera Samplekar"},
+      {"type": "phone", "value": "00000 55502"},
+      {"type": "date", "value": "05/11/2026"}
+    ]
+  },
+  {
+    "id": "N03",
+    "text": "Referring Mr Dinesh Mockwani, DOB 12/04/1971, mobile 00000 55503, for implant assessment in the 46 region. Tooth extracted eight months ago. Patient is a controlled diabetic. Kindly assess bone and advise.",
+    "identifiers": [
+      {"type": "name", "value": "Dinesh Mockwani"},
+      {"type": "dob", "value": "12/04/1971"},
+      {"type": "phone", "value": "00000 55503"}
+    ]
+  },
+  {
+    "id": "N04",
+    "text": "Patient: Kavya Fakepurkar, age 9. Parent phone: 00000 55504. Fall at school on 07/11/2026 with enamel-dentine fracture of 11, no pulp exposure. Fragment not recovered. Referred for paediatric trauma review.",
+    "identifiers": [
+      {"type": "name", "value": "Kavya Fakepurkar"},
+      {"type": "phone", "value": "00000 55504"},
+      {"type": "date", "value": "07/11/2026"}
+    ]
+  },
+  {
+    "id": "N05",
+    "text": "Patient: Suresh Dummyrao. Email: suresh.dummyrao@example.com. Generalised pocketing of 5 to 7 mm with grade II mobility of 31 and 41. Non-surgical therapy completed on 20/10/2026. Referred for periodontal opinion.",
+    "identifiers": [
+      {"type": "name", "value": "Suresh Dummyrao"},
+      {"type": "email", "value": "suresh.dummyrao@example.com"},
+      {"type": "date", "value": "20/10/2026"}
+    ]
+  },
+  {
+    "id": "N06",
+    "text": "Patient: Nalini Testpande. Patient ID: SR-0006. Phone: 00000 55506. Previously root filled 26 with persistent sinus tract buccally. Referred for retreatment opinion. Radiograph dated 01/11/2026 attached.",
+    "identifiers": [
+      {"type": "name", "value": "Nalini Testpande"},
+      {"type": "record_id", "value": "SR-0006"},
+      {"type": "phone", "value": "00000 55506"},
+      {"type": "date", "value": "01/11/2026"}
+    ]
+  },
+  {
+    "id": "N07",
+    "text": "Patient: Farhan Samplewala, phone 00000 55507. Root stumps 16 and 17 for extraction. On anticoagulant therapy; physician letter attached. Seen 09/11/2026.",
+    "identifiers": [
+      {"type": "name", "value": "Farhan Samplewala"},
+      {"type": "phone", "value": "00000 55507"},
+      {"type": "date", "value": "09/11/2026"}
+    ]
+  },
+  {
+    "id": "N08",
+    "text": "Patient: Leela Mockjee. Address: 12 Placeholder Road, Testnagar 000008. Phone: 00000 55508. Missing 11 following extraction last year. Requests fixed replacement. Referred for implant consultation.",
+    "identifiers": [
+      {"type": "name", "value": "Leela Mockjee"},
+      {"type": "address", "value": "12 Placeholder Road, Testnagar 000008"},
+      {"type": "phone", "value": "00000 55508"}
+    ]
+  },
+  {
+    "id": "N09",
+    "text": "Patient: Rohan Examplekar, DOB 22/08/2004. Phone 00000 55509. Sports injury on 10/11/2026 with lateral luxation of 21. Repositioned and splinted same day. Referred for follow up and pulp monitoring.",
+    "identifiers": [
+      {"type": "name", "value": "Rohan Examplekar"},
+      {"type": "dob", "value": "22/08/2004"},
+      {"type": "phone", "value": "00000 55509"},
+      {"type": "date", "value": "10/11/2026"}
+    ]
+  },
+  {
+    "id": "N10",
+    "text": "Patient: Anita Dummywala. Phone: 00000 55510. Email: anita.d@example.com. Gingival recession at 31 with thin biotype, sensitive to cold. Referred for mucogingival assessment. Seen 11/11/2026.",
+    "identifiers": [
+      {"type": "name", "value": "Anita Dummywala"},
+      {"type": "phone", "value": "00000 55510"},
+      {"type": "email", "value": "anita.d@example.com"},
+      {"type": "date", "value": "11/11/2026"}
+    ]
+  },
+  {
+    "id": "N11",
+    "text": "Dear colleague, thank you for seeing Mrs Shalini Testkar (58), who attended on 2 Nov 2026 with a draining sinus over 46. She can be reached on 00000-55511 or at shalini.testkar@example.org. The tooth was crowned elsewhere about five years ago. I would be grateful for your endodontic opinion. Regards, Dr Vikram Sampleshah.",
+    "identifiers": [
+      {"type": "name", "value": "Shalini Testkar"},
+      {"type": "date", "value": "2 Nov 2026"},
+      {"type": "phone", "value": "00000-55511"},
+      {"type": "email", "value": "shalini.testkar@example.org"},
+      {"type": "name", "value": "Vikram Sampleshah"}
+    ]
+  },
+  {
+    "id": "N12",
+    "text": "Re: Mr Gopal Mockreddy, record no. SR-0012. He presented with a vertically fractured 25 that I consider unrestorable. He takes medication for hypertension and the last reading in clinic was acceptable. He prefers afternoon appointments and his number is (00000) 55512. Please arrange extraction and discuss socket preservation as you see fit.",
+    "identifiers": [
+      {"type": "name", "value": "Gopal Mockreddy"},
+      {"type": "record_id", "value": "SR-0012"},
+      {"type": "phone", "value": "(00000) 55512"}
+    ]
+  },
+  {
+    "id": "N13",
+    "text": "Kindly see Ms Priya Fakenath, born 3 March 1988, for implant planning at 36 and 37. She lives at Flat 4, Sample Towers, Mockville 000013 and would like appointments close to home. CBCT was taken on 28/10/2026 at our centre. Mobile +91 00000 55513.",
+    "identifiers": [
+      {"type": "name", "value": "Priya Fakenath"},
+      {"type": "dob", "value": "3 March 1988"},
+      {"type": "address", "value": "Flat 4, Sample Towers, Mockville 000013"},
+      {"type": "date", "value": "28/10/2026"},
+      {"type": "phone", "value": "+91 00000 55513"}
+    ]
+  },
+  {
+    "id": "N14",
+    "text": "Master Aarav Testmani, aged 11, was brought in by his mother after a bicycle fall on 6 November 2026. Tooth 21 was avulsed and replanted within about forty minutes, having been stored in milk. Flexible splint placed. Mother's phone is 00000 55514. He attends Example Public School, Fakepur. Please review for endodontic management.",
+    "identifiers": [
+      {"type": "name", "value": "Aarav Testmani"},
+      {"type": "date", "value": "6 November 2026"},
+      {"type": "phone", "value": "00000 55514"},
+      {"type": "organization", "value": "Example Public School, Fakepur"}
+    ]
+  },
+  {
+    "id": "N15",
+    "text": "Patient Mr Imran Sampleqazi, 00000 55515, has been under my care since 2019. Despite two rounds of root surface debridement, pockets of 6 mm persist at 16, 17, 26 and 27 with bleeding on probing. He smokes ten cigarettes a day. Last charting of 30/10/2026 enclosed. With thanks, Dr Asha Dummyiyer, dr.asha@example.com.",
+    "identifiers": [
+      {"type": "name", "value": "Imran Sampleqazi"},
+      {"type": "phone", "value": "00000 55515"},
+      {"type": "date", "value": "30/10/2026"},
+      {"type": "name", "value": "Asha Dummyiyer"},
+      {"type": "email", "value": "dr.asha@example.com"}
+    ]
+  },
+  {
+    "id": "N16",
+    "text": "I am referring Sister Mary Placeholder, a 44 year old teacher, with a calcified canal in 11 following trauma many years ago. I could not locate the canal on 04/11/2026 and have placed a temporary dressing. Her contact is 00000 55516 and her patient ID with us is SR-0016.",
+    "identifiers": [
+      {"type": "name", "value": "Mary Placeholder"},
+      {"type": "date", "value": "04/11/2026"},
+      {"type": "phone", "value": "00000 55516"},
+      {"type": "record_id", "value": "SR-0016"}
+    ]
+  },
+  {
+    "id": "N17",
+    "text": "Mr Joseph Mockfernandes (DOB 09-09-1956) requires removal of 38, which is horizontally impacted and close to the canal on OPG. He had a cardiac stent placed in 2022 and is on dual antiplatelets; his cardiologist Dr Neha Testgupta is aware. Phone 00000 55517. Address: 17 Dummy Lane, Samplepur.",
+    "identifiers": [
+      {"type": "name", "value": "Joseph Mockfernandes"},
+      {"type": "dob", "value": "09-09-1956"},
+      {"type": "name", "value": "Neha Testgupta"},
+      {"type": "phone", "value": "00000 55517"},
+      {"type": "address", "value": "17 Dummy Lane, Samplepur"}
+    ]
+  },
+  {
+    "id": "N18",
+    "text": "Thank you for seeing Mrs Kamala Examplenair for an opinion on a failing implant at 24, placed elsewhere in 2021. There is suppuration and 5 mm of bone loss on the radiograph of 8 Nov 2026. She travels from Testnagar and is best contacted by email at kamala.en@example.net or on 00000 55518.",
+    "identifiers": [
+      {"type": "name", "value": "Kamala Examplenair"},
+      {"type": "date", "value": "8 Nov 2026"},
+      {"type": "address", "value": "Testnagar"},
+      {"type": "email", "value": "kamala.en@example.net"},
+      {"type": "phone", "value": "00000 55518"}
+    ]
+  },
+  {
+    "id": "N19",
+    "text": "Ravi Fakeshetty, 27, was assaulted on the night of 01/11/2026 and attended the next morning. There is a suspected dentoalveolar fracture involving 31, 32, 41 and 42 with a step in the occlusion. A police report has been filed, number MOCK/0019/26. Phone 00000 55519. Please assess urgently.",
+    "identifiers": [
+      {"type": "name", "value": "Ravi Fakeshetty"},
+      {"type": "date", "value": "01/11/2026"},
+      {"type": "record_id", "value": "MOCK/0019/26"},
+      {"type": "phone", "value": "00000 55519"}
+    ]
+  },
+  {
+    "id": "N20",
+    "text": "Ms Tara Samplebose, phone 00000 55520, is 14 weeks pregnant and has developed a localised gingival swelling between 22 and 23 that bleeds easily. Her obstetrician is Dr Rekha Mockpillai at Placeholder Maternity Home. Seen on 12/11/2026. Please assess and advise.",
+    "identifiers": [
+      {"type": "name", "value": "Tara Samplebose"},
+      {"type": "phone", "value": "00000 55520"},
+      {"type": "name", "value": "Rekha Mockpillai"},
+      {"type": "organization", "value": "Placeholder Maternity Home"},
+      {"type": "date", "value": "12/11/2026"}
+    ]
+  },
+  {
+    "id": "N21",
+    "text": "Please see Mr Harish Dummychand, harish.dc@example.com, for 47 with a suspected crack. Pain on release when biting, probing 7 mm at the distal. He is a known bruxer. He was first seen 15 Oct 2026 and reviewed 29 Oct 2026. Insurance member number TEST-000021.",
+    "identifiers": [
+      {"type": "name", "value": "Harish Dummychand"},
+      {"type": "email", "value": "harish.dc@example.com"},
+      {"type": "date", "value": "15 Oct 2026"},
+      {"type": "date", "value": "29 Oct 2026"},
+      {"type": "record_id", "value": "TEST-000021"}
+    ]
+  },
+  {
+    "id": "N22",
+    "text": "Baby Zoya Testkhan, DOB 14/02/2020, has grossly carious 54, 64, 74 and 84 with a facial swelling on the right side today. Her father, Mr Salim Testkhan, can be reached on 00000 55522. The child is anxious and I was unable to complete an examination. Referred for management under your care.",
+    "identifiers": [
+      {"type": "name", "value": "Zoya Testkhan"},
+      {"type": "dob", "value": "14/02/2020"},
+      {"type": "relative", "value": "Salim Testkhan"},
+      {"type": "phone", "value": "00000 55522"}
+    ]
+  },
+  {
+    "id": "N23",
+    "text": "Re: Mrs Sunita Mockdeshpande. Thank you for seeing Sunitha Mokdeshpande, who has had pain from 37 for a fortnight. The tooth has a deep restoration and a periapical radiolucency. She says to ring after six in the evening on 00000 555 23. First seen on the ninth of November.",
+    "identifiers": [
+      {"type": "name", "value": "Sunita Mockdeshpande"},
+      {"type": "name", "value": "Sunitha Mokdeshpande"},
+      {"type": "phone", "value": "00000 555 23"},
+      {"type": "date", "value": "ninth of November"}
+    ]
+  },
+  {
+    "id": "N24",
+    "text": "Bunty came in again this morning with his lower right wisdom tooth playing up, third time this year. You will remember him, he is the one whose brother you treated in June. He works nights so call after lunch on 0 0 0 0 0 5 5 5 2 4. 48 is mesioangular and partially erupted; OPG attached.",
+    "identifiers": [
+      {"type": "name", "value": "Bunty"},
+      {"type": "phone", "value": "0 0 0 0 0 5 5 5 2 4"}
+    ]
+  },
+  {
+    "id": "N25",
+    "text": "The patient is a 34 year old lady whose husband, Prakash Samplejoshi, works at Dummy Steel Works in Fakepur and will be bringing her to appointments, so please ring him rather than her. She lost 21 in a road accident two years ago and now wants an implant. I have her down as Mrs Samplejoshi; ask for Vaishu at reception as that is what she answers to.",
+    "identifiers": [
+      {"type": "relative", "value": "Prakash Samplejoshi"},
+      {"type": "organization", "value": "Dummy Steel Works"},
+      {"type": "address", "value": "Fakepur"},
+      {"type": "name", "value": "Mrs Samplejoshi"},
+      {"type": "name", "value": "Vaishu"}
+    ]
+  },
+  {
+    "id": "N26",
+    "text": "This gentleman fell from his scooter on the twenty-first of October, just outside his house, the blue one behind the temple at 26 Mock Mill Road in Old Testnagar, and knocked both upper front teeth. 11 is subluxated and 21 has a complicated crown fracture. His name is Mr Pandurang Exampleshinde and his daughter says the landline, 000 5550 026, is the surest way to reach him.",
+    "identifiers": [
+      {"type": "date", "value": "twenty-first of October"},
+      {"type": "address", "value": "26 Mock Mill Road in Old Testnagar"},
+      {"type": "name", "value": "Pandurang Exampleshinde"},
+      {"type": "phone", "value": "000 5550 026"}
+    ]
+  },
+  {
+    "id": "N27",
+    "text": "Rose has been with the practice for years and has always kept her gums in good order, but over the summer things slipped. Pockets of 6 to 8 mm around the lower molars with furcation involvement at 36 and 46. Her surname is Baker, in case reception files it under B. She asked me to mention she is free on any Friday, and her number is 00000 55 527.",
+    "identifiers": [
+      {"type": "name", "value": "Rose"},
+      {"type": "name", "value": "Baker"},
+      {"type": "phone", "value": "00000 55 527"}
+    ]
+  },
+  {
+    "id": "N28",
+    "text": "Mr Sunny Dummygill attended on the third of November with a swelling over 22. He reports the tooth was knocked in a cricket match years ago. It is non-vital with a large periapical area. Note that our system has him as Suny Dumygill, so the radiographs may arrive under that spelling. His wife Joy answers the phone, zero zero zero zero zero, five five five two eight.",
+    "identifiers": [
+      {"type": "name", "value": "Sunny Dummygill"},
+      {"type": "date", "value": "third of November"},
+      {"type": "name", "value": "Suny Dumygill"},
+      {"type": "relative", "value": "Joy"},
+      {"type": "phone", "value": "zero zero zero zero zero, five five five two eight"}
+    ]
+  },
+  {
+    "id": "N29",
+    "text": "I would be grateful if you could see the retired headmaster from Placeholder High School, Mr Lucky Testbhatia, about replacing his loose lower denture with something implant retained. His son Mohit, who is with Example Courier Services, brought him in on Diwali eve and can be reached on 00000 5 5 5 2 9. They stay in the corner flat above the chemist on Sample Chowk, Mockabad.",
+    "identifiers": [
+      {"type": "organization", "value": "Placeholder High School"},
+      {"type": "name", "value": "Lucky Testbhatia"},
+      {"type": "relative", "value": "Mohit"},
+      {"type": "organization", "value": "Example Courier Services"},
+      {"type": "date", "value": "Diwali eve"},
+      {"type": "phone", "value": "00000 5 5 5 2 9"},
+      {"type": "address", "value": "Sample Chowk, Mockabad"}
+    ]
+  },
+  {
+    "id": "N30",
+    "text": "Pinky, as everyone at the clinic calls her, is properly Mrs Priyanka Fakechatterjee, though the old card reads Priyanka Fakechaterji. Born on the first of January nineteen sixty, she has hopeless 31, 32, 41 and 42 with grade III mobility and wants them out before her granddaughter's wedding. She has no phone of her own; her neighbour Mrs Hope Sampledas takes messages on 00000 555 30, or write to her at 30 Dummy Gali, behind the post office, Testnagar.",
+    "identifiers": [
+      {"type": "name", "value": "Pinky"},
+      {"type": "name", "value": "Priyanka Fakechatterjee"},
+      {"type": "name", "value": "Priyanka Fakechaterji"},
+      {"type": "dob", "value": "first of January nineteen sixty"},
+      {"type": "name", "value": "Hope Sampledas"},
+      {"type": "phone", "value": "00000 555 30"},
+      {"type": "address", "value": "30 Dummy Gali, behind the post office, Testnagar"}
+    ]
+  }
+]
