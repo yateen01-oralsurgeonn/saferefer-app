@@ -12,9 +12,10 @@ Draft. Items marked `[FILL]` need real values before submitting.
 
 **How Firebase AI Logic is used.**
 - Every model call goes through the Firebase AI Logic web SDK at runtime.
-- On-device first: Gemini Nano in Chrome does the redaction and the tooth lines, so the raw note stays in the browser.
-- Cloud second: the cloud Gemini model drafts the letter from the tokenised note only.
-- App Check protects the cloud calls.
+- On-device only: Gemini Nano in Chrome does the redaction, so the raw note stays in the browser. Redaction never falls back to the cloud.
+- On-device first, cloud fallback: the tooth lines run on Gemini Nano and fall back to the cloud Gemini model when Nano is missing. The fallback gets the tokenised note only, and a badge shows which model ran.
+- Cloud only: the cloud Gemini model drafts the letter from the tokenised note only.
+- App Check protects the cloud calls. Anonymous Auth and Firestore hold the offline queue; Remote Config sets the cloud model name and the letter template.
 - Offline, the on-device steps still work. The letter request is queued and sent when the connection returns.
 
 **Features.**
@@ -24,7 +25,7 @@ Draft. Items marked `[FILL]` need real values before submitting.
 - Offline mode with a queued letter
 - Leak-test page: the redactor is run on 30 synthetic notes and the score is shown, misses included
 
-**Value.** The dentist gets the convenience of a cloud model for the writing, while the identifying details stay on their own machine. The approval step and the published leak-test score let the dentist see how well the redaction works instead of trusting a promise.
+**Value.** The dentist gets the convenience of a cloud model for the writing, while the identifiers that the redactor finds and the dentist approves as hidden stay on their own machine. The redactor can miss a name, so the dentist's check is the real control; this prototype makes no privacy claim for real patients. The approval step and the published leak-test score let the dentist see how well the redaction works instead of trusting a promise.
 
 **Data.** All notes in the app, repo and video are synthetic and labelled as such. SafeRefer is a hackathon prototype and does not give patient advice.
 
@@ -41,7 +42,7 @@ Draft. Items marked `[FILL]` need real values before submitting.
 | 0:40-1:05 | Split screen. Right panel shows tokens only | "This is everything the cloud will see. No name, no phone, no husband." | What the cloud sees: tokens only |
 | 1:05-1:25 | Approve, Send. Letter arrives, names snap back | "The cloud writes the letter. The browser puts the names back." | Names restored in the browser |
 | 1:25-1:45 | Chrome network panel, request body open | "The request, as sent. No identifiers." | The actual request body |
-| 1:45-2:20 | Wi-Fi off. Redact, tooth lines, "Queued". Wi-Fi on, letter arrives | "Offline, the on-device model still works. The letter waits." | Offline: on-device still works → Back online: letter sent |
+| 1:45-2:20 | Wi-Fi off. Redact, tooth lines, "Queued". Wi-Fi on, letter arrives | "Offline, the on-device model still works. The letter waits." | Offline: on-device still works ("on-device" badge in shot) → Back online: letter sent |
 | 2:20-2:35 | Leak-test page with the score | "Tested on 30 synthetic notes. Misses included." | 30 synthetic notes · score `[FILL]` |
 | 2:35-2:45 | Architecture diagram, repo URL | "Firebase AI Logic, Gemini Nano, App Check. Code is open." | Firebase AI Logic · Gemini Nano · App Check · `[FILL repo URL]` |
 

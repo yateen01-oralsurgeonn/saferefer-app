@@ -36,10 +36,10 @@ Note:
 {"type":"object","required":["items"],"additionalProperties":false,"properties":{"items":{"type":"array","maxItems":40,"items":{"type":"object","required":["text","type"],"additionalProperties":false,"properties":{"text":{"type":"string"},"type":{"type":"string","enum":["RELATIVE","PERSON","EMPLOYER","ADDRESS","ORG","ID"]}}}}}}
 ```
 
-**Invalid output rule.** If the reply is not valid JSON, fails the schema, or times out (20 s): retry once with the same prompt. If it fails again, switch to manual mode: keep the T3 redaction, show "Automatic check failed. Hide names by hand, then approve." Never send the note to the cloud for redaction, and never treat a failed run as "nothing found".
+**Invalid output rule.** If the reply is not valid JSON, fails the schema, or times out (20 s): retry once with the same prompt. If it fails again, switch to manual mode: keep the T3 redaction, show "Automatic check failed. Hide names by hand, then approve." In manual mode Approve also needs the tick "I hid every name by hand". Never send the note to the cloud for redaction, and never treat a failed run as "nothing found".
 
-**Per-item checks (code).** Drop an item if its text: is under 2 characters or over 80; is digits only and under 6 digits; contains `[` or `]`; is in `data/clinical-terms.json` or `data/drugs.json`; or cannot be found in the note (try exact, then case-insensitive whole word). Count the items that could not be found and show "N suggestions could not be placed. Check by hand."
-**Long notes.** Over 1,500 characters: split on blank lines, then sentences; run each part; merge the items.
+**Per-item checks (code).** Drop an item if its text: is under 2 characters or over 80; is digits only and under 6 digits; contains `[` or `]`; is in `data/clinical-terms.json` or `data/drugs.json`; or cannot be found in the note (try exact, then case-insensitive whole word). List every dropped item's text on screen (local only) under "N suggestions were not applied. Check by hand."; Approve needs a tick against the list.
+**Long notes.** Over 1,500 characters: split on blank lines, then sentences; run each part; merge the items. If any part fails, the whole run is manual mode (keep what was found, show the failure). A reply with exactly 40 items is incomplete: re-run that part in smaller pieces.
 
 ## 2. Token scheme (T3, T4, T7)
 - **Format:** `[TYPE]` or `[TYPE_n]`, capitals. Regex: `\[(PATIENT|PHONE|EMAIL|DATE|RELATIVE|PERSON|EMPLOYER|ADDRESS|ORG|ID)(_[1-9]\d?)?\]`
@@ -53,7 +53,7 @@ Note:
 - **Replace:** longest values first, whole word, any case, every occurrence. Keep the possessive: "Ramesh's" becomes "[RELATIVE_1]'s".
 - **Restore:** one regex pass over the letter; each token is swapped for its map value. Never chain string replaces. First repair near-misses (`[Patient]`, `[ PATIENT ]`, `[RELATIVE 1]`) when they match exactly one known token. Any other bracketed text stays as it is and raises a red warning.
 - **Storage:** the map lives in a React ref only. Never in localStorage, Firestore, logs, error text or URLs. After a reload it is gone: a queued letter then shows tokens and "Names were cleared on reload. Fill them in by hand."
-- **Send guard:** before every cloud call, abort if the outgoing text contains any map value of 3 or more characters (whole word, any case) or matches the phone or email pattern. Show "Blocked: an identifier is still in the note."
+- **Send guard:** before every cloud call and every Firestore write, abort if the outgoing text contains any map value of 4 or more characters (anywhere, any case), a 3-character value (whole word, any case), or matches the phone or email pattern. Show "Blocked: an identifier is still in the note."
 
 ## 3. Cloud letter prompt (T6, `ONLY_IN_CLOUD`)
 Sent as the system instruction; the approved anonymous note is the user message. `{{TEMPLATE}}` is the section list (Remote Config in T11; default below). Code adds the date, letterhead and signature locally.

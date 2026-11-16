@@ -10,7 +10,7 @@ CHROME, ON-DEVICE (works offline)              CLOUD (Firebase)
 ---------------------------------              ----------------
 typed note
   |
-1 code redactor: header fields, phone, date
+1 code redactor: header fields, phone, email, date
 2 Nano redactor: free-text names, employer, address
 3 preview: dentist approves
   |   token map (names) stays in memory only
@@ -39,7 +39,7 @@ Install latest versions on day 1 and commit `package-lock.json`. Take SDK and mo
 
 ## 3. Tasks
 
-Each is half a day or less.
+Each is half a day or less. For every task, also build the PROMPTS.md design for it and every SECURITY.md row tagged with that task number. On a clash, SECURITY.md wins over PROMPTS.md.
 
 | # | Task | Done when |
 |---|---|---|
@@ -47,7 +47,7 @@ Each is half a day or less.
 | T2 | 30 synthetic notes in `data/notes.json`, each with its list of identifiers | File has 30 notes; app shows a "Synthetic patients only" banner |
 | T3 | Code redactor: header fields, phones, dates, emails become tokens | Paste note 1: name and phone show as `[PATIENT]`, `[PHONE]` |
 | T4 | Nano redactor for free text, merged with T3 | Note with "husband Ramesh, works at Infosys" shows `[RELATIVE_1]`, `[EMPLOYER]` |
-| T5 | Split screen: "What you see" and "What the cloud sees", with approve button and hand-edit | Typing on the left updates the right; Send is greyed until Approve |
+| T5 | Split screen: "What you see" and "What the cloud sees", with approve button, hand-edit and the send guard (PROMPTS.md section 2) | Typing on the left updates the right; Send is greyed until Approve; a note with a name left in is blocked |
 | T6 | Cloud draft of one letter type: endodontist referral | Click Send: a full letter appears, still with tokens |
 | T7 | Restore names, fact check, edit box, copy button | Names snap back; a letter with a tooth number not in the note shows a red warning |
 | T8 | Leak-test page over the 30 notes | Page shows "Identifiers leaked: X of Y" and lists any misses |
@@ -78,9 +78,11 @@ Each is half a day or less.
 | Sun 29 | T15 |
 | Mon 30 | Buffer only. No new features. |
 
-If the 22 Nov checkpoint slips by more than a day, drop T11, then T10. Keep T9: it is the only "on-device first, cloud fallback" call, which RULES.md requires.
+If the 22 Nov checkpoint slips by more than a day, drop T11, then T10, and remove the matching claims from SUBMISSION.md (Remote Config; offline queue and the offline demo shot). Keep T9: it is the only "on-device first, cloud fallback" call, which RULES.md requires.
 
 ## 5. Demo video (2:50, English, subtitles)
+
+Superseded: record from SUBMISSION.md section 2 (2:45). The table below is the first draft.
 
 | Time | Shot | Voice |
 |---|---|---|

@@ -1,7 +1,7 @@
 # DOCS-CHECK: is PLAN.md possible today? (checked 16 Nov 2026)
 
 **Verdict: yes.** Every piece PLAN.md needs exists in the current Firebase AI Logic web docs.
-Three things could not be confirmed from docs and must be tested in T1 (see "Not verified").
+Five things in three groups could not be confirmed from docs and must be tested in T1 (see "Not verified"; the tests are step 7 of the NEXT.md prompt).
 
 ## 1. SDK, modes, cloud model
 ```js

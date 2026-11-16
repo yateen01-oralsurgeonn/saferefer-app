@@ -13,7 +13,8 @@
 Open Claude Code in `C:\Users\Dr Yatin\Desktop\BuildHybridAI`, switch to Sonnet 5.5, and paste:
 
 ```
-Read RULES.md, IDEA-DECISION.md, PLAN.md and DOCS-CHECK.md in full. Do task T1 from PLAN.md and nothing else.
+Read RULES.md, IDEA-DECISION.md, PLAN.md and DOCS-CHECK.md in full, and the SECURITY.md
+rows tagged T1 (A4, A9, A13, C1, C2, C3). Do task T1 from PLAN.md and nothing else.
 
 T1: set up the project and prove one hybrid call works.
 
@@ -32,6 +33,14 @@ T1: set up the project and prove one hybrid call works.
    says "on-device" or "cloud", read from `result.response.inferenceSource`. Use
    `InferenceMode.PREFER_ON_DEVICE`. Initialise App Check before the AI call.
 6. Run it and check it yourself in the browser before telling me it works.
+7. Run the open tests from DOCS-CHECK.md "Not verified" and SECURITY.md A4, and write
+   each result into DOCS-CHECK.md:
+   a. Wi-Fi off, Nano on: does a `PREFER_ON_DEVICE` call still answer (App Check offline)?
+   b. Nano off, Network panel open: an `ONLY_ON_DEVICE` call must throw and send zero requests.
+   c. Did reCAPTCHA Enterprise work without a billing account?
+   d. Does turning the flag off really disable Nano on this Chrome version?
+   e. The free-plan rate limits shown at aistudio.google.com/rate-limit.
+   If a or b fails, stop and tell me: PLAN.md and SUBMISSION.md must change.
 
 Done-check I will verify by eye: I type "Say hello", click Ask, and see a reply
 with an "on-device" badge. Then I turn Nano off (set the Chrome flag to Disabled,
