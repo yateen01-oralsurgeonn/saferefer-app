@@ -35,6 +35,8 @@ Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
 | Host | Firebase Hosting, Gemini Developer API on the free plan | RULES: free judge access |
 | Licence | Apache-2.0 | RULES: visible licence |
 
+**Module layout (decided 17 Nov).** SafeRefer stays a separate open-source project, and Enamel will import its core later. So keep the redaction, send guard, name restore, fact check and leak scorer in `app/src/core/`: plain TypeScript, no React, no Firebase imports. Each model step takes its model call as a function argument. The SafeRefer page passes in Firebase AI Logic (Nano or cloud); Enamel can later pass in its own local model. React screens and the Firebase setup stay outside `core/`.
+
 Install latest versions on day 1 and commit `package-lock.json`. Take SDK and model names from DOCS-CHECK.md (checked 16 Nov): `firebase` v13.0.0 or higher, cloud model `gemini-3.5-flash-lite`. If the live docs differ, the docs win.
 
 ## 3. Tasks
@@ -80,6 +82,8 @@ Each is half a day or less. For every task, also build the PROMPTS.md design for
 
 If the 22 Nov checkpoint slips by more than a day, drop T11, then T10, and remove the matching claims from SUBMISSION.md (Remote Config; offline queue and the offline demo shot). Keep T9: it is the only "on-device first, cloud fallback" call, which RULES.md requires.
 
+**Enamel import (not a hackathon task).** The "Write referral letter" button in Enamel imports `app/src/core/` and is built in the Enamel repo, after 1 Dec. Bring it forward only if T1 to T13 are done early, and never in the 30 Nov buffer. If it is built in time, the video shows it on Enamel demo data; if not, the video uses the voice line alone (SUBMISSION.md section 2).
+
 ## 5. Demo video (2:50, English, subtitles)
 
 Superseded: record from SUBMISSION.md section 2 (2:45). The table below is the first draft.
@@ -103,7 +107,7 @@ Superseded: record from SUBMISSION.md section 2 (2:45). The table below is the f
 - [ ] Public repo: full source, run instructions, visible licence
 - [ ] No production keys, secrets, debug tokens or PII in the repo or its history
 - [ ] Text description: how Firebase AI Logic is used, features, value
-- [ ] Pre-existing code disclosed (none; say so)
+- [ ] Pre-existing code disclosed: none in this repo. Name Enamel as a separate, closed product that is not part of the entry
 - [ ] Judges can use it free until judging ends: keep hosting live to 21 Dec
 - [ ] Submitted before 1 Dec 3:30 AM IST; no changes after
 - [ ] Synthetic data only, labelled in app, repo and video
@@ -116,7 +120,7 @@ Superseded: record from SUBMISSION.md section 2 (2:45). The table below is the f
 - Login screens, patient lists, saved history, settings
 - Patient-facing text; diagnosis or treatment advice
 - Cloud fallback for redaction
-- Enamel links or Enamel code
+- Enamel code in this repo. Enamel is named only as where the module is going; the integration lives in the Enamel repo
 - Legal compliance claims (DPDP, HIPAA)
 - A backend server or Cloud Functions
 - Token map stored outside browser memory

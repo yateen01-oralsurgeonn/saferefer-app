@@ -119,7 +119,7 @@ Rules for the last row: only show "was not sent" if the code can be sure of it; 
 8. **Leak-test result.** Score on the 30 synthetic notes `[FILL]`, the date, and the misses listed plainly.
 9. **Limitations.** See below. Use this wording, do not soften it.
 10. **Security notes.** What is stored where: token map, note and restored letter in memory only; the approved anonymous text in Firestore until the letter arrives. No analytics or crash SDK.
-11. **Pre-existing code.** None. Built during the hackathon. Say which AI tools helped write it.
+11. **Pre-existing code.** None in this repo; built during the hackathon. Say which AI tools helped write it. Name Enamel as a separate, closed product that is not part of the entry.
 12. **Licence.** `[FILL: MIT suggested]`, with a `LICENSE` file at the top of the repo. The file does not exist yet and the rules require it.
 
 ### Limitations section (text to use)
@@ -236,7 +236,7 @@ The deadline is **1 Dec, 3:30 AM IST**. Plan to submit at 4:00 PM on 30 Nov and 
 | 12:15 PM | Video: set to Public (not Unlisted, not Private). Watch it once in a private window | Under 3:00, English subtitles on, synthetic data only, plays without signing in |
 | 1:00 PM | Lunch. Do not skip it | |
 | 2:00 PM | Replace every `[FILL]` in SUBMISSION.md and the README: repo, live app, video, leak-test score | Searching both files for `[FILL]` finds nothing |
-| 2:30 PM | Paste the description into Devpost. Check it against the word limit noted in CONSISTENCY.md. Check the "pre-existing code: none" line is there | Saved as draft, no warnings |
+| 2:30 PM | Paste the description into Devpost. Check it against the word limit noted in CONSISTENCY.md. Check the pre-existing code line is there (none in this repo; Enamel named as separate) | Saved as draft, no warnings |
 | 3:00 PM | Go through PLAN.md section 6 line by line, all ten boxes | All ticked |
 | 3:30 PM | Click every link in the Devpost draft from a private window | Repo, app and video all open |
 | **4:00 PM** | **Submit on Devpost** | Confirmation page and email received; screenshot both |

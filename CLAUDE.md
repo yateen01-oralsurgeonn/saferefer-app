@@ -30,6 +30,7 @@ Hackathon app. A dentist's note is anonymised in Chrome, the cloud drafts a refe
 - On a clash: `RULES.md` beats `PLAN.md`; `SECURITY.md` beats `PROMPTS.md`; live Firebase docs beat all of them (tell Dr. Yatin what changed).
 
 ## How to work
+- Keep redaction, send guard, name restore, fact check and leak scorer in `app/src/core/`: plain TypeScript, no React, no Firebase imports, model calls passed in as functions. Enamel will import this folder later (PLAN.md section 2). Never copy Enamel code into this repo.
 - One task per session. Do the task in `NEXT.md` and nothing else. No extra features.
 - Run the app and check your work in the browser before you say it works. Report failed tests as failed.
 - Branch per task from the newest task branch: `t<number>-<short-name>`, for example `t3-code-redactor`.

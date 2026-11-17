@@ -27,9 +27,11 @@ Draft. Items marked `[FILL]` need real values before submitting.
 
 **Value.** The dentist gets the convenience of a cloud model for the writing, while the identifiers that the redactor finds and the dentist approves as hidden stay on their own machine. The redactor can miss a name, so the dentist's check is the real control; this prototype makes no privacy claim for real patients. The approval step and the published leak-test score let the dentist see how well the redaction works instead of trusting a promise.
 
+**Where it is going.** SafeRefer's core (redaction, send guard, name restore, fact check) is a separate module so it can be reused. Next it goes into Enamel, the clinic software I build and use in my own dental practice, as the privacy step before any cloud AI sees a patient note. `[FILL: "already wired in, shown in the video" or "after the hackathon"]`
+
 **Data.** All notes in the app, repo and video are synthetic and labelled as such. SafeRefer is a hackathon prototype and does not give patient advice.
 
-**Pre-existing code.** None. Everything was built during the hackathon.
+**Pre-existing code.** None in this repo. Everything here was built during the hackathon. Enamel is a separate, closed product that existed before; it is not part of this entry.
 
 **Links.** Repo: `[FILL]` · Live app: `[FILL]` · Video: `[FILL]`
 
@@ -43,7 +45,8 @@ Draft. Items marked `[FILL]` need real values before submitting.
 | 1:05-1:25 | Approve, Send. Letter arrives, names snap back | "The cloud writes the letter. The browser puts the names back." | Names restored in the browser |
 | 1:25-1:45 | Chrome network panel, request body open | "The request, as sent. No identifiers." | The actual request body |
 | 1:45-2:20 | Wi-Fi off. Redact, tooth lines, "Queued". Wi-Fi on, letter arrives | "Offline, the on-device model still works. The letter waits." | Offline: on-device still works ("on-device" badge in shot) → Back online: letter sent |
-| 2:20-2:35 | Leak-test page with the score | "Tested on 30 synthetic notes. Misses included." | 30 synthetic notes · score `[FILL]` |
-| 2:35-2:45 | Architecture diagram, repo URL | "Firebase AI Logic, Gemini Nano, App Check. Code is open." | Firebase AI Logic · Gemini Nano · App Check · `[FILL repo URL]` |
+| 2:20-2:30 | Leak-test page with the score | "Tested on 30 synthetic notes. Misses included." | 30 synthetic notes · score `[FILL]` |
+| 2:30-2:40 | If built: Enamel's "Write referral letter" button on demo data. If not: architecture diagram | Built: "It is already inside Enamel, my clinic software." Not built: "Next, it goes into Enamel, my clinic software." | Next: inside Enamel · Demo data |
+| 2:40-2:50 | Architecture diagram, repo URL | "Firebase AI Logic, Gemini Nano, App Check. Code is open." | Firebase AI Logic · Gemini Nano · App Check · `[FILL repo URL]` |
 
-Change from PLAN.md: the opening shot is 15 s instead of 20 s; every later shot keeps its length and starts 5 s earlier.
+Change from PLAN.md: the opening shot is 15 s instead of 20 s. The leak-test shot is 10 s, and a 10 s Enamel shot is added, so the video is 2:50.

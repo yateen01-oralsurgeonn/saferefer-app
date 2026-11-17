@@ -14,7 +14,7 @@ SDK name, mode names, cloud model name, token names and task numbers agree acros
 | 7 | NEXT T1 prompt does not read SECURITY.md, though six rows are tagged T1 | SECURITY | NEXT prompt line 1 names rows A4, A9, A13, C1, C2, C3 |
 | 8 | DOCS-CHECK says its open items "must be tested in T1", and SECURITY A4 wants a zero-request proof in T1. NEXT has no such step | DOCS-CHECK | NEXT prompt step 7 added: five tests, results written to DOCS-CHECK |
 | 9 | DOCS-CHECK says "three things" are unverified; the list holds five | DOCS-CHECK | Line 4 corrected and pointed at NEXT step 7 |
-| 10 | Demo length: PLAN 2:50, SUBMISSION 2:45 (SUBMISSION notes the change) | SUBMISSION | PLAN section 5 marked superseded |
+| 10 | Demo length: SUBMISSION 2:50 since 17 Nov (Enamel shot added; SUBMISSION notes the change) | SUBMISSION | PLAN section 5 marked superseded |
 | 11 | SUBMISSION files tooth lines under "on-device" and never states the cloud fallback, which RULES requires and PLAN keeps T9 for | RULES | SUBMISSION bullets rewritten: on-device only / on-device first with fallback / cloud only |
 | 12 | SUBMISSION says "identifying details stay on their own machine". SECURITY A1 and A10: Nano can miss names; make no privacy claim for real patients | SECURITY | SUBMISSION "Value" sentence narrowed; limit stated |
 | 13 | SUBMISSION left out Auth, Firestore and Remote Config, which RULES encourages and PLAN builds | PLAN | Added to the App Check bullet |
