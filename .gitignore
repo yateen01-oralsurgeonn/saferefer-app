@@ -1,0 +1,16 @@
+# Secrets and local config: never commit
+.env
+.env.*
+!.env.example
+*-debug.log
+*service-account*.json
+*serviceAccount*.json
+
+# Build and tools
+node_modules/
+dist/
+.firebase/
+*.local
+.DS_Store
+.vscode/
+.idea/
