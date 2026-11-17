@@ -58,3 +58,6 @@ Supported. JSON schema goes in two places in one `getGenerativeModel` call:
 3. **Offline tooth lines (step 6).** Docs do not say whether an on-device call still needs an App Check token from the network. Also unknown: whether reCAPTCHA Enterprise works without a billing account, and whether turning the flag off really disables Nano on Chrome 148+.
 
 Sources: firebase.google.com/docs/ai-logic/hybrid/web/get-started, /configuration-options, /generate-structured-output; /docs/ai-logic/app-check, /models, /pricing, /quotas; developer.chrome.com/docs/ai/prompt-api
+
+## Update 17 Nov 2026 (Fable session)
+Live docs re-read (hybrid get-started, configuration-options, app-check): they agree with sections 1 to 4 above. Nothing changed. Installed: firebase 13.4.0, Chrome 157, Node 24. The five "Not verified" tests (NEXT.md step 1, tests a to e) have NOT been run yet: the Firebase console steps were not done in this session.

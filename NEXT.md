@@ -1,58 +1,89 @@
-# NEXT: Task T1 (Tue 17 Nov)
+# NEXT: finish T1, then T2 banner, T4, T5 screen
 
-**Goal:** a page that makes one Firebase AI Logic call and shows whether the answer came from the on-device model or the cloud.
+Read `HANDOVER.md` first. The privacy core (T3, T5 guard logic, T7 logic, T8 scorer logic) is built and tested in `app/src/core/`. T1 is half done. Newest branch: `partc-hardening`.
 
-## Before you start (you, about 20 minutes)
+## Step 1: finish T1 (needs Dr. Yatin at the keyboard, about 40 minutes)
 
-1. Use Chrome desktop, latest version (139 or higher). Set `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` to Enabled and restart. Press F12, open Console, run `await LanguageModel.availability()`. `available` is good. `downloadable`: run `await LanguageModel.create()` and wait. `unavailable`: stop and tell Claude; the laptop needs 22 GB free disk and either a GPU with more than 4 GB VRAM or 16 GB RAM.
-2. At console.firebase.google.com, create a project called `saferefer`. Stay on the free plan.
-3. Check `node -v` prints version 20 or higher.
+Before you start: in Chrome set `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` to Enabled, relaunch, press F12, Console, run `await LanguageModel.availability()`. `available` is good. `downloadable`: run `await LanguageModel.create()` and wait. `unavailable`: stop and tell Claude.
 
-## Prompt to give Sonnet 5.5
-
-Open Claude Code in `C:\Users\Dr Yatin\Desktop\BuildHybridAI`, switch to Sonnet 5.5, and paste:
+Paste into Sonnet 5.5:
 
 ```
-Read RULES.md, IDEA-DECISION.md, PLAN.md and DOCS-CHECK.md in full, and the SECURITY.md
-rows tagged T1 (A4, A9, A13, C1, C2, C3). Do task T1 from PLAN.md and nothing else.
+Read CLAUDE.md, HANDOVER.md, DOCS-CHECK.md and the SECURITY.md rows tagged T1.
+Finish task T1. The app in app/ is already scaffolded and the page is written;
+do not rebuild it. Work on a new branch t1-finish made from partc-hardening.
 
-T1: set up the project and prove one hybrid call works.
+1. Walk me through the Firebase console one step at a time and wait after each:
+   register a web app in project "saferefer" and give me the config to put in
+   app/.env.local; enable Firebase AI Logic with the Gemini Developer API;
+   App Check with reCAPTCHA Enterprise, enforcement on for AI Logic; register the
+   debug token that is already in app/.env.local (copy it to my clipboard for me,
+   do not print it).
+2. Run npm run dev in app/ and check the page yourself in my Chrome before you
+   say it works: "Say hello" gives a reply and an "on-device" badge.
+3. Run the five tests a to e from DOCS-CHECK.md "Not verified" and write each
+   result into DOCS-CHECK.md. The page has a dev-only "Test mode" box for
+   on-device only and cloud only. If a or b fails, stop and tell me what in
+   PLAN.md and SUBMISSION.md must change.
+4. Build, then check the debug token value is not in app/dist. Commit.
 
-1. Before writing code, read the current Firebase AI Logic web docs for hybrid
-   on-device inference and for App Check. Use the SDK names, inference modes and
-   cloud model name the docs give today. Do not rely on memory.
-2. Scaffold Vite + React + TypeScript in an `app/` folder. Add LICENSE (Apache-2.0)
-   and a .gitignore that excludes .env files and node_modules.
-3. I have created a Firebase project called `saferefer`. Walk me through the console
-   steps one at a time: register a web app, enable Firebase AI Logic with the Gemini
-   Developer API, enable App Check (reCAPTCHA Enterprise, enforcement on for AI Logic),
-   register a debug token. Wait for me after each step.
-4. Put the Firebase web config in `app/.env.local` and add `app/.env.example` with
-   empty values. Never commit the debug token.
-5. Build one page: a text box, a "Ask" button, the model's reply, and a badge that
-   says "on-device" or "cloud", read from `result.response.inferenceSource`. Use
-   `InferenceMode.PREFER_ON_DEVICE`. Initialise App Check before the AI call.
-6. Run it and check it yourself in the browser before telling me it works.
-7. Run the open tests from DOCS-CHECK.md "Not verified" and SECURITY.md A4, and write
-   each result into DOCS-CHECK.md:
-   a. Wi-Fi off, Nano on: does a `PREFER_ON_DEVICE` call still answer (App Check offline)?
-   b. Nano off, Network panel open: an `ONLY_ON_DEVICE` call must throw and send zero requests.
-   c. Did reCAPTCHA Enterprise work without a billing account?
-   d. Does turning the flag off really disable Nano on this Chrome version?
-   e. The free-plan rate limits shown at aistudio.google.com/rate-limit.
-   If a or b fails, stop and tell me: PLAN.md and SUBMISSION.md must change.
-
-Done-check I will verify by eye: I type "Say hello", click Ask, and see a reply
-with an "on-device" badge. Then I turn Nano off (set the Chrome flag to Disabled,
-restart, confirm `LanguageModel.availability()` says `unavailable`; if that does
-not work, find another way and tell me) and see the same page answer with a "cloud" badge.
-
-Rules: synthetic data only, no real patient details anywhere. No extra features.
-If a doc contradicts PLAN.md, follow the doc and tell me what changed.
-When the done-check passes, commit on a new branch `t1-setup`, then rewrite
-NEXT.md with task T2 and the prompt for it, and stop.
+Rules: no real patient data, no secrets in the repo, report failed tests as failed.
 ```
 
-## If T1 fails
+Done-check by eye: "Say hello" shows a reply with an "on-device" badge. With the flag off and Chrome relaunched, the same page shows a "cloud" badge.
 
-If the on-device call does not work by the end of Tue 17 Nov, do not move on. The whole idea depends on it. Ask Sonnet for the exact error and the Chrome version, and fix that first on Wed 18 Nov; T2 and T3 are small and can share Thu 19 Nov with T4.
+## Step 2: T2 banner (10 minutes, same or next session)
+
+The 30 notes are done. The "Synthetic data only: not for real patients" banner is already on the test page. T2 is finished once the real screen (step 4) keeps that banner on every page. No separate work.
+
+## Step 3: T4 Nano redactor
+
+```
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T4 and section 7, PROMPTS.md
+sections 1, 2 and 6, SECURITY.md rows tagged T4, ACCEPTANCE.md T4.
+Do task T4 and nothing else, on branch t4-nano-redactor from the newest branch.
+
+Build app/src/core/nanoRedactor.ts: plain TypeScript, no Firebase import.
+It takes the model call as a function argument: (prompt, schema, signal) => Promise<string>.
+- Input: the text after redactByCode, and its TokenMap.
+- Prompt and JSON schema exactly as PROMPTS.md section 1.
+- Validate the reply against the schema. Apply the per-item checks, using
+  data/clinical-terms.json and data/drugs.json. Hide the kept items with
+  hideValues() from core/tokens.ts. Return the dropped items and notFound items
+  so the screen can list them (SECURITY A5).
+- Retry once, 20 s timeout, then return state "manual". State is "ok" or "manual",
+  never a default. Never call the cloud. Long notes and the 40-item rule as in
+  PROMPTS.md section 1 (SECURITY D1, D5).
+- Unit tests with a fake model function: good reply, bad JSON twice, timeout,
+  an item not in the note, a tooth number returned by mistake, exactly 40 items.
+Outside core/, write the small adapter that calls Firebase AI Logic with
+InferenceMode.ONLY_ON_DEVICE and responseConstraint, and pass it in.
+Do not change the files listed in HANDOVER.md "do not change".
+Run the ACCEPTANCE.md T4 test yourself (Nano off: fixed message, zero requests).
+```
+
+## Step 4: T5 screen
+
+```
+Read CLAUDE.md, HANDOVER.md, PLAN.md row T5, PROMPTS.md section 2, SECURITY.md
+rows tagged T5, ACCEPTANCE.md T5, FINISH.md section 1 (layout and states).
+Do task T5 and nothing else, on branch t5-screen from the newest branch.
+
+The send guard is already built: core/sendGuard.ts (checkSend, guardedSend).
+Do not rewrite it. Build the screen only:
+- Left "Your note (stays in this browser)", right "What the cloud will see".
+  Typing on the left runs redactByCode at once, then the Nano redactor (abort
+  and bump a run counter on every edit: SECURITY D2).
+- Approve freezes the right-hand text. Any edit clears approval. Send is grey
+  until Approve. Send calls guardedSend with the frozen string; if it blocks,
+  show the fixed message and the word that tripped it (on screen only).
+- Hand-hide a selection (becomes PERSON) and un-hide a token. Un-hide adds the
+  text to the guard's `allowed` list. Pass both word lists as `safeWords`.
+- Manual mode needs the tick "I hid every name by hand"; dropped items need a tick.
+- Amber underline for capitalised words that are not hidden (PROMPTS 6.4).
+- spellcheck off, autocomplete off. Token map in a React ref only.
+For T5, Send may call a stub; the real cloud call is T6.
+```
+
+## If something fails
+If T1 test a or b fails, do not go on to T4. Tell Dr. Yatin: PLAN.md "step 6 works offline", the SUBMISSION.md offline bullet and the offline demo shot depend on test a; the whole privacy lock depends on test b.
