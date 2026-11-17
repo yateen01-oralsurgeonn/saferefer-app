@@ -31,7 +31,7 @@ export const HONORIFICS = ['mr', 'mrs', 'ms', 'miss', 'dr', 'shri', 'sri', 'smt'
 /** NFKC, lower case, no honorifics, no punctuation, no trailing 's, single spaces. */
 export function normaliseValue(value: string): string {
   let v = value.normalize('NFKC').toLowerCase()
-  v = v.replace(/['’]s(?![\p{L}\p{N}])/gu, '')
+  v = v.replace(/['\u2019]s(?![\p{L}\p{N}])/gu, '')
   v = v.replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
   const words = v.split(' ').filter(Boolean)
   while (words.length > 1 && HONORIFICS.includes(words[0])) words.shift()
@@ -124,7 +124,26 @@ export interface Found {
   key?: string
 }
 
-const WORD_CHAR = String.raw`[\p{L}\p{N}]`
+const WORD_CHAR = String.raw`[\p{L}\p{M}\p{N}]`
+/** Respect endings glued to Indian names: "Rameshbhai", "Ashaben", "Rameshji". The ending stays outside the token. */
+export const NAME_ENDING = '(?:ji|bhai|ben|bai|tai|rao|saheb|sahab|kaka|mama|dada|didi|amma|anna|akka|garu|bhau)'
+
+/**
+ * Names that are also everyday English words. A single word like this is treated
+ * as a name only when it is written with a capital letter ("Hope", not "hope"),
+ * so "we hope to save 33" is not damaged or blocked. Every other name word matches in any case.
+ */
+export const EVERYDAY_WORD_NAMES: ReadonlySet<string> = new Set([
+  'hope', 'joy', 'rose', 'sunny', 'lucky', 'baby', 'happy', 'pinky', 'sweety', 'honey', 'daisy', 'lily', 'grace',
+  'faith', 'angel', 'prince', 'king', 'queen', 'pearl', 'ruby', 'jewel', 'sonny', 'dolly', 'baker', 'smith', 'brown',
+  'white', 'black', 'green', 'young', 'long', 'small', 'hill', 'wood', 'may', 'june', 'april', 'summer', 'dawn', 'eve',
+  'mark', 'bill', 'will', 'rob', 'pat', 'sue', 'art', 'bob', 'don', 'ray', 'guy', 'rich', 'frank', 'grant', 'chase',
+  'hunter', 'mason', 'cooper', 'carter', 'page', 'read', 'lane', 'park', 'bell', 'rice', 'day', 'law', 'cook', 'fox',
+  'wolf', 'bird', 'fish', 'man', 'dev', 'jay', 'deep', 'meet', 'sham', 'hem', 'love', 'lovely', 'sweet', 'gold',
+  'golden', 'silver', 'star', 'sky', 'moon', 'sun', 'son', 'bud', 'buddy', 'chip', 'drew', 'gene', 'jack', 'nick',
+  'rusty', 'sandy', 'sister', 'master', 'major', 'miles', 'penny', 'rocky', 'rod', 'stone', 'victor', 'ivy', 'iris',
+  'holly', 'olive', 'amber', 'crystal', 'ginger', 'heather', 'misty', 'patience', 'robin', 'violet', 'winter',
+])
 export const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /** Where valid tokens already sit in the text. Nothing inside them is ever matched again. */
@@ -142,11 +161,16 @@ export const overlaps = (a: { start: number; end: number }, b: { start: number; 
  * run of spaces, line breaks, hyphens or dots, so "Arvind-Testwala" and a name
  * split over two lines are still found.
  */
-export function findValue(text: string, value: string): Array<{ start: number; end: number; value: string }> {
+export function findValue(
+  text: string,
+  value: string,
+  options: { nameEndings?: boolean } = {},
+): Array<{ start: number; end: number; value: string }> {
   const words = value.trim().split(/\s+/).filter(Boolean)
   if (words.length === 0) return []
-  const pattern = words.map(escapeRegex).join(String.raw`(?:[\s ]+|\s*[-.‐-―]\s*)`)
-  const re = new RegExp(`(?<!${WORD_CHAR})${pattern}(?!${WORD_CHAR})`, 'giu')
+  const pattern = words.map(escapeRegex).join(String.raw`(?:[\s\u00A0]+|\s*[-.\u2010-\u2015]\s*)`)
+  const after = options.nameEndings ? `(?=${NAME_ENDING}?(?!${WORD_CHAR}))` : `(?!${WORD_CHAR})`
+  const re = new RegExp(`(?<!${WORD_CHAR})${pattern}${after}`, 'giu')
   const out: Array<{ start: number; end: number; value: string }> = []
   for (const m of text.matchAll(re)) out.push({ start: m.index, end: m.index + m[0].length, value: m[0] })
   return out
@@ -191,7 +215,7 @@ export function hideValues(text: string, items: HideItem[], map: TokenMap): { te
   const notFound: HideItem[] = []
   const byLength = [...items].sort((a, b) => b.text.length - a.text.length)
   for (const item of byLength) {
-    const hits = findValue(text, item.text)
+    const hits = findValue(text, item.text, { nameEndings: isPersonType(item.type) })
     let placed = 0
     for (const h of hits) {
       if (claim(found, { ...h, type: item.type }, blocked)) placed++

@@ -75,8 +75,8 @@ describe('T3 code redactor', () => {
         if (text.includes(id.value)) left.push(`${n.id} ${id.type} ${id.value}`)
       }
     }
-    // "Diwali eve" is a date only a person (or Nano) can recognise.
-    expect(left).toEqual(['N29 date Diwali eve'])
+    // Since the Part C hardening, festival dates ("Diwali eve") are found too.
+    expect(left).toEqual([])
   })
 
   it('all 30 notes: every header or titled patient name is hidden', () => {
@@ -86,8 +86,8 @@ describe('T3 code redactor', () => {
       const first = n.identifiers.find((i) => i.type === 'name')
       if (first && text.includes(first.value)) left.push(`${n.id} ${first.value}`)
     }
-    // These four notes give the name with no header, title or cue word. Code cannot know it is a name.
-    expect(left).toEqual(['N19 Ravi Fakeshetty', 'N24 Bunty', 'N27 Rose', 'N30 Pinky'])
+    // These three notes give a single name with no header, title, age or cue word. Code cannot know it is a name.
+    expect(left).toEqual(["N24 Bunty", "N27 Rose", "N30 Pinky"])
   })
 })
 

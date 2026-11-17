@@ -96,6 +96,8 @@ describe('code redactor only, over the 30 notes (the real score, shown not hidde
     ]
     console.log(lines.join('\n'))
     expect(s.total).toBe(124)
-    expect(s.leaked).toBe(24)
+    // 3 single nicknames (Bunty, Rose, Pinky) and 1 scorer false alarm: the verb "works" in "works at [EMPLOYER]"
+    // counts as a piece of "Dummy Steel Works" under the SPECS.md rule. The rule is left as written.
+    expect(s.leaked).toBe(4)
   })
 })

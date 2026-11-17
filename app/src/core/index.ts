@@ -2,6 +2,7 @@
 // Model calls are passed in as functions by the caller.
 export * from './tokens'
 export * from './patterns'
+export * from './places'
 export * from './codeRedactor'
 export * from './sendGuard'
 export * from './restore'

@@ -16,9 +16,12 @@ const EMAIL_RE = /[\p{L}\p{N}._%+-]+\s?@\s?[\p{L}\p{N}-]+(?:\.[\p{L}\p{N}-]+)*\.
 const EMAIL_WORDS_RE =
   /[\p{L}\p{N}._%+-]+\s*(?:\(at\)|\[at\]|\sat\s)\s*[\p{L}\p{N}-]+(?:\s*(?:\(dot\)|\[dot\]|\sdot\s)\s*[\p{L}\p{N}-]+)*\s*(?:\(dot\)|\[dot\]|\sdot\s)\s*(?:com|in|org|net|co|edu|gov|info)\b(?:\s*(?:\(dot\)|\[dot\]|\sdot\s)\s*in\b)?/giu
 
+// Anything else with an @ glued to a word: "asha@example", "@asha_handle"
+const AT_WORD_RE = /(?<![\p{L}\p{N}._%+-])[\p{L}\p{N}._%+-]*@[\p{L}\p{N}_][\p{L}\p{N}._-]*/gu
+
 export function findEmails(text: string): Found[] {
   const out: Found[] = []
-  for (const re of [EMAIL_RE, EMAIL_WORDS_RE]) {
+  for (const re of [EMAIL_RE, EMAIL_WORDS_RE, AT_WORD_RE]) {
     for (const m of text.matchAll(re)) {
       const f: Found = { start: m.index, end: m.index + m[0].length, type: 'EMAIL', value: m[0] }
       if (!out.some((o) => o.start < f.end && f.start < o.end)) out.push(f)
@@ -105,7 +108,7 @@ export function findDates(text: string): Found[] {
   }
   // 3 March 1988, 2nd Nov 2026, 15 Oct, 3rd of March, 12-Nov-2026
   const dayFirst = new RegExp(
-    `(?<![\\p{L}\\p{N}/.-])(\\d{1,2})(?:\\s?(?:st|nd|rd|th))?(?:\\s+of)?[\\s.-]{0,2}(${MONTH})(?![\\p{L}])\\.?(?:,?[\\s-]{0,2}'?(\\d{4})(?!\\d)|[\\s-]'(\\d{2})(?!\\d))?`,
+    `(?<![\\p{L}\\p{N}/.-])(\\d{1,2})(?:\\s?(?:st|nd|rd|th))?(?:\\s+of)?[\\s./-]{0,2}(${MONTH})(?![\\p{L}])\\.?(?:,?[\\s/-]{0,2}'?(\\d{4})(?!\\d)|[\\s-]'(\\d{2})(?!\\d))?`,
     'giu',
   )
   for (const m of text.matchAll(dayFirst)) {
@@ -158,18 +161,27 @@ export function findDates(text: string): Found[] {
   for (const m of text.matchAll(monthYear)) {
     add(m.index, m[0], iso(Number(m[2]), MONTHS[m[1].toLowerCase()], null))
   }
+  // Festivals used as dates: "Diwali eve", "just after Holi"
+  for (const m of text.matchAll(FESTIVAL_RE)) add(m.index, m[0], `festival ${m[0].toLowerCase().replace(/\s+/g, ' ')}`)
   return out
 }
+
+const FESTIVAL_RE =
+  /(?<![\p{L}\p{N}])(?:Diwali|Deepavali|Dussehra|Dasara|Holi|Eid|Ramzan|Ramadan|Christmas|Navratri|Ganesh\s+Chaturthi|Ganpati|Pongal|Onam|Raksha\s?[Bb]andhan|Rakhi|Gudi\s+Padwa|Makar\s+Sankranti|Sankranti|Baisakhi|Janmashtami|Mahashivratri|Bhai\s+Dooj|Bhaubeej|Easter|New\s+Year(?:'s)?|Independence\s+Day|Republic\s+Day|Gandhi\s+Jayanti)(?![\p{L}])(?:\s+(?:eve|day|week|weekend|holidays?|night|morning)(?![\p{L}]))?/gu
 
 // ---------- phones ----------
 
 // A run of digits with spaces, hyphens, dots or brackets between them.
 // A dot only joins digits when no space follows it, so "tooth 36. 00000 55501" keeps its 36.
 const SEP = '(?:[ \\t\\u00A0]{0,2}[-()\\u2010-\\u2015]{1,2}[ \\t\\u00A0]{0,2}|\\.|[ \\t\\u00A0]{1,2})'
-const PHONE_RE = new RegExp(`(?<![\\p{L}\\p{N}])(?:\\+|00)?\\(?\\d(?:${SEP}?\\d){7,}(?![\\p{L}\\p{N}])`, 'gu')
+// Only a digit on either side stops a match, so "Mob0000055501" and "ph:0000055501x" are caught too.
+const PHONE_RE = new RegExp(`(?<!\\d)(?:\\+|00)?\\(?\\d(?:${SEP}?\\d){7,}(?!\\d)`, 'gu')
 const DIGIT_WORD = '(?:zero|oh|one|two|three|four|five|six|seven|eight|nine|double|triple)'
-// Seven or more digit words in a row: "nine eight double two, zero one two three four five"
-const PHONE_WORDS_RE = new RegExp(`(?<![\\p{L}\\p{N}])(?:plus\\s+)?${DIGIT_WORD}(?:[\\s,.-]+${DIGIT_WORD}){6,}(?![\\p{L}\\p{N}])`, 'giu')
+// Digit words, alone or mixed with digits: "nine eight double two ...", "00000 five five five zero one"
+const PHONE_WORDS_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}])(?:plus\\s+)?(?:${DIGIT_WORD}|\\d+)(?:[\\s,.-]+(?:${DIGIT_WORD}|\\d+))+(?![\\p{L}\\p{N}])`,
+  'giu',
+)
 
 /**
  * Phone numbers: 8 or more digits in any grouping ("+91 98xxx xxxxx", "(00000) 55512",
@@ -195,6 +207,13 @@ export function findPhones(text: string, taken: Span[] = []): Found[] {
   for (const m of masked.matchAll(PHONE_WORDS_RE)) {
     const span = { start: m.index, end: m.index + m[0].length }
     if (out.some((t) => t.start < span.end && span.start < t.end)) continue
+    const words = (m[0].match(new RegExp(DIGIT_WORD, 'giu')) ?? []).length
+    const groups = m[0].match(/\d+/g) ?? []
+    const count = words + groups.join('').length
+    // Words only: 7 or more. Words mixed with digits: 8 or more in total.
+    if (words === 0 || count < (groups.length === 0 ? 7 : 8)) continue
+    // "all three 16 17 26 27": a few number words next to tooth numbers is not a phone.
+    if (groups.length > 0 && words < 4 && groups.every((g) => isFdi(g))) continue
     out.push({ ...span, type: 'PHONE', value: m[0] })
   }
   return out
