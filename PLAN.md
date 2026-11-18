@@ -80,6 +80,8 @@ Each is half a day or less. For every task, also build the PROMPTS.md design for
 | Sun 29 | T15 |
 | Mon 30 | Buffer only. No new features. |
 
+**Router ideas A, C, D (IDEAS.md): post-T7 only.** Do not build any of them before the 22 Nov checkpoint passes. A goes into T12, C into T11, D only if T11 is done and time is left before T13. If the checkpoint slips, drop all three first, before T11 or T10.
+
 If the 22 Nov checkpoint slips by more than a day, drop T11, then T10, and remove the matching claims from SUBMISSION.md (Remote Config; offline queue and the offline demo shot). Keep T9: it is the only "on-device first, cloud fallback" call, which RULES.md requires.
 
 **Enamel import (not a hackathon task).** The "Write referral letter" button in Enamel imports `app/src/core/` and is built in the Enamel repo, after 1 Dec. Bring it forward only if T1 to T13 are done early, and never in the 30 Nov buffer. If it is built in time, the video shows it on Enamel demo data; if not, the video uses the voice line alone (SUBMISSION.md section 2).
