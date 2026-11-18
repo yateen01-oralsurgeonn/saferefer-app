@@ -61,3 +61,12 @@ Sources: firebase.google.com/docs/ai-logic/hybrid/web/get-started, /configuratio
 
 ## Update 17 Nov 2026 (Fable session)
 Live docs re-read (hybrid get-started, configuration-options, app-check): they agree with sections 1 to 4 above. Nothing changed. Installed: firebase 13.4.0, Chrome 157, Node 24. The five "Not verified" tests (NEXT.md step 1, tests a to e) have NOT been run yet: the Firebase console steps were not done in this session.
+
+## T1 test results (18 Nov 2026, branch t1-finish)
+- **Setup check, PASSED.** "Say hello" in Chrome 157 with Nano `available` shows an **on-device** badge. In Edge 157 (no `LanguageModel`) the same page shows a **cloud** badge, so the fallback path works. Note: Edge cannot test Nano; use Chrome.
+- **c. reCAPTCHA Enterprise without billing: PASSED.** Project `saferefer-d5175` is on the Spark plan ($0/month, no billing account). The web app is Registered with reCAPTCHA Enterprise (console shows it as "Fraud Defense") and `exchangeDebugToken` returns 200 with a registered debug token. Cloud call answered through App Check.
+- **a. Wi-Fi off, PREFER_ON_DEVICE: not run yet.**
+- **b. Nano off, ONLY_ON_DEVICE sends zero requests: not run yet.**
+- **d. Flag off really disables Nano: not run yet.**
+- **e. Free-plan rate limits (aistudio.google.com/rate-limit): not read yet.**
+- Lesson: a debug token that fails with 403 "App attestation failed" means the value in the console does not match `.env.local` exactly. Re-copy it, restart `npm run dev`.
