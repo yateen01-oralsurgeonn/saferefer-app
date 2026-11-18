@@ -65,7 +65,7 @@ Live docs re-read (hybrid get-started, configuration-options, app-check): they a
 ## T1 test results (18 Nov 2026, branch t1-finish)
 - **Setup check, PASSED.** "Say hello" in Chrome 157 with Nano `available` shows an **on-device** badge. In Edge 157 (no `LanguageModel`) the same page shows a **cloud** badge, so the fallback path works. Note: Edge cannot test Nano; use Chrome.
 - **c. reCAPTCHA Enterprise without billing: PASSED.** Project `saferefer-d5175` is on the Spark plan ($0/month, no billing account). The web app is Registered with reCAPTCHA Enterprise (console shows it as "Fraud Defense") and `exchangeDebugToken` returns 200 with a registered debug token. Cloud call answered through App Check.
-- **a. Wi-Fi off, PREFER_ON_DEVICE: not run yet.**
+- **a. Wi-Fi off, PREFER_ON_DEVICE: PASSED.** Chrome 157, Nano available, Wi-Fi off, Test mode "on-device first": the page still answered with an **on-device** badge. The offline claim in PLAN.md step 6, the SUBMISSION.md offline bullet and the offline demo shot stand. (Dr. Yatin ran it by hand; no App Check network call blocked the answer.)
 - **b. Nano off, ONLY_ON_DEVICE sends zero requests: not run yet.**
 - **d. Flag off really disables Nano: not run yet.**
 - **e. Free-plan rate limits (aistudio.google.com/rate-limit): not read yet.**
