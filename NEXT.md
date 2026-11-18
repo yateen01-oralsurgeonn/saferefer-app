@@ -1,54 +1,10 @@
-# NEXT: T1 is DONE (18 Nov). Now T4, then T5 screen
+# NEXT: T4 is DONE (18 Nov). Now T5 screen
 
-Read `HANDOVER.md` first. The privacy core (T3, T5 guard logic, T7 logic, T8 scorer logic) is built and tested in `app/src/core/`. T1 finished on 18 Nov 2026. **Newest branch: `t1-finish`** (not yet merged). Read the "T1 test results" in `DOCS-CHECK.md` and the two T4 warnings in `HANDOVER.md` before anything else.
+Read `HANDOVER.md` first. **Newest branch: `t4-nano-redactor`** (not merged). T4 added `app/src/core/nanoRedactor.ts` (`nanoRedact`, `MANUAL_MESSAGE`, `droppedNotice`, `NanoUnavailableError`), `app/src/nanoAdapter.ts` (`createNanoModelFn(ai)`: the `LanguageModel` lock) and a dev-only test panel `app/src/RedactorCheck.tsx` (shows how to call them; T5 replaces it).
 
-## Step 1: T1 is DONE (18 Nov 2026)
+T4 results: 192 tests pass, 14 expected fail (unchanged). With `LanguageModel` undefined, or present but `unavailable`, the result is state `manual`, the fixed message shows, and no request goes to `firebasevertexai.googleapis.com` (only the App Check `exchangeDebugToken` at page load). The no-`LanguageModel` state was simulated in the Playwright Chrome profile, not run in real Edge: Dr. Yatin should do the 2-minute Edge check. Gemini Nano itself was NOT run in this session (Playwright Chrome has none), so a real Nano run in normal Chrome is still his check. The code redactor already hides "husband Ramesh" and "works at Infosys"; Nano is for what code misses.
 
-Firebase project `saferefer-d5175`, web app `saferefer-web`, App Check (reCAPTCHA Enterprise), AI Logic and the debug token all work. "Say hello" shows an on-device badge in Chrome and a cloud badge in Edge. Build is clean and the debug token is not in `app/dist`. Results of tests a to e are in `DOCS-CHECK.md`:
-
-- a (offline, on-device first): passed. c (no billing needed): passed. e (free limits 15 RPM, 250K TPM, 500 RPD): recorded.
-- **b failed:** `ONLY_ON_DEVICE` sends to the cloud when `window.LanguageModel` does not exist. The app must guard (SECURITY A4). **d failed:** the Chrome flag does not turn Nano off.
-
-How to get a no-Nano browser for tests: Edge (no `LanguageModel`), or a fresh Chrome profile through Playwright (`LanguageModel` present, `unavailable`). Never the flag.
-
-## Step 2: T2 banner (10 minutes, same or next session)
-
-The 30 notes are done. The "Synthetic data only: not for real patients" banner is already on the test page. T2 is finished once the real screen (step 4) keeps that banner on every page. No separate work.
-
-## Step 3: T4 Nano redactor
-
-```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T4 and section 7, PROMPTS.md
-sections 1, 2 and 6, SECURITY.md rows tagged T4, ACCEPTANCE.md T4.
-Do task T4 and nothing else, on branch t4-nano-redactor from t1-finish.
-
-Build app/src/core/nanoRedactor.ts: plain TypeScript, no Firebase import.
-It takes the model call as a function argument: (prompt, schema, signal) => Promise<string>.
-- Input: the text after redactByCode, and its TokenMap.
-- Prompt and JSON schema exactly as PROMPTS.md section 1.
-- Validate the reply against the schema. Apply the per-item checks, using
-  data/clinical-terms.json and data/drugs.json. Hide the kept items with
-  hideValues() from core/tokens.ts. Return the dropped items and notFound items
-  so the screen can list them (SECURITY A5).
-- Retry once, 20 s timeout, then return state "manual". State is "ok" or "manual",
-  never a default. Never call the cloud. Long notes and the 40-item rule as in
-  PROMPTS.md section 1 (SECURITY D1, D5).
-- Unit tests with a fake model function: good reply, bad JSON twice, timeout,
-  an item not in the note, a tooth number returned by mistake, exactly 40 items.
-Outside core/, write the small adapter that calls Firebase AI Logic with
-InferenceMode.ONLY_ON_DEVICE and responseConstraint, and pass it in.
-THE LOCK IS THE ADAPTER, NOT THE SDK (SECURITY A4, tested 18 Nov): in a browser with
-no window.LanguageModel the SDK sends ONLY_ON_DEVICE calls to the cloud. So before
-every redaction call the adapter must check typeof LanguageModel !== 'undefined' and
-await LanguageModel.availability() === 'available'; otherwise throw a fixed error
-before any SDK call, so the redactor returns state "manual" and nothing is sent.
-Unit-test it: with LanguageModel undefined, fetch is never called.
-Do not change the files listed in HANDOVER.md "do not change".
-Run the ACCEPTANCE.md T4 test yourself in BOTH no-Nano states (Edge, and a fresh
-Chrome profile through Playwright): fixed message, no request to
-firebasevertexai.googleapis.com. Do not use the Chrome flag to turn Nano off: it does
-not work on Chrome 157.
-```
+T5 hints: call `nanoRedact(codeText, map, createNanoModelFn(ai), lists, { signal })` with an AbortController per run; ignore any result with `aborted: true`; show `droppedNotice(dropped.length + notFound.length)` and the item texts; in `manual` state show `MANUAL_MESSAGE` and require the tick "I hid every name by hand".
 
 ## Step 4: T5 screen
 

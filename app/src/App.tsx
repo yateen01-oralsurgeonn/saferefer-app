@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { getGenerativeModel, InferenceMode, InferenceSource } from 'firebase/ai'
 import { ai, CLOUD_MODEL, isConfigured } from './firebase'
+import RedactorCheck from './RedactorCheck'
 
 type Mode = (typeof InferenceMode)[keyof typeof InferenceMode]
 type Badge = 'on-device' | 'cloud' | null
@@ -94,6 +95,8 @@ export default function App() {
           <p data-testid="reply">{reply}</p>
         </section>
       )}
+
+      {import.meta.env.DEV && <RedactorCheck />}
     </main>
   )
 }
