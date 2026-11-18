@@ -20,7 +20,7 @@ typed note
 6 tooth lines: Nano first - - if no Nano - ->  Gemini (anonymous note only)
 
 Offline: steps 1, 2, 3, 6 work. Step 4 queues until reconnect.
-Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
+Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand. The lock is an app-side check (`LanguageModel` exists and `availability()` is `available`) before every redaction call, because `ONLY_ON_DEVICE` alone sends to the cloud in a browser without `LanguageModel` (SECURITY A4, tested 18 Nov).
 ```
 
 ## 2. Tech stack
@@ -28,7 +28,7 @@ Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
 | Need | Choice | From |
 |---|---|---|
 | Platform | Web, Chrome desktop, Gemini Nano 4 | RULES: one platform |
-| AI calls | Firebase AI Logic web SDK (`firebase/ai`), three modes: `ONLY_ON_DEVICE` (redaction), `ONLY_IN_CLOUD` (letter), `PREFER_ON_DEVICE` (tooth lines). JSON output via `responseConstraint` on-device and `responseSchema` in cloud | RULES: required, hybrid |
+| AI calls | Firebase AI Logic web SDK (`firebase/ai`), three modes: `ONLY_ON_DEVICE` (redaction, behind the app-side `LanguageModel` guard: the mode alone is not a lock), `ONLY_IN_CLOUD` (letter), `PREFER_ON_DEVICE` (tooth lines). JSON output via `responseConstraint` on-device and `responseSchema` in cloud | RULES: required, hybrid |
 | Abuse guard | App Check, enforced, limited-use tokens: debug token locally, reCAPTCHA Enterprise on the hosted site | RULES: required |
 | Extras | Anonymous Auth, Firestore (offline queue of anonymous notes), Remote Config (cloud model name, letter template) | RULES: encouraged |
 | App | Vite + React + TypeScript, plain CSS, PWA service worker | Builder's choice |
@@ -39,6 +39,8 @@ Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
 
 Install latest versions on day 1 and commit `package-lock.json`. Take SDK and model names from DOCS-CHECK.md (checked 16 Nov): `firebase` v13.0.0 or higher, cloud model `gemini-3.5-flash-lite`. If the live docs differ, the docs win.
 
+**T1 findings (18 Nov, DOCS-CHECK.md "T1 test results").** (1) The Chrome flag no longer turns Nano off on Chrome 157, so never tell judges or the README to "turn the flag off" to see the cloud fallback; use a browser without the Prompt API (Edge) or a Chrome profile without the model. (2) Offline on-device calls work (test a), so the offline claims stand. (3) reCAPTCHA Enterprise works on the Spark plan with no billing. (4) Free tier for `gemini-3.5-flash-lite`: 15 requests/min, 250K tokens/min, 500 requests/day; space out any script that runs the 30 notes through the cloud.
+
 ## 3. Tasks
 
 Each is half a day or less. For every task, also build the PROMPTS.md design for it and every SECURITY.md row tagged with that task number. On a clash, SECURITY.md wins over PROMPTS.md.
@@ -48,7 +50,7 @@ Each is half a day or less. For every task, also build the PROMPTS.md design for
 | T1 | Firebase project, Vite app, App Check, one hybrid call | Page shows a model reply and a badge saying "on-device" or "cloud" |
 | T2 | 30 synthetic notes in `data/notes.json`, each with its list of identifiers | File has 30 notes; app shows a "Synthetic patients only" banner |
 | T3 | Code redactor: header fields, phones, dates, emails become tokens | Paste note 1: name and phone show as `[PATIENT]`, `[PHONE]` |
-| T4 | Nano redactor for free text, merged with T3 | Note with "husband Ramesh, works at Infosys" shows `[RELATIVE_1]`, `[EMPLOYER]` |
+| T4 | Nano redactor for free text, merged with T3. Includes the `LanguageModel` guard (SECURITY A4) | Note with "husband Ramesh, works at Infosys" shows `[RELATIVE_1]`, `[EMPLOYER]`; with `LanguageModel` undefined the redactor goes to manual mode and a test shows zero fetches |
 | T5 | Split screen: "What you see" and "What the cloud sees", with approve button, hand-edit and the send guard (PROMPTS.md section 2) | Typing on the left updates the right; Send is greyed until Approve; a note with a name left in is blocked |
 | T6 | Cloud draft of one letter type: endodontist referral | Click Send: a full letter appears, still with tokens |
 | T7 | Restore names, fact check, edit box, copy button | Names snap back; a letter with a tooth number not in the note shows a red warning |
