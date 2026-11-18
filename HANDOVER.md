@@ -16,11 +16,13 @@ Run the tests: `cd app`, then `npm test`. Result at hand-over: **161 passed, 14 
 ## T1: what is done and what is open
 Done: scaffold, page with text box, Ask button, reply and badge from `result.response.inferenceSource`, App Check started before the AI call, debug token only under `import.meta.env.DEV`. Live Firebase docs were read on 17 Nov and agree with DOCS-CHECK.md. Node is v24, Chrome is 157.
 
-**Open (needs Dr. Yatin):**
-1. Chrome flag check: `await LanguageModel.availability()`.
-2. Console: register the web app and paste the config into `app/.env.local`; enable Firebase AI Logic (Gemini Developer API); App Check with reCAPTCHA Enterprise, enforcement on; register the debug token (it is already made, in `app/.env.local`, line `VITE_APPCHECK_DEBUG_TOKEN`).
-3. Run the page in the browser. It has never been run against Firebase.
-4. The five tests a to e (NEXT.md step 7). **None has been run.** The page has a dev-only "Test mode" box to pick on-device only or cloud only for tests a and b.
+**T1 status, 18 Nov 2026 (branch t1-finish):** items 1 to 3 are done. Chrome `availability()` is `available`; the console is set up (web app `saferefer-web` registered with reCAPTCHA Enterprise, AI Logic on, debug token registered); the page ran against Firebase: on-device badge in Chrome, cloud badge in Edge. Build passes and the debug token is NOT in `app/dist` (0 hits). Test results are in DOCS-CHECK.md "T1 test results": a passed, c passed, b and d FAILED, e still open (needs the rate limits of the project behind `saferefer-d5175`, read while signed in as the Firebase owner account).
+
+**Two things T4 must act on (from tests b and d):**
+1. `InferenceMode.ONLY_ON_DEVICE` alone is NOT a privacy lock. In a browser with no `window.LanguageModel` the SDK builds no adapter and sends the call to the cloud (firebase 13.4.0, `index.esm.js` lines ~1228 and 2562). Before every redaction call the app must check `typeof LanguageModel !== 'undefined'` and `await LanguageModel.availability() === 'available'`, refuse with no network call otherwise, and a unit test must prove zero fetches when `LanguageModel` is undefined. Where `LanguageModel` exists but is `unavailable`, the SDK does throw and send nothing (tested in a fresh Chrome profile).
+2. The Chrome flag does NOT disable Nano on Chrome 157. Do not write "turn the flag off" in PLAN.md, SUBMISSION.md or the README. To show the cloud fallback use Edge, a Chrome profile without the model, or the dev "cloud only" mode.
+
+Also unchecked: whether the App Check `exchangeDebugToken` request fires at page load or only when Ask is pressed. It carries the token, not the note, but SECURITY A4 says "zero requests".
 
 One bug was caught and fixed here: writing `const env = import.meta.env` made Vite put the debug token into the production build. Always write `import.meta.env.VITE_...` in full (comment in `firebase.ts`). Check with: build, then search `dist/` for the token value: 0 hits.
 
