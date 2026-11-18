@@ -1,36 +1,15 @@
-# NEXT: finish T1, then T2 banner, T4, T5 screen
+# NEXT: T1 is DONE (18 Nov). Now T4, then T5 screen
 
-Read `HANDOVER.md` first. The privacy core (T3, T5 guard logic, T7 logic, T8 scorer logic) is built and tested in `app/src/core/`. T1 is half done. Newest branch: `partc-hardening`.
+Read `HANDOVER.md` first. The privacy core (T3, T5 guard logic, T7 logic, T8 scorer logic) is built and tested in `app/src/core/`. T1 finished on 18 Nov 2026. **Newest branch: `t1-finish`** (not yet merged). Read the "T1 test results" in `DOCS-CHECK.md` and the two T4 warnings in `HANDOVER.md` before anything else.
 
-## Step 1: finish T1 (needs Dr. Yatin at the keyboard, about 40 minutes)
+## Step 1: T1 is DONE (18 Nov 2026)
 
-Before you start: in Chrome set `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input` to Enabled, relaunch, press F12, Console, run `await LanguageModel.availability()`. `available` is good. `downloadable`: run `await LanguageModel.create()` and wait. `unavailable`: stop and tell Claude.
+Firebase project `saferefer-d5175`, web app `saferefer-web`, App Check (reCAPTCHA Enterprise), AI Logic and the debug token all work. "Say hello" shows an on-device badge in Chrome and a cloud badge in Edge. Build is clean and the debug token is not in `app/dist`. Results of tests a to e are in `DOCS-CHECK.md`:
 
-Paste into Sonnet 5.5:
+- a (offline, on-device first): passed. c (no billing needed): passed. e (free limits 15 RPM, 250K TPM, 500 RPD): recorded.
+- **b failed:** `ONLY_ON_DEVICE` sends to the cloud when `window.LanguageModel` does not exist. The app must guard (SECURITY A4). **d failed:** the Chrome flag does not turn Nano off.
 
-```
-Read CLAUDE.md, HANDOVER.md, DOCS-CHECK.md and the SECURITY.md rows tagged T1.
-Finish task T1. The app in app/ is already scaffolded and the page is written;
-do not rebuild it. Work on a new branch t1-finish made from partc-hardening.
-
-1. Walk me through the Firebase console one step at a time and wait after each:
-   register a web app in project "saferefer" and give me the config to put in
-   app/.env.local; enable Firebase AI Logic with the Gemini Developer API;
-   App Check with reCAPTCHA Enterprise, enforcement on for AI Logic; register the
-   debug token that is already in app/.env.local (copy it to my clipboard for me,
-   do not print it).
-2. Run npm run dev in app/ and check the page yourself in my Chrome before you
-   say it works: "Say hello" gives a reply and an "on-device" badge.
-3. Run the five tests a to e from DOCS-CHECK.md "Not verified" and write each
-   result into DOCS-CHECK.md. The page has a dev-only "Test mode" box for
-   on-device only and cloud only. If a or b fails, stop and tell me what in
-   PLAN.md and SUBMISSION.md must change.
-4. Build, then check the debug token value is not in app/dist. Commit.
-
-Rules: no real patient data, no secrets in the repo, report failed tests as failed.
-```
-
-Done-check by eye: "Say hello" shows a reply with an "on-device" badge. With the flag off and Chrome relaunched, the same page shows a "cloud" badge.
+How to get a no-Nano browser for tests: Edge (no `LanguageModel`), or a fresh Chrome profile through Playwright (`LanguageModel` present, `unavailable`). Never the flag.
 
 ## Step 2: T2 banner (10 minutes, same or next session)
 
@@ -41,7 +20,7 @@ The 30 notes are done. The "Synthetic data only: not for real patients" banner i
 ```
 Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T4 and section 7, PROMPTS.md
 sections 1, 2 and 6, SECURITY.md rows tagged T4, ACCEPTANCE.md T4.
-Do task T4 and nothing else, on branch t4-nano-redactor from the newest branch.
+Do task T4 and nothing else, on branch t4-nano-redactor from t1-finish.
 
 Build app/src/core/nanoRedactor.ts: plain TypeScript, no Firebase import.
 It takes the model call as a function argument: (prompt, schema, signal) => Promise<string>.
@@ -58,8 +37,17 @@ It takes the model call as a function argument: (prompt, schema, signal) => Prom
   an item not in the note, a tooth number returned by mistake, exactly 40 items.
 Outside core/, write the small adapter that calls Firebase AI Logic with
 InferenceMode.ONLY_ON_DEVICE and responseConstraint, and pass it in.
+THE LOCK IS THE ADAPTER, NOT THE SDK (SECURITY A4, tested 18 Nov): in a browser with
+no window.LanguageModel the SDK sends ONLY_ON_DEVICE calls to the cloud. So before
+every redaction call the adapter must check typeof LanguageModel !== 'undefined' and
+await LanguageModel.availability() === 'available'; otherwise throw a fixed error
+before any SDK call, so the redactor returns state "manual" and nothing is sent.
+Unit-test it: with LanguageModel undefined, fetch is never called.
 Do not change the files listed in HANDOVER.md "do not change".
-Run the ACCEPTANCE.md T4 test yourself (Nano off: fixed message, zero requests).
+Run the ACCEPTANCE.md T4 test yourself in BOTH no-Nano states (Edge, and a fresh
+Chrome profile through Playwright): fixed message, no request to
+firebasevertexai.googleapis.com. Do not use the Chrome flag to turn Nano off: it does
+not work on Chrome 157.
 ```
 
 ## Step 4: T5 screen
@@ -86,4 +74,4 @@ For T5, Send may call a stub; the real cloud call is T6.
 ```
 
 ## If something fails
-If T1 test a or b fails, do not go on to T4. Tell Dr. Yatin: PLAN.md "step 6 works offline", the SUBMISSION.md offline bullet and the offline demo shot depend on test a; the whole privacy lock depends on test b.
+T1 test a passed (offline works), so PLAN.md "step 6 works offline", the SUBMISSION.md offline bullet and the offline demo shot stand. Test b failed in one case (no `LanguageModel`); that is handled by the T4 guard above, so T4 must not be marked done without the guard and its zero-fetch test. If the guard cannot be made to work, stop and tell Dr. Yatin: the whole privacy lock depends on it.

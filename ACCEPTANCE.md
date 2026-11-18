@@ -3,13 +3,18 @@
 **You check** = Dr. Yatin, by eye, under 2 minutes. **Sonnet tests** = the one test Sonnet must run and report before saying "done".
 Use synthetic notes from `data/notes.json` only. A task is not done until both lines pass.
 
+**"Nano off" means one of these two states. The Chrome flag does NOT turn Nano off on Chrome 157 (T1 test d), so never use it.**
+1. **No `LanguageModel` at all:** open the dev server in Edge. The SDK then sends every mode to the cloud, so the app's own guard must stop redaction (SECURITY A4).
+2. **`LanguageModel` present but `unavailable`:** a fresh Chrome profile, for example through Playwright. The SDK throws and sends nothing.
+Test both. Check `typeof LanguageModel` and `await LanguageModel.availability()` in the console first, so you know which state you are in.
+
 ## T3 Code redactor
 - **You check:** Paste note 1. The name shows as `[PATIENT]`, the phone as `[PHONE]`, each date as `[DATE_1]`, `[DATE_2]`. The age and tooth numbers are still there.
 - **Sonnet tests:** Run the redactor over all 30 notes. No header name, phone, email or date from a note's identifier list is left in its output.
 
 ## T4 Nano redactor
 - **You check:** Paste a note with "husband Ramesh, works at Infosys". You see `[RELATIVE_1]` and `[EMPLOYER]`. Tooth numbers and drug names are untouched.
-- **Sonnet tests:** Nano off, Network panel open. Redaction shows "Automatic check failed. Hide names by hand, then approve." and sends zero requests.
+- **Sonnet tests:** Nano off in both states above, Network panel open. Redaction shows "Automatic check failed. Hide names by hand, then approve." and sends **zero requests to `firebasevertexai.googleapis.com`** (an App Check `exchangeDebugToken` call may appear; it carries no note text, and SECURITY A4 says to note when it fires). Plus a unit test: with `LanguageModel` undefined the redactor returns state `manual` and `fetch` is never called.
 
 ## T5 Split screen and send guard
 - **You check:** Typing on the left updates the right. Send is grey until you click Approve. Change one letter after Approve: Send goes grey again.
@@ -30,7 +35,7 @@ Use synthetic notes from `data/notes.json` only. A task is not done until both l
 
 ## T9 Tooth lines
 - **You check:** After Approve, a tooth list appears with an "on-device" badge. Every tooth in the list is in the note. An age such as "36 years" is not listed as a tooth.
-- **Sonnet tests:** Nano off. The badge says "cloud", and the request body holds only the approved anonymous note.
+- **Sonnet tests:** Nano off (Edge, or a fresh Chrome profile). The badge says "cloud", and the request body holds only the approved anonymous note.
 
 ## T10 Offline
 - **You check:** Wi-Fi off: redaction still works, Send shows "Queued". Wi-Fi on: the letter arrives by itself.
@@ -42,7 +47,7 @@ Use synthetic notes from `data/notes.json` only. A task is not done until both l
 
 ## T12 Design pass
 - **You check:** The screen looks finished at full width and at phone width. The empty screen tells you what to do. Wi-Fi off and Send: a plain message, no raw error text.
-- **Sonnet tests:** Force each failure (offline, App Check refused, bad model reply, no Nano). Each shows its fixed message, and the console prints no note text.
+- **Sonnet tests:** Force each failure (offline, App Check refused, bad model reply, no Nano in both states above). Each shows its fixed message, and the console prints no note text.
 
 ## T13 Deploy and secrets check
 - **You check:** Open the hosted URL in a fresh Chrome profile. Note 1 goes in, a letter comes out. The repo opens without login and shows the README and licence.
