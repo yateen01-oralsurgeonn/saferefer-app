@@ -3,12 +3,12 @@
 import { nanoRedact, redactFirst, type NanoLists, type NanoModelFn } from './core'
 
 /** The same path as the screen: code redactor first, then Nano if a model function is given. */
-export function makeRedact(modelFn: NanoModelFn | null, lists: NanoLists) {
+export function makeRedact(modelFn: NanoModelFn | null, lists: NanoLists, noteKind?: string) {
   const fallback = (text: string) => redactFirst(text, []).text
   const redact = async (text: string): Promise<string> => {
     const first = redactFirst(text, [])
     if (!modelFn) return first.text // code only: the page says so
-    const result = await nanoRedact(first.text, first.map, modelFn, lists)
+    const result = await nanoRedact(first.text, first.map, modelFn, lists, { noteKind })
     // A failed Nano run is not "nothing found": the note is listed as failed and scored on the code-only text.
     if (result.state !== 'ok') throw new Error('manual')
     return result.text
@@ -57,13 +57,14 @@ export async function checkNoModel(
   texts: string[],
   modelFn: NanoModelFn,
   lists: NanoLists,
+  noteKind?: string,
 ): Promise<NoModelCheck> {
   const { value: manual, fetches } = await withFetchCount(() =>
     withoutLanguageModel(async () => {
       let n = 0
       for (const t of texts) {
         const first = redactFirst(t, [])
-        const r = await nanoRedact(first.text, first.map, modelFn, lists)
+        const r = await nanoRedact(first.text, first.map, modelFn, lists, { noteKind })
         if (r.state === 'manual') n++
       }
       return n

@@ -9,7 +9,7 @@ SafeRefer hands a case to a specialist without handing over the client. A dentis
 Code redactor, Nano redactor behind the `LanguageModel` lock, split screen, Approve, `guardedSend`, cloud letter, name restore, fact check, leak scorer. **No pack can turn off a lock.** A pack only adds rules and words. It never removes one.
 
 ## 3. What a pack is
-One file per profession: `data/packs/<id>.json`, read by `core/packs.ts`. A pack holds:
+One typed object per profession in `core/packs.ts` (changed in P1, 19 Nov: TypeScript, not JSON, because `core/` never reads files; `validatePack()` checks any pack that comes from outside, such as Remote Config in T11). Test notes stay in `data/`. A pack holds:
 
 | Field | Dental (today) | CA | Lawyer |
 |---|---|---|---|
@@ -58,6 +58,8 @@ One file per profession: `data/packs/<id>.json`, read by `core/packs.ts`. A pack
 | 29 to 30 Nov | Buffer only. No new features |
 
 ## 7. Pack tasks (done-checks)
+**P1 DONE 19 Nov** (branch `p1-pack-layer`). The dental letter and Nano prompt are byte-for-byte the same as before (checked against the T9 versions).
+
 - **P1 Pack layer.** Done when: all existing tests pass unchanged; the dropdown shows Dentist; `core/packs.ts` has no Firebase or React import; a test proves a pack cannot remove a base pattern or the guard.
 - **P2 CA pack.** Done when: a note with a PAN, GSTIN, bank account and client name shows only tokens on the right; amounts and "section 143(1)" stay; the CA leak test lists its score and every miss; the letter has no tax opinion.
 - **P3 Lawyer pack.** Done when: party names, case and FIR numbers are hidden; Act and section names stay; the brief has no legal opinion; the leak test lists its score and every miss.

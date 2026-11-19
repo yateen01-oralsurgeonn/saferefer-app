@@ -5,12 +5,15 @@ import { useState } from 'react'
 import terms from '../../data/clinical-terms.json'
 import drugs from '../../data/drugs.json'
 import notesJson from '../../data/notes.json'
-import { runLeakTest, type LeakSummary, type TestNote } from './core'
+import { getPack, runLeakTest, type LeakSummary, type PackId, type TestNote } from './core'
 import { ai } from './firebase'
 import { checkNoModel, makeRedact, withFetchCount, type NoModelCheck } from './leakRun'
 import { createNanoModelFn, nanoIsReady } from './nanoAdapter'
 
-const notes = notesJson as TestNote[]
+// P1: one synthetic test set per pack. ?leak&pack=dental (dental is the default).
+const NOTES_BY_PACK: Record<PackId, TestNote[]> = { dental: notesJson as TestNote[] }
+const pack = getPack(new URLSearchParams(window.location.search).get('pack'))
+const notes = NOTES_BY_PACK[pack.id]
 const lists = { drugs, clinicalTerms: terms }
 const modelFn = createNanoModelFn(ai)
 
@@ -34,7 +37,7 @@ export default function LeakTest() {
     setReport(null)
     try {
       const ready = await nanoIsReady()
-      const { redact, fallback } = makeRedact(ready ? modelFn : null, lists)
+      const { redact, fallback } = makeRedact(ready ? modelFn : null, lists, pack.nanoNoteKind)
       // Pass 1: the full run, counting every fetch. Redaction must make none.
       const { value, fetches } = await withFetchCount(() =>
         runLeakTest(notes, redact, fallback, (done, total) => setProgress(`Note ${done} of ${total}`)),
@@ -49,6 +52,7 @@ export default function LeakTest() {
         notes.map((n) => n.text),
         modelFn,
         lists,
+        pack.nanoNoteKind,
       )
       setReport({ summary: value.summary, failedNotes: value.failedNotes, mode: ready ? 'nano' : 'code-only', fetches, noModel })
     } catch {
@@ -63,7 +67,7 @@ export default function LeakTest() {
   return (
     <div className="app" role="main" data-testid="leak-page">
       <header className="top">
-        <h1>SafeRefer leak test</h1>
+        <h1>SafeRefer leak test: {pack.label}</h1>
         <p className="banner">Synthetic data only: the 30 test notes</p>
       </header>
       <div className="leak">

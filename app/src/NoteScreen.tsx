@@ -13,7 +13,10 @@ import shorthand from '../../data/shorthand.json'
 import {
   buildTermSet,
   checkFacts,
-  DEFAULT_TEMPLATE,
+  DEFAULT_PACK,
+  getPack,
+  PACKS,
+  type Pack,
   draftLetter,
   droppedNotice,
   hasRed,
@@ -52,10 +55,12 @@ const NANO_DELAY_MS = 600
 const FACT_DELAY_MS = 300
 const factLists = { drugs, treatments: terms.treatments, findings: terms.findings, shorthand }
 /** Template heading lines are not fact-checked; the model may add a colon to them. */
-const skipLines = DEFAULT_TEMPLATE.flatMap((l) => [l, `${l}:`])
+const skipLinesOf = (pack: Pack) => pack.letter.template.flatMap((l) => [l, `${l}:`])
 const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim()
 
 export default function NoteScreen() {
+  // P1: the profession pack changes words only (packs.ts). Every lock stays the same.
+  const [pack, setPack] = useState<Pack>(DEFAULT_PACK)
   const [note, setNote] = useState('')
   const [manualHides, setManualHides] = useState<string[]>([])
   const [unhidden, setUnhidden] = useState<string[]>([])
@@ -131,7 +136,7 @@ export default function NoteScreen() {
     // Stage two: Gemini Nano on the device, after a short pause so typing does not flood it (SECURITY D2).
     const ctrl = new AbortController()
     const timer = setTimeout(async () => {
-      const result = await nanoRedact(first.text, first.map, modelFn, lists, { signal: ctrl.signal })
+      const result = await nanoRedact(first.text, first.map, modelFn, lists, { signal: ctrl.signal, noteKind: pack.nanoNoteKind })
       if (runCounter.current !== runId || result.aborted) return
       setNano(result)
       setPreview(unhideTokens(result.text, first.map, unhidden))
@@ -141,7 +146,7 @@ export default function NoteScreen() {
       clearTimeout(timer)
       ctrl.abort()
     }
-  }, [note, manualHides, unhidden])
+  }, [note, manualHides, unhidden, pack])
 
   const review = useMemo(() => (nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed), [nano, stageOneMissed])
   const needManualTick = nano?.state === 'manual'
@@ -163,10 +168,10 @@ export default function NoteScreen() {
         a.push({ level: 'amber', kind: 'patient-missing', message: 'Patient name is missing.', text: '', index: 0 })
       }
       setTokenWarnings(a)
-      setFactWarnings(checkFacts(letterText, note, factLists, { skipLines }))
+      setFactWarnings(checkFacts(letterText, note, factLists, { skipLines: skipLinesOf(pack) }))
     }, FACT_DELAY_MS)
     return () => clearTimeout(timer)
-  }, [letterText, note])
+  }, [letterText, note, pack])
 
   const warnings = useMemo(() => [...tokenWarnings, ...factWarnings], [tokenWarnings, factWarnings])
   const warnKey = warnings.map((w) => `${w.kind}:${w.index}:${w.text}`).join('|')
@@ -195,7 +200,17 @@ export default function NoteScreen() {
     if (!canApprove) return
     setEdited(false)
     setApproved(preview)
-    void runTeeth(preview)
+    if (pack.items === 'teeth') void runTeeth(preview)
+  }
+
+  /** Changing the profession clears everything: note, hidden words, map, approval, letter. */
+  function changePack(id: string) {
+    const next = getPack(id)
+    if (next.id === pack.id) return
+    setNote('')
+    setManualHides([])
+    setUnhidden([])
+    setPack(next)
   }
 
   // T9: tooth lines run only after Approve, on the frozen approved string, never while the dentist types
@@ -227,6 +242,7 @@ export default function NoteScreen() {
     // The one door: draftLetter sends every attempt through guardedSend with the frozen string, never the live text.
     const result = await draftLetter(approved, mapRef.current, letterModelFn, {
       signal: ctrl.signal,
+      letterText: pack.letter,
       guard: { allowed: unhidden, safeWords: guardSafeWords },
     })
     if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
@@ -278,12 +294,22 @@ export default function NoteScreen() {
     <div className="app" role="main">
       <header className="top">
         <h1>SafeRefer</h1>
+        <label className="pack-pick">
+          Profession{' '}
+          <select value={pack.id} onChange={(e) => changePack(e.target.value)} data-testid="pack">
+            {Object.values(PACKS).map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.label}
+              </option>
+            ))}
+          </select>
+        </label>
         <p className="banner">Synthetic data only: not for real patients</p>
       </header>
 
       <div className="panes">
         <section className="pane">
-          <label htmlFor="note">Your note (stays in this browser)</label>
+          <label htmlFor="note">{pack.noteLabel}</label>
           <textarea
             id="note"
             value={note}
@@ -292,7 +318,7 @@ export default function NoteScreen() {
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
-            placeholder="Type or paste a synthetic clinical note"
+            placeholder={pack.placeholder}
           />
         </section>
 

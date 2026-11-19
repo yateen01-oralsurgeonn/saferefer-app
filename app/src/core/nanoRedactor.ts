@@ -53,7 +53,8 @@ export const NANO_SCHEMA = {
   },
 } as const
 
-const PROMPT_HEAD = `You find personal identifiers in a dentist's clinical note. You do not rewrite the note.
+export const DENTAL_NOTE_KIND = "a dentist's clinical note"
+const promptHead = (noteKind: string) => `You find personal identifiers in ${noteKind}. You do not rewrite the note.
 Return every piece of text that could identify the patient or another person:
 - RELATIVE: name of a family member or companion (husband, mother, son, friend).
 - PERSON: any other person's name, including doctors, staff, and the patient's name if still visible.
@@ -77,9 +78,9 @@ Note:
 const PROMPT_TAIL = `
 >>>`
 
-/** The prompt of PROMPTS.md section 1. `<<<` and `>>>` are stripped from the note first. */
-export function buildPrompt(note: string): string {
-  return PROMPT_HEAD + note.replace(/<<<|>>>/g, '') + PROMPT_TAIL
+/** The prompt of PROMPTS.md section 1. `<<<` and `>>>` are stripped from the note first. A pack changes only `noteKind`. */
+export function buildPrompt(note: string, noteKind: string = DENTAL_NOTE_KIND): string {
+  return promptHead(noteKind) + note.replace(/<<<|>>>/g, '') + PROMPT_TAIL
 }
 
 // ---------- reply validation (the reply is untrusted) ----------
@@ -273,11 +274,17 @@ async function attempt(modelFn: NanoModelFn, prompt: string, outer: AbortSignal 
 }
 
 /** One part: try, retry once with the same prompt, then fail. */
-async function askPart(modelFn: NanoModelFn, part: string, outer: AbortSignal | undefined, timeoutMs: number): Promise<HideItem[]> {
+async function askPart(
+  modelFn: NanoModelFn,
+  part: string,
+  outer: AbortSignal | undefined,
+  timeoutMs: number,
+  noteKind?: string,
+): Promise<HideItem[]> {
   let why: Failure = 'invalid-reply'
   for (let tryNo = 0; tryNo < 2; tryNo++) {
     try {
-      const reply = await attempt(modelFn, buildPrompt(part), outer, timeoutMs)
+      const reply = await attempt(modelFn, buildPrompt(part, noteKind), outer, timeoutMs)
       const items = parseReply(reply)
       if (items) return items
       why = 'invalid-reply'
@@ -303,13 +310,14 @@ async function runPart(
   outer: AbortSignal | undefined,
   timeoutMs: number,
   depth: number,
+  noteKind?: string,
 ): Promise<HideItem[]> {
-  const items = await askPart(modelFn, part, outer, timeoutMs)
+  const items = await askPart(modelFn, part, outer, timeoutMs, noteKind)
   if (items.length < MAX_ITEMS) return items
   const halves = depth < 5 ? halve(part) : null
   if (!halves) throw new RunFailed('incomplete')
   const merged: HideItem[] = []
-  for (const h of halves) merged.push(...(await runPart(modelFn, h, outer, timeoutMs, depth + 1)))
+  for (const h of halves) merged.push(...(await runPart(modelFn, h, outer, timeoutMs, depth + 1, noteKind)))
   return merged
 }
 
@@ -320,6 +328,8 @@ export interface NanoOptions {
   maxPartChars?: number
   /** Abort when the dentist edits the note (SECURITY D2). The caller also bumps its own run counter. */
   signal?: AbortSignal
+  /** The pack's note kind for the prompt (packs.ts). Default: dental. */
+  noteKind?: string
 }
 
 export interface NanoResult {
@@ -358,7 +368,7 @@ export async function nanoRedact(
     try {
       for (const part of splitNote(text, options.maxPartChars ?? MAX_PART_CHARS)) {
         try {
-          found.push(...(await runPart(modelFn, part, options.signal, timeoutMs, 0)))
+          found.push(...(await runPart(modelFn, part, options.signal, timeoutMs, 0, options.noteKind)))
         } catch (e) {
           if (e instanceof RunFailed) {
             failure = e.why

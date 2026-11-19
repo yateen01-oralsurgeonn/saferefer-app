@@ -409,3 +409,13 @@ textarea.preview.letter {
   background: #eef0f2;
   color: #51606f;
 }
+
+/* P1 profession picker */
+.pack-pick {
+  font-size: 0.9rem;
+  color: #51606f;
+}
+.pack-pick select {
+  font: inherit;
+  padding: 2px 6px;
+}
