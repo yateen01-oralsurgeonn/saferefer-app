@@ -7,6 +7,7 @@
 // tooth number written in the note; ages, doses and durations are never teeth.
 import { isFdi } from './patterns'
 import { LetterCallError } from './letter'
+import { messageFor } from './messages'
 import { BLOCKED_MESSAGE, guardedSend, NOT_APPROVED_MESSAGE, type GuardOptions } from './sendGuard'
 import { tokenRegex, type TokenMap } from './tokens'
 
@@ -236,7 +237,7 @@ export type ToothResult =
   | { ok: false; failure: 'blocked' | 'not-approved' | 'aborted'; message: string; hit?: string }
 
 /** Shown under the list when no model answered. Fixed text, no SDK text. */
-export const RULES_ONLY_MESSAGE = 'The models did not answer, so each tooth is shown with its own sentence from your note.'
+export const RULES_ONLY_MESSAGE = messageFor('rules-only')
 
 export interface ToothOptions {
   timeoutMs?: number

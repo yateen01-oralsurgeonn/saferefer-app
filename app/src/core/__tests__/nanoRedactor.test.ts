@@ -85,7 +85,7 @@ describe('T4 Nano redactor', () => {
     expect(r.kept).toEqual([])
     expect(state.calls).toBe(2)
     expect(state.prompts[0]).toBe(state.prompts[1])
-    expect(MANUAL_MESSAGE).toBe('Automatic check failed. Hide names by hand, then approve.')
+    expect(MANUAL_MESSAGE).toBe('The on-device model is not available. Hide every name by hand, then tick the box.')
   })
 
   it('bad JSON once, good reply on the retry: ok', async () => {

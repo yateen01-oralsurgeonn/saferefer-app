@@ -121,3 +121,39 @@ describe('guardedSend: the one door to the cloud', () => {
     expect(r).toEqual({ ok: true, value: 'letter for [PATIENT] has pain in 36.' })
   })
 })
+
+describe('T12 a long hidden name word inside a longer word (found while forcing failures in the browser)', () => {
+  const kiran = () => mapWith(['PATIENT', 'Kiran Mockpatil'])
+  it.each([
+    ['glued in front and behind', 'Referred via clinicMockpatilx today.'],
+    ['with a family ending', 'The Mockpatilkar family has caries.'],
+    ['with a digit', 'File Mockpatil2 is in the archive.'],
+    ['in capitals inside a word', 'SEEN BY DRMOCKPATILX.'],
+    ['in front of a letter', 'xMockpatil came.'],
+  ])('blocks the surname %s', (_name, text) => {
+    expect(blocked(text, kiran())).toBe(true)
+  })
+
+  it('shows the whole word that tripped it, for the dentist to hide by hand', () => {
+    const r = checkSend('Referred via clinicMockpatilx today.', kiran())
+    expect(!r.ok && r.hit).toBe('clinicmockpatilx')
+  })
+
+  it('a word the dentist cleared by hand, or a known clinical word, still passes', () => {
+    expect(checkSend('Referred via clinicMockpatilx today.', kiran(), { allowed: ['clinicMockpatilx'] })).toEqual({ ok: true })
+    expect(checkSend('Referred via clinicMockpatilx today.', kiran(), { safeWords: ['clinicmockpatilx'] })).toEqual({ ok: true })
+  })
+
+  it('words shorter than 6 letters are not searched inside other words (too many ordinary words contain them)', () => {
+    expect(blocked('Palatal swelling, no amitriptyline.', mapWith(['PATIENT', 'Lata Amit']))).toBe(false)
+    expect(blocked('Marked mobility of 36.', mapWith(['PATIENT', 'Asha Mark']))).toBe(false)
+  })
+
+  it('a clean anonymous note and every synthetic note after redaction still pass', () => {
+    expect(checkSend('[PATIENT] referred via clinic. Tooth 36.', kiran())).toEqual({ ok: true })
+    for (const n of notes) {
+      const r = redactByCode(n.text)
+      expect(checkSend(r.text, r.map).ok, n.id).toBe(true)
+    }
+  })
+})

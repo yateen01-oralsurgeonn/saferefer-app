@@ -141,7 +141,7 @@ describe('T6 letter: the call', () => {
   it('a name still in the text: blocked with the hit, model never called', async () => {
     const { fn, state } = fake([reply(GOOD)])
     const r = await draftLetter('Referred. Asha waited. Phone [PHONE].', map(), fn)
-    expect(r).toMatchObject({ ok: false, failure: 'blocked', message: 'Blocked: an identifier is still in the note.' })
+    expect(r).toMatchObject({ ok: false, failure: 'blocked', message: 'A name may still be in the text. Nothing was sent. Please check the highlighted words.' })
     expect(r.ok === false && r.hit).toBeTruthy()
     expect(state.calls).toBe(0)
   })

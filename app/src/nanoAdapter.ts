@@ -8,7 +8,7 @@
 //
 // This file never names the cloud model and never imports ./firebase: the caller passes `ai` in.
 import { getGenerativeModel, InferenceMode, InferenceSource, type AI } from 'firebase/ai'
-import { NanoUnavailableError, type NanoModelFn } from './core'
+import { NanoUnavailableError, type NanoModelFn, type NanoState } from './core'
 
 /** What the adapter needs from the SDK. Tests pass a stub to prove the SDK is not reached. */
 export interface NanoSdk {
@@ -35,6 +35,21 @@ export async function nanoIsReady(): Promise<boolean> {
     return (await lm.availability(createOptions())) === 'available'
   } catch {
     return false
+  }
+}
+
+/**
+ * What the browser says about Gemini Nano, for the right message (core/messages.ts manualKind): "absent" when there is no
+ * window.LanguageModel at all (a phone, Edge, Firefox, an old Chrome). Never throws, never touches the network.
+ */
+export async function nanoAvailability(): Promise<NanoState> {
+  const lm = (globalThis as { LanguageModel?: LanguageModelApi }).LanguageModel
+  if (typeof lm === 'undefined' || lm === null || typeof lm.availability !== 'function') return 'absent'
+  try {
+    const a = await lm.availability(createOptions())
+    return a === 'available' || a === 'downloading' || a === 'downloadable' ? a : 'unavailable'
+  } catch {
+    return 'unavailable'
   }
 }
 

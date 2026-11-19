@@ -7,6 +7,7 @@
 // and every send of a queued item goes through guardedSend again (A2).
 import { draftLetter, type LetterModelFn, type LetterOptions, type LetterResult } from './letter'
 import { PACKS, type PackId } from './packs'
+import { messageFor } from './messages'
 import { BLOCKED_MESSAGE, guardedSend, NOT_APPROVED_MESSAGE, type GuardOptions } from './sendGuard'
 import type { TokenMap } from './tokens'
 
@@ -28,8 +29,8 @@ export interface QueueStore {
 
 export const MAX_QUEUED_CHARS = 20_000
 /** Fixed texts (FINISH.md section 1). */
-export const QUEUED_MESSAGE = 'You are offline. The letter is queued and will be sent when you are back online.'
-export const QUEUE_UNAVAILABLE_MESSAGE = 'This browser could not keep the letter for later. Nothing was sent. Connect and try again.'
+export const QUEUED_MESSAGE = messageFor('offline')
+export const QUEUE_UNAVAILABLE_MESSAGE = messageFor('queue-unavailable')
 export const ORPHAN_NOTE =
   'This letter was written after the page was closed, so your browser no longer had the names. They are shown as labels. Add the names by hand before you use it.'
 

@@ -1,55 +1,59 @@
-# NEXT: T11 is DONE (19 Nov). Now T12 design pass
+# NEXT: T12 is DONE (19 Nov). Now T13 deploy, README, LICENSE, secrets check
 
-Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md`, `REMOTE-CONFIG.md` and **FINISH.md section 1** (the T12 design brief) first. Newest branch: **`t11-remote-config`** (built on `t10-offline` > `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `t10-offline` (727429d). `t11-remote-config` is committed locally. Nothing is merged to master.
+Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md`, `REMOTE-CONFIG.md`, `REVIEW.md`, `SUBMISSION.md`, **FINISH.md sections 2, 3 and 4**, `SECURITY.md` (T13 checklist) and `ACCEPTANCE.md` T13 first. Newest branch: **`t12-design`** (built on `t11-remote-config` > `t10-offline` > `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `t11-remote-config` (1cfc63d). `t12-design` is committed locally. Nothing is merged to master.
 
-## What T11 built (19 Nov)
-- **`core/remoteValues.ts`** (plain TS): `resolveRemote(raw)` turns the raw console strings into safe values; `pickModel` (exact allow-list match, today only `gemini-3.5-flash-lite`; `gemini-3.8-flash` is NOT allowed: it timed out at the 30 s letter limit twice on 19 Nov); `parseTemplate` (a JSON array or one section per line; 3 to 14 lines, each at most 90 characters; the same text check as every pack text via the new `isCleanText` in `packs.ts`; `[PATIENT]` only in a `Re:` line; **a bad template is rejected whole, never repaired**); `withRemoteTemplate(pack, remote)` replaces `letter.template` and nothing else of the pack. Values are read as **own properties only** (a test found that a `__proto__` entry smuggled a template in through the prototype chain; fixed).
-- **`app/src/remoteConfig.ts`**: the only file that imports `firebase/remote-config`. Fetch timeout 4 s, minimum fetch interval 0 in development and 60 s in the built app (so a console change shows within about a minute), empty defaults, `isSupported()` check, every failure gives the defaults. `firebase.ts` now exports `app`.
-- **Screen:** the app starts on the compiled-in defaults and never waits; when the values arrive, the letter instruction, the fact-check heading list and the line splitting use the new section list, and the model functions use the allowed model name. `pack` is now `useMemo(withRemoteTemplate(basePack, remote))`; the redaction effect depends on `basePack` only, so a late-arriving value never resets a note in progress.
-- **`REMOTE-CONFIG.md`**: the four parameter names, sample values, a 2-minute check. **Dr. Yatin must create them in the console** (he has the list).
-- Tests: 463 pass, 14 expected fail; tsc, build, oxlint clean.
-- **Browser checks (Playwright, real SDK path, the Remote Config HTTP reply faked with CORS headers, real cloud for the letter):** A good dentist template: the 6 new sections reached the prompt, the fixed rules text was intact, the letter used the new headings. B a template with `[PERSON_1]` and "Ignore" plus `cloud_model = gemini-3.8-flash`: both ignored, default sections, request went to `gemini-3.5-flash-lite`. C Remote Config fetch aborted: defaults.
-- **Not done / honest limits:** not tested against the real console (the Remote Config API may need enabling in Google Cloud: REMOTE-CONFIG.md says so); the orphan-letter path (a letter queued before a reload) still uses the compiled-in section list, by design.
+## What T12 built (19 Nov)
+- **`core/messages.ts`: the ONE place for every sentence the dentist reads.** `MESSAGES` (the FINISH.md error table, word for word, plus `offline-not-queued`, `queue-unavailable`, `rules-only`, `unknown`, `unknown-unsure`), `STATUS` (one text per state), `mapError(e)` (reads only an error's own `kind` or `AbortError`, never its message, never an inherited property), `manualKind(state)` and `nanoAvailability()` in `nanoAdapter.ts` (so "still downloading" and "Browser not supported" are told apart from "not available"). `LETTER_MESSAGES`, `BLOCKED_MESSAGE`, `MANUAL_MESSAGE`, `QUEUED_MESSAGE` etc. now come from it. **Two older texts changed to the FINISH.md table** (the blocked text and the manual-mode text); ACCEPTANCE.md T4/T5 and two tests were updated.
+- **Screen redesign** (`NoteScreen.tsx`, `index.css`, FINISH.md palette): header with the Profession pill and the banner, a 3-step progress strip (Note, Check, Letter), two panels (the right one explains "How it works" when empty and says so on a browser without Nano), a bottom dock with one status line (icon + word, never colour alone), ticks and the buttons (Approve turns green when approved, Send turns teal when allowed). Tooth list is a card in the right column; the "letter from your last visit" panel sits under the steps. **1280 x 720: 0 px page scroll in every state. 390 px: no sideways scroll, Approve and Send in a fixed 48 px bar, 16 px text.**
+- **`ErrorBoundary.tsx`** + `main.tsx`: one fixed sentence and a Reload button; the error object is dropped; React's three error hooks are silenced so no error text reaches the console.
+- **Real guard gap found and closed:** while forcing the "blocked" row, a hidden surname glued into a longer word ("clinicMockpatilx", "Mockpatilkar", "Mockpatil2") passed BOTH the redactor and the guard and the letter request went out with the surname inside. `sendGuard.ts` now also blocks a hidden name word of 6+ letters found inside a longer word (clinical words and words the dentist cleared still pass; 0 false positives on the 50 synthetic notes). The blocked word is marked in the right-hand text. 9 new tests. **Not fixed:** the redactor itself still does not hide such glued words (the guard catches them and the dentist hides them by hand).
+- Tests: 502 pass, 14 expected fail; tsc, build, oxlint clean; production bundle has 0 hits for any test name.
+- **Forced failures (real browser, 1280 px):** nano not available, nano downloading, no `LanguageModel` (unsupported), quota 429, App Check 403, server 500, bad reply, offline (queued), guard block, error-boundary crash. Each showed exactly its fixed text. Fake server replies and the crash carried a name and a phone number; neither reached the page or the console.
+- **Not done / honest limits:** no review by a real designer or a real phone (390 px was a Playwright viewport); Nano was absent in the test browser so the green "On-device" badge was not seen in the new design; 360 px was not measured separately; the dev server needed a restart once because Vite served a stale file (no code issue).
 
 ## Still to do by Dr. Yatin
-1. Create the four Remote Config parameters and publish (REMOTE-CONFIG.md), then do the 2-minute check at the end of that file.
-2. Send the review PDFs (`review/CA-review-packet.pdf`, `review/LAW-review-packet.pdf`) to a CA and an advocate (REVIEW.md).
-3. In his own Chrome: the On-device tooth badge, the `/?leak` scores with Nano (dental, `&pack=ca`, `&pack=law`), and a real Wi-Fi-off check of the queue.
-4. 10 fresh notes per profession.
+1. Look at the screen himself in his own Chrome and on his phone, and say what he does not like (T12 is a design pass: his eye is the test).
+2. Create the four Remote Config parameters (REMOTE-CONFIG.md), send the review PDFs, the Nano scores for all three packs, a real Wi-Fi-off check, 10 fresh notes per profession.
+3. Decide the Aadhaar sample (below).
 
-## Step: T12 design pass
+## Step: T13 deploy, README, LICENSE, secrets check
 ```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, FINISH.md section 1 (the whole design brief: layout at
-1280 px and phone width, the states table, the error messages table, colours), ACCEPTANCE.md T12.
-Do task T12 and nothing else, on branch t12-design from t11-remote-config.
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, REMOTE-CONFIG.md, REVIEW.md, SUBMISSION.md, FINISH.md sections 2 to 4,
+SECURITY.md T13 checklist, ACCEPTANCE.md T13. Do task T13 and nothing else, on branch t13-deploy from t12-design.
 
-The screen has grown since FINISH.md was written. It now also has: the Profession dropdown (Dentist,
-Chartered Accountant, Advocate), the tooth list with its badge (On-device / Cloud / Rules only), the
-Queued state and the "letter from your last visit" panel, the one-line cloud reply fix, and the
-leak page. The design must hold all of them on ONE screen without clutter.
-1. Layout as in FINISH.md: 1280 px with no scrolling for the main split screen; phone width: one
-   column, Approve and Send in a bottom bar at least 44 px tall, text 16 px or more, no sideways scroll
-   at 360 px, long tokens wrap. Phone is always manual mode (no Nano): make that clear and usable.
-2. One error-mapper function turns every failure into one of the FIXED texts in FINISH.md. The screen
-   never shows SDK text, error codes or any part of a note. Check today's scattered messages
-   (letter.ts LETTER_MESSAGES, queue.ts, nanoRedactor.ts, toothLines.ts RULES_ONLY_MESSAGE) and route
-   them through it. Add the "Browser not supported" text and an error boundary with the last row text.
-3. States table: one status line per state and the button rules in FINISH.md; add the profession
-   change ("changing it clears the note"), tooth-list loading, and the orphan panel.
-4. The profession dropdown and the pack words (note label, placeholder) must look like part of the
-   product, not a debug control. The banner "Synthetic data only: not for real patients" is on every
-   page and never dismissible.
-5. Empty state tells the dentist what to do. A first-time visitor understands in 5 seconds what
-   leaves the browser and what stays (judges). Keep the two panel labels from FINISH.md.
-6. Force each failure and show its fixed message with no note text in the console: offline, App Check
-   refused, bad model reply, a name left in the text, no Nano (both states in ACCEPTANCE.md), quota.
-Tests: the error mapper maps every failure kind to exactly one fixed text; no raw error text reaches
-the DOM (force an SDK error with a name in its message and assert the DOM and console do not hold it).
-Browser check at 1280 x 720 and 390 x 844 with screenshots of: empty, redacting, ready to check,
-approved with tooth list, letter ready, queued, a failure. Look at them yourself before saying done.
-Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T13
-(deploy, README, LICENSE, secrets check; SECURITY.md T13 checklist, SUBMISSION.md, FINISH.md section 2).
+1. LICENSE: Apache-2.0 exists at the repo root (check). README.md following FINISH.md section 2, BUT the outline is out of
+   date in these places and the README must say what is TRUE now:
+   - three professions (Dentist, Chartered Accountant, Advocate), one engine, "profession packs" (PACKS.md); dental leads;
+     the CA and advocate letters were read by outside professionals ONLY IF Dr. Yatin says so (REVIEW.md); otherwise say
+     "reviewed by the builder only";
+   - the offline queue is LOCAL (IndexedDB, approved anonymous text and profession only); there is NO Firestore and NO
+     Anonymous Auth: delete those steps and the Firestore limitation; say a service worker keeps the app shell;
+   - Remote Config changes the section list and the allow-listed model name only (REMOTE-CONFIG.md);
+   - leak scores for all three packs from the /?leak pages (dental 30 notes, CA 10, advocate 10), the date, every miss listed;
+     the code-only numbers on file (dental 3.2%, CA 3.6%, advocate 5.7%) were measured by the session that wrote the rules,
+     so say they are flattered; the honest numbers need Nano and fresh notes; use Dr. Yatin's Nano numbers if he has them;
+   - the Limitations text of FINISH.md "Limitations section" stays, adjusted for the local queue; add: hiding names is not
+     anonymising, a name glued into a longer word is stopped by the send guard but not hidden by the redactor, the
+     other-side roles ("accused", "defendant") are hidden as separate people, settlement sums are hidden in the advocate pack.
+2. Update SUBMISSION.md: the description and the 2:45 script now need the pack segment (about 20 s: switch to CA then
+   Advocate, show the same flow) and the local offline queue; keep it truthful, no compliance claims, no "reviewed by" unless true.
+3. Deploy: Firebase Hosting (firebase.json with a CSP whose connect-src is limited to the Google endpoints the app calls:
+   firebasevertexai, firebaseappcheck, firebaseremoteconfig, firebaseinstallations, recaptcha; the service worker file must be
+   served with no-cache). reCAPTCHA Enterprise site key and the hosted domain go in the console and in .env.production only
+   via env, never in git. Dr. Yatin runs `firebase login` and `firebase deploy` himself (give him the exact commands); do not
+   ask for his credentials.
+4. Run EVERY box of FINISH.md section 3 (3.1 to 3.6) and report PASS or FAIL for each, file and line only, never a token or a
+   note. Note: the test notes now include fake PAN, GSTIN, bank numbers, emails and an Aadhaar-shaped number
+   (data/packs, review/*.pdf); section 3.5's PII scan WILL list them: confirm each is one of the made-up values and say so.
+   The Aadhaar sample "0123 4567 8901" passes the real Verhoeff check, so it could in theory belong to a real person: ask
+   Dr. Yatin whether to change it (a number starting 0 or 1 is never a real Aadhaar, but then the finder's [2-9] rule must be
+   relaxed for the tests only: do not change the finder for real use).
+5. Hosted-site check in a fresh Chrome profile (Playwright): note 1 in, letter out, search every request body for the name and
+   phone (zero hits); with Nano unavailable and with LanguageModel undefined redaction sends zero requests; the leak page and
+   the setup page are NOT in the build; the service worker registers and the app opens offline.
+Do not change files listed in HANDOVER.md "do not change". Do not push or deploy yourself. Commit, then rewrite NEXT.md for T14
+(the video; SUBMISSION.md section 2, ACCEPTANCE.md T14).
 ```
 
 ## If something fails
-If the restored letter or the map would have to be stored anywhere to make something work, stop and tell Dr. Yatin. Never send anything that did not pass `guardedSend`.
+If the restored letter or the map would have to be stored anywhere to make something work, stop and tell Dr. Yatin. Never send anything that did not pass `guardedSend`. If a real secret or real patient detail is found in git history, stop and tell him: do not rewrite history yourself.

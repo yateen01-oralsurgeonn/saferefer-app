@@ -1,12 +1,13 @@
 // Send guard (PROMPTS.md section 2, SECURITY.md A2 and A6).
 // Run it before EVERY cloud call, Firestore write and retry.
 // Plain code: no model, no network. It only answers "may this text leave the browser?"
+import { messageFor } from './messages'
 import { findEmails, findPhones } from './patterns'
 import { EVERYDAY_WORD_NAMES, HONORIFICS, isPersonType, NAME_ENDING, tokenRegex, type TokenMap } from './tokens'
 
 /** The only message the screen shows when the guard blocks. Never add note text to it. */
-export const BLOCKED_MESSAGE = 'Blocked: an identifier is still in the note.'
-export const NOT_APPROVED_MESSAGE = 'Approve the hidden note before sending.'
+export const BLOCKED_MESSAGE = messageFor('blocked')
+export const NOT_APPROVED_MESSAGE = messageFor('not-approved')
 
 export type GuardReason = 'map-value' | 'name-word' | 'phone' | 'email' | 'not-approved'
 
@@ -109,6 +110,20 @@ export function checkSend(text: string, map: TokenMap, options: GuardOptions = {
             if (EVERYDAY_WORD_NAMES.has(word) && !/^\p{Lu}/u.test(m[0]) && !/^\p{Lu}/u.test(written)) continue
             if (fold(m[0]) !== word && (allowed.has(fold(m[0])) || safe.has(fold(m[0])))) continue
             return block('name-word', m[0])
+          }
+          // A long name word INSIDE a longer word ("clinicMockpatilx", "Mockpatilkar", "Mockpatil2"): the redactor keeps to
+          // word edges, so it can leave these behind. Same rule as a whole hidden value of 4+ letters, for words of 6+ letters
+          // (short ones sit inside too many ordinary words). A known clinical word or one the dentist cleared still passes.
+          if (word.length >= 6 && !EVERYDAY_WORD_NAMES.has(word)) {
+            for (let at = folded.indexOf(word); at >= 0; at = folded.indexOf(word, at + 1)) {
+              let ws = at
+              let we = at + word.length
+              while (isWordChar(folded[ws - 1])) ws--
+              while (isWordChar(folded[we])) we++
+              const around = folded.slice(ws, we)
+              if (around === word || safe.has(around) || allowed.has(around)) continue
+              return block('name-word', around)
+            }
           }
         }
       }

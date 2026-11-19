@@ -21,17 +21,20 @@ import {
   type Pack,
   draftLetter,
   droppedNotice,
+  escapeRegex,
   enqueue,
   hasRed,
   itemsToReview,
   listTeeth,
   RULES_ONLY_MESSAGE,
   type ToothResult,
-  MANUAL_MESSAGE,
   MANUAL_TICK,
   nanoRedact,
   ORPHAN_NOTE,
-  QUEUED_MESSAGE,
+  manualKind,
+  messageFor,
+  type NanoState,
+  STATUS,
   readQueued,
   redactFirst,
   rulesForPack,
@@ -50,7 +53,7 @@ import {
 } from './core'
 import { ai } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
-import { createNanoModelFn } from './nanoAdapter'
+import { createNanoModelFn, nanoAvailability } from './nanoAdapter'
 import { createQueueStore } from './queueStore'
 import { loadRemoteValues } from './remoteConfig'
 import { createToothModelFn } from './toothAdapter'
@@ -106,6 +109,8 @@ export default function NoteScreen() {
   const [hint, setHint] = useState('')
   const [teeth, setTeeth] = useState<ToothResult | null>(null)
   const [listingTeeth, setListingTeeth] = useState(false)
+  const [nanoState, setNanoState] = useState<NanoState>('unavailable')
+  const [packChanged, setPackChanged] = useState(false)
   // T10: this page queued the letter (offline), or a letter queued on an earlier visit is waiting (orphan: no names any more).
   const [queued, setQueued] = useState(false)
   const [orphan, setOrphan] = useState<QueuedItem | null>(null)
@@ -233,6 +238,7 @@ export default function NoteScreen() {
   const missedCount = segments.filter((s) => s.kind === 'amber').length
 
   function onNoteChange(value: string) {
+    setPackChanged(false)
     setNote(value)
   }
 
@@ -250,6 +256,7 @@ export default function NoteScreen() {
     setNote('')
     setManualHides([])
     setUnhidden([])
+    setPackChanged(true)
     setBasePack(next)
   }
 
@@ -334,6 +341,17 @@ export default function NoteScreen() {
     }
     setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
+
+  useEffect(() => {
+    if (nano?.state !== 'manual') return
+    let alive = true
+    void nanoAvailability().then((s) => {
+      if (alive) setNanoState(s)
+    })
+    return () => {
+      alive = false
+    }
+  }, [nano])
 
   useEffect(() => {
     let alive = true
@@ -425,26 +443,51 @@ export default function NoteScreen() {
     sel.removeAllRanges()
   }
 
-  let status = 'Check the right-hand text. Is every name hidden?'
-  if (!note.trim()) status = 'Type or paste a note to begin.'
-  else if (running) status = 'Hiding names in this browser…'
-  else if (sending) status = 'Writing the letter…'
-  else if (queued) status = QUEUED_MESSAGE
-  else if (copied) status = 'Copied. Paste it into your letter.'
-  else if (letter) status = 'Letter ready. Names are put back. Read it, edit it, then copy.'
-  else if (problem) status = problem.message
-  else if (isApproved) status = 'Approved. Only the right-hand text will be sent.'
-  else if (edited) status = 'You changed the note. Please check it again.'
-  else if (needManualTick) status = MANUAL_MESSAGE
-
+  // ---- the status line: one text per state (FINISH.md "States"), all from core/messages.ts ----
   const empty = !note.trim()
+  let status: string = STATUS.ready
+  let tone: 'neutral' | 'working' | 'ok' | 'error' | 'queued' = 'neutral'
+  if (empty) status = packChanged ? STATUS['profession-changed'] : STATUS.empty
+  else if (running) [status, tone] = [STATUS.redacting, 'working']
+  else if (sending) [status, tone] = [STATUS.sending, 'working']
+  else if (queued) [status, tone] = [messageFor('offline'), 'queued']
+  else if (copied) [status, tone] = [STATUS.copied, 'ok']
+  else if (letter) [status, tone] = [STATUS.letter, 'ok']
+  else if (problem) [status, tone] = [problem.message, 'error']
+  else if (isApproved) [status, tone] = [STATUS.approved, 'ok']
+  else if (edited) status = STATUS.edited
+  else if (needManualTick) status = messageFor(manualKind(nanoState))
+  else if (needReviewTick) status = STATUS['items-not-placed']
+
   const showingLetter = letter !== null && !showNote
+  // The word the send guard stopped is marked in the right-hand text ("check the highlighted words"). On screen only.
+  const hitPattern = problem?.blocked && problem.hit ? new RegExp(`(${escapeRegex(problem.hit)})`, 'giu') : null
+  const withHit = (text: string, key: number) =>
+    hitPattern
+      ? text.split(hitPattern).map((part, j) =>
+          j % 2 === 1 ? (
+            <mark key={`${key}-${j}`} className="amber hit" data-testid="hit-mark">
+              {part}
+            </mark>
+          ) : (
+            <span key={`${key}-${j}`}>{part}</span>
+          ),
+        )
+      : text
+  // 1 Note, 2 Check, 3 Letter
+  const step = letter || queued || sending ? 3 : empty ? 1 : 2
+  const stepClass = (n: number) => (n < step || (n === 2 && isApproved && step === 2) ? 'done' : n === step ? 'now' : '')
+  const noNano = typeof (globalThis as { LanguageModel?: unknown }).LanguageModel === 'undefined'
+
   return (
     <div className="app" role="main">
       <header className="top">
-        <h1>SafeRefer</h1>
+        <div className="brand">
+          <h1>SafeRefer</h1>
+          <p className="tagline">Hide the names here. Only the hidden text goes to the cloud.</p>
+        </div>
         <label className="pack-pick">
-          Profession{' '}
+          <span>Profession</span>
           <select value={pack.id} onChange={(e) => changePack(e.target.value)} data-testid="pack">
             {Object.values(PACKS).map((p) => (
               <option key={p.id} value={p.id}>
@@ -456,9 +499,67 @@ export default function NoteScreen() {
         <p className="banner">Synthetic data only: not for real patients</p>
       </header>
 
+      <ol className="steps" aria-label="Progress">
+        {['Note', 'Check', 'Letter'].map((name, i) => (
+          <li key={name} className={stepClass(i + 1)} aria-current={step === i + 1 ? 'step' : undefined}>
+            <span className="step-n" aria-hidden="true">
+              {stepClass(i + 1) === 'done' ? '✓' : i + 1}
+            </span>
+            {name}
+          </li>
+        ))}
+      </ol>
+
+      {(orphan || orphanLetter) && (
+        <section className="card orphan" data-testid="orphan" aria-live="polite">
+          <div className="card-head">
+            <span className="pane-label">A letter from your last visit</span>
+            {orphanBusy && <span className="spinner" role="status" aria-label="Sending" />}
+          </div>
+          {orphan && (
+            <>
+              <p className="small">
+                A letter ({getPack(orphan.packId).label}) was queued while you were offline. It is sent by itself when you are online.
+              </p>
+              {orphanMsg && <p className="small">{orphanMsg}</p>}
+              <div className="pane-tools">
+                <button type="button" className="secondary" onClick={() => void runOrphan(orphan)} disabled={orphanBusy}>
+                  Send now
+                </button>
+                <button type="button" className="secondary" onClick={discardOrphan} disabled={orphanBusy}>
+                  Discard
+                </button>
+              </div>
+            </>
+          )}
+          {orphanLetter && (
+            <>
+              <textarea className="preview letter orphan-letter" data-testid="orphan-letter" value={orphanLetter.letter} readOnly spellCheck={false} />
+              <p className="small">{ORPHAN_NOTE}</p>
+              <div className="pane-tools">
+                <button
+                  type="button"
+                  className="secondary"
+                  onClick={() => void navigator.clipboard.writeText(orphanLetter.letter).catch(() => undefined)}
+                >
+                  Copy letter
+                </button>
+                <button type="button" className="secondary" onClick={() => setOrphanLetter(null)}>
+                  Close
+                </button>
+              </div>
+            </>
+          )}
+        </section>
+      )}
+
       <div className="panes">
-        <section className="pane">
-          <label htmlFor="note">{pack.noteLabel}</label>
+        <section className="pane pane-note">
+          <div className="pane-head">
+            <label htmlFor="note" className="pane-label">
+              {pack.noteLabel}
+            </label>
+          </div>
           <textarea
             id="note"
             value={note}
@@ -471,7 +572,7 @@ export default function NoteScreen() {
           />
         </section>
 
-        <section className="pane">
+        <section className="pane pane-cloud">
           <div className="pane-head">
             <span className="pane-label" id="cloud-label">
               {showingLetter ? 'Letter (written by the cloud model)' : 'What the cloud will see'}
@@ -479,7 +580,7 @@ export default function NoteScreen() {
             {showingLetter && <span className="badge cloud">Cloud</span>}
             {(running || sending) && <span className="spinner" role="status" aria-label="Working" />}
             {letter && (
-              <button type="button" className="secondary" onClick={() => setShowNote((v) => !v)}>
+              <button type="button" className="secondary push" onClick={() => setShowNote((v) => !v)}>
                 {showNote ? 'Show the letter' : 'Show the hidden note'}
               </button>
             )}
@@ -507,6 +608,9 @@ export default function NoteScreen() {
                 <ul className="warnings" data-testid="warnings">
                   {warnings.map((w, i) => (
                     <li key={i} className={w.level}>
+                      <span className="warn-mark" aria-hidden="true">
+                        {w.level === 'red' ? '!' : '?'}
+                      </span>
                       {w.message}
                     </li>
                   ))}
@@ -514,184 +618,146 @@ export default function NoteScreen() {
               )}
             </>
           ) : (
-          <>
-          <div
-            ref={previewRef}
-            className="preview"
-            aria-labelledby="cloud-label"
-            data-testid="preview"
-            spellCheck={false}
-          >
-            {empty ? (
-              <span className="placeholder">Hidden text appears here. Names, phones and dates become labels.</span>
-            ) : (
-              segments.map((s, i) =>
-                s.kind === 'token' ? (
-                  <button
-                    key={i}
-                    type="button"
-                    className="chip"
-                    title="Click to show this text again"
-                    onClick={() => unhide(s.text)}
-                  >
-                    {s.text}
-                  </button>
-                ) : s.kind === 'amber' ? (
-                  <mark key={i} className="amber" title="Check this: is it a name?">
-                    {s.text}
-                  </mark>
+            <>
+              <div ref={previewRef} className="preview" aria-labelledby="cloud-label" data-testid="preview" spellCheck={false}>
+                {empty ? (
+                  <div className="how">
+                    <p className="how-title">How it works</p>
+                    <ol>
+                      <li>
+                        Names, phones, dates and IDs are hidden <b>here, in your browser</b> and become labels such as{' '}
+                        <span className="chip-static">[PATIENT]</span>.
+                      </li>
+                      <li>
+                        <b>Only this hidden text</b> goes to the cloud, which drafts the letter.
+                      </li>
+                      <li>The letter comes back and your names are put back <b>here</b>.</li>
+                    </ol>
+                    {noNano && (
+                      <p className="how-note">
+                        This browser has no on-device model, so you hide names by hand: select the words here and press{' '}
+                        <b>Hide selected words</b>.
+                      </p>
+                    )}
+                  </div>
                 ) : (
-                  <span key={i}>{s.text}</span>
-                ),
-              )
-            )}
-          </div>
-          <div className="pane-tools">
-            <button
-              type="button"
-              className="secondary"
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={hideSelection}
-              disabled={empty}
-            >
-              Hide selected words
-            </button>
-            <span className="small">Click a label to show its text again.</span>
-            {missedCount > 0 && <span className="small amber-note">Check this: {missedCount} underlined</span>}
-          </div>
-          {hint && <p className="small">{hint}</p>}
-          </>
+                  segments.map((s, i) =>
+                    s.kind === 'token' ? (
+                      <button key={i} type="button" className="chip" title="Click to show this text again" onClick={() => unhide(s.text)}>
+                        {s.text}
+                      </button>
+                    ) : s.kind === 'amber' ? (
+                      <mark key={i} className="amber" title="Check this: is it a name?">
+                        {withHit(s.text, i)}
+                      </mark>
+                    ) : (
+                      <span key={i}>{withHit(s.text, i)}</span>
+                    ),
+                  )
+                )}
+              </div>
+              <div className="pane-tools">
+                <button type="button" className="secondary" onMouseDown={(e) => e.preventDefault()} onClick={hideSelection} disabled={empty}>
+                  Hide selected words
+                </button>
+                <span className="small">Click a label to show its text again.</span>
+                {missedCount > 0 && (
+                  <span className="check-note" role="status">
+                    <span aria-hidden="true">!</span> Check this: {missedCount} underlined
+                  </span>
+                )}
+              </div>
+              {hint && <p className="small">{hint}</p>}
+            </>
+          )}
+
+          {(listingTeeth || teeth?.ok) && (
+            <section className="card teeth" data-testid="teeth" aria-live="polite">
+              <div className="card-head">
+                <span className="pane-label">Teeth in this note</span>
+                {teeth?.ok && (
+                  <span className={`badge ${teeth.source}`} data-testid="tooth-badge">
+                    {BADGE_TEXT[teeth.source]}
+                  </span>
+                )}
+                {listingTeeth && <span className="spinner" role="status" aria-label="Listing teeth" />}
+              </div>
+              {listingTeeth && <p className="small">Listing teeth from the approved text…</p>}
+              {teeth?.ok && (
+                <>
+                  {teeth.teeth.length === 0 && teeth.unnumbered.length === 0 && <p className="small">No tooth number found in the note.</p>}
+                  {teeth.teeth.length > 0 && (
+                    <ul className="tooth-list">
+                      {teeth.teeth.map((t) => (
+                        <li key={t.tooth}>
+                          <strong>{t.tooth}</strong> {t.finding}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {teeth.unnumbered.length > 0 && <p className="small">No tooth number given: {teeth.unnumbered.join('; ')}</p>}
+                  {teeth.source === 'rules' && <p className="small grey">{RULES_ONLY_MESSAGE}</p>}
+                </>
+              )}
+            </section>
           )}
         </section>
       </div>
 
-      {(orphan || orphanLetter) && (
-        <section className="teeth" data-testid="orphan" aria-live="polite">
-          <div className="pane-head">
-            <span className="pane-label">A letter from your last visit</span>
-            {orphanBusy && <span className="spinner" role="status" aria-label="Sending" />}
-          </div>
-          {orphan && (
-            <>
-              <p className="small">
-                A letter ({getPack(orphan.packId).label}) was queued while you were offline. It is sent by itself when you are online.
-              </p>
-              {orphanMsg && <p className="small">{orphanMsg}</p>}
-              <div className="pane-tools">
-                <button type="button" className="secondary" onClick={() => void runOrphan(orphan)} disabled={orphanBusy}>
-                  Send now
-                </button>
-                <button type="button" className="secondary" onClick={discardOrphan} disabled={orphanBusy}>
-                  Discard
-                </button>
-              </div>
-            </>
+      <div className="dock">
+        <div className="dock-info">
+          <p className={`status ${tone}`} aria-live="polite" data-testid="status">
+            <span className="status-icon" aria-hidden="true" />
+            <span>
+              {status}
+              {problem?.blocked && problem.hit && (
+                <>
+                  {' '}
+                  Check: <strong data-testid="blocked-hit">{problem.hit}</strong>
+                </>
+              )}
+            </span>
+          </p>
+          {!running && review.length > 0 && (
+            <p className="small review" data-testid="review">
+              {droppedNotice(review.length)} {review.map((i) => i.text).join(', ')}
+            </p>
           )}
-          {orphanLetter && (
-            <>
-              <textarea className="preview letter" data-testid="orphan-letter" value={orphanLetter.letter} readOnly spellCheck={false} />
-              <p className="small">{ORPHAN_NOTE}</p>
-              <div className="pane-tools">
-                <button
-                  type="button"
-                  className="secondary"
-                  onClick={() => void navigator.clipboard.writeText(orphanLetter.letter).catch(() => undefined)}
-                >
-                  Copy letter
-                </button>
-                <button type="button" className="secondary" onClick={() => setOrphanLetter(null)}>
-                  Close
-                </button>
-              </div>
-            </>
-          )}
-        </section>
-      )}
-
-      <p className={`status${problem ? ' error' : isApproved || letter ? ' ok' : ''}`} aria-live="polite" data-testid="status">
-        {status}
-        {problem?.blocked && problem.hit && (
-          <>
-            {' '}
-            Check: <strong data-testid="blocked-hit">{problem.hit}</strong>
-          </>
-        )}
-      </p>
-
-      {(listingTeeth || teeth) && (
-        <section className="teeth" data-testid="teeth" aria-live="polite">
-          <div className="pane-head">
-            <span className="pane-label">Teeth in this note</span>
-            {teeth?.ok && (
-              <span className={`badge ${teeth.source}`} data-testid="tooth-badge">
-                {BADGE_TEXT[teeth.source]}
-              </span>
+          <div className="ticks">
+            {needManualTick && (
+              <label className="tick">
+                <input type="checkbox" checked={tickManual} onChange={(e) => setTickManual(e.target.checked)} /> {MANUAL_TICK}
+              </label>
             )}
-            {listingTeeth && <span className="spinner" role="status" aria-label="Listing teeth" />}
+            {showingLetter && redNow && (
+              <label className="tick">
+                <input type="checkbox" checked={acked} onChange={(e) => setAckKey(e.target.checked ? warnKey : '')} /> I have checked each
+                warning
+              </label>
+            )}
+            {needReviewTick && (
+              <label className="tick">
+                <input type="checkbox" checked={tickReview} onChange={(e) => setTickReview(e.target.checked)} /> I checked the items listed above
+              </label>
+            )}
           </div>
-          {listingTeeth && <p className="small">Listing teeth from the approved text…</p>}
-          {teeth && !teeth.ok && <p className="small">{teeth.message}</p>}
-          {teeth?.ok && (
-            <>
-              {teeth.teeth.length === 0 && teeth.unnumbered.length === 0 && (
-                <p className="small">No tooth number found in the note.</p>
-              )}
-              {teeth.teeth.length > 0 && (
-                <ul className="tooth-list">
-                  {teeth.teeth.map((t) => (
-                    <li key={t.tooth}>
-                      <strong>{t.tooth}</strong> {t.finding}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {teeth.unnumbered.length > 0 && (
-                <p className="small">No tooth number given: {teeth.unnumbered.join('; ')}</p>
-              )}
-              {teeth.source === 'rules' && <p className="small grey">{RULES_ONLY_MESSAGE}</p>}
-            </>
-          )}
-        </section>
-      )}
-
-      {!running && review.length > 0 && (
-        <p className="small review" data-testid="review">
-          {droppedNotice(review.length)} {review.map((i) => i.text).join(', ')}
-        </p>
-      )}
-
-      <div className="bar">
-        <div className="ticks">
-          {needManualTick && (
-            <label className="tick">
-              <input type="checkbox" checked={tickManual} onChange={(e) => setTickManual(e.target.checked)} /> {MANUAL_TICK}
-            </label>
-          )}
-          {showingLetter && redNow && (
-            <label className="tick">
-              <input type="checkbox" checked={acked} onChange={(e) => setAckKey(e.target.checked ? warnKey : '')} /> I have checked
-              each warning
-            </label>
-          )}
-          {needReviewTick && (
-            <label className="tick">
-              <input type="checkbox" checked={tickReview} onChange={(e) => setTickReview(e.target.checked)} /> I checked the
-              items listed above
-            </label>
-          )}
         </div>
         <div className="buttons">
-          <button type="button" onClick={approve} disabled={!canApprove || isApproved}>
-            {isApproved ? 'Approved' : 'Approve'}
+          <button type="button" className={isApproved ? 'done' : 'primary'} onClick={approve} disabled={!canApprove || isApproved}>
+            {isApproved ? '✓ Approved' : 'Approve'}
           </button>
           {showingLetter && (
-            <>
-              <button type="button" onClick={copyLetter} disabled={!canCopy} data-testid="copy">
-                {copied ? 'Copied' : 'Copy letter'}
-              </button>
-            </>
+            <button type="button" className="primary" onClick={copyLetter} disabled={!canCopy} data-testid="copy">
+              {copied ? 'Copied' : 'Copy letter'}
+            </button>
           )}
-          <button type="button" onClick={send} disabled={!isApproved || sending || letter !== null || queued} data-testid="send">
+          <button
+            type="button"
+            className={isApproved && !letter && !queued ? 'primary' : ''}
+            onClick={send}
+            disabled={!isApproved || sending || letter !== null || queued}
+            data-testid="send"
+          >
             {queued ? 'Queued' : problem && !problem.blocked ? 'Try again' : 'Send'}
           </button>
         </div>

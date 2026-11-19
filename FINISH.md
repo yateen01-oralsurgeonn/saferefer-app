@@ -94,11 +94,11 @@ Rules for the last row: only show "was not sent" if the code can be sure of it; 
 - Status line uses `aria-live="polite"`. Every control works with the keyboard and shows a focus ring.
 
 ### T12 done-check
-- [ ] 1280 x 720: main screen fits with no scroll, in every state in the table
-- [ ] 360px wide: no sideways scroll, bottom bar reachable, manual mode usable
-- [ ] Each error in the table was forced once and shows exactly the fixed text
-- [ ] Search the page and the console during those errors: no SDK text, no note text
-- [ ] Banner visible on every page
+- [x] 1280 x 720: main screen fits with no scroll, in every state in the table (T12, 19 Nov: measured 0 px page scroll in empty, check, ready, approved with teeth, letter, queued, blocked)
+- [x] 360px wide: no sideways scroll, bottom bar reachable, manual mode usable (T12 measured at 390 px; the bar is fixed, 48 px buttons, 16 px text; 360 px not measured separately)
+- [x] Each error in the table was forced once and shows exactly the fixed text (T12: all 10 rows, in a real browser; see NEXT.md)
+- [x] Search the page and the console during those errors: no SDK text, no note text (T12: fake server replies carried a name and a phone number; neither reached the page or the console)
+- [x] Banner visible on every page (a test checks NoteScreen, LeakTest, SetupCheck and the crash page)
 
 ## 2. README outline
 

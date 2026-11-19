@@ -6,6 +6,7 @@
 //
 // The result state is "ok" or "manual". There is no default: a failed run is never "nothing found".
 // Nothing here logs. Error objects carry no note text.
+import { messageFor } from './messages'
 import { findValue, hideValues, tokenRegex, type HideItem, type TokenMap, type TokenType } from './tokens'
 
 /** The model call: (prompt, schema, signal) => the raw reply text. */
@@ -19,7 +20,7 @@ export class NanoUnavailableError extends Error {
   }
 }
 
-export const MANUAL_MESSAGE = 'Automatic check failed. Hide names by hand, then approve.'
+export const MANUAL_MESSAGE = messageFor('nano-unavailable')
 export const MANUAL_TICK = 'I hid every name by hand'
 export const droppedNotice = (n: number) =>
   `${n} ${n === 1 ? 'suggestion was' : 'suggestions were'} not applied. Check by hand.`

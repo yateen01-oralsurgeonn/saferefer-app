@@ -5,7 +5,8 @@
 // approved string (CLAUDE.md rule 2, SECURITY A2). The model gets the approved anonymous text and nothing else.
 // The reply is untrusted: parse, validate, strip markdown, count words. Failures return fixed messages,
 // never SDK text or any part of the note (CLAUDE.md rule 4, SECURITY A8).
-import { BLOCKED_MESSAGE, guardedSend, NOT_APPROVED_MESSAGE, type GuardOptions } from './sendGuard'
+import { messageFor } from './messages'
+import { guardedSend, type GuardOptions } from './sendGuard'
 import type { TokenMap } from './tokens'
 import { DENTAL_LETTER, type LetterText } from './packs'
 
@@ -136,15 +137,15 @@ export type LetterFailure = 'blocked' | 'not-approved' | 'bad-reply' | 'failed' 
 
 /** Fixed text for each failure (FINISH.md section 1). `blocked` and `not-approved` use the send guard's own messages. */
 export const LETTER_MESSAGES: Record<LetterFailure, string> = {
-  blocked: BLOCKED_MESSAGE,
-  'not-approved': NOT_APPROVED_MESSAGE,
-  'bad-reply': 'The letter that came back did not pass our checks, so it is not shown. Please try again.',
-  failed: 'The letter could not be written. Nothing was lost. Please try again.',
-  timeout: 'The letter could not be written. Nothing was lost. Please try again.',
-  quota: 'The free limit has been reached for now. Please try again in a few minutes.',
-  'app-check': 'This browser could not be verified. Reload the page and try again.',
-  // The offline queue is T10. Until then nothing is queued, so we must not say it is.
-  offline: 'You are offline. Nothing was sent. Connect and try again.',
+  blocked: messageFor('blocked'),
+  'not-approved': messageFor('not-approved'),
+  'bad-reply': messageFor('bad-reply'),
+  failed: messageFor('failed'),
+  timeout: messageFor('failed'),
+  quota: messageFor('quota'),
+  'app-check': messageFor('app-check'),
+  // The screen queues an offline letter (T10) and shows the queued text. This one appears only if the queue itself is not available.
+  offline: messageFor('offline-not-queued'),
   aborted: '',
 }
 

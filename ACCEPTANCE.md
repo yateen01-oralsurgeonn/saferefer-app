@@ -14,11 +14,11 @@ Test both. Check `typeof LanguageModel` and `await LanguageModel.availability()`
 
 ## T4 Nano redactor
 - **You check:** Paste a note with "husband Ramesh, works at Infosys". You see `[RELATIVE_1]` and `[EMPLOYER]`. Tooth numbers and drug names are untouched.
-- **Sonnet tests:** Nano off in both states above, Network panel open. Redaction shows "Automatic check failed. Hide names by hand, then approve." and sends **zero requests to `firebasevertexai.googleapis.com`** (an App Check `exchangeDebugToken` call may appear; it carries no note text, and SECURITY A4 says to note when it fires). Plus a unit test: with `LanguageModel` undefined the redactor returns state `manual` and `fetch` is never called.
+- **Sonnet tests:** Nano off in both states above, Network panel open. Redaction shows "The on-device model is not available. Hide every name by hand, then tick the box." (or the "Browser not supported" text when there is no `LanguageModel` at all; T12 changed the texts to the FINISH.md table, see core/messages.ts) and sends **zero requests to `firebasevertexai.googleapis.com`** (an App Check `exchangeDebugToken` call may appear; it carries no note text, and SECURITY A4 says to note when it fires). Plus a unit test: with `LanguageModel` undefined the redactor returns state `manual` and `fetch` is never called.
 
 ## T5 Split screen and send guard
 - **You check:** Typing on the left updates the right. Send is grey until you click Approve. Change one letter after Approve: Send goes grey again.
-- **You check:** A note with a name left in shows "Blocked: an identifier is still in the note."
+- **You check:** A note with a name left in shows "A name may still be in the text. Nothing was sent. Please check the highlighted words." and the offending word is marked in the right-hand text (T12 text, core/messages.ts)
 - **Sonnet tests:** Send guard unit tests. "Rameshs", "RameshPatil", "RAMESH", a 3-letter name as a whole word, a phone and an email are all blocked.
 
 ## T6 Cloud letter
