@@ -52,6 +52,18 @@ One marking correction was made to the test data BEFORE any run, never to a rule
 - **Fix (commit after 85f0e57):** the adapter reads that one App Check code (never the message text) and treats a network failure as offline and a refusal as "could not be verified"; a queued letter is retried every 10 seconds, quietly, and stays queued while the network is down. 5 new tests. Reproduced in a browser by blocking the internet while it still reported "online": queued, stayed queued through retries, and the letter arrived 7 s after the network returned.
 - **Repeated on his laptop after the fix (20 Nov 2026): PASSED, "as expected"** (Dr. Yatin: Send showed queued with Wi-Fi off, and the letter arrived by itself when Wi-Fi came back).
 
+### CA fresh notes, code only (first run, 20 Nov 2026)
+Notes received on WhatsApp on 20 Nov 2026 in reply to `review/WHATSAPP-CA.txt`; test data `data/fresh/ca-fresh.json` (10 notes, 56 identifiers); open `/?leak&pack=ca&set=fresh`. No rule changed before the run. Marking corrections made to the test data BEFORE the run (never to a rule): in note 7 the relation words "aai" (mother) and "bhau" (brother) were marked as names; they are not identifiers and are not scored.
+**Provenance caveat:** several names and places in these notes are copied from the dentist fresh notes or from the example in the WhatsApp message (Rakesh bhau, Sai Traders, P. K. Jadhav, Anjali Patil, Vikram Thorat, Kavita S., Sai Medical Stores, Shree Datta Dairy, Baburao, Omkar). The reply also says the sender never received the review sheet. So these notes are less independent than a CA's own; the scores are valid for the text as given, but should not be described as "written by a practising CA" unless the CA confirms it.
+- **Code only: 26 of 56 leaked (46.4%).** Zero requests (PASS); 10 of 10 manual with the model removed (PASS).
+- By type: **phones 0 of 8, record IDs 0 of 10 (PAN, GSTIN, TAN, CIN, bank account, IFSC), emails 0 of 1: all hidden.** Names 11 of 14, organisations 8 of 11, addresses 4 of 4, dates 3 of 8 leaked.
+- Same pattern as the dentist fresh notes: the structured identifiers are found by code; names, business names and street addresses with no label are not. Nano is the next run.
+
+| Date | Profession | Notes | Mode | Leaked | Where measured |
+|---|---|---|---|---|---|
+| 20 Nov 2026 | CA (fresh) | 10 (56 identifiers) | code only | **26 of 56 (46.4%)** | Playwright Chromium (no Nano) |
+| | CA (fresh) | 10 | code + Gemini Nano | (to do) | Dr. Yatin's Chrome |
+
 ### Dentist fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026) - the number to quote
 - Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
 - **Names 0 of 8, relatives 0 of 8, organisations 0 of 6, phones 0 of 6, emails 0 of 1, dates of birth 0 of 1, record IDs 0 of 1 leaked.** Nano turned 20 code-only leaks into 8: every name, relative and employer or school was caught, including the ones with no label ("rahul bhau", "nikita", "Vikram Thorat -", "Kavita S.").

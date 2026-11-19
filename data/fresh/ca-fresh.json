@@ -1,0 +1,286 @@
+[
+  {
+    "id": "F01",
+    "text": "Rakesh bhau (00000 55123) of Sai Traders, Baramati, PAN ZZZZZ1234Z, notice under 143(1) on 3/11, demand Rs 38,400. He says mismatch is from GSTR-1 vs 3B for AY 2024-25. Please check and file rectification.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Rakesh bhau"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55123"
+      },
+      {
+        "type": "organization",
+        "value": "Sai Traders, Baramati"
+      },
+      {
+        "type": "record_id",
+        "value": "ZZZZZ1234Z"
+      },
+      {
+        "type": "date",
+        "value": "3/11"
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "text": "priya madam called from 00000-98765 about her shop Priya Kirana. GSTIN 27ZZZZZ1234Z1Z5, got scrutiny for FY 2023-24. She stays near Ganesh mandir, Loni, wants to know if she should reply herself or we reply. Turnover shown Rs 42,10,000, ITC claimed Rs 1,12,300.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "priya"
+      },
+      {
+        "type": "phone",
+        "value": "00000-98765"
+      },
+      {
+        "type": "organization",
+        "value": "Priya Kirana"
+      },
+      {
+        "type": "record_id",
+        "value": "27ZZZZZ1234Z1Z5"
+      },
+      {
+        "type": "address",
+        "value": "near Ganesh mandir, Loni"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "text": "P. K. Jadhav - +91 00000 43210 - proprietor of Jadhav Transport, PAN ZZZZZ0000Z. Assessment year 2023-24, ITR-4 filed late, got notice u/s 234F for Rs 5,000. His son Omkar will bring bank statement. Bank a/c 00000123456789, IFSC SBIN0001234.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "P. K. Jadhav"
+      },
+      {
+        "type": "phone",
+        "value": "+91 00000 43210"
+      },
+      {
+        "type": "organization",
+        "value": "Jadhav Transport"
+      },
+      {
+        "type": "record_id",
+        "value": "ZZZZZ0000Z"
+      },
+      {
+        "type": "name",
+        "value": "Omkar"
+      },
+      {
+        "type": "record_id",
+        "value": "00000123456789"
+      },
+      {
+        "type": "record_id",
+        "value": "SBIN0001234"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "text": "Anjali Patil anjali.patil.fake@example.com came for TDS return Q3. Her firm Patil Consultancy, TAN PUNE12345A, deducted Rs 18,500 u/s 194C but missed one party. Date of payment was last Tuesday. She wants revised 24Q before 31st Jan.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Anjali Patil"
+      },
+      {
+        "type": "email",
+        "value": "anjali.patil.fake@example.com"
+      },
+      {
+        "type": "organization",
+        "value": "Patil Consultancy"
+      },
+      {
+        "type": "record_id",
+        "value": "PUNE12345A"
+      },
+      {
+        "type": "date",
+        "value": "last Tuesday"
+      },
+      {
+        "type": "date",
+        "value": "31st Jan"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "text": "suresh kaka, zero zero zero zero zero four three two one nine, runs Shree Datta Dairy at opp. Hanuman mandir, Sangamner. Got GST notice for RCM on freight, amount Rs 27,900 for Nov 2024. He says transporter charged GST already. Need to check e-way bills and reply under section 73.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "suresh"
+      },
+      {
+        "type": "phone",
+        "value": "zero zero zero zero zero four three two one nine"
+      },
+      {
+        "type": "organization",
+        "value": "Shree Datta Dairy"
+      },
+      {
+        "type": "address",
+        "value": "opp. Hanuman mandir, Sangamner"
+      }
+    ]
+  },
+  {
+    "id": "F06",
+    "text": "Vikram Thorat - 00000 11223 - director of Thorat Agro Pvt Ltd, CIN U12345MH2020PTC123456. UDIN needed for audit report for AY 2024-25. His aai Meena is also director. Turnover Rs 1.2 Cr, audit u/s 44AB done, need to file ITR-6.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Vikram Thorat"
+      },
+      {
+        "type": "phone",
+        "value": "00000 11223"
+      },
+      {
+        "type": "organization",
+        "value": "Thorat Agro Pvt Ltd"
+      },
+      {
+        "type": "record_id",
+        "value": "U12345MH2020PTC123456"
+      },
+      {
+        "type": "name",
+        "value": "Meena"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "text": "nikita came with her mother aai on Monday for her boutique Nikita Boutique, Kopargaon. She got notice for cash deposit Rs 4,50,000 in FY 2022-23. PAN ZZZZZ5678Z, she says money was from her bhau Rohit for shop deposit. Address Flat 4, near railway crossing, Kopargaon.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "nikita"
+      },
+      {
+        "type": "date",
+        "value": "Monday"
+      },
+      {
+        "type": "organization",
+        "value": "Nikita Boutique, Kopargaon"
+      },
+      {
+        "type": "record_id",
+        "value": "ZZZZZ5678Z"
+      },
+      {
+        "type": "name",
+        "value": "Rohit"
+      },
+      {
+        "type": "address",
+        "value": "Flat 4, near railway crossing, Kopargaon"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "text": "Kavita S. of Kavita Enterprises, GSTIN 27ZZZZZ5678Z1Z2, wants GST refund of Rs 63,200 for export in Sept 2025. She filed GSTR-1 on 11/10/25 but RFD-01 pending. Her accountant Baburao is on leave. Phone 00000 77665.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Kavita S."
+      },
+      {
+        "type": "organization",
+        "value": "Kavita Enterprises"
+      },
+      {
+        "type": "record_id",
+        "value": "27ZZZZZ5678Z1Z2"
+      },
+      {
+        "type": "date",
+        "value": "Sept 2025"
+      },
+      {
+        "type": "date",
+        "value": "11/10/25"
+      },
+      {
+        "type": "name",
+        "value": "Baburao"
+      },
+      {
+        "type": "phone",
+        "value": "00000 77665"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "text": "Rohit M - +91-00000-77665 - salaried at Mahesh Kirana? No, now at Sai Medical Stores, wants to file ITR-1 for AY 2025-26. Form 16 shows salary Rs 6,85,000, TDS Rs 12,400 u/s 192. He also has FD interest Rs 21,000. DOB 15/08/1990 for PAN-Aadhaar link check, no Aadhaar shared.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Rohit M"
+      },
+      {
+        "type": "phone",
+        "value": "+91-00000-77665"
+      },
+      {
+        "type": "organization",
+        "value": "Mahesh Kirana"
+      },
+      {
+        "type": "organization",
+        "value": "Sai Medical Stores"
+      },
+      {
+        "type": "date",
+        "value": "15/08/1990"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "text": "Baburao Kamble bhau, 00000 99887, partner in Kamble & Sons, PAN ZZZZZ9999Z, got notice u/s 142(1) for AY 2022-23 on third Nov. They want books for contract income Rs 18,75,000 and expenses Rs 14,20,000. He lives behind bus stand, Loni, will come tomorrow with bills.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Baburao Kamble"
+      },
+      {
+        "type": "phone",
+        "value": "00000 99887"
+      },
+      {
+        "type": "organization",
+        "value": "Kamble & Sons"
+      },
+      {
+        "type": "record_id",
+        "value": "ZZZZZ9999Z"
+      },
+      {
+        "type": "date",
+        "value": "third Nov"
+      },
+      {
+        "type": "address",
+        "value": "behind bus stand, Loni"
+      }
+    ]
+  }
+]
