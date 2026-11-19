@@ -84,6 +84,21 @@ const TAIL_RE = new RegExp(
   'yu',
 )
 
+// T12c (20 Nov 2026, after the fresh-note runs): landmark phrases written as part of an address, with no street word:
+// "near Ganesh mandir", "behind bus stand", "opp. Hanuman mandir", "near water tank", "behind ZP school", "near Sai baba chowk",
+// "near railway crossing". A cue word, up to three words, then a landmark noun. The place name that often follows
+// (", Sangamner") is taken by the tail rule below.
+// Words that are also clinical are NOT in the list, so "pain near the temple", "next to the bridge" and "near signal" stay.
+const LANDMARK_NOUN =
+  '(?:mandir|masjid|mosque|church|gurudwara|dargah|chowk|chauk|stand|station|tank|canal|school|vidyalaya|college|hospital|petrol\\s+pump|pump|road|market|bazaar|naka|nagar|colony|society|wadi|galli|gali|crossing|dairy|bank|office|mall|plaza|hotel|depot|talav|bakery)'
+const LANDMARK_RE = new RegExp(
+  String.raw`(?<![\p{L}\p{N}])(?:near|behind|opp(?:osite)?\.?|beside|next\s+to|in\s+front\s+of|adjacent\s+to|close\s+to)\s+(?:the\s+)?(?:[\p{L}'-]+\s+){0,3}?${LANDMARK_NOUN}(?![\p{L}-])`,
+  'giu',
+)
+// "Flat 4", "plot 5", "shop 12", "House No. 8": a house number in front of a landmark or a place. "block" and "room" are left out
+// ("nerve block 2 ml").
+const HOUSE_NO_RE = /(?<![\p{L}\p{N}])(?:flat|plot|shop|house|bungalow)\s*(?:no\.?\s*)?\d+[A-Za-z]?(?:[/-]\d+[A-Za-z]?)?(?![\p{L}\p{N}])/giu
+
 const badWords = (s: string) => s.split(/\s+/).every((w) => NOT_A_PLACE.has(w.toLowerCase()))
 const firstBad = (s: string) => NOT_A_PLACE.has(s.split(/\s+/)[0].toLowerCase())
 
@@ -121,6 +136,8 @@ export function findPlaces(text: string, taken: Span[] = []): Found[] {
   for (const m of text.matchAll(PLACE_CUE_RE)) {
     if (!firstBad(m[1])) add(m.index + m[0].length - m[1].length, m[1], 'ADDRESS')
   }
+  for (const m of text.matchAll(LANDMARK_RE)) add(m.index, m[0], 'ADDRESS')
+  for (const m of text.matchAll(HOUSE_NO_RE)) add(m.index, m[0], 'ADDRESS')
   for (const m of text.matchAll(PIN_RE)) {
     const first = m[0].split(/[\s,:-]+/)[0]
     if (NOT_A_PLACE.has(first.toLowerCase())) add(m.index + m[0].length - 6, m[0].slice(-6), 'ADDRESS')

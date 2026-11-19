@@ -29,8 +29,8 @@ describe('T3 code redactor', () => {
   })
 
   it('given name alone shares the patient token; any case; possessive kept', () => {
-    const { text, map } = redactByCode("Patient: Asha Testpatil. Asha's pain began on Monday. ASHA TESTPATIL agrees.")
-    expect(text).toBe("Patient: [PATIENT]. [PATIENT]'s pain began on Monday. [PATIENT] agrees.")
+    const { text, map } = redactByCode("Patient: Asha Testpatil. Asha's pain began at night. ASHA TESTPATIL agrees.")
+    expect(text).toBe("Patient: [PATIENT]. [PATIENT]'s pain began at night. [PATIENT] agrees.")
     expect(map.get('[PATIENT]')?.value).toBe('Asha Testpatil')
   })
 

@@ -40,7 +40,7 @@ One bug was caught and fixed here: writing `const env = import.meta.env` made Vi
 - **Do not quote 3.2% as the app's score.** The Part C rules were written after reading these same 30 notes, so the number flatters the code. Dr. Yatin should write 10 new synthetic notes that I have not seen and run the scorer on them. The README and video number must come from the T8 page (code + Nano), first full run on the final build.
 
 ## Known gaps (all are `it.fails` tests in `attack.test.ts`)
-Redactor misses: a single nickname with no cue; a name without capitals after "Patient:" (works after "Patient name:"); Devanagari names with no label; numeric dates with no year ("3/11"); "Nov 26" with no year; weekdays and "the 3rd"; 7-digit landlines; a place name with no cue word.
+Redactor misses: a single nickname with no cue; a name without capitals after "Patient:" (works after "Patient name:"); Devanagari names with no label; "Nov 26" with no year; "the 3rd" (numeric dates such as "3/11" and weekdays with a cue such as "on Monday" were fixed on 20 Nov 2026, see LEAK-RESULTS.md); 7-digit landlines; a place name with no cue word.
 Guard misses: look-alike letters from other alphabets; an everyday-word name alone in lower case ("rose"); any name the redactor never saw. **The guard cannot find a name nobody hid.** Nano, the amber underline and the dentist's check cover that.
 Hidden by mistake (safe side): a row of probing depths or four file sizes without commas look like a phone; a capitalised word after "Patient:" is taken as the name. T5 needs the un-hide button for these.
 

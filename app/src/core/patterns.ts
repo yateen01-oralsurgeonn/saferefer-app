@@ -163,8 +163,37 @@ export function findDates(text: string): Found[] {
   }
   // Festivals used as dates: "Diwali eve", "just after Holi"
   for (const m of text.matchAll(FESTIVAL_RE)) add(m.index, m[0], `festival ${m[0].toLowerCase().replace(/\s+/g, ' ')}`)
+
+  // T12c (20 Nov 2026, after the fresh-note runs): a visit date written as day and month with no year ("3/11", "5-1"), and a
+  // weekday used as a date ("Monday", "last Tuesday"). Added AFTER every full form, so a full date is never cut in two.
+  for (const m of text.matchAll(/(?<![\d/.:-])(\d{1,2})\s?([/-])\s?(\d{1,2})(?![\d/:])(?![.-]\d)/g)) {
+    const [d, mo] = [Number(m[1]), Number(m[3])]
+    if (!validDay(d, mo)) continue
+    const cue = DATE_CUE_BEFORE.test(text.slice(Math.max(0, m.index - 24), m.index))
+    // A fraction ("1/2 tablet", "3/4 crown", "2/3") and two tooth numbers ("11/12") look like dates: leave them,
+    // unless a word like "on", "seen" or "hearing" comes right before.
+    const fraction = d < mo && FRACTION_DENOMINATORS.has(mo)
+    const teethPair = isFdi(String(d)) && isFdi(String(mo)) && m[1].length === 2 && m[3].length === 2
+    if ((fraction || teethPair) && !cue) continue
+    add(m.index, m[0], iso(null, mo, d))
+  }
+  for (const m of text.matchAll(WEEKDAY_RE)) {
+    // "last Tuesday", "next Friday", "on Monday", "hearing Monday": a date. "free on any Friday" or "Monday clinic": not.
+    const lead = /^(?:last|next|this|coming|previous)\s/i.test(m[0])
+    if (!lead && !DATE_CUE_BEFORE.test(text.slice(Math.max(0, m.index - 24), m.index))) continue
+    add(m.index, m[0], `weekday ${m[0].toLowerCase().replace(/^.*\s/, '')}`)
+  }
   return out
 }
+
+/** "on", "dated", "seen", "hearing" and similar, right before a day/month: it is a date, not a fraction. */
+const DATE_CUE_BEFORE =
+  /(?:\b(?:on|dated?|seen|came|visit(?:ed)?|appointment|hearing|next|due|till|until|by|from|since|before|after|review|reviewed|date)|[:(])\s*$/iu
+/** Denominators a fraction can have. "3/11" is not a fraction; "1/2", "3/4" and "2/3" are. */
+const FRACTION_DENOMINATORS: ReadonlySet<number> = new Set([2, 3, 4, 5, 6, 8, 10, 12])
+/** Monday to Sunday, with "last", "next", "this", "coming" or "previous" in front when it is there. */
+const WEEKDAY_RE =
+  /(?<![\p{L}\p{N}])(?:(?:last|next|this|coming|previous)\s+)?(?:mon|tues|wednes|thurs|fri|satur|sun)day(?![\p{L}])/giu
 
 const FESTIVAL_RE =
   /(?<![\p{L}\p{N}])(?:Diwali|Deepavali|Dussehra|Dasara|Holi|Eid|Ramzan|Ramadan|Christmas|Navratri|Ganesh\s+Chaturthi|Ganpati|Pongal|Onam|Raksha\s?[Bb]andhan|Rakhi|Gudi\s+Padwa|Makar\s+Sankranti|Sankranti|Baisakhi|Janmashtami|Mahashivratri|Bhai\s+Dooj|Bhaubeej|Easter|New\s+Year(?:'s)?|Independence\s+Day|Republic\s+Day|Gandhi\s+Jayanti)(?![\p{L}])(?:\s+(?:eve|day|week|weekend|holidays?|night|morning)(?![\p{L}]))?/gu

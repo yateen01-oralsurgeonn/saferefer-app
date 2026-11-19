@@ -79,6 +79,70 @@ describe('attack: dates', () => {
   for (const [note, secrets] of cases) it(note, () => expect(hidden(note, ...secrets)).toBe('hidden'))
 })
 
+describe('attack: short dates and weekdays (T12c, 20 Nov 2026, after the fresh-note runs)', () => {
+  const hiddenCases: Array<[string, string[]]> = [
+    ['Seen 3/11 and again on 17/11.', ['3/11', '17/11']],
+    ['Seen on 17/11 for pain.', ['17/11']],
+    ['Bail hearing 5/1 before the court.', ['5/1']],
+    ['Came alone 3-11 for swelling.', ['3-11']],
+    ['Follow up 12/3.', ['12/3']],
+    ['Review on 1/2 at the clinic.', ['1/2']],
+    ['Seen last Tuesday for pain.', ['last Tuesday']],
+    ['Patient came on Monday for extraction.', ['Monday']],
+    ['Phone 00000 22113, hearing Monday.', ['Monday']],
+    ['Next Friday appointment confirmed.', ['Next Friday']],
+    ['Date of payment was last Tuesday.', ['last Tuesday']],
+  ]
+  for (const [note, secrets] of hiddenCases) it(`hides: ${note}`, () => expect(hidden(note, ...secrets)).toBe('hidden'))
+
+  const keptCases = [
+    'Advised 1/2 tablet twice daily.',
+    'Place a 3/4 crown on 36.',
+    'About 2/3 of the root is exposed.',
+    'Take 1/4 of the dose for 3 days.',
+    'Teeth 11/12 are mobile.',
+    'Teeth 17/11 are restored.',
+    'Mobility 21/22 grade 2.',
+    'She is free on any Friday. Seen in the morning.',
+    'Monday clinic is closed for the festival.',
+    'Pain every Monday after chewing.',
+    'Ratio 1:2 and 3.5/4 mm.',
+  ]
+  for (const note of keptCases) it(`keeps: ${note}`, () => expect(kept(note)).toBe('kept'))
+})
+
+describe('attack: landmark addresses (T12c, 20 Nov 2026, after the fresh-note runs)', () => {
+  const hiddenCases: Array<[string, string[]]> = [
+    ['Works at the shop, near Ganesh mandir, Baramati.', ['Ganesh mandir', 'Baramati']],
+    ['He stays behind bus stand, Loni.', ['bus stand', 'Loni']],
+    ['Property at opp. Hanuman mandir, Sangamner.', ['Hanuman mandir', 'Sangamner']],
+    ['Defendant address near water tank, Rahata, phone below.', ['water tank', 'Rahata']],
+    ['Lives behind ZP school, near canal, Sangamner.', ['ZP school', 'canal', 'Sangamner']],
+    ['Police station Shirdi road, near Sai baba chowk.', ['Sai baba chowk']],
+    ['She stays Flat 4, near railway crossing, Kopargaon with parents.', ['Flat 4', 'railway crossing', 'Kopargaon']],
+    ['Plot 5, next to petrol pump.', ['Plot 5', 'petrol pump']],
+    ['Clinic is beside City Hospital.', ['City Hospital']],
+    ['Her office is in front of the bus stand.', ['bus stand']],
+  ]
+  for (const [note, secrets] of hiddenCases) it(`hides: ${note}`, () => expect(hidden(note, ...secrets)).toBe('hidden'))
+
+  // Clinical phrases with the same cue words must not be damaged.
+  const keptCases = [
+    'Swelling near 36 since 3 days.',
+    'Pain near the ear on chewing.',
+    'Tenderness near the temple joint.',
+    'Radiolucency behind the lower molar.',
+    'Caries next to the bridge abutment.',
+    'Calculus beside the crown margin.',
+    'Sinus tract opposite the extraction site.',
+    'Gingival recession close to the nerve exit.',
+    'Fracture line near the stand-alone implant.',
+    'Nerve block 2 ml given.',
+    'Resorption near signal intensity change on CBCT.',
+  ]
+  for (const note of keptCases) it(`keeps: ${note}`, () => expect(kept(note)).toBe('kept'))
+})
+
 describe('attack: names', () => {
   const cases: Array<[string, string[]]> = [
     ['Patient: Arvind  Testwala. Pain in 36.', ['Arvind', 'Testwala']],
@@ -204,14 +268,11 @@ describe('known gaps: the code redactor misses these', () => {
   it.fails('a name in Devanagari with no "name:" label', () => {
     expect(hidden('रमेश पाटील came with pain in 36.', 'रमेश')).toBe('hidden')
   })
-  it.fails('a numeric date with no year', () => {
-    expect(hidden('Seen 3/11 and again 17/11.', '3/11')).toBe('hidden')
-  })
   it.fails('a month and a day that could be a tooth number, with no year', () => {
     expect(hidden('Seen Nov 26 for review.', 'Nov 26')).toBe('hidden')
   })
-  it.fails('a weekday or "the 3rd" used as a date', () => {
-    expect(hidden('Seen last Monday, review on the 3rd.', 'Monday', 'the 3rd')).toBe('hidden')
+  it.fails('"the 3rd" used as a date (the weekday half was fixed on 20 Nov 2026)', () => {
+    expect(hidden('Review on the 3rd.', 'the 3rd')).toBe('hidden')
   })
   it.fails('a 7-digit landline number', () => {
     expect(hidden('Landline 555 0142.', '555 0142')).toBe('hidden')

@@ -107,3 +107,20 @@ Marking correction made to the test data BEFORE the run (never to a rule): note 
 | Dentist | 46 | 8 (17.4%) | 0 | 0 | 0 | 4 of 7 | 4 of 8 |
 | CA | 56 | 7 (12.5%) | 0 | 0 | 0 | 3 of 8 | 3 of 4 |
 | Advocate | 69 | 11 (15.9%) | 0 | 0 | 0 | 5 of 10 | 6 of 7 |
+
+## The two rule fixes made after the fresh-note runs (20 Nov 2026, branch t12c-gaps)
+**These fixes were designed from the dentist and CA misses, with no rule specific to the advocate notes, so the advocate set is the clean test of whether they generalise.** (The builder saw the advocate misses before the post-fix run; none of them led to an advocate-specific rule.) Scores on the dentist and CA fresh notes AFTER the fixes are flattered: the fixes were written after seeing those notes.
+
+1. **Dates with no year and weekdays used as dates** (`patterns.ts`): "3/11", "5/1", "3-11" (a day and a month that is not a fraction such as 1/2, 3/4, 2/3 and not two tooth numbers such as 11/12, unless a cue word like "on", "seen", "hearing" comes right before); "last Tuesday", "next Friday", "on Monday", "hearing Monday" (a weekday only with a cue before it, so "free on any Friday" and "Monday clinic" are kept). The old "known gap" test for numeric dates moved up to a passing test; the weekday half of the old weekday test moved up; "the 3rd" stays a known gap (it can mean "the 3rd molar").
+2. **Landmark address phrases** (`places.ts`): "near Ganesh mandir", "behind bus stand", "opp. Hanuman mandir", "near water tank", "behind ZP school", "near Sai baba chowk", "near railway crossing" (a cue word, up to three words, a landmark noun) and house numbers ("Flat 4", "plot 5", "shop 12"); the place name after a comma was already followed by the existing tail rule. Words that are also clinical are not landmark nouns ("temple", "bridge", "signal", "field", "lake"), and 12 clinical phrases with the same cue words are tested to stay untouched ("near 36", "near the ear", "behind the lower molar", "next to the bridge abutment", "near the temple joint", "nerve block 2 ml").
+
+### Code only, before and after the fixes (Playwright Chromium, no Nano)
+| Set | Before | After | Dates | Addresses |
+|---|---|---|---|---|
+| Dentist fresh (flattered) | 20 of 46 (43.5%) | 11 of 46 (23.9%) | 4 of 7 to 0 | 5 of 8 to 1 |
+| CA fresh (flattered) | 26 of 56 (46.4%) | 21 of 56 (37.5%) | 3 of 8 to 0 | 4 of 4 to 2 |
+| **Advocate fresh (clean test)** | **23 of 69 (33.3%)** | **11 of 69 (15.9%)** | **5 of 10 to 0** | **7 of 7 to 0** |
+- **The advocate set improved with no advocate-specific rule:** every date and every address is now hidden by code alone; all 11 remaining code-only leaks are names, which Gemini Nano handles.
+- **No regression on the builder notes:** dentist 4 of 124, CA 2 of 55, advocate 4 of 70 (identical to before).
+- 552 unit tests pass (13 known-gap tests remain, two fewer than before).
+- **Nano re-runs after the fixes: pending** (Dr. Yatin's Chrome, all three fresh pages).
