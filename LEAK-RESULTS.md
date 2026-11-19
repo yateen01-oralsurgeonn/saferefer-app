@@ -74,7 +74,7 @@ Marking correction made to the test data BEFORE the run (never to a rule): note 
 | Date | Profession | Notes | Mode | Leaked | Where measured |
 |---|---|---|---|---|---|
 | 20 Nov 2026 | Advocate (fresh) | 10 (69 identifiers) | code only, pre-fix | **23 of 69 (33.3%)** | Playwright Chromium (no Nano) |
-| | Advocate (fresh) | 10 | code + Gemini Nano, pre-fix | (to do) | Dr. Yatin's Chrome |
+| 20 Nov 2026 | **Advocate (fresh)** | 10 (69 identifiers) | **code + Gemini Nano, PRE-FIX** | **11 of 69 (15.9%)** | Dr. Yatin's own Chrome |
 
 ### Dentist fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026) - the number to quote
 - Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
@@ -94,3 +94,16 @@ Marking correction made to the test data BEFORE the run (never to a rule): note 
   - **One organisation "partial" (F07):** the generic word "boutique" left in "her boutique" after "Nikita Boutique, Kopargaon" was hidden (a scorer false alarm of the "works" kind: the name itself is not in the text).
 - The caveats on the CA notes' provenance (see above) still apply.
 - **Pattern across both fresh sets (dentist 8 of 46, CA 7 of 56): the remaining leaks are almost all (a) short or relative dates and (b) the leading words and place names of landmark addresses.** Names, phones, emails and every ID were hidden. No rule has been changed after any of these runs.
+
+### Advocate fresh notes, code + Nano, PRE-FIX, Dr. Yatin's Chrome (20 Nov 2026)
+- Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
+- **Names 0 of 27, phones 0 of 9, case / FIR / cheque / enrolment numbers 0 of 10, emails 0 of 1, organisations 0 of 2, settlement sums 0 of 3 leaked.** Nano turned 23 code-only leaks into 11.
+- **What is left (11): the same two families, nothing else.** Dates 5 of 10 ("3/11", "last Tuesday", "Monday", "5/1", "Monday"); addresses 6 of 7, all "partial" landmark words ("at near", "Sangamner", "near behind bus stand", "near water tank", "at behind", "near Sai baba chowk").
+- This is the PRE-FIX number: taken before the two planned rule fixes. It is the clean comparison for the post-fix advocate run.
+
+## Summary of all three fresh sets before any rule fix (20 Nov 2026, code + Nano, Dr. Yatin's Chrome)
+| Set | Identifiers | Leaked | Names | Phones | IDs / case numbers | Dates | Addresses |
+|---|---|---|---|---|---|---|---|
+| Dentist | 46 | 8 (17.4%) | 0 | 0 | 0 | 4 of 7 | 4 of 8 |
+| CA | 56 | 7 (12.5%) | 0 | 0 | 0 | 3 of 8 | 3 of 4 |
+| Advocate | 69 | 11 (15.9%) | 0 | 0 | 0 | 5 of 10 | 6 of 7 |
