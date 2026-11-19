@@ -36,8 +36,14 @@ describe('T6 letter: prompt and reply', () => {
     const s = buildSystemInstruction()
     expect(s).toContain('You draft a referral letter from a general dentist to an endodontist.')
     expect(s).toContain('11. If the NOTE is empty or is not a dental clinical note, return letter "" and not_recorded ["ALL"].')
-    expect(s.endsWith('Closing line: Thank you for seeing this patient.')).toBe(true)
+    expect(s.endsWith('Request\nThank you for seeing this patient.')).toBe(true)
     expect(buildSystemInstruction(['A', 'B']).endsWith('in this order:\nA\nB')).toBe(true)
+  })
+
+  it('asks for one section per line and an unlabelled closing sentence', () => {
+    const s = buildSystemInstruction()
+    expect(s).toContain('Put each section on its own line.')
+    expect(s).not.toContain('Closing line')
   })
 
   it('a good reply is accepted, and markdown marks are stripped', () => {

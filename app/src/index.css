@@ -354,3 +354,25 @@ button:disabled {
   background: #e0e7ff;
   color: #3730a3;
 }
+
+/* ---------- T7 restore, warnings, copy ---------- */
+textarea.preview.letter {
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.grey {
+  color: #6b7280;
+}
+.warnings {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+.warnings li.red {
+  color: #b91c1c;
+}
+.warnings li.amber {
+  color: #b45309;
+}

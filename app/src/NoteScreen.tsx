@@ -12,13 +12,18 @@ import drugs from '../../data/drugs.json'
 import shorthand from '../../data/shorthand.json'
 import {
   buildTermSet,
+  checkFacts,
+  DEFAULT_TEMPLATE,
   draftLetter,
   droppedNotice,
+  hasRed,
   itemsToReview,
   MANUAL_MESSAGE,
   MANUAL_TICK,
   nanoRedact,
   redactFirst,
+  restoreLetter,
+  type Warning,
   segmentPreview,
   unhideTokens,
   type HideItem,
@@ -38,6 +43,10 @@ const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
 const letterModelFn = createLetterModelFn(ai, CLOUD_MODEL)
 const NANO_DELAY_MS = 600
+const FACT_DELAY_MS = 300
+const factLists = { drugs, treatments: terms.treatments, findings: terms.findings, shorthand }
+/** Template heading lines are not fact-checked; the model may add a colon to them. */
+const skipLines = DEFAULT_TEMPLATE.flatMap((l) => [l, `${l}:`])
 const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim()
 
 export default function NoteScreen() {
@@ -55,6 +64,12 @@ export default function NoteScreen() {
   const [sending, setSending] = useState(false)
   const [letter, setLetter] = useState<ParsedLetter | null>(null)
   const [showNote, setShowNote] = useState(false)
+  // The restored letter is the dentist's to edit. It lives in React state only (SECURITY B1).
+  const [letterText, setLetterText] = useState<string | null>(null)
+  const [tokenWarnings, setTokenWarnings] = useState<Warning[]>([])
+  const [factWarnings, setFactWarnings] = useState<Warning[]>([])
+  const [ackKey, setAckKey] = useState('')
+  const [copied, setCopied] = useState(false)
   const [problem, setProblem] = useState<{ message: string; hit?: string; blocked: boolean } | null>(null)
   const [hint, setHint] = useState('')
 
@@ -76,6 +91,11 @@ export default function NoteScreen() {
     setApproved(null)
     setSending(false)
     setLetter(null)
+    setLetterText(null)
+    setFactWarnings([])
+    setTokenWarnings([])
+    setAckKey('')
+    setCopied(false)
     setShowNote(false)
     setProblem(null)
     setHint('')
@@ -119,6 +139,39 @@ export default function NoteScreen() {
   // Approval only counts while it still matches the right-hand text and every tick is still ticked.
   const isApproved = approved !== null && approved === preview && canApprove
 
+  // Step A on the edited text (bracketed items that are not hidden items, a missing patient name) and step B (every
+  // fact in the letter must be in the ORIGINAL note). Reruns on every edit, after a short pause.
+  useEffect(() => {
+    if (letterText === null) return
+    const map = mapRef.current
+    const timer = setTimeout(() => {
+      const a = map ? restoreLetter(letterText, map).warnings.filter((w) => w.kind !== 'patient-missing') : []
+      const patient = map?.entries().find((e) => e.type === 'PATIENT')
+      if (patient && !letterText.toLowerCase().includes(patient.value.toLowerCase())) {
+        a.push({ level: 'amber', kind: 'patient-missing', message: 'Patient name is missing.', text: '', index: 0 })
+      }
+      setTokenWarnings(a)
+      setFactWarnings(checkFacts(letterText, note, factLists, { skipLines }))
+    }, FACT_DELAY_MS)
+    return () => clearTimeout(timer)
+  }, [letterText, note])
+
+  const warnings = useMemo(() => [...tokenWarnings, ...factWarnings], [tokenWarnings, factWarnings])
+  const warnKey = warnings.map((w) => `${w.kind}:${w.index}:${w.text}`).join('|')
+  const redNow = hasRed(warnings)
+  const acked = ackKey === warnKey && warnKey !== ''
+  const canCopy = letterText !== null && letterText.trim() !== '' && (!redNow || acked)
+
+  async function copyLetter() {
+    if (!canCopy || letterText === null) return
+    try {
+      await navigator.clipboard.writeText(letterText) // the plain letter only, never the map
+      setCopied(true)
+    } catch {
+      setHint('Copy did not work. Select the letter text and copy it by hand.')
+    }
+  }
+
   const segments = useMemo(() => segmentPreview(preview, { safe: safeWords, allowed: unhidden }), [preview, unhidden])
   const missedCount = segments.filter((s) => s.kind === 'amber').length
 
@@ -146,7 +199,12 @@ export default function NoteScreen() {
     })
     if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
     setSending(false)
-    if (result.ok) setLetter({ letter: result.letter, notRecorded: result.notRecorded })
+    if (result.ok) {
+      setLetter({ letter: result.letter, notRecorded: result.notRecorded })
+      // Put the names back here, in the browser. The map never leaves this ref.
+      const restored = restoreLetter(result.letter, mapRef.current)
+      setLetterText(restored.text)
+    }
     else if (result.failure !== 'aborted') setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
 
@@ -175,7 +233,8 @@ export default function NoteScreen() {
   if (!note.trim()) status = 'Type or paste a note to begin.'
   else if (running) status = 'Hiding names in this browser…'
   else if (sending) status = 'Writing the letter…'
-  else if (letter) status = 'Letter ready. The names are still labels; the next step puts them back.'
+  else if (copied) status = 'Copied. Paste it into your letter.'
+  else if (letter) status = 'Letter ready. Names are put back. Read it, edit it, then copy.'
   else if (problem) status = problem.message
   else if (isApproved) status = 'Approved. Only the right-hand text will be sent.'
   else if (edited) status = 'You changed the note. Please check it again.'
@@ -219,9 +278,34 @@ export default function NoteScreen() {
             )}
           </div>
           {showingLetter ? (
-            <pre className="preview letter" data-testid="letter" aria-labelledby="cloud-label">
-              {letter.letter}
-            </pre>
+            <>
+              <textarea
+                className="preview letter"
+                data-testid="letter"
+                aria-labelledby="cloud-label"
+                value={letterText ?? ''}
+                onChange={(e) => {
+                  setLetterText(e.target.value)
+                  setCopied(false)
+                }}
+                spellCheck={false}
+                autoComplete="off"
+              />
+              {letter.notRecorded.length > 0 && (
+                <p className="small grey" data-testid="not-recorded">
+                  Not recorded in your note: {letter.notRecorded.join(', ')}
+                </p>
+              )}
+              {warnings.length > 0 && (
+                <ul className="warnings" data-testid="warnings">
+                  {warnings.map((w, i) => (
+                    <li key={i} className={w.level}>
+                      {w.message}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
           ) : (
           <>
           <div
@@ -297,6 +381,12 @@ export default function NoteScreen() {
               <input type="checkbox" checked={tickManual} onChange={(e) => setTickManual(e.target.checked)} /> {MANUAL_TICK}
             </label>
           )}
+          {showingLetter && redNow && (
+            <label className="tick">
+              <input type="checkbox" checked={acked} onChange={(e) => setAckKey(e.target.checked ? warnKey : '')} /> I have checked
+              each warning
+            </label>
+          )}
           {needReviewTick && (
             <label className="tick">
               <input type="checkbox" checked={tickReview} onChange={(e) => setTickReview(e.target.checked)} /> I checked the
@@ -308,6 +398,13 @@ export default function NoteScreen() {
           <button type="button" onClick={approve} disabled={!canApprove || isApproved}>
             {isApproved ? 'Approved' : 'Approve'}
           </button>
+          {showingLetter && (
+            <>
+              <button type="button" onClick={copyLetter} disabled={!canCopy} data-testid="copy">
+                {copied ? 'Copied' : 'Copy letter'}
+              </button>
+            </>
+          )}
           <button type="button" onClick={send} disabled={!isApproved || sending || letter !== null} data-testid="send">
             {problem && !problem.blocked ? 'Try again' : 'Send'}
           </button>
