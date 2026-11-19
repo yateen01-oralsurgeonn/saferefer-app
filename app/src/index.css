@@ -344,3 +344,13 @@ button:disabled {
     flex: 1;
   }
 }
+
+/* ---------- T6 letter ---------- */
+.preview.letter {
+  margin: 0;
+  font-family: inherit;
+}
+.badge.cloud {
+  background: #e0e7ff;
+  color: #3730a3;
+}

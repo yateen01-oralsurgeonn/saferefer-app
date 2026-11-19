@@ -1,18 +1,19 @@
-// T5 screen: your note on the left, what the cloud will see on the right.
+// T5 screen and T6 letter: your note on the left, what the cloud will see (then the letter) on the right.
 //
 // Privacy rules this file keeps (CLAUDE.md, SECURITY.md A2, A5, A14, B1, D2, D4):
 // - The token map lives in a React ref. The note lives in React state. Nothing is stored, logged or put in a URL.
 // - Any edit clears approval. Send uses only the frozen approved string, through guardedSend.
 // - Every edit aborts the running Nano call and bumps a run counter; late results are ignored.
-// - Redaction never calls the cloud. Send is a stub in T5; the real letter call is T6.
+// - Redaction never calls the cloud. The letter call (T6) is the only cloud call, and it goes through draftLetter,
+//   which sends each attempt through guardedSend with the frozen approved text.
 import { useEffect, useMemo, useRef, useState } from 'react'
 import terms from '../../data/clinical-terms.json'
 import drugs from '../../data/drugs.json'
 import shorthand from '../../data/shorthand.json'
 import {
   buildTermSet,
+  draftLetter,
   droppedNotice,
-  guardedSend,
   itemsToReview,
   MANUAL_MESSAGE,
   MANUAL_TICK,
@@ -22,9 +23,11 @@ import {
   unhideTokens,
   type HideItem,
   type NanoResult,
+  type ParsedLetter,
   type TokenMap,
 } from './core'
-import { ai } from './firebase'
+import { ai, CLOUD_MODEL } from './firebase'
+import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn } from './nanoAdapter'
 
 const lists = { drugs, clinicalTerms: terms }
@@ -33,14 +36,9 @@ const termSet = buildTermSet(lists)
 const safeWords = new Set([...termSet, ...Object.keys(shorthand).map((k) => k.toLowerCase())])
 const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
+const letterModelFn = createLetterModelFn(ai, CLOUD_MODEL)
 const NANO_DELAY_MS = 600
 const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim()
-
-/** T5 stub: the real cloud call is T6. It receives only the approved string and keeps nothing. */
-const sendStub = async (approved: string): Promise<boolean> => {
-  await new Promise((resolve) => setTimeout(resolve, 300))
-  return approved.length > 0
-}
 
 export default function NoteScreen() {
   const [note, setNote] = useState('')
@@ -55,14 +53,16 @@ export default function NoteScreen() {
   const [approved, setApproved] = useState<string | null>(null)
   const [edited, setEdited] = useState(false)
   const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
-  const [blocked, setBlocked] = useState<{ message: string; hit: string } | null>(null)
+  const [letter, setLetter] = useState<ParsedLetter | null>(null)
+  const [showNote, setShowNote] = useState(false)
+  const [problem, setProblem] = useState<{ message: string; hit?: string; blocked: boolean } | null>(null)
   const [hint, setHint] = useState('')
 
   const mapRef = useRef<TokenMap | null>(null)
   const runCounter = useRef(0)
   const approvedRef = useRef<string | null>(null)
   const previewRef = useRef<HTMLDivElement>(null)
+  const sendCtrl = useRef<AbortController | null>(null)
 
   useEffect(() => {
     approvedRef.current = approved
@@ -72,9 +72,12 @@ export default function NoteScreen() {
   useEffect(() => {
     const runId = ++runCounter.current
     if (approvedRef.current !== null) setEdited(true)
+    sendCtrl.current?.abort()
     setApproved(null)
-    setSent(false)
-    setBlocked(null)
+    setSending(false)
+    setLetter(null)
+    setShowNote(false)
+    setProblem(null)
     setHint('')
     setNano(null)
     setTickManual(false)
@@ -130,14 +133,21 @@ export default function NoteScreen() {
   }
 
   async function send() {
-    if (!isApproved || approved === null || !mapRef.current || sending) return
+    if (!isApproved || approved === null || !mapRef.current || sending || letter) return
+    const runId = runCounter.current
+    const ctrl = new AbortController()
+    sendCtrl.current = ctrl
     setSending(true)
-    setBlocked(null)
-    // The one door: guardedSend gets the frozen string, never the live text.
-    const result = await guardedSend(approved, mapRef.current, sendStub, { allowed: unhidden, safeWords: guardSafeWords })
+    setProblem(null)
+    // The one door: draftLetter sends every attempt through guardedSend with the frozen string, never the live text.
+    const result = await draftLetter(approved, mapRef.current, letterModelFn, {
+      signal: ctrl.signal,
+      guard: { allowed: unhidden, safeWords: guardSafeWords },
+    })
+    if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
     setSending(false)
-    if (!result.ok) setBlocked({ message: result.message, hit: result.hit })
-    else setSent(true)
+    if (result.ok) setLetter({ letter: result.letter, notRecorded: result.notRecorded })
+    else if (result.failure !== 'aborted') setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
 
   function unhide(token: string) {
@@ -164,14 +174,15 @@ export default function NoteScreen() {
   let status = 'Check the right-hand text. Is every name hidden?'
   if (!note.trim()) status = 'Type or paste a note to begin.'
   else if (running) status = 'Hiding names in this browser…'
-  else if (sending) status = 'Sending…'
-  else if (sent) status = 'Sent to a stub. The real letter call is built in T6.'
-  else if (blocked) status = blocked.message
+  else if (sending) status = 'Writing the letter…'
+  else if (letter) status = 'Letter ready. The names are still labels; the next step puts them back.'
+  else if (problem) status = problem.message
   else if (isApproved) status = 'Approved. Only the right-hand text will be sent.'
   else if (edited) status = 'You changed the note. Please check it again.'
   else if (needManualTick) status = MANUAL_MESSAGE
 
   const empty = !note.trim()
+  const showingLetter = letter !== null && !showNote
   return (
     <div className="app" role="main">
       <header className="top">
@@ -197,10 +208,22 @@ export default function NoteScreen() {
         <section className="pane">
           <div className="pane-head">
             <span className="pane-label" id="cloud-label">
-              What the cloud will see
+              {showingLetter ? 'Letter (written by the cloud model)' : 'What the cloud will see'}
             </span>
-            {running && <span className="spinner" role="status" aria-label="Hiding names" />}
+            {showingLetter && <span className="badge cloud">Cloud</span>}
+            {(running || sending) && <span className="spinner" role="status" aria-label="Working" />}
+            {letter && (
+              <button type="button" className="secondary" onClick={() => setShowNote((v) => !v)}>
+                {showNote ? 'Show the letter' : 'Show the hidden note'}
+              </button>
+            )}
           </div>
+          {showingLetter ? (
+            <pre className="preview letter" data-testid="letter" aria-labelledby="cloud-label">
+              {letter.letter}
+            </pre>
+          ) : (
+          <>
           <div
             ref={previewRef}
             className="preview"
@@ -246,15 +269,17 @@ export default function NoteScreen() {
             {missedCount > 0 && <span className="small amber-note">Check this: {missedCount} underlined</span>}
           </div>
           {hint && <p className="small">{hint}</p>}
+          </>
+          )}
         </section>
       </div>
 
-      <p className={`status${blocked ? ' error' : isApproved || sent ? ' ok' : ''}`} aria-live="polite" data-testid="status">
+      <p className={`status${problem ? ' error' : isApproved || letter ? ' ok' : ''}`} aria-live="polite" data-testid="status">
         {status}
-        {blocked && blocked.hit && (
+        {problem?.blocked && problem.hit && (
           <>
             {' '}
-            Check: <strong data-testid="blocked-hit">{blocked.hit}</strong>
+            Check: <strong data-testid="blocked-hit">{problem.hit}</strong>
           </>
         )}
       </p>
@@ -283,8 +308,8 @@ export default function NoteScreen() {
           <button type="button" onClick={approve} disabled={!canApprove || isApproved}>
             {isApproved ? 'Approved' : 'Approve'}
           </button>
-          <button type="button" onClick={send} disabled={!isApproved || sending} data-testid="send">
-            Send
+          <button type="button" onClick={send} disabled={!isApproved || sending || letter !== null} data-testid="send">
+            {problem && !problem.blocked ? 'Try again' : 'Send'}
           </button>
         </div>
       </div>
