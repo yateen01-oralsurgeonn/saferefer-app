@@ -2,6 +2,17 @@
 
 Dr. Yatin cannot judge a CA or legal letter himself. One practising **Chartered Accountant** reads the CA letter and one practising **advocate** reads the legal brief. Their names stay out of this repo because it goes public; Dr. Yatin has them.
 
+## Ready to send (made 19 Nov 2026)
+Two PDFs in `review/`, each 4 pages: what this is, **Sheet 1** note, **Sheet 2** what the cloud saw, **Sheet 3** the drafted letter, then the questions below with answer lines.
+- `review/CA-review-packet.pdf` for the Chartered Accountant (note = `CA01` in `data/packs/ca-notes.json`)
+- `review/LAW-review-packet.pdf` for the advocate (note = `LW04` plus a settlement sentence and a question for counsel)
+
+**How to send:** attach the PDF to a WhatsApp message or email, with one line: "Could you read this and tell me if the letter is usable? 10 minutes. It is all made-up data." They can answer by replying with the question numbers.
+
+**How the sheets were made:** the exact note was typed into the running app with the pack selected, Approve, Send, on the real cloud model (`gemini-3.5-flash-lite`). Sheet 2 is the request body captured from the browser's network call, Sheet 3 is the letter box after names were restored. The note was run 3 times per pack; run 1 is in the PDF. All 3 CA and all 3 advocate letters had every section, no tax or legal opinion, no changed number. Run-to-run difference: CA run 3 repeated the whole note under "Facts recorded" instead of summarising it. If a reviewer says "Facts recorded just repeats the note", that is a real finding, not a one-off.
+
+**Regenerating:** if the pack text changes, run the note again in the app and rebuild the PDFs (the script is in the 19 Nov session notes, not in the repo). Never send a packet made before the last change to a pack.
+
 ## Rules
 - **Synthetic only.** Reviewers see made-up notes from `data/packs/`. Never ask them to try it with a real client file, and do not accept one if they offer.
 - **Send three things, one page each:** (1) the original synthetic note, (2) the anonymous text that went to the cloud, (3) the final letter with names restored.

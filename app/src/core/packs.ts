@@ -29,6 +29,8 @@ export interface LetterText {
   writer: string
   /** The section list, in order. */
   template: readonly string[]
+  /** Optional extra format sentence (CA and advocate packs). Dental has none, so its prompt is unchanged. */
+  formatNote?: string
 }
 
 export interface Pack {
@@ -98,6 +100,7 @@ export const CA_LETTER: LetterText = {
   noAdviceRule: 'No tax or legal opinion, no recommendation, no advice to the client, no estimate of liability.',
   noteKind: 'a chartered accountant client note',
   writer: 'the accountant',
+  formatNote: "Each section is one line that starts with its heading and a colon, for example \"Matter: text\". Never replace the colon with a comma or a full stop, and keep every heading exactly as listed.",
   template: [
     'Dear Colleague,',
     'Re: [PATIENT], the client',
@@ -139,6 +142,7 @@ export const LAW_LETTER: LetterText = {
   noAdviceRule: 'No legal opinion, no prediction of the outcome, no recommendation, no advice to the client.',
   noteKind: 'an advocate case note',
   writer: 'the advocate',
+  formatNote: "Each section is one line that starts with its heading and a colon, for example \"Matter: text\". Never replace the colon with a comma or a full stop, and keep every heading exactly as listed.",
   template: [
     'Dear Counsel,',
     'Re: [PATIENT], the client',
@@ -178,7 +182,7 @@ export function getPack(id: string | null | undefined): Pack {
 // ---------- validation (for packs that do not come from this file) ----------
 
 const PACK_KEYS = ['id', 'label', 'noteLabel', 'placeholder', 'nanoNoteKind', 'letter', 'redaction', 'facts', 'items']
-const LETTER_KEYS = ['intro', 'neverAdd', 'wordsRule', 'numbersRule', 'personRule', 'noAdviceRule', 'noteKind', 'writer', 'template']
+const LETTER_KEYS = ['intro', 'neverAdd', 'wordsRule', 'numbersRule', 'personRule', 'noAdviceRule', 'noteKind', 'writer', 'template', 'formatNote']
 const MAX_TEXT = 400
 /** Only these bracket words may appear in pack text: they are real tokens the model must copy. */
 const ALLOWED_BRACKETS = /\[(?:PATIENT)\]/g
@@ -236,6 +240,7 @@ export function validatePack(raw: unknown): Pack {
       noteKind: cleanText(l.noteKind, 'noteKind'),
       writer: cleanText(l.writer, 'writer'),
       template: template.map((t, i) => cleanText(t, `template line ${i + 1}`)),
+      ...(l.formatNote === undefined ? {} : { formatNote: cleanText(l.formatNote, 'formatNote') }),
     },
   }
 }
