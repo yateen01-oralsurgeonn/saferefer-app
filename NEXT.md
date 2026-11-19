@@ -1,34 +1,34 @@
-# NEXT: T7 is DONE (19 Nov). Now T8 leak-test page
+# NEXT: T8 is DONE (19 Nov). Now T9 tooth lines
 
-Read `HANDOVER.md` and `CLAUDE.md` first. **Newest branch: `t7-restore-copy`** (built on `t6-cloud-letter` > `t5-screen` > `t4-nano-redactor` > `t1-finish`; t4, t5, t6 are pushed, t7 is committed locally, nothing is merged to master).
+Read `HANDOVER.md` and `CLAUDE.md` first. **Newest branch: `t8-leak-test`** (built on `t7-restore-copy` > `t6-cloud-letter` > `t5-screen` > `t4-nano-redactor` > `t1-finish`; t7 is pushed, t8 is committed locally, nothing is merged to master).
 
-## What T7 built
-- Wording fixes (agreed with Dr. Yatin): `core/letter.ts` and PROMPTS.md section 3 now say "Put each section on its own line. Write the last section as the closing sentence only, with no label." The template's last entry is just "Thank you for seeing this patient." Real cloud letter now comes back one section per line and without "Closing line:".
-- `NoteScreen.tsx`: when the letter arrives, `restoreLetter(letter, mapRef.current)` puts the names back. The right-hand side is an EDIT textarea (spellcheck off, plain text, no dangerouslySetInnerHTML). The restored letter lives in React state only.
-- Warnings, rerun 300 ms after every edit: step A (`restoreLetter` on the edited text: unknown or bare token is red; patient name missing is amber) and step B (`checkFacts(letter, ORIGINAL note, lists, {skipLines: template headings, with and without a colon})`). Banner lists each warning in plain words. Code never edits the letter.
-- Copy button copies the plain letter text only. It is off while any red warning is present, unless the dentist ticks "I have checked each warning"; the tick is tied to the exact set of warnings, so a new warning clears it. `not_recorded` sections are listed in grey under the letter.
-- Tests: 240 pass, 14 expected fail (unchanged); tsc and build clean; one oxlint warning (set-state-in-effect, the effect that starts a run).
-- ACCEPTANCE T7 run in the browser (Playwright, real cloud model, note 1): names snap back ("Re: Arvind Testwala"); typing "tooth 47" gives "Tooth 47 is not in your note" and Copy is off; the tick turns Copy on; a second new warning clears the tick; deleting the text removes the warning and Copy works; "[RELATIVE_9]" is a red unknown-token warning; no localStorage or sessionStorage keys.
-- Not yet seen: the T7 screen by eye on a phone width, and with real Nano on.
+## What T8 built
+- `app/src/LeakTest.tsx`, open **`/?leak`** (DEV only, removed from the production build): "Run the test" runs the 30 notes in `data/notes.json` through the same path as the screen (`redactFirst`, then `nanoRedact` if `nanoIsReady()`), scores with the existing `core/leakScorer.ts` (`runLeakTest`), and shows the headline "Identifiers leaked: X of Y", the percent, a by-type table and EVERY miss with note id, kind and context. The mode line says whether Nano was in the run.
+- `app/src/leakRun.ts`: `makeRedact`, `withFetchCount` (counts `fetch` calls), `withoutLanguageModel`, `checkNoModel`. A Nano run that goes manual is listed as a failed note and scored on the code-only text.
+- Two PASS/FAIL lines: zero requests during the whole run; and with `LanguageModel` removed, zero requests and 30 of 30 notes go to manual mode (D3, A4, real adapter).
+- Tests: 244 pass, 14 expected fail; tsc and build clean; one oxlint warning (unchanged).
+- **Result in Playwright Chromium (no Nano, so code only): Identifiers leaked: 4 of 124 (3.2%)**, misses N24 Bunty, N27 Rose, N30 Pinky (names), N25 an organisation (partial); both checks PASS.
+- **Still to do by Dr. Yatin: open `http://localhost:5199/?leak` in his Chrome (Nano on) and press Run.** That score (with Nano) is the number for README and video. Nano needs about 30 calls, so it takes a while. Write the score here and in the memory file.
 
-## Step: T8 leak-test page
+## Step: T9 tooth lines
 ```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T8, SECURITY.md rows tagged T8 (A1, D3),
-ACCEPTANCE.md T8, FINISH.md section 1.
-Do task T8 and nothing else, on branch t8-leak-test from t7-restore-copy.
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T9, PROMPTS.md section 5 (tooth-line prompt and
+its code checks), SECURITY.md row A3, ACCEPTANCE.md T9, FINISH.md section 1.
+Do task T9 and nothing else, on branch t9-tooth-lines from t8-leak-test.
 
-Build a leak-test page over the 30 synthetic notes in data/notes.json (each note lists its
-identifiers). Open it at /?leak (DEV only, like /?setup). For each note run the SAME
-redaction path the screen uses (code redactor, then Nano if ready; if Nano is not ready,
-say so on the page and score code-only). Then score: an identifier "leaked" if its value
-(any case) is still in the text that would be sent. Show "Identifiers leaked: X of Y" and
-list every miss with the note number and the identifier type. A bad score is shown, not hidden.
-Also assert, and show as pass/fail lines: zero cloud requests during the whole run (count
-fetch calls), and redaction with LanguageModel undefined makes zero requests (D3, A4).
-The number for the README and the video must come from this page, not the 3.2% code-only figure.
-Sonnet test: scorer given one note with redaction skipped must report every identifier of that
-note as leaked. Synthetic notes only. Do not change files listed in HANDOVER.md "do not change".
-Commit, then rewrite NEXT.md for T9 with its prompt.
+Plain logic goes in core/toothLines.ts (no React, no SDK): the prompt builder, the schema, the
+code checks from PROMPTS.md section 5 (build the note's FDI tooth set in code, drop entries
+outside it, merge duplicates, drop findings that hold a numeral or a 4+ letter word not in the
+note, ages and doses are not teeth), and a function that takes the model call as an argument.
+The adapter (app/src/toothAdapter.ts) is the only file that calls a model: mode PREFER_ON_DEVICE
+(Nano first, cloud fallback), same prompt and schema for both, and it reports which one ran
+(inferenceSource). The input is ONLY the approved anonymous string after Approve, and every
+attempt goes through guardedSend, including the cloud fallback. Never run it while the dentist
+types. After Approve, show the tooth list with a badge "on-device" or "cloud". Every tooth
+listed must be in the note; "36 years" is not a tooth. Failure shows a fixed message, no SDK text.
+Test: with Nano off (LanguageModel undefined) the badge says "cloud" and the request body holds
+only the approved anonymous note. Synthetic notes only. Do not change files listed in
+HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T10 with its prompt.
 ```
 
 ## If something fails

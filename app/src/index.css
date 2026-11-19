@@ -376,3 +376,11 @@ textarea.preview.letter {
 .warnings li.amber {
   color: #b45309;
 }
+
+/* ---------- T8 leak test ---------- */
+.leak { padding: 12px 16px; max-width: 960px; }
+.leak table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+.leak th, .leak td { border: 1px solid #d1d5db; padding: 4px 8px; text-align: left; vertical-align: top; }
+.checks { padding-left: 18px; }
+.checks .ok { color: #15803d; }
+.checks .error { color: #b91c1c; }
