@@ -1,62 +1,46 @@
-# NEXT: T12 is DONE (19 Nov). Now T13 deploy, README, LICENSE, secrets check
+# NEXT: T13 is DONE (20 Nov). Now T14 the video
 
-Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md`, `REMOTE-CONFIG.md`, `REVIEW.md`, `SUBMISSION.md`, **FINISH.md sections 2, 3 and 4**, `SECURITY.md` (T13 checklist) and `ACCEPTANCE.md` T13 first. Newest branch: **`t12-design`** (built on `t11-remote-config` > `t10-offline` > `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `t11-remote-config` (1cfc63d). `t12-design` is committed locally. Nothing is merged to master.
+Read `HANDOVER.md`, `CLAUDE.md`, `SUBMISSION.md` section 2 (the demo script), `ACCEPTANCE.md` T14, `RULES.md` (video rules), `LEAK-RESULTS.md` and `T13-REPORT.md` first. Newest branch: **`t13-deploy`** (built on `t12c-gaps`). Everything up to `t12c-gaps` (5163e2a) is pushed; `t13-deploy` is committed locally. Nothing is merged to master.
 
-## What T12 built (19 Nov)
-- **`core/messages.ts`: the ONE place for every sentence the dentist reads.** `MESSAGES` (the FINISH.md error table, word for word, plus `offline-not-queued`, `queue-unavailable`, `rules-only`, `unknown`, `unknown-unsure`), `STATUS` (one text per state), `mapError(e)` (reads only an error's own `kind` or `AbortError`, never its message, never an inherited property), `manualKind(state)` and `nanoAvailability()` in `nanoAdapter.ts` (so "still downloading" and "Browser not supported" are told apart from "not available"). `LETTER_MESSAGES`, `BLOCKED_MESSAGE`, `MANUAL_MESSAGE`, `QUEUED_MESSAGE` etc. now come from it. **Two older texts changed to the FINISH.md table** (the blocked text and the manual-mode text); ACCEPTANCE.md T4/T5 and two tests were updated.
-- **Screen redesign** (`NoteScreen.tsx`, `index.css`, FINISH.md palette): header with the Profession pill and the banner, a 3-step progress strip (Note, Check, Letter), two panels (the right one explains "How it works" when empty and says so on a browser without Nano), a bottom dock with one status line (icon + word, never colour alone), ticks and the buttons (Approve turns green when approved, Send turns teal when allowed). Tooth list is a card in the right column; the "letter from your last visit" panel sits under the steps. **1280 x 720: 0 px page scroll in every state. 390 px: no sideways scroll, Approve and Send in a fixed 48 px bar, 16 px text.**
-- **`ErrorBoundary.tsx`** + `main.tsx`: one fixed sentence and a Reload button; the error object is dropped; React's three error hooks are silenced so no error text reaches the console.
-- **Real guard gap found and closed:** while forcing the "blocked" row, a hidden surname glued into a longer word ("clinicMockpatilx", "Mockpatilkar", "Mockpatil2") passed BOTH the redactor and the guard and the letter request went out with the surname inside. `sendGuard.ts` now also blocks a hidden name word of 6+ letters found inside a longer word (clinical words and words the dentist cleared still pass; 0 false positives on the 50 synthetic notes). The blocked word is marked in the right-hand text. 9 new tests. **Not fixed:** the redactor itself still does not hide such glued words (the guard catches them and the dentist hides them by hand).
-- Tests: 502 pass, 14 expected fail; tsc, build, oxlint clean; production bundle has 0 hits for any test name.
-- **Forced failures (real browser, 1280 px):** nano not available, nano downloading, no `LanguageModel` (unsupported), quota 429, App Check 403, server 500, bad reply, offline (queued), guard block, error-boundary crash. Each showed exactly its fixed text. Fake server replies and the crash carried a name and a phone number; neither reached the page or the console.
-- **Not done / honest limits:** no review by a real designer or a real phone (390 px was a Playwright viewport); Nano was absent in the test browser so the green "On-device" badge was not seen in the new design; 360 px was not measured separately; the dev server needed a restart once because Vite served a stale file (no code issue).
+## What T13 did (20 Nov 2026), details in `T13-REPORT.md`
+- Security audit run box by box: 3.1, 3.2, 3.3, 3.4 PASS. `npm audit` had 4 high findings in `@grpc/grpc-js` (pulled in by Firestore code SafeRefer never uses, 0 occurrences in the built site); fixed with an npm override to 1.14.7: 0 vulnerabilities, 552 tests unchanged. The built site has no debug token, no test notes and no development pages.
+- **3.5 has two open decisions for Dr. Yatin:** the real name and personal Gmail on all 60 commits will be public (options in the report), and the old made-up Aadhaar sample is still in two pushed commits (recommend leaving it).
+- `README.md` written (three professions, local queue, no Firestore, honest leak tables, limitations, "reviewed by the builder only"); `SUBMISSION.md` rewritten (description about 890 words; 2:55 video script with a CA/Advocate segment and the Wi-Fi shot); `firebase.json` (CSP, cache rules) and `.firebaserc`.
+- **Hosted-build check done locally** (the production build served with the exact `firebase.json` headers, fresh profile): 0 CSP violations, service worker active, offline works, no development page, 13 requests to Google none containing the name or phone, 0 model requests with Nano unavailable or `LanguageModel` undefined.
+- **Not done, needs Dr. Yatin:** deploy (`firebase login`, `firebase deploy --only hosting`, commands in the report), the console steps (add the hosting domains to the reCAPTCHA key, enforce App Check, restrict the API key), and the hosted-site check on the live URL. The three `[FILL]` links (repo, live app, video) are still open.
 
-## Still to do by Dr. Yatin
-1. Look at the screen himself in his own Chrome and on his phone, and say what he does not like (T12 is a design pass: his eye is the test).
-2. Create the four Remote Config parameters (REMOTE-CONFIG.md), send the review PDFs, the Nano scores for all three packs, a real Wi-Fi-off check, 10 fresh notes per profession.
-3. (Aadhaar sample: decided and done, see T13 item 4.)
+## Still open for Dr. Yatin (not blocking T14)
+Remote Config parameters (REMOTE-CONFIG.md, optional); a real CA and a real advocate reading the PDFs in their own words (optional); push `t13-deploy`; make the repo public before submitting.
 
-## Step: T13 deploy, README, LICENSE, secrets check
+## Step: T14 the video (Dr. Yatin records; the builder prepares)
 ```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, REMOTE-CONFIG.md, REVIEW.md, SUBMISSION.md, FINISH.md sections 2 to 4,
-SECURITY.md T13 checklist, ACCEPTANCE.md T13. Do task T13 and nothing else, on branch t13-deploy from t12-design.
+Read CLAUDE.md, NEXT.md, SUBMISSION.md section 2, ACCEPTANCE.md T14, RULES.md, LEAK-RESULTS.md. Do task T14 and nothing else, on
+branch t14-video from t13-deploy. Dr. Yatin records the screen and the voice himself; the builder prepares everything he needs and
+checks the script against the app. Synthetic data only, banner visible in every shot.
 
-1. LICENSE: Apache-2.0 exists at the repo root (check). README.md following FINISH.md section 2, BUT the outline is out of
-   date in these places and the README must say what is TRUE now:
-   - three professions (Dentist, Chartered Accountant, Advocate), one engine, "profession packs" (PACKS.md); dental leads;
-     the CA and advocate letters were read by outside professionals ONLY IF Dr. Yatin says so (REVIEW.md); otherwise say
-     "reviewed by the builder only";
-   - the offline queue is LOCAL (IndexedDB, approved anonymous text and profession only); there is NO Firestore and NO
-     Anonymous Auth: delete those steps and the Firestore limitation; say a service worker keeps the app shell;
-   - Remote Config changes the section list and the allow-listed model name only (REMOTE-CONFIG.md);
-   - leak scores for all three packs from the /?leak pages (dental 30 notes, CA 10, advocate 10), the date, every miss listed;
-     the code-only numbers on file (dental 3.2%, CA 3.6%, advocate 5.7%) were measured by the session that wrote the rules,
-     so say they are flattered; the honest numbers need Nano and fresh notes; use Dr. Yatin's Nano numbers if he has them;
-   - the Limitations text of FINISH.md "Limitations section" stays, adjusted for the local queue; add: hiding names is not
-     anonymising, a name glued into a longer word is stopped by the send guard but not hidden by the redactor, the
-     other-side roles ("accused", "defendant") are hidden as separate people, settlement sums are hidden in the advocate pack.
-2. Update SUBMISSION.md: the description and the 2:45 script now need the pack segment (about 20 s: switch to CA then
-   Advocate, show the same flow) and the local offline queue; keep it truthful, no compliance claims, no "reviewed by" unless true.
-3. Deploy: Firebase Hosting (firebase.json with a CSP whose connect-src is limited to the Google endpoints the app calls:
-   firebasevertexai, firebaseappcheck, firebaseremoteconfig, firebaseinstallations, recaptcha; the service worker file must be
-   served with no-cache). reCAPTCHA Enterprise site key and the hosted domain go in the console and in .env.production only
-   via env, never in git. Dr. Yatin runs `firebase login` and `firebase deploy` himself (give him the exact commands); do not
-   ask for his credentials.
-4. Run EVERY box of FINISH.md section 3 (3.1 to 3.6) and report PASS or FAIL for each, file and line only, never a token or a
-   note. Note: the test notes now include fake PAN, GSTIN, bank numbers, emails and an Aadhaar-shaped number
-   (data/packs, review/*.pdf); section 3.5's PII scan WILL list them: confirm each is one of the made-up values and say so.
-   DECIDED 19 Nov (Dr. Yatin): the Aadhaar sample was replaced by "0123 4567 8901" (starts with 0: never a real number) in
-   data/packs and the tests; a number written after the word Aadhaar/UID is now hidden whole whatever its digits (any first
-   digit, no checksum needed); the Verhoeff test uses the public vector 2363 and a number built at run time. The OLD number
-   "0123 4567 8901" is still in git history (commits 8fdb69a, e5dae38 and the T12 notes); it is a made-up string that passes
-   the checksum, not a known person's record. The 3.2 history scan will show it: say so, and ask Dr. Yatin whether to leave
-   it or rewrite history before the repo goes public (rewriting means force-pushing pushed branches: only on his word).
-5. Hosted-site check in a fresh Chrome profile (Playwright): note 1 in, letter out, search every request body for the name and
-   phone (zero hits); with Nano unavailable and with LanguageModel undefined redaction sends zero requests; the leak page and
-   the setup page are NOT in the build; the service worker registers and the app opens offline.
-Do not change files listed in HANDOVER.md "do not change". Do not push or deploy yourself. Commit, then rewrite NEXT.md for T14
-(the video; SUBMISSION.md section 2, ACCEPTANCE.md T14).
+1. COMPARE the script with the built app, line by line (ACCEPTANCE T14 "Sonnet tests"): list every shot the app cannot do today
+   and what to show instead. Known items to check: the "chatbot window" opening shot (use a screenshot of any chatbot with a made-up
+   note, never a real chat); the "On-device" badge needs Nano in his Chrome; the Wi-Fi shot needs a real Wi-Fi switch (it worked on
+   his laptop on 20 Nov: queued, then sent by itself within about 20 s) and the dev server must NOT be the page shown (use the
+   hosted URL or `npm run build` + `firebase serve`; the leak page and the 10-note fresh sets exist only in development: `/?leak`
+   shots must be recorded on `npm run dev`, say so in the runbook).
+2. WRITE `video/` in the repo: (a) `demo-notes.md`: one made-up note per profession for the video (dentist, CA, advocate), NOT taken
+   from data/fresh or data/notes.json test files and with no name that exists in the tests; phones start with five zeros; (b)
+   `runbook.md`: for each row of the script the exact clicks, what is on screen, how long it should take, what to say, and what to cut
+   if the take is long; (c) `voiceover.md`: the spoken lines with timings and word counts (about 150 words per minute: the whole
+   voiceover must fit about 2:45); (d) `subtitles.srt` with the same lines and timings (English); (e) a pre-flight checklist: new
+   Chrome profile, zoom 100%, bookmarks bar hidden, notifications off, window 1280 x 720, Nano available (`await
+   LanguageModel.availability()`), Wi-Fi switch ready, DevTools Network panel docked for the request-body shot, screen recorder
+   settings, microphone check.
+3. LEAK-TEST SHOT: decide with Dr. Yatin which numbers go on screen. Use the post-fix Nano results from LEAK-RESULTS.md; the
+   on-screen text must say "fresh notes", the three numbers, and "small set"; never "private", "safe" or "compliant".
+4. AFTER the recording (builder checks, Dr. Yatin uploads): length under 3:00; subtitles on; the banner in every shot; no real name,
+   phone, face of a patient, API key or token on screen (look at the Network panel shot: the request body must show labels only); the
+   YouTube link opens in an Incognito window and is public. Upload settings: public (not unlisted), English, subtitles uploaded as
+   the .srt, a description with the repo link, no "reviewed by" claims.
+Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T15 (Devpost; PLAN.md section 6
+checklist, SUBMISSION.md section 1, count the description words against the Devpost limit).
 ```
 
 ## If something fails
-If the restored letter or the map would have to be stored anywhere to make something work, stop and tell Dr. Yatin. Never send anything that did not pass `guardedSend`. If a real secret or real patient detail is found in git history, stop and tell him: do not rewrite history yourself.
+If the restored letter or the map would have to be stored anywhere to make something work, stop and tell Dr. Yatin. Never send anything that did not pass `guardedSend`. If a real secret or real patient detail is found anywhere (a screenshot, the video, git), stop and tell him; do not rewrite history yourself.
