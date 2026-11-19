@@ -1,0 +1,399 @@
+[
+  {
+    "id": "LW01",
+    "text": "Client: Ganesh Testpawar is the accused in Crime No. 88/2026 registered at Fakepur police station under Sections 304A and 279 of the Indian Penal Code. FIR dated 14/09/2026. Phone 00000 55701. The bail application before the Sessions Court at Samplepur is listed for hearing on 02/12/2026. He was released on interim bail on 20 September 2026.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Ganesh Testpawar"
+      },
+      {
+        "type": "record_id",
+        "value": "88/2026"
+      },
+      {
+        "type": "organization",
+        "value": "Fakepur"
+      },
+      {
+        "type": "date",
+        "value": "14/09/2026"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55701"
+      },
+      {
+        "type": "date",
+        "value": "02/12/2026"
+      },
+      {
+        "type": "date",
+        "value": "20 September 2026"
+      }
+    ],
+    "keep": [
+      "Sections 304A and 279 of the Indian Penal Code",
+      "Sessions Court at Samplepur",
+      "bail application",
+      "interim bail"
+    ]
+  },
+  {
+    "id": "LW02",
+    "text": "Petitioner Mrs Lata Mockbhosale seeks maintenance under Section 125 of the Code of Criminal Procedure against her husband Dinesh Mockbhosale, the respondent. Family Court case no. 301/2025 is at the stage of evidence. Her Aadhaar is 0123 4567 8901. Address: Flat 9, Example Apartments, Fakewadi 413106. Monthly maintenance claimed is Rs 25,000. The respondent offered Rs 4,50,000 as a one-time settlement.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Lata Mockbhosale"
+      },
+      {
+        "type": "relative",
+        "value": "Dinesh Mockbhosale"
+      },
+      {
+        "type": "record_id",
+        "value": "301/2025"
+      },
+      {
+        "type": "record_id",
+        "value": "0123 4567 8901"
+      },
+      {
+        "type": "address",
+        "value": "Flat 9, Example Apartments, Fakewadi 413106"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 4,50,000"
+      }
+    ],
+    "keep": [
+      "Section 125 of the Code of Criminal Procedure",
+      "Rs 25,000",
+      "Family Court",
+      "stage of evidence"
+    ]
+  },
+  {
+    "id": "LW03",
+    "text": "M/s Sample Builders Pvt Ltd (client) has filed Civil Suit 55 of 2026 against the defendant Imran Testkhan in the District Court for specific performance of an agreement dated 5 March 2025. Sale price Rs 1.2 crore, earnest money Rs 10 lakh paid. Director Vikas Mockjadhav, mobile 00000 55703, signs the vakalatnama. The defendant's advocate Rekha Fakedeshpande has sought time. Notice was served at 12, Example Colony, Samplepur.",
+    "identifiers": [
+      {
+        "type": "organization",
+        "value": "Sample Builders Pvt Ltd"
+      },
+      {
+        "type": "record_id",
+        "value": "55 of 2026"
+      },
+      {
+        "type": "relative",
+        "value": "Imran Testkhan"
+      },
+      {
+        "type": "date",
+        "value": "5 March 2025"
+      },
+      {
+        "type": "relative",
+        "value": "Vikas Mockjadhav"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55703"
+      },
+      {
+        "type": "relative",
+        "value": "Rekha Fakedeshpande"
+      },
+      {
+        "type": "address",
+        "value": "12, Example Colony, Samplepur"
+      }
+    ],
+    "keep": [
+      "Civil Suit",
+      "specific performance",
+      "Rs 1.2 crore",
+      "Rs 10 lakh",
+      "District Court"
+    ]
+  },
+  {
+    "id": "LW04",
+    "text": "Client: Sagar Testkulkarni, complainant under Section 138 of the Negotiable Instruments Act. Cheque no. 004512 for Rs 3,75,000 drawn on Example Bank was dishonoured on 7 August 2026 with the remark funds insufficient. Legal notice was sent on 21 August 2026. Accused Rahul Mocktambe, phone 00000 55704, has not replied. Complaint filed as CC 412/2026 before the Judicial Magistrate First Class at Samplepur.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Sagar Testkulkarni"
+      },
+      {
+        "type": "record_id",
+        "value": "004512"
+      },
+      {
+        "type": "organization",
+        "value": "Example Bank"
+      },
+      {
+        "type": "date",
+        "value": "7 August 2026"
+      },
+      {
+        "type": "date",
+        "value": "21 August 2026"
+      },
+      {
+        "type": "relative",
+        "value": "Rahul Mocktambe"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55704"
+      },
+      {
+        "type": "record_id",
+        "value": "412/2026"
+      }
+    ],
+    "keep": [
+      "Section 138 of the Negotiable Instruments Act",
+      "Rs 3,75,000",
+      "Judicial Magistrate First Class",
+      "dishonoured",
+      "funds insufficient"
+    ]
+  },
+  {
+    "id": "LW05",
+    "text": "Smt. Sunanda Fakepatil's brother Prashant Fakepatil disputes the partition of ancestral land in village Samplewadi, Taluka Example, District Pune. Her phone is zero zero zero zero zero five five seven zero five. Partition Suit RCS 77/2024 is pending before the Civil Judge Senior Division. Claim value Rs 60 lakh. A compromise at Rs 18 lakh was discussed on 3rd October 2026 but she has not agreed.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Sunanda Fakepatil"
+      },
+      {
+        "type": "relative",
+        "value": "Prashant Fakepatil"
+      },
+      {
+        "type": "address",
+        "value": "village Samplewadi, Taluka Example, District Pune"
+      },
+      {
+        "type": "phone",
+        "value": "zero zero zero zero zero five five seven zero five"
+      },
+      {
+        "type": "record_id",
+        "value": "77/2024"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 18 lakh"
+      },
+      {
+        "type": "date",
+        "value": "3rd October 2026"
+      }
+    ],
+    "keep": [
+      "Rs 60 lakh",
+      "Civil Judge Senior Division",
+      "Partition Suit"
+    ]
+  },
+  {
+    "id": "LW06",
+    "text": "Pappu bhai from the Indapur market wants to file a consumer complaint against Fake Electronics Stores for a defective refrigerator bought on 11 June 2026 for Rs 48,000. His son Chintu looks after the shop. Call after 6 pm on 0 0 0 0 0 5 5 7 0 6. He wants to know if the District Consumer Commission has jurisdiction.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Pappu"
+      },
+      {
+        "type": "organization",
+        "value": "Fake Electronics Stores"
+      },
+      {
+        "type": "date",
+        "value": "11 June 2026"
+      },
+      {
+        "type": "relative",
+        "value": "Chintu"
+      },
+      {
+        "type": "phone",
+        "value": "0 0 0 0 0 5 5 7 0 6"
+      }
+    ],
+    "keep": [
+      "Rs 48,000",
+      "District Consumer Commission",
+      "consumer complaint"
+    ]
+  },
+  {
+    "id": "LW07",
+    "text": "Client: Neha Testagarwal (PAN AAAPT0007N) appeals against the order in CNR MHPU010012342026 passed by the Income Tax Appellate Tribunal. Counsel on record is advocate Rohit Mockdeshmukh, enrolment no. MH/1234/2015, email rohit.mockdeshmukh@example.org. Hearing on 18/01/2027. The demand under section 143(3) of the Income-tax Act is Rs 2.2 crore.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Neha Testagarwal"
+      },
+      {
+        "type": "record_id",
+        "value": "AAAPT0007N"
+      },
+      {
+        "type": "record_id",
+        "value": "MHPU010012342026"
+      },
+      {
+        "type": "relative",
+        "value": "Rohit Mockdeshmukh"
+      },
+      {
+        "type": "record_id",
+        "value": "MH/1234/2015"
+      },
+      {
+        "type": "email",
+        "value": "rohit.mockdeshmukh@example.org"
+      },
+      {
+        "type": "date",
+        "value": "18/01/2027"
+      }
+    ],
+    "keep": [
+      "Income Tax Appellate Tribunal",
+      "section 143(3) of the Income-tax Act",
+      "Rs 2.2 crore"
+    ]
+  },
+  {
+    "id": "LW08",
+    "text": "client name - ravi testmore. accused in sessions case no 19 of 2026, pocso act section 8. lives at plot 5, example nagar, fakewadi. mobile 00000-55708. witness suresh fakeghodke turned hostile on 9 oct 2026. trial court: special court samplepur.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "ravi testmore"
+      },
+      {
+        "type": "record_id",
+        "value": "19 of 2026"
+      },
+      {
+        "type": "address",
+        "value": "plot 5, example nagar, fakewadi"
+      },
+      {
+        "type": "phone",
+        "value": "00000-55708"
+      },
+      {
+        "type": "relative",
+        "value": "suresh fakeghodke"
+      },
+      {
+        "type": "date",
+        "value": "9 oct 2026"
+      }
+    ],
+    "keep": [
+      "pocso act section 8",
+      "special court samplepur",
+      "turned hostile"
+    ]
+  },
+  {
+    "id": "LW09",
+    "text": "Client: Mockwani Logistics LLP, through partner Girish Mockwani (mobile 00000 55709), claims Rs 85,00,000 in arbitration against Example Steel Works under clause 14 of the agreement dated 1 April 2024. Arbitrator Justice Ashok Fakekulkarni was appointed on 10/08/2026. Arbitration Petition No. 18 of 2026 is filed in the Bombay High Court under Section 11 of the Arbitration and Conciliation Act. Settlement proposed by the other side: Rs 40 lakh in full and final.",
+    "identifiers": [
+      {
+        "type": "organization",
+        "value": "Mockwani Logistics LLP"
+      },
+      {
+        "type": "relative",
+        "value": "Girish Mockwani"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55709"
+      },
+      {
+        "type": "organization",
+        "value": "Example Steel Works"
+      },
+      {
+        "type": "date",
+        "value": "1 April 2024"
+      },
+      {
+        "type": "name",
+        "value": "Ashok Fakekulkarni"
+      },
+      {
+        "type": "date",
+        "value": "10/08/2026"
+      },
+      {
+        "type": "record_id",
+        "value": "18 of 2026"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 40 lakh"
+      }
+    ],
+    "keep": [
+      "Rs 85,00,000",
+      "Bombay High Court",
+      "Section 11 of the Arbitration and Conciliation Act",
+      "clause 14"
+    ]
+  },
+  {
+    "id": "LW10",
+    "text": "Client: Anita Fakejoshi (born 12 February 1985), email anita.fakejoshi@example.org, residing at 7, Placeholder Society, Sample Road, Fakepur 413106. Her husband Mukesh Fakejoshi has filed for divorce under Section 13(1)(ia) of the Hindu Marriage Act in the Family Court, Samplepur, petition no. 220/2026. Interim custody of the minor child is the issue. Mediation is listed on 27/11/2026.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Anita Fakejoshi"
+      },
+      {
+        "type": "dob",
+        "value": "12 February 1985"
+      },
+      {
+        "type": "email",
+        "value": "anita.fakejoshi@example.org"
+      },
+      {
+        "type": "address",
+        "value": "7, Placeholder Society, Sample Road, Fakepur 413106"
+      },
+      {
+        "type": "relative",
+        "value": "Mukesh Fakejoshi"
+      },
+      {
+        "type": "record_id",
+        "value": "220/2026"
+      },
+      {
+        "type": "date",
+        "value": "27/11/2026"
+      }
+    ],
+    "keep": [
+      "Section 13(1)(ia) of the Hindu Marriage Act",
+      "Family Court, Samplepur",
+      "Interim custody"
+    ]
+  }
+]

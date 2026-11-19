@@ -56,8 +56,16 @@ export function findCaIds(text: string, taken: Span[] = []): Found[] {
   }
   for (const m of text.matchAll(IFSC_RE)) add(m.index, m[0])
   for (const m of text.matchAll(TAN_RE)) add(m.index, m[0])
+  for (const f of findAadhaarIds(text, [...taken, ...out])) add(f.start, f.value)
+  return out
+}
+
+/** Aadhaar: 12 digits in any spacing, with a valid Verhoeff check digit (so a plain amount is left alone). */
+export function findAadhaarIds(text: string, taken: Span[] = []): Found[] {
+  const out: Found[] = []
   for (const m of text.matchAll(AADHAAR_RE)) {
-    if (verhoeffOk(m[0].replace(/\D/g, ''))) add(m.index, m[0])
+    const f: Found = { start: m.index, end: m.index + m[0].length, type: 'ID', value: m[0] }
+    if (verhoeffOk(m[0].replace(/\D/g, '')) && !hit(taken, f)) out.push(f)
   }
   return out
 }

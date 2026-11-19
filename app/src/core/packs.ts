@@ -7,7 +7,7 @@
 
 import { isSafeWord } from './redactRules'
 
-export type PackId = 'dental' | 'ca'
+export type PackId = 'dental' | 'ca' | 'law'
 
 /** The parts of the letter instruction a profession may change. Every other rule is fixed (letter.ts). */
 export interface LetterText {
@@ -42,7 +42,7 @@ export interface Pack {
   nanoNoteKind: string
   letter: LetterText
   /** Extra words for the code redactor. They only add to the base rules (redactRules.ts). */
-  redaction: { relations: readonly string[]; headers: readonly string[]; ids: 'none' | 'ca' }
+  redaction: { relations: readonly string[]; headers: readonly string[]; roles: readonly string[]; ids: 'none' | 'ca' | 'law' }
   /** Which fact checks run on the letter: 'dental' adds tooth, drug and treatment checks. */
   facts: 'dental' | 'generic'
   /** Which item list runs after Approve. Teeth for dental; none until P2 adds citations. */
@@ -81,7 +81,7 @@ export const DENTAL_PACK: Pack = {
   placeholder: 'Type or paste a synthetic clinical note',
   nanoNoteKind: "a dentist's clinical note",
   letter: DENTAL_LETTER,
-  redaction: { relations: [], headers: [], ids: 'none' },
+  redaction: { relations: [], headers: [], roles: [], ids: 'none' },
   facts: 'dental',
   items: 'teeth',
 }
@@ -120,13 +120,55 @@ export const CA_PACK: Pack = {
   redaction: {
     relations: ['director', 'proprietor', 'karta', 'accountant', 'auditor', 'promoter', 'trustee'],
     headers: ['client', 'assessee', 'party', 'client name'],
+    roles: [],
     ids: 'ca',
   },
   facts: 'generic',
   items: 'none',
 }
 
-export const PACKS: Readonly<Record<PackId, Pack>> = { dental: DENTAL_PACK, ca: CA_PACK }
+export const LAW_LETTER: LetterText = {
+  intro:
+    'You draft a short brief from an advocate to senior counsel. The reader is counsel, never the client. The advocate will review, edit and sign the brief.',
+  neverAdd: 'fact, date, section, Act, case number, court, order, finding, ground, authority, case law or conclusion',
+  wordsRule:
+    "keep the advocate's own words for facts and for any ground they recorded. Fix grammar. Expand shorthand only when the meaning is certain; otherwise keep it as written.",
+  numbersRule:
+    'Sections, Acts, courts, amounts and references: keep every section number, Act name, court name, hearing stage and amount exactly as written. Never cite, add or recall any case law or authority.',
+  personRule: "Refer to the client as [PATIENT] or \"the client\". Do not guess the client's sex.",
+  noAdviceRule: 'No legal opinion, no prediction of the outcome, no recommendation, no advice to the client.',
+  noteKind: 'an advocate case note',
+  writer: 'the advocate',
+  template: [
+    'Dear Counsel,',
+    'Re: [PATIENT], the client',
+    'Forum and stage',
+    'Facts recorded',
+    'Documents on file',
+    'Issue for counsel',
+    'Thank you for your help with this matter.',
+  ],
+}
+
+export const LAW_PACK: Pack = {
+  id: 'law',
+  label: 'Advocate',
+  noteLabel: 'Your case note (stays in this browser)',
+  placeholder: 'Type or paste a synthetic case note',
+  nanoNoteKind: "an advocate's case note",
+  letter: LAW_LETTER,
+  redaction: {
+    relations: ['opposite party', 'advocate', 'counsel', 'arbitrator', 'mediator', 'director', 'surety', 'victim'],
+    headers: ['client', 'litigant', 'client name'],
+    // Other people in the matter: hidden as PERSON, never as [PATIENT] (the client).
+    roles: ['petitioner', 'respondent', 'accused', 'complainant', 'witness', 'plaintiff', 'defendant'],
+    ids: 'law',
+  },
+  facts: 'generic',
+  items: 'none',
+}
+
+export const PACKS: Readonly<Record<PackId, Pack>> = { dental: DENTAL_PACK, ca: CA_PACK, law: LAW_PACK }
 export const DEFAULT_PACK = DENTAL_PACK
 
 export function getPack(id: string | null | undefined): Pack {
@@ -159,8 +201,8 @@ export function validatePack(raw: unknown): Pack {
   if (p.facts !== 'dental' && p.facts !== 'generic') throw new Error('Pack: bad facts')
   const r = p.redaction as Record<string, unknown>
   if (typeof r !== 'object' || r === null || Array.isArray(r)) throw new Error('Pack: bad redaction')
-  for (const k of Object.keys(r)) if (!['relations', 'headers', 'ids'].includes(k)) throw new Error('Pack: unknown redaction field')
-  if (r.ids !== 'none' && r.ids !== 'ca') throw new Error('Pack: bad ids')
+  for (const k of Object.keys(r)) if (!['relations', 'headers', 'roles', 'ids'].includes(k)) throw new Error('Pack: unknown redaction field')
+  if (r.ids !== 'none' && r.ids !== 'ca' && r.ids !== 'law') throw new Error('Pack: bad ids')
   const words = (v: unknown, what: string): string[] => {
     if (!Array.isArray(v) || v.length > 30 || !v.every(isSafeWord)) throw new Error(`Pack: bad ${what}`)
     return v.map((w) => (w as string).trim())
@@ -178,7 +220,12 @@ export function validatePack(raw: unknown): Pack {
     nanoNoteKind: cleanText(p.nanoNoteKind, 'nanoNoteKind'),
     items: p.items,
     facts: p.facts,
-    redaction: { relations: words(r.relations, 'relations'), headers: words(r.headers, 'headers'), ids: r.ids },
+    redaction: {
+      relations: words(r.relations, 'relations'),
+      headers: words(r.headers, 'headers'),
+      roles: words(r.roles, 'roles'),
+      ids: r.ids,
+    },
     letter: {
       intro: cleanText(l.intro, 'intro'),
       neverAdd: cleanText(l.neverAdd, 'neverAdd'),

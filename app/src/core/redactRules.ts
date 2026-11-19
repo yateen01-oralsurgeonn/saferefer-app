@@ -14,6 +14,11 @@ export interface RedactRules {
   relations?: readonly string[]
   /** Extra header labels for the main person: "Client: Rajesh Testshah". Letters and spaces only. */
   headers?: readonly string[]
+  /**
+   * Role labels for OTHER people in the matter ("Accused: ...", "defendant ..."). Their names are hidden as PERSON and
+   * never as the main person, so [PATIENT] always means the client. Letters, spaces and hyphens only.
+   */
+  roles?: readonly string[]
   /** Short forms that look like an ID but are not ("GSTR-3B"). */
   notIdPrefixes?: readonly string[]
 }
