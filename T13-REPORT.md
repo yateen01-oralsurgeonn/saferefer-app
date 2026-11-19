@@ -24,7 +24,7 @@ Branch `t13-deploy` (from `t12c-gaps`). Nothing was deployed or pushed by the bu
 
 ### Decisions needed from Dr. Yatin (3.5)
 1. **Author line.** All 60 commits are authored `[real name and personal email: removed]`. That real name and personal Gmail address become public with the repo. Options: (a) accept it; (b) from now on commit with a GitHub no-reply address (`git config user.email "<id>+<username>@users.noreply.github.com"`), which does not change the 60 existing commits; (c) rewrite history (force-push, only on his word, not recommended this close to the deadline).
-2. **The old Aadhaar sample "0123 4567 8901"** (a made-up number that passes the real check digit, so it could in theory belong to someone) is still in git history (commits 8fdb69a and e5dae38, pushed to the private repo). It is not in any current file. Recommended: leave it (low risk, a made-up string) and keep the new sample. Rewriting history is the only way to remove it.
+2. **The old Aadhaar sample** (a made-up 12-digit number starting 2345 that passes the real check digit, so it could in theory belong to someone) is still in git history (commits 8fdb69a and e5dae38, pushed to the private repo). It is no longer written in any current file (this report deliberately does not repeat it). Recommended: leave it (low risk, a made-up string) and keep the new sample. Rewriting history is the only way to remove it.
 
 ## Deploy readiness
 
