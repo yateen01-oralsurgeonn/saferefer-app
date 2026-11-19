@@ -28,7 +28,7 @@ One typed object per profession in `core/packs.ts` (changed in P1, 19 Nov: TypeS
 3. **Context can still identify a person** ("the only builder in Indapur"). The amber underline and the professional's check stay the real control. The leak score is published per pack, misses included.
 4. **No compliance claims** (DPDP, HIPAA, ICAI, Bar Council), same as today.
 5. **Dental stays the default and the demo lead.** CA and Lawyer are a dropdown at the top. If the CA or Lawyer pack is not good by its cut-off day, it is hidden behind `?packs` and only mentioned in the video.
-6. **Dr. Yatin cannot judge CA or legal letters.** Before the video, one CA and one advocate (people he knows) read one synthetic letter each and say "usable" or not. If no one is available, the video says "reviewed by the builder only".
+6. **Dr. Yatin cannot judge CA or legal letters.** Confirmed 19 Nov: he has a practising CA and a practising advocate who will each read one synthetic letter. Questions, timing and rules are in `REVIEW.md`. Names stay out of the public repo.
 7. **The name stays SafeRefer.** "Refer" works for all three.
 
 ## 5. Hurdles and how we handle them
