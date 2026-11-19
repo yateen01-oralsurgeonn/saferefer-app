@@ -65,6 +65,8 @@ Each is half a day or less. For every task, also build the PROMPTS.md design for
 
 ## 4. Schedule (IST)
 
+**Superseded 19 Nov: see PACKS.md section 6** (T9 done 19 Nov; packs P1 to P3 added 20 to 22 Nov; submit 28 Nov).
+
 | Day | Work |
 |---|---|
 | Tue 17 Nov | T1 |
@@ -120,7 +122,7 @@ Superseded: record from SUBMISSION.md section 2 (2:45). The table below is the f
 
 - Voice input, photos, X-rays, or languages other than English
 - Android or iOS versions
-- More than one letter type
+- More than one letter type **per profession**. Profession packs (dentist, CA, advocate) are allowed from 19 Nov: PACKS.md
 - Login screens, patient lists, saved history, settings
 - Patient-facing text; diagnosis or treatment advice
 - Cloud fallback for redaction

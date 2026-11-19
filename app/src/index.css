@@ -384,3 +384,28 @@ textarea.preview.letter {
 .checks { padding-left: 18px; }
 .checks .ok { color: #15803d; }
 .checks .error { color: #b91c1c; }
+
+/* T9 tooth lines */
+.teeth {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+}
+.tooth-list {
+  margin: 6px 0 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+.tooth-list li {
+  padding: 2px 0;
+}
+.tooth-list strong {
+  display: inline-block;
+  min-width: 2.2em;
+}
+.badge.rules {
+  background: #eef0f2;
+  color: #51606f;
+}

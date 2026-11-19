@@ -18,6 +18,9 @@ import {
   droppedNotice,
   hasRed,
   itemsToReview,
+  listTeeth,
+  RULES_ONLY_MESSAGE,
+  type ToothResult,
   MANUAL_MESSAGE,
   MANUAL_TICK,
   nanoRedact,
@@ -34,6 +37,7 @@ import {
 import { ai, CLOUD_MODEL } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn } from './nanoAdapter'
+import { createToothModelFn } from './toothAdapter'
 
 const lists = { drugs, clinicalTerms: terms }
 const termSet = buildTermSet(lists)
@@ -42,6 +46,8 @@ const safeWords = new Set([...termSet, ...Object.keys(shorthand).map((k) => k.to
 const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
 const letterModelFn = createLetterModelFn(ai, CLOUD_MODEL)
+const toothModelFn = createToothModelFn(ai, CLOUD_MODEL)
+const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules only' } as const
 const NANO_DELAY_MS = 600
 const FACT_DELAY_MS = 300
 const factLists = { drugs, treatments: terms.treatments, findings: terms.findings, shorthand }
@@ -72,12 +78,15 @@ export default function NoteScreen() {
   const [copied, setCopied] = useState(false)
   const [problem, setProblem] = useState<{ message: string; hit?: string; blocked: boolean } | null>(null)
   const [hint, setHint] = useState('')
+  const [teeth, setTeeth] = useState<ToothResult | null>(null)
+  const [listingTeeth, setListingTeeth] = useState(false)
 
   const mapRef = useRef<TokenMap | null>(null)
   const runCounter = useRef(0)
   const approvedRef = useRef<string | null>(null)
   const previewRef = useRef<HTMLDivElement>(null)
   const sendCtrl = useRef<AbortController | null>(null)
+  const toothCtrl = useRef<AbortController | null>(null)
 
   useEffect(() => {
     approvedRef.current = approved
@@ -88,6 +97,9 @@ export default function NoteScreen() {
     const runId = ++runCounter.current
     if (approvedRef.current !== null) setEdited(true)
     sendCtrl.current?.abort()
+    toothCtrl.current?.abort()
+    setTeeth(null)
+    setListingTeeth(false)
     setApproved(null)
     setSending(false)
     setLetter(null)
@@ -183,6 +195,26 @@ export default function NoteScreen() {
     if (!canApprove) return
     setEdited(false)
     setApproved(preview)
+    void runTeeth(preview)
+  }
+
+  // T9: tooth lines run only after Approve, on the frozen approved string, never while the dentist types
+  // (SECURITY A3). listTeeth sends each attempt through guardedSend; Nano first, the cloud if Nano is not there.
+  async function runTeeth(frozen: string) {
+    if (!mapRef.current) return
+    const runId = runCounter.current
+    toothCtrl.current?.abort()
+    const ctrl = new AbortController()
+    toothCtrl.current = ctrl
+    setTeeth(null)
+    setListingTeeth(true)
+    const result = await listTeeth(frozen, mapRef.current, toothModelFn, {
+      signal: ctrl.signal,
+      guard: { allowed: unhidden, safeWords: guardSafeWords },
+    })
+    if (runCounter.current !== runId || ctrl.signal.aborted) return // edited meanwhile: stale
+    setListingTeeth(false)
+    if (result.ok || result.failure !== 'aborted') setTeeth(result)
   }
 
   async function send() {
@@ -367,6 +399,42 @@ export default function NoteScreen() {
           </>
         )}
       </p>
+
+      {(listingTeeth || teeth) && (
+        <section className="teeth" data-testid="teeth" aria-live="polite">
+          <div className="pane-head">
+            <span className="pane-label">Teeth in this note</span>
+            {teeth?.ok && (
+              <span className={`badge ${teeth.source}`} data-testid="tooth-badge">
+                {BADGE_TEXT[teeth.source]}
+              </span>
+            )}
+            {listingTeeth && <span className="spinner" role="status" aria-label="Listing teeth" />}
+          </div>
+          {listingTeeth && <p className="small">Listing teeth from the approved text…</p>}
+          {teeth && !teeth.ok && <p className="small">{teeth.message}</p>}
+          {teeth?.ok && (
+            <>
+              {teeth.teeth.length === 0 && teeth.unnumbered.length === 0 && (
+                <p className="small">No tooth number found in the note.</p>
+              )}
+              {teeth.teeth.length > 0 && (
+                <ul className="tooth-list">
+                  {teeth.teeth.map((t) => (
+                    <li key={t.tooth}>
+                      <strong>{t.tooth}</strong> {t.finding}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {teeth.unnumbered.length > 0 && (
+                <p className="small">No tooth number given: {teeth.unnumbered.join('; ')}</p>
+              )}
+              {teeth.source === 'rules' && <p className="small grey">{RULES_ONLY_MESSAGE}</p>}
+            </>
+          )}
+        </section>
+      )}
 
       {!running && review.length > 0 && (
         <p className="small review" data-testid="review">
