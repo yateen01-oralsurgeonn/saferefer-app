@@ -1,37 +1,47 @@
-# NEXT: T4 is DONE (18 Nov). Now T5 screen
+# NEXT: T5 is DONE (19 Nov). Now T6 cloud letter
 
-Read `HANDOVER.md` first. **Newest branch: `t4-nano-redactor`** (not merged). T4 added `app/src/core/nanoRedactor.ts` (`nanoRedact`, `MANUAL_MESSAGE`, `droppedNotice`, `NanoUnavailableError`), `app/src/nanoAdapter.ts` (`createNanoModelFn(ai)`: the `LanguageModel` lock) and a dev-only test panel `app/src/RedactorCheck.tsx` (shows how to call them; T5 replaces it).
+Read `HANDOVER.md` and `CLAUDE.md` first. **Newest branch: `t5-screen`** (built on `t4-nano-redactor`, which is on `t1-finish`; nothing is pushed or merged).
 
-T4 results (final, 19 Nov): 196 tests pass, 14 expected fail (unchanged). **Real Gemini Nano was run** in Dr. Yatin's Chrome 157 (`availability()` = `available`, with and without the language options). On a note with no cue words ("Arvind Testwala was brought in by Tanmay. Kavita called twice about the bill. She mentioned Podar and Wadgaon.") Nano found all five (names as `[PERSON_n]`, Podar and Wadgaon as `[ORG]`, `[ORG_2]`); tooth 36, ibuprofen and 400 mg were untouched; the Network tab with the `firebasevertexai` filter stayed empty. Both no-Nano states pass: real Edge (no `LanguageModel`: zero requests, fixed message) and a fresh Chrome profile (`unavailable`: fixed message, no cloud request). Only the App Check `exchangeDebugToken` fires, at page load.
+## What T5 built
+- `app/src/NoteScreen.tsx`: the screen. Left "Your note (stays in this browser)", right "What the cloud will see". The right side shows tokens as clickable chips (click = show that text again, added to the guard's `allowed` list), and capitalised words that are not hidden in amber. "Hide selected words" turns a selection into `[PERSON_n]`.
+- Every edit (note, hand-hide, un-hide) starts a new run: `redactFirst` at once (code redactor + hand-hidden words), then Nano after 600 ms, with an `AbortController` and a run counter (SECURITY D2). Approve is off while running.
+- Approve needs: Nano finished; the tick "I hid every name by hand" when Nano failed or is not available (D4); the tick "I checked the items listed above" when `itemsToReview` or a failed hand-hide is non-empty (A5). Approval only counts while it equals the right-hand text, so any edit or un-ticked box greys Send again.
+- **Send goes through `guardedSend(approved, map, send, { allowed, safeWords })`** with the frozen string. For T5 `send` is `sendStub` in `NoteScreen.tsx` (waits 300 ms, returns true, sends nothing). **T6 replaces `sendStub` with the real letter call. Do not add a second route to the cloud.**
+- New core files: `core/screenLogic.ts` (`redactFirst`, `unhideTokens`, `segmentPreview`), tests in `core/__tests__/screenLogic.test.ts`. `App.tsx` shows `NoteScreen`; the old T1 page is `SetupCheck.tsx`, shown only in dev at `/?setup`. The T4 test panel `RedactorCheck.tsx` was removed (the screen does its job).
 
-Found and fixed while testing with real Nano: Nano returns label words ("Patient", "Mrs", "husband") and already-hidden tokens ("[ADDRESS]"). Label words are now dropped (`label-word`), and `itemsToReview(result)` gives the list for the "N suggestions were not applied" notice without that noise: **T5 must use `itemsToReview`, not `dropped + notFound`.** Also fixed in the code redactor: the possessive stays outside the token ("Kulkarni's" -> "[PERSON_1]'s"); it was being swallowed.
+## T5 test results (19 Nov)
+206 tests pass, 14 expected fail (unchanged); build and `tsc` clean; `dist` has 0 hits for the debug token, the setup page or the old test panel. In the browser (Playwright Chrome, no Nano, so manual mode): typing updates the right side; Approve and Send grey until the tick; after Approve, changing one character greys both again; a note with "gopalbhaiya" left in shows "Blocked: an identifier is still in the note. Check: gopalbhaiya"; hand-hide turned it into `[PERSON_1]`; clicking `[PATIENT]` showed "Asha Testpatil" again. No `localStorage` or `sessionStorage` keys, no map or note on `window`, no request to `firebasevertexai`. At 1280x720 the screen fits with no scroll; at 360 px there is no sideways scroll and the Approve/Send bar is fixed at the bottom.
 
-Not measured: Nano's miss rate over many notes (that is T8). Without a "Patient:" label the code redactor still gives the first titled name `[PATIENT]` and Nano gives the patient `[PERSON_1]`: fine, but T5 should not assume the patient is always `[PATIENT]`.
+**Not yet checked:** the screen with real Nano on (Dr. Yatin's normal Chrome, `http://localhost:5199/`), in Edge, and by his eye. Known small things: after an un-hide the status line says "You changed the note. Please check it again." (correct, it is an edit); un-hiding a token that had two written forms puts back the longest form; two oxlint warnings remain (`set-state-in-effect` on the effect that starts a run).
 
-T5 hints: call `nanoRedact(codeText, map, createNanoModelFn(ai), lists, { signal })` with an AbortController per run; ignore any result with `aborted: true`; show `droppedNotice(dropped.length + notFound.length)` and the item texts; in `manual` state show `MANUAL_MESSAGE` and require the tick "I hid every name by hand".
-
-## Step 4: T5 screen
-
+## Step: T6 cloud letter
 ```
-Read CLAUDE.md, HANDOVER.md, PLAN.md row T5, PROMPTS.md section 2, SECURITY.md
-rows tagged T5, ACCEPTANCE.md T5, FINISH.md section 1 (layout and states).
-Do task T5 and nothing else, on branch t5-screen from the newest branch.
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PLAN.md row T6 and section 7, PROMPTS.md
+sections 3 and 6 (letter part), SECURITY.md rows tagged T6, ACCEPTANCE.md T6,
+FINISH.md section 1 (states and the fixed error messages).
+Do task T6 and nothing else, on branch t6-cloud-letter from t5-screen.
 
-The send guard is already built: core/sendGuard.ts (checkSend, guardedSend).
-Do not rewrite it. Build the screen only:
-- Left "Your note (stays in this browser)", right "What the cloud will see".
-  Typing on the left runs redactByCode at once, then the Nano redactor (abort
-  and bump a run counter on every edit: SECURITY D2).
-- Approve freezes the right-hand text. Any edit clears approval. Send is grey
-  until Approve. Send calls guardedSend with the frozen string; if it blocks,
-  show the fixed message and the word that tripped it (on screen only).
-- Hand-hide a selection (becomes PERSON) and un-hide a token. Un-hide adds the
-  text to the guard's `allowed` list. Pass both word lists as `safeWords`.
-- Manual mode needs the tick "I hid every name by hand"; dropped items need a tick.
-- Amber underline for capitalised words that are not hidden (PROMPTS 6.4).
-- spellcheck off, autocomplete off. Token map in a React ref only.
-For T5, Send may call a stub; the real cloud call is T6.
+Build the letter call:
+- app/src/core/letter.ts: plain TypeScript, no Firebase import. It builds the system
+  instruction from PROMPTS.md section 3 (default {{TEMPLATE}}), takes the model call as a
+  function argument (system, userText, schema, signal) => Promise<string>, validates the
+  reply against the schema (letter string, not_recorded string array), strips markdown
+  marks, retries once, then returns a fixed failure. Rule 11 of the prompt: an empty
+  letter or ["ALL"] is a failure, not a letter. Over 400 words is a failure (PROMPTS 6).
+- Outside core/: the adapter that calls Firebase AI Logic with InferenceMode.ONLY_IN_CLOUD,
+  inCloudParams.model = CLOUD_MODEL (firebase.ts), generationConfig.responseSchema and
+  responseMimeType "application/json". Use the SDK's AbortSignal. The cloud model is named
+  only here, never in the redaction files.
+- In NoteScreen.tsx replace sendStub with this call. It must still go through guardedSend
+  with the frozen approved string, and a retry goes through guardedSend again.
+  Show the letter (tokens still in it, text only, no dangerouslySetInnerHTML) and a badge
+  "Cloud". Use the fixed messages from FINISH.md for failures. No raw SDK text, no note text.
+- T7 (restore names, fact check, copy) is NOT part of this task.
+Run the ACCEPTANCE.md T6 test yourself: open the request body in the Network panel (or log
+it in a unit test with a fake fetch) and search it for the note's name and phone: zero hits.
+Use synthetic notes from data/notes.json only. Do not change files listed in HANDOVER.md
+"do not change". Commit, then rewrite NEXT.md for T7 with its prompt.
 ```
 
 ## If something fails
-T1 test a passed (offline works), so PLAN.md "step 6 works offline", the SUBMISSION.md offline bullet and the offline demo shot stand. Test b failed in one case (no `LanguageModel`); that is handled by the T4 guard above, so T4 must not be marked done without the guard and its zero-fetch test. If the guard cannot be made to work, stop and tell Dr. Yatin: the whole privacy lock depends on it.
+If the cloud model returns the note's own words in a way the guard cannot see, or App Check blocks the call, stop and tell Dr. Yatin. Never send anything that did not pass `guardedSend`.
