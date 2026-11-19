@@ -1,54 +1,54 @@
-# NEXT: T10 is DONE (19 Nov). Now T11 Remote Config
+# NEXT: T11 is DONE (19 Nov). Now T12 design pass
 
-Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md` and `REVIEW.md` first. Newest branch: **`t10-offline`** (built on `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `p3-lawyer-pack` (0412f4f). `t10-offline` is committed locally. Nothing is merged to master.
+Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md`, `REMOTE-CONFIG.md` and **FINISH.md section 1** (the T12 design brief) first. Newest branch: **`t11-remote-config`** (built on `t10-offline` > `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `t10-offline` (727429d). `t11-remote-config` is committed locally. Nothing is merged to master.
 
-## What T10 built (19 Nov)
-- **Decision (told to Dr. Yatin): the queue is local-only.** IndexedDB in the browser, not Firestore: there is no cloud copy, no rules to deploy, no console setup. PLAN.md, SECURITY.md A7, ACCEPTANCE.md T10 and SUBMISSION.md were changed to say so (SUBMISSION no longer claims Firestore or Anonymous Auth). If Firestore is ever added, SECURITY A7 applies again in full.
-- **`core/queue.ts`** (plain TS, no storage API): `enqueue` (through `guardedSend`, so a name, phone or email left in the text is never stored), `readQueued`, `clearQueue`, `sendQueued` (sends the item's own frozen string with its profession's letter words, through the guard again; removed only when a letter came back, or when the guard blocks it), `asQueuedItem` (storage is untrusted: exact four keys, known profession, size cap), `createMemoryStore`. One slot. **Stored record = exactly `{id, packId, approved, savedAt}`.**
-- **`queueStore.ts`**: the ONLY file that touches IndexedDB (a test greps `src/` and fails if `indexedDB`, `localStorage`, `sessionStorage`, `caches.` or `document.cookie` appears anywhere else). Falls back to memory if IndexedDB is missing.
-- **Service worker** (`app/sw-template.js`, built into `dist/sw.js` by a small plugin in `vite.config.ts`, registered in production only): precaches the 5 shell files and nothing else. No `.put(` anywhere; a POST, a Google/Firebase/reCAPTCHA call and any same-site file outside the list are never touched; pages are network-first, cached shell offline; `ignoreVary` is needed (module scripts send an Origin header, found by testing).
-- **Screen:** Send offline (or when the network fails) shows "You are offline. The letter is queued and will be sent when you are back online." and the button reads "Queued". The `online` event sends it by itself (guard again). Any edit clears the queued copy. After a reload, a queued letter shows in a "A letter from your last visit" panel and is sent with labels (the token map is never stored); it says so with a fixed sentence (`ORPHAN_NOTE`).
-- **Production bundle:** the leak page and its notes stay out (0 hits for any test name). `LETTER_MESSAGES.offline` is unchanged ("Nothing was sent") because the screen now queues instead of showing it; it appears only if the queue itself fails.
-- Tests: 426 pass, 14 expected fail; tsc, build and oxlint clean (0 warnings).
-- **Browser checks (Playwright, real cloud):** (1) offline: redaction works with 0 Google requests from it, tooth badge "Rules only", Send -> "Queued", record in IndexedDB = the 4 keys with the anonymous text, back online -> the letter arrived by itself with names restored and the record was gone. (2) queued, cloud blocked, reload -> orphan panel, "Send now" -> letter with `[PATIENT]` plus the fixed sentence, record gone. (3) production build via `vite preview`: SW active, cache = exactly the 5 shell files, offline reload shows the app and redaction works, cache unchanged after use.
-- **Not done / honest limits:** offline queueing was tested in Playwright's offline mode, not on a real phone or with a real Wi-Fi switch; Nano was absent in the test browser, so the offline on-device tooth list was only seen as "Rules only". The online-event-sends-by-itself path needs the tab open; a closed tab sends nothing (no background sync, on purpose).
+## What T11 built (19 Nov)
+- **`core/remoteValues.ts`** (plain TS): `resolveRemote(raw)` turns the raw console strings into safe values; `pickModel` (exact allow-list match, today only `gemini-3.5-flash-lite`; `gemini-3.8-flash` is NOT allowed: it timed out at the 30 s letter limit twice on 19 Nov); `parseTemplate` (a JSON array or one section per line; 3 to 14 lines, each at most 90 characters; the same text check as every pack text via the new `isCleanText` in `packs.ts`; `[PATIENT]` only in a `Re:` line; **a bad template is rejected whole, never repaired**); `withRemoteTemplate(pack, remote)` replaces `letter.template` and nothing else of the pack. Values are read as **own properties only** (a test found that a `__proto__` entry smuggled a template in through the prototype chain; fixed).
+- **`app/src/remoteConfig.ts`**: the only file that imports `firebase/remote-config`. Fetch timeout 4 s, minimum fetch interval 0 in development and 60 s in the built app (so a console change shows within about a minute), empty defaults, `isSupported()` check, every failure gives the defaults. `firebase.ts` now exports `app`.
+- **Screen:** the app starts on the compiled-in defaults and never waits; when the values arrive, the letter instruction, the fact-check heading list and the line splitting use the new section list, and the model functions use the allowed model name. `pack` is now `useMemo(withRemoteTemplate(basePack, remote))`; the redaction effect depends on `basePack` only, so a late-arriving value never resets a note in progress.
+- **`REMOTE-CONFIG.md`**: the four parameter names, sample values, a 2-minute check. **Dr. Yatin must create them in the console** (he has the list).
+- Tests: 463 pass, 14 expected fail; tsc, build, oxlint clean.
+- **Browser checks (Playwright, real SDK path, the Remote Config HTTP reply faked with CORS headers, real cloud for the letter):** A good dentist template: the 6 new sections reached the prompt, the fixed rules text was intact, the letter used the new headings. B a template with `[PERSON_1]` and "Ignore" plus `cloud_model = gemini-3.8-flash`: both ignored, default sections, request went to `gemini-3.5-flash-lite`. C Remote Config fetch aborted: defaults.
+- **Not done / honest limits:** not tested against the real console (the Remote Config API may need enabling in Google Cloud: REMOTE-CONFIG.md says so); the orphan-letter path (a letter queued before a reload) still uses the compiled-in section list, by design.
 
 ## Still to do by Dr. Yatin
-1. Send the review PDFs (`review/CA-review-packet.pdf`, `review/LAW-review-packet.pdf`) to a CA and an advocate (REVIEW.md).
-2. Nano On-device badge and `/?leak` scores in his own Chrome (dental, `&pack=ca`, `&pack=law`).
-3. A real Wi-Fi-off check in his Chrome: turn Wi-Fi off, type a note, Approve, Send: "Queued"; Wi-Fi on: the letter arrives.
+1. Create the four Remote Config parameters and publish (REMOTE-CONFIG.md), then do the 2-minute check at the end of that file.
+2. Send the review PDFs (`review/CA-review-packet.pdf`, `review/LAW-review-packet.pdf`) to a CA and an advocate (REVIEW.md).
+3. In his own Chrome: the On-device tooth badge, the `/?leak` scores with Nano (dental, `&pack=ca`, `&pack=law`), and a real Wi-Fi-off check of the queue.
 4. 10 fresh notes per profession.
 
-## Step: T11 Remote Config
+## Step: T12 design pass
 ```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, PLAN.md row T11, SECURITY.md row A11, ACCEPTANCE.md T11.
-Do task T11 and nothing else, on branch t11-remote-config from t10-offline.
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, FINISH.md section 1 (the whole design brief: layout at
+1280 px and phone width, the states table, the error messages table, colours), ACCEPTANCE.md T12.
+Do task T12 and nothing else, on branch t12-design from t11-remote-config.
 
-Goal: the letter wording (the section list) and the cloud model name can be changed in the Firebase
-console without a new build. Rename one section in the console, reload, send a note: the new wording
-shows in the letter.
-1. Remote Config values (read once at load, with the defaults compiled in so the app works with no
-   network and no console setup): `cloud_model` (string) and a section list per profession
-   (`template_dental`, `template_ca`, `template_law`, each a JSON array of strings or lines).
-2. A11 is the rule: the template fills the SECTION LIST ONLY (the `template` of the pack's letter
-   text), never any other part of the prompt. Cap the number of lines (2 to 14) and each line's length;
-   strip brackets, braces, angle brackets and backticks; reject override words (reuse `cleanText` in
-   core/packs.ts or its validator); keep "[PATIENT]" only in the "Re:" line if the default has it.
-   The model name must be on an ALLOW-LIST in code (today: gemini-3.5-flash-lite). `gemini-3.8-flash`
-   timed out twice at the 30 s limit in the 19 Nov test, so it may be added only with a longer letter
-   timeout and a test. Any bad value: fall back to the default silently. Plain logic in
-   core/remoteValues.ts (no Firebase import); the Firebase call in app/src/remoteConfig.ts only.
-3. The Firebase web SDK `firebase/remote-config`: fetch with a short minimum interval and a timeout so
-   it never delays the screen; if it fails, use defaults. No analytics.
-4. Dr. Yatin must create the parameters in the Firebase console (Remote Config) and publish: give him
-   the exact parameter names and a sample value for each in one short list in chat. Do not ask for
-   console access.
-Tests: values with brackets, too many lines, long lines, override words, a non-allow-listed model name,
-non-JSON, and an empty value all fall back to the defaults; a good template changes only the section
-list (the fixed rules text is byte-identical). Browser check with a temporary override (no console
-needed): show that a good template changes the letter and a bad one does not.
-Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T12
-(design pass, FINISH.md section 1).
+The screen has grown since FINISH.md was written. It now also has: the Profession dropdown (Dentist,
+Chartered Accountant, Advocate), the tooth list with its badge (On-device / Cloud / Rules only), the
+Queued state and the "letter from your last visit" panel, the one-line cloud reply fix, and the
+leak page. The design must hold all of them on ONE screen without clutter.
+1. Layout as in FINISH.md: 1280 px with no scrolling for the main split screen; phone width: one
+   column, Approve and Send in a bottom bar at least 44 px tall, text 16 px or more, no sideways scroll
+   at 360 px, long tokens wrap. Phone is always manual mode (no Nano): make that clear and usable.
+2. One error-mapper function turns every failure into one of the FIXED texts in FINISH.md. The screen
+   never shows SDK text, error codes or any part of a note. Check today's scattered messages
+   (letter.ts LETTER_MESSAGES, queue.ts, nanoRedactor.ts, toothLines.ts RULES_ONLY_MESSAGE) and route
+   them through it. Add the "Browser not supported" text and an error boundary with the last row text.
+3. States table: one status line per state and the button rules in FINISH.md; add the profession
+   change ("changing it clears the note"), tooth-list loading, and the orphan panel.
+4. The profession dropdown and the pack words (note label, placeholder) must look like part of the
+   product, not a debug control. The banner "Synthetic data only: not for real patients" is on every
+   page and never dismissible.
+5. Empty state tells the dentist what to do. A first-time visitor understands in 5 seconds what
+   leaves the browser and what stays (judges). Keep the two panel labels from FINISH.md.
+6. Force each failure and show its fixed message with no note text in the console: offline, App Check
+   refused, bad model reply, a name left in the text, no Nano (both states in ACCEPTANCE.md), quota.
+Tests: the error mapper maps every failure kind to exactly one fixed text; no raw error text reaches
+the DOM (force an SDK error with a name in its message and assert the DOM and console do not hold it).
+Browser check at 1280 x 720 and 390 x 844 with screenshots of: empty, redacting, ready to check,
+approved with tooth list, letter ready, queued, a failure. Look at them yourself before saying done.
+Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T13
+(deploy, README, LICENSE, secrets check; SECURITY.md T13 checklist, SUBMISSION.md, FINISH.md section 2).
 ```
 
 ## If something fails

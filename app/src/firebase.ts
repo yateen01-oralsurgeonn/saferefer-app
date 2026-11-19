@@ -12,7 +12,7 @@ export const CLOUD_MODEL = 'gemini-3.5-flash-lite'
 /** True when app/.env.local has the Firebase web config. */
 export const isConfigured = Boolean(import.meta.env.VITE_FIREBASE_API_KEY && import.meta.env.VITE_FIREBASE_APP_ID)
 
-const app = initializeApp({
+export const app = initializeApp({
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,

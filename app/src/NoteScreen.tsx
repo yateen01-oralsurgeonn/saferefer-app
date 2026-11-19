@@ -15,6 +15,7 @@ import {
   checkFacts,
   clearQueue,
   DEFAULT_PACK,
+  DEFAULT_REMOTE,
   getPack,
   PACKS,
   type Pack,
@@ -43,12 +44,15 @@ import {
   type HideItem,
   type NanoResult,
   type ParsedLetter,
+  type RemoteValues,
+  withRemoteTemplate,
   TokenMap,
 } from './core'
-import { ai, CLOUD_MODEL } from './firebase'
+import { ai } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn } from './nanoAdapter'
 import { createQueueStore } from './queueStore'
+import { loadRemoteValues } from './remoteConfig'
 import { createToothModelFn } from './toothAdapter'
 
 const lists = { drugs, clinicalTerms: terms }
@@ -57,8 +61,6 @@ const termSet = buildTermSet(lists)
 const safeWords = new Set([...termSet, ...Object.keys(shorthand).map((k) => k.toLowerCase())])
 const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
-const letterModelFn = createLetterModelFn(ai, CLOUD_MODEL)
-const toothModelFn = createToothModelFn(ai, CLOUD_MODEL)
 /** T10: the offline queue. Holds the approved anonymous text and the profession id only (core/queue.ts). */
 const queueStore = createQueueStore()
 const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules only' } as const
@@ -73,7 +75,13 @@ const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' 
 
 export default function NoteScreen() {
   // P1: the profession pack changes words only (packs.ts). Every lock stays the same.
-  const [pack, setPack] = useState<Pack>(DEFAULT_PACK)
+  const [basePack, setBasePack] = useState<Pack>(DEFAULT_PACK)
+  // T11: Remote Config can change the section list and the cloud model name, nothing else (core/remoteValues.ts).
+  // The app starts on the compiled-in defaults and never waits for the network.
+  const [remote, setRemote] = useState<RemoteValues>(DEFAULT_REMOTE)
+  const pack = useMemo(() => withRemoteTemplate(basePack, remote), [basePack, remote])
+  const letterModelFn = useMemo(() => createLetterModelFn(ai, remote.model), [remote.model])
+  const toothModelFn = useMemo(() => createToothModelFn(ai, remote.model), [remote.model])
   const [note, setNote] = useState('')
   const [manualHides, setManualHides] = useState<string[]>([])
   const [unhidden, setUnhidden] = useState<string[]>([])
@@ -156,7 +164,7 @@ export default function NoteScreen() {
       return
     }
     // Stage one is instant: the code redactor, then the hand-hidden words.
-    const first = redactFirst(note, manualHides, rulesForPack(pack))
+    const first = redactFirst(note, manualHides, rulesForPack(basePack))
     mapRef.current = first.map
     setPreview(unhideTokens(first.text, first.map, unhidden))
     setStageOneMissed(first.notFound)
@@ -165,7 +173,7 @@ export default function NoteScreen() {
     // Stage two: Gemini Nano on the device, after a short pause so typing does not flood it (SECURITY D2).
     const ctrl = new AbortController()
     const timer = setTimeout(async () => {
-      const result = await nanoRedact(first.text, first.map, modelFn, lists, { signal: ctrl.signal, noteKind: pack.nanoNoteKind })
+      const result = await nanoRedact(first.text, first.map, modelFn, lists, { signal: ctrl.signal, noteKind: basePack.nanoNoteKind })
       if (runCounter.current !== runId || result.aborted) return
       setNano(result)
       setPreview(unhideTokens(result.text, first.map, unhidden))
@@ -175,7 +183,7 @@ export default function NoteScreen() {
       clearTimeout(timer)
       ctrl.abort()
     }
-  }, [note, manualHides, unhidden, pack])
+  }, [note, manualHides, unhidden, basePack])
 
   const review = useMemo(() => (nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed), [nano, stageOneMissed])
   const needManualTick = nano?.state === 'manual'
@@ -238,11 +246,11 @@ export default function NoteScreen() {
   /** Changing the profession clears everything: note, hidden words, map, approval, letter. */
   function changePack(id: string) {
     const next = getPack(id)
-    if (next.id === pack.id) return
+    if (next.id === basePack.id) return
     setNote('')
     setManualHides([])
     setUnhidden([])
-    setPack(next)
+    setBasePack(next)
   }
 
   // T9: tooth lines run only after Approve, on the frozen approved string, never while the dentist types
@@ -326,6 +334,16 @@ export default function NoteScreen() {
     }
     setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
+
+  useEffect(() => {
+    let alive = true
+    void loadRemoteValues().then((values) => {
+      if (alive) setRemote(values)
+    })
+    return () => {
+      alive = false
+    }
+  }, [])
 
   // The "online" event sends a queued letter by itself; the ref always holds the newest deliver().
   useEffect(() => {

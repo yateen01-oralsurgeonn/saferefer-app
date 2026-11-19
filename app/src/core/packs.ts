@@ -187,11 +187,20 @@ const MAX_TEXT = 400
 /** Only these bracket words may appear in pack text: they are real tokens the model must copy. */
 const ALLOWED_BRACKETS = /\[(?:PATIENT)\]/g
 
+/**
+ * The one text check for anything that goes into the letter prompt (pack text and remote templates): a string with
+ * content, at most `max` characters, no brackets other than [PATIENT], no braces, angle brackets or backticks, and no
+ * words that try to override the fixed rules.
+ */
+export function isCleanText(v: unknown, max: number = MAX_TEXT): v is string {
+  if (typeof v !== 'string' || !v.trim() || v.length > max) return false
+  if (/[[\]{}<>`]/.test(v.replace(ALLOWED_BRACKETS, ''))) return false
+  if (/\b(?:ignore|disregard|override|forget)\b/i.test(v)) return false
+  return true
+}
+
 function cleanText(v: unknown, what: string): string {
-  if (typeof v !== 'string' || !v.trim() || v.length > MAX_TEXT) throw new Error(`Pack: bad ${what}`)
-  if (/[[\]{}<>`]/.test(v.replace(ALLOWED_BRACKETS, ''))) throw new Error(`Pack: bad characters in ${what}`)
-  // Pack text goes into a prompt. It must not try to change the fixed rules.
-  if (/\b(?:ignore|disregard|override|forget)\b/i.test(v)) throw new Error(`Pack: bad words in ${what}`)
+  if (!isCleanText(v)) throw new Error(`Pack: bad ${what}`)
   return v.trim()
 }
 
