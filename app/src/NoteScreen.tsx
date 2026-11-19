@@ -68,6 +68,8 @@ const modelFn = createNanoModelFn(ai)
 const queueStore = createQueueStore()
 const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules only' } as const
 const NANO_DELAY_MS = 600
+/** How often a queued letter is tried again while the page is open (T10 follow-up, 20 Nov). */
+const RETRY_MS = 10_000
 const FACT_DELAY_MS = 300
 const factLists = { drugs, treatments: terms.treatments, findings: terms.findings, shorthand }
 /** Professions without teeth check only numbers, dates and the generic word lists (P2). */
@@ -126,7 +128,8 @@ export default function NoteScreen() {
   const toothCtrl = useRef<AbortController | null>(null)
   const queuedRef = useRef(false)
   const orphanBusyRef = useRef(false)
-  const deliverRef = useRef<() => Promise<void>>(async () => {})
+  const deliveringRef = useRef(false)
+  const deliverRef = useRef<(retry?: boolean) => Promise<void>>(async () => {})
   const orphanRef = useRef<QueuedItem | null>(null)
 
   useEffect(() => {
@@ -304,42 +307,53 @@ export default function NoteScreen() {
   }
 
   // The one door: draftLetter sends every attempt through guardedSend with the frozen string, never the live text.
-  async function deliver() {
-    if (approved === null || !mapRef.current || sending || letter) return
+  // `retry` is a quiet attempt for a letter that is already queued: no "Writing the letter" flicker, and the item stays
+  // queued while the network is still down.
+  async function deliver(retry = false) {
+    if (approved === null || !mapRef.current || sending || letter || deliveringRef.current) return
     const wasQueued = queuedRef.current
+    const quiet = retry && wasQueued
     const runId = runCounter.current
     const ctrl = new AbortController()
     sendCtrl.current = ctrl
-    setSending(true)
-    setProblem(null)
-    const result = await draftLetter(approved, mapRef.current, letterModelFn, { signal: ctrl.signal, letterText: pack.letter, guard: guardNow() })
-    if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
-    setSending(false)
-    if (result.ok) {
+    deliveringRef.current = true
+    if (!quiet) {
+      setSending(true)
+      setProblem(null)
+    }
+    try {
+      const result = await draftLetter(approved, mapRef.current, letterModelFn, { signal: ctrl.signal, letterText: pack.letter, guard: guardNow() })
+      if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
+      if (!quiet) setSending(false)
+      if (result.ok) {
+        if (wasQueued) {
+          queuedRef.current = false
+          setQueued(false)
+          void clearQueue(queueStore)
+        }
+        setLetter({ letter: result.letter, notRecorded: result.notRecorded })
+        // Put the names back here, in the browser. The map never leaves this ref.
+        const restored = restoreLetter(result.letter, mapRef.current)
+        setLetterText(restored.text)
+        return
+      }
+      if (result.failure === 'aborted') return
+      if (result.failure === 'offline') {
+        // Still no connection: keep it for later (a queued item simply stays queued and is tried again).
+        if (!wasQueued) await queueNow()
+        return
+      }
       if (wasQueued) {
+        // A queued letter that now fails for another reason (blocked by the guard, quota, a bad reply) stops waiting: it must
+        // not be retried forever, and a text that fails the guard must never be sent. The dentist sees why and can try again.
         queuedRef.current = false
         setQueued(false)
         void clearQueue(queueStore)
       }
-      setLetter({ letter: result.letter, notRecorded: result.notRecorded })
-      // Put the names back here, in the browser. The map never leaves this ref.
-      const restored = restoreLetter(result.letter, mapRef.current)
-      setLetterText(restored.text)
-      return
+      setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
+    } finally {
+      deliveringRef.current = false
     }
-    if (result.failure === 'aborted') return
-    if (result.failure === 'offline') {
-      // Not online after all: keep it for later (a queued item simply stays queued).
-      if (!wasQueued) await queueNow()
-      return
-    }
-    if (result.failure === 'blocked' && wasQueued) {
-      // A text that now fails the guard must never be sent, and must not wait in the queue.
-      queuedRef.current = false
-      setQueued(false)
-      void clearQueue(queueStore)
-    }
-    setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
 
   useEffect(() => {
@@ -369,13 +383,29 @@ export default function NoteScreen() {
   })
   useEffect(() => {
     const onOnline = () => {
-      if (queuedRef.current) void deliverRef.current()
+      if (queuedRef.current) void deliverRef.current(true)
       if (orphanRef.current) void runOrphan(orphanRef.current)
     }
     window.addEventListener('online', onOnline)
     return () => window.removeEventListener('online', onOnline)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Some networks never say they are back (a laptop with a virtual adapter keeps "online" true with Wi-Fi off, so the "online"
+  // event never fires). While a letter is queued, try again every 10 seconds, quietly. One attempt at a time.
+  useEffect(() => {
+    if (!queued) return
+    const id = setInterval(() => void deliverRef.current(true), RETRY_MS)
+    return () => clearInterval(id)
+  }, [queued])
+  useEffect(() => {
+    if (!orphan) return
+    const id = setInterval(() => {
+      if (orphanRef.current && !orphanBusyRef.current) void runOrphan(orphanRef.current)
+    }, RETRY_MS * 2)
+    return () => clearInterval(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orphan])
 
   // A letter queued on an earlier visit. The names are gone (the map is never stored), so it is sent as labels (ORPHAN_NOTE).
   async function runOrphan(item: QueuedItem) {

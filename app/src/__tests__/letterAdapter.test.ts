@@ -86,3 +86,49 @@ describe('T6 adapter', () => {
     expect(fetchSpy).not.toHaveBeenCalled()
   })
 })
+
+describe('T10 follow-up: no connection while the browser still says "online" (found on Dr. Yatin\'s laptop, 20 Nov)', () => {
+  // What the AI SDK throws when the App Check token cannot be fetched: a bare "error" with the App Check code inside its message.
+  const sdkError = (appCheckCode: string, extra = '') =>
+    Object.assign(
+      new Error(`AI: Error fetching from https://firebasevertexai.googleapis.com/v1beta/models/m:generateContent: AppCheck: Fetch failed. ${extra} (${appCheckCode}). (AI/error)`),
+      { name: 'FirebaseError', code: 'error', customErrorData: undefined },
+    )
+  const kind = (e: unknown) => mapLetterError(e).kind
+
+  it('an App Check network failure is "offline", so the letter is queued, not "could not be written"', () => {
+    expect(kind(sdkError('appCheck/fetch-network-error'))).toBe('offline')
+  })
+
+  it('an App Check refusal is "app-check", not a general failure', () => {
+    expect(kind(sdkError('appCheck/fetch-status-error'))).toBe('app-check')
+    expect(kind(sdkError('appCheck/throttled'))).toBe('app-check')
+  })
+
+  it('a bare error with no App Check code stays a general failure', () => {
+    expect(kind(Object.assign(new Error('something else'), { code: 'error' }))).toBe('failed')
+  })
+
+  it('message text never comes out: only the kind does, even if the message holds a name, a phone and the code', () => {
+    const e = sdkError('appCheck/fetch-network-error', 'Asha Testpatil 00000 55501')
+    const mapped = mapLetterError(e)
+    expect(mapped.kind).toBe('offline')
+    expect(mapped.message).toBe('The letter call failed.')
+    expect(JSON.stringify(mapped)).not.toMatch(/Asha|00000|googleapis|appCheck/)
+  })
+
+  it('the real SDK in a browser with no network gives the offline kind through the adapter', async () => {
+    // fetch rejects like a dead network; the SDK's App Check step then fails first with the bare error.
+    const failing = vi.fn(() => Promise.reject(new TypeError('Failed to fetch')))
+    vi.stubGlobal('fetch', failing)
+    const sdk: LetterSdk = {
+      getGenerativeModel: (() => ({
+        generateContent: async () => {
+          throw sdkError('appCheck/fetch-network-error')
+        },
+      })) as unknown as typeof getGenerativeModel,
+    }
+    const err = await createLetterModelFn(ai, MODEL, sdk)('S', 'T', {}, new AbortController().signal).catch((e: unknown) => e)
+    expect((err as LetterCallError).kind).toBe('offline')
+  })
+})

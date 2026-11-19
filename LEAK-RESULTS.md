@@ -33,3 +33,9 @@ Both new misses are **lower-case street addresses** in notes typed entirely in l
 
 ## Fresh-note runs (notes the builder has not seen)
 (empty: Dr. Yatin writes 10 fresh notes per profession, then they are run here)
+
+## Wi-Fi-off check on Dr. Yatin's laptop (20 Nov 2026)
+- **First real run: FAILED.** With Wi-Fi off, Send showed "The letter could not be written. Nothing was lost. Please try again." instead of "queued".
+- **Cause:** the cloud call first fetches an App Check token; with no connection that step fails with `appCheck/fetch-network-error`, and the AI SDK reports it as a bare "error" the app did not recognise. The laptop also keeps `navigator.onLine` true (virtual adapters), so the "back online" event would never have fired either.
+- **Fix (commit after 85f0e57):** the adapter reads that one App Check code (never the message text) and treats a network failure as offline and a refusal as "could not be verified"; a queued letter is retried every 10 seconds, quietly, and stays queued while the network is down. 5 new tests. Reproduced in a browser by blocking the internet while it still reported "online": queued, stayed queued through retries, and the letter arrived 7 s after the network returned.
+- **To repeat on his laptop** after reloading the page (the dev server was restarted).

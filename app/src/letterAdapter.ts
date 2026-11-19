@@ -15,7 +15,19 @@ interface SdkErrorShape {
   customErrorData?: { status?: unknown }
 }
 
-/** Turn any SDK or network error into a fixed kind. Reads codes and HTTP status only, never message text. */
+/**
+ * Before a cloud call the SDK fetches an App Check token. If that step fails (no connection, or App Check refused), the AI
+ * SDK reports a bare "error" and the only machine-readable part is the App Check code written inside its message, for
+ * example "appCheck/fetch-network-error". This pulls out THAT FIXED CODE and nothing else. The message text is never kept,
+ * returned or shown (it may hold anything), only a code of the form appCheck/<words> can come out of here.
+ */
+function appCheckCode(e: unknown): string {
+  const text = typeof e === 'object' && e !== null ? (e as { message?: unknown }).message : undefined
+  if (typeof text !== 'string') return ''
+  return /appCheck\/[a-z-]{3,40}/.exec(text)?.[0] ?? ''
+}
+
+/** Turn any SDK or network error into a fixed kind. Reads codes and HTTP status, plus the App Check code above; never shows message text. */
 export function mapLetterError(e: unknown): LetterCallError {
   const err = (typeof e === 'object' && e !== null ? e : {}) as SdkErrorShape
   if (err.name === 'AbortError') return new LetterCallError('aborted')
@@ -23,7 +35,13 @@ export function mapLetterError(e: unknown): LetterCallError {
   if (status === 429) return new LetterCallError('quota')
   if (status === 401 || status === 403) return new LetterCallError('app-check')
   const offline = typeof navigator !== 'undefined' && navigator.onLine === false
-  if (offline || (err.code === 'fetch-error' && status === undefined)) return new LetterCallError('offline')
+  const appCheck = appCheckCode(e)
+  // The App Check token could not be fetched because there is no connection: the same as being offline.
+  if (offline || (err.code === 'fetch-error' && status === undefined) || appCheck === 'appCheck/fetch-network-error') {
+    return new LetterCallError('offline')
+  }
+  // The App Check server answered and refused, or the token could not be made: "this browser could not be verified".
+  if (appCheck !== '') return new LetterCallError('app-check')
   return new LetterCallError('failed')
 }
 
