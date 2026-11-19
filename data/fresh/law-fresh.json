@@ -1,0 +1,338 @@
+[
+  {
+    "id": "F01",
+    "text": "Client Pappu bhai (00000 55123) accused in Crime No. 88/2026 at near Ganesh mandir, Baramati police station. Other side offered Rs 2 lakh settlement. Bail hearing 3/11 before Sessions Court. He says he was not there that night, his bhau Rohit was with him.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Pappu bhai"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55123"
+      },
+      {
+        "type": "record_id",
+        "value": "Crime No. 88/2026"
+      },
+      {
+        "type": "address",
+        "value": "near Ganesh mandir, Baramati"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 2 lakh"
+      },
+      {
+        "type": "date",
+        "value": "3/11"
+      },
+      {
+        "type": "name",
+        "value": "Rohit"
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "text": "priya madam is complainant in cheque case, cheque no 000123 for Rs 5,00,000 claim amount u/s 138 NI Act. Accused Suresh kaka (00000-98765) has not appeared twice. Next date last Tuesday before JMFC Court, Loni. She wants to know if we can ask for warrant.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "priya"
+      },
+      {
+        "type": "record_id",
+        "value": "000123"
+      },
+      {
+        "type": "name",
+        "value": "Suresh kaka"
+      },
+      {
+        "type": "phone",
+        "value": "00000-98765"
+      },
+      {
+        "type": "date",
+        "value": "last Tuesday"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "text": "Client P. K. Jadhav - +91 00000 43210 - is defendant in civil suit RCS No. 45/2025 for possession. Plaintiff Anjali Patil claims property at opp. Hanuman mandir, Sangamner. Written statement due 12 Dec, he has old sale deed but not 7/12. His aai Meena is witness.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "P. K. Jadhav"
+      },
+      {
+        "type": "phone",
+        "value": "+91 00000 43210"
+      },
+      {
+        "type": "record_id",
+        "value": "RCS No. 45/2025"
+      },
+      {
+        "type": "name",
+        "value": "Anjali Patil"
+      },
+      {
+        "type": "address",
+        "value": "opp. Hanuman mandir, Sangamner"
+      },
+      {
+        "type": "date",
+        "value": "12 Dec"
+      },
+      {
+        "type": "name",
+        "value": "Meena"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "text": "nikita came with her mother aai on Monday for divorce matter. Husband Vikram Thorat (zero zero zero zero zero four three two one nine) filed for divorce u/s 13 Hindu Marriage Act. She stays Flat 4, near railway crossing, Kopargaon with parents now. She does not want settlement, she wants custody of child Aarav.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "nikita"
+      },
+      {
+        "type": "date",
+        "value": "Monday"
+      },
+      {
+        "type": "name",
+        "value": "Vikram Thorat"
+      },
+      {
+        "type": "phone",
+        "value": "zero zero zero zero zero four three two one nine"
+      },
+      {
+        "type": "address",
+        "value": "Flat 4, near railway crossing, Kopargaon"
+      },
+      {
+        "type": "name",
+        "value": "Aarav"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "text": "Accused rahul bhau in FIR No. 112/2026, CNR MHAB123456789 for hurt u/s 323 IPC. Complainant Baburao says incident near behind bus stand, Loni on third Nov. Police offered compromise, other side asking Rs 75,000 settlement. Client says no, he will fight.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "rahul"
+      },
+      {
+        "type": "record_id",
+        "value": "FIR No. 112/2026"
+      },
+      {
+        "type": "record_id",
+        "value": "CNR MHAB123456789"
+      },
+      {
+        "type": "name",
+        "value": "Baburao"
+      },
+      {
+        "type": "address",
+        "value": "behind bus stand, Loni"
+      },
+      {
+        "type": "date",
+        "value": "third Nov"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 75,000"
+      }
+    ]
+  },
+  {
+    "id": "F06",
+    "text": "Client Kavita S. (kavita.s.fake@example.com) is petitioner in maintenance case u/s 125 CrPC. Husband Rohit M (00000 11223) works at Sai Traders, Baramati. She claims Rs 25,000 per month maintenance, he says salary only Rs 18,000. Hearing 5/1 before Family Court. Her kaka Baburao will be witness.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Kavita S."
+      },
+      {
+        "type": "email",
+        "value": "kavita.s.fake@example.com"
+      },
+      {
+        "type": "name",
+        "value": "Rohit M"
+      },
+      {
+        "type": "phone",
+        "value": "00000 11223"
+      },
+      {
+        "type": "organization",
+        "value": "Sai Traders, Baramati"
+      },
+      {
+        "type": "date",
+        "value": "5/1"
+      },
+      {
+        "type": "name",
+        "value": "Baburao"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "text": "suresh from Shree Datta Dairy wants to file suit for recovery of Rs 3,20,000. Defendant Vikram took goods on credit in Sept 2025 and gave cheque 000456 which bounced. Defendant's address near water tank, Rahata, phone 00000 77665. Client says try settlement first for Rs 2,50,000.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "suresh"
+      },
+      {
+        "type": "organization",
+        "value": "Shree Datta Dairy"
+      },
+      {
+        "type": "name",
+        "value": "Vikram"
+      },
+      {
+        "type": "date",
+        "value": "Sept 2025"
+      },
+      {
+        "type": "record_id",
+        "value": "000456"
+      },
+      {
+        "type": "address",
+        "value": "near water tank, Rahata"
+      },
+      {
+        "type": "phone",
+        "value": "00000 77665"
+      },
+      {
+        "type": "amount",
+        "value": "Rs 2,50,000"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "text": "Client Anjali - +91-00000-77665 - is witness in Sessions Case No. 210/2024. Accused Pappu is her neighbour. She got summons for 20th Nov before Sessions Court, Sangamner. She is scared, her bhau Akash will come with her. Advocate Adv. Deshmukh enrolment MAH/1234/2015 is handling.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Anjali"
+      },
+      {
+        "type": "phone",
+        "value": "+91-00000-77665"
+      },
+      {
+        "type": "record_id",
+        "value": "Sessions Case No. 210/2024"
+      },
+      {
+        "type": "name",
+        "value": "Pappu"
+      },
+      {
+        "type": "date",
+        "value": "20th Nov"
+      },
+      {
+        "type": "name",
+        "value": "Akash"
+      },
+      {
+        "type": "name",
+        "value": "Adv. Deshmukh"
+      },
+      {
+        "type": "record_id",
+        "value": "MAH/1234/2015"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "text": "Baburao Kamble bhau, 00000 99887, is complainant in land dispute RCS No. 78/2026. Opposite party Thorat family claims right of way through his field at behind ZP school, near canal, Sangamner. He wants injunction u/s 38 Specific Relief Act. Next date 11/10/25 for arguments, his son Omkar has photos.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Baburao Kamble"
+      },
+      {
+        "type": "phone",
+        "value": "00000 99887"
+      },
+      {
+        "type": "record_id",
+        "value": "RCS No. 78/2026"
+      },
+      {
+        "type": "name",
+        "value": "Thorat"
+      },
+      {
+        "type": "address",
+        "value": "behind ZP school, near canal, Sangamner"
+      },
+      {
+        "type": "date",
+        "value": "11/10/25"
+      },
+      {
+        "type": "name",
+        "value": "Omkar"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "text": "Client Vikram Thorat is accused in Crime No. 55/2025 u/s 420 IPC, police station Shirdi road, near Sai baba chowk. Complainant Meena Patil alleges cheating of Rs 8,00,000 claim amount. Bail already granted, chargesheet not yet filed. Client wants anticipatory bail for his brother Akash also, phone 00000 22113, hearing Monday.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Vikram Thorat"
+      },
+      {
+        "type": "record_id",
+        "value": "Crime No. 55/2025"
+      },
+      {
+        "type": "address",
+        "value": "Shirdi road, near Sai baba chowk"
+      },
+      {
+        "type": "name",
+        "value": "Meena Patil"
+      },
+      {
+        "type": "name",
+        "value": "Akash"
+      },
+      {
+        "type": "phone",
+        "value": "00000 22113"
+      },
+      {
+        "type": "date",
+        "value": "Monday"
+      }
+    ]
+  }
+]

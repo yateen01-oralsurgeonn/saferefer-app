@@ -64,6 +64,18 @@ Notes received on WhatsApp on 20 Nov 2026 in reply to `review/WHATSAPP-CA.txt`; 
 | 20 Nov 2026 | CA (fresh) | 10 (56 identifiers) | code only | **26 of 56 (46.4%)** | Playwright Chromium (no Nano) |
 | 20 Nov 2026 | **CA (fresh)** | 10 (56 identifiers) | **code + Gemini Nano** | **7 of 56 (12.5%)** | Dr. Yatin's own Chrome |
 
+### Advocate fresh notes, code only, BEFORE any fix (first run, 20 Nov 2026)
+Notes received on WhatsApp on 20 Nov 2026 in reply to `review/WHATSAPP-LAW.txt`; test data `data/fresh/law-fresh.json` (10 notes, 69 identifiers); open `/?leak&pack=law&set=fresh`. Taken BEFORE the two planned rule fixes (relative dates, landmark address phrases), so that this set can show whether the fixes generalise: the fixes are designed from the dentist and CA misses only, with no advocate-specific rule. (The advocate misses below were seen by the builder before the post-fix run; no rule was added for them.)
+Marking correction made to the test data BEFORE the run (never to a rule): note 4's "aai" (mother) is a relation word and is not scored. Provenance caveat as for the CA notes: many names are reused from the dentist notes and the WhatsApp example; the reply again says the sender never received the review sheet, so no review answers exist yet.
+- **Code only: 23 of 69 leaked (33.3%).** Zero requests (PASS); 10 of 10 manual with the model removed (PASS).
+- By type: **phones 0 of 9, case / FIR / cheque / enrolment numbers 0 of 10, emails 0 of 1, organisations 0 of 2, settlement sums 0 of 3: all hidden.** Names 11 of 27, addresses 7 of 7, dates 5 of 10 leaked.
+- Same pattern as the dentist and CA fresh sets.
+
+| Date | Profession | Notes | Mode | Leaked | Where measured |
+|---|---|---|---|---|---|
+| 20 Nov 2026 | Advocate (fresh) | 10 (69 identifiers) | code only, pre-fix | **23 of 69 (33.3%)** | Playwright Chromium (no Nano) |
+| | Advocate (fresh) | 10 | code + Gemini Nano, pre-fix | (to do) | Dr. Yatin's Chrome |
+
 ### Dentist fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026) - the number to quote
 - Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
 - **Names 0 of 8, relatives 0 of 8, organisations 0 of 6, phones 0 of 6, emails 0 of 1, dates of birth 0 of 1, record IDs 0 of 1 leaked.** Nano turned 20 code-only leaks into 8: every name, relative and employer or school was caught, including the ones with no label ("rahul bhau", "nikita", "Vikram Thorat -", "Kavita S.").

@@ -9,6 +9,7 @@ import caNotesJson from '../../data/packs/ca-notes.json'
 import lawNotesJson from '../../data/packs/law-notes.json'
 import freshDentalJson from '../../data/fresh/dental-fresh.json'
 import freshCaJson from '../../data/fresh/ca-fresh.json'
+import freshLawJson from '../../data/fresh/law-fresh.json'
 import { getPack, rulesForPack, runLeakTest, type LeakSummary, type PackId, type TestNote } from './core'
 import { ai } from './firebase'
 import { checkNoModel, makeRedact, withFetchCount, type NoModelCheck } from './leakRun'
@@ -18,7 +19,7 @@ import { createNanoModelFn, nanoIsReady } from './nanoAdapter'
 const NOTES_BY_PACK: Record<PackId, TestNote[]> = { dental: notesJson as TestNote[], ca: caNotesJson as TestNote[], law: lawNotesJson as TestNote[] }
 // Fresh notes: written by Dr. Yatin, never seen by the builder, no rule tuned on them. Open /?leak&pack=dental&set=fresh.
 // Only the sets that exist are listed; the page says so if a profession has none yet.
-const FRESH_BY_PACK: Partial<Record<PackId, TestNote[]>> = { dental: freshDentalJson as TestNote[], ca: freshCaJson as TestNote[] }
+const FRESH_BY_PACK: Partial<Record<PackId, TestNote[]>> = { dental: freshDentalJson as TestNote[], ca: freshCaJson as TestNote[], law: freshLawJson as TestNote[] }
 const params = new URLSearchParams(window.location.search)
 const pack = getPack(params.get('pack'))
 const wantFresh = params.get('set') === 'fresh'
