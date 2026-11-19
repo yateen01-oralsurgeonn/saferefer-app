@@ -1,7 +1,7 @@
 // T3 code redactor (PROMPTS.md section 2). Plain rules, no model, works offline.
 // PRIVACY: this file must never import a model, Firebase, or anything that can
 // reach the network. It only turns text into text.
-import { applyFound, claim, EVERYDAY_WORD_NAMES, findValue, tokenSpans, TokenMap, type Found, type TokenType } from './tokens'
+import { applyFound, claim, EVERYDAY_WORD_NAMES, findValue, isPersonType, tokenSpans, TokenMap, type Found, type TokenType } from './tokens'
 import { findDates, findEmails, findPhones } from './patterns'
 import { findIds, findPlaces } from './places'
 
@@ -246,5 +246,12 @@ export function redactByCode(note: string, map: TokenMap = new TokenMap()): Reda
   // Organisations and addresses last, so they never cut into a name, phone or date.
   for (const f of findPlaces(note, [...found, ...blocked])) claim(found, f, blocked)
 
+  // Keep the possessive outside the token: "Kulkarni's" becomes "[PERSON_1]'s" (PROMPTS.md section 2).
+  for (const f of found) {
+    if (isPersonType(f.type) && /['’][sS]$/.test(f.value) && f.value.length > 3) {
+      f.end -= 2
+      f.value = f.value.slice(0, -2)
+    }
+  }
   return { text: applyFound(note, found, map), map }
 }

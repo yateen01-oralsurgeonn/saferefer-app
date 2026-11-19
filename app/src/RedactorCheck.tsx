@@ -4,7 +4,7 @@
 import { useRef, useState } from 'react'
 import terms from '../../data/clinical-terms.json'
 import drugs from '../../data/drugs.json'
-import { droppedNotice, MANUAL_MESSAGE, nanoRedact, redactByCode, TokenMap, type NanoResult } from './core'
+import { droppedNotice, itemsToReview, MANUAL_MESSAGE, nanoRedact, redactByCode, TokenMap, type NanoResult } from './core'
 import { ai } from './firebase'
 import { createNanoModelFn } from './nanoAdapter'
 
@@ -49,10 +49,9 @@ export default function RedactorCheck() {
             {out.nano.state === 'ok' ? 'Automatic check done.' : MANUAL_MESSAGE}
           </p>
           <pre data-testid="redaction-text">{out.nano.text}</pre>
-          {out.nano.dropped.length + out.nano.notFound.length > 0 && (
+          {itemsToReview(out.nano).length > 0 && (
             <p className="status">
-              {droppedNotice(out.nano.dropped.length + out.nano.notFound.length)}{' '}
-              {[...out.nano.dropped, ...out.nano.notFound].map((i) => i.text).join(', ')}
+              {droppedNotice(itemsToReview(out.nano).length)} {itemsToReview(out.nano).map((i) => i.text).join(', ')}
             </p>
           )}
         </div>

@@ -116,3 +116,12 @@ describe('hideValues (used by T4 Nano items and T5 hand-hiding)', () => {
     expect(text).toBe('[PATIENT] met the [PERSON_1]')
   })
 })
+
+describe('possessive stays outside the token', () => {
+  it.each([
+    ["Mrs Kulkarni's neighbour drove her.", "Mrs [PATIENT]'s neighbour drove her."],
+    ["Husband Ramesh's job is stable.", "Husband [RELATIVE_1]'s job is stable."],
+  ])('%s', (note, expected) => {
+    expect(redactByCode(note).text).toBe(expected)
+  })
+})

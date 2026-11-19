@@ -6,7 +6,7 @@
 //
 // The result state is "ok" or "manual". There is no default: a failed run is never "nothing found".
 // Nothing here logs. Error objects carry no note text.
-import { findValue, hideValues, type HideItem, type TokenMap, type TokenType } from './tokens'
+import { findValue, hideValues, tokenRegex, type HideItem, type TokenMap, type TokenType } from './tokens'
 
 /** The model call: (prompt, schema, signal) => the raw reply text. */
 export type NanoModelFn = (prompt: string, schema: object, signal: AbortSignal) => Promise<string>
@@ -163,6 +163,17 @@ export function itemProblem(item: HideItem, terms: ReadonlySet<string>): DropRea
   if (terms.has(termKey(t))) return 'clinical-term'
   if (LABEL_WORDS.has(termKey(t))) return 'label-word'
   return null
+}
+
+/**
+ * Dropped items the dentist must look at. Label words ("Mrs", "Patient") and text that is only an
+ * already-hidden token ("[ADDRESS]", "Mrs [RELATIVE_1]") hide nothing and need no tick, so they are
+ * left out. Everything else counts (SECURITY A5).
+ */
+export function itemsToReview(result: Pick<NanoResult, 'dropped' | 'notFound'>): HideItem[] {
+  const tokenOnly = (t: string) => termKey(t.replace(tokenRegex(), ' ')) === '' || termKey(t.replace(tokenRegex(), ' ')).split(' ').every((w) => LABEL_WORDS.has(w))
+  const real = result.dropped.filter((d) => d.reason !== 'label-word' && !(d.reason === 'has-bracket' && tokenOnly(d.text)))
+  return [...real.map(({ text, type }) => ({ text, type })), ...result.notFound]
 }
 
 /** Exact text first, then case-insensitive whole word. */

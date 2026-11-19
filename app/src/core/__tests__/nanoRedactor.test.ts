@@ -4,6 +4,7 @@ import drugs from '../../../../data/drugs.json'
 import {
   buildPrompt,
   droppedNotice,
+  itemsToReview,
   MANUAL_MESSAGE,
   NanoUnavailableError,
   nanoRedact,
@@ -196,6 +197,23 @@ describe('T4 Nano redactor', () => {
     expect(r.text).toContain('Patient: [PATIENT]')
     expect(r.text).toContain('husband [RELATIVE_1]')
     expect(r.dropped.map((d) => [d.text, d.reason])).toEqual([['Patient', 'label-word'], ['husband', 'label-word']])
+  })
+
+  it('itemsToReview leaves out label words and bare tokens but keeps real drops and notFound', async () => {
+    const { fn } = fake([
+      reply([
+        { text: 'Mrs', type: 'PERSON' },
+        { text: '[ADDRESS]', type: 'ADDRESS' },
+        { text: 'Mrs [RELATIVE_1]', type: 'RELATIVE' },
+        { text: 'Zorblax', type: 'PERSON' },
+        { text: 'Rames', type: 'PERSON' },
+        { text: 'ibuprofen', type: 'PERSON' },
+        { text: 'Ram [ESH', type: 'PERSON' },
+      ]),
+    ])
+    const { r } = await run(NOTE, fn)
+    expect(r.dropped.length).toBe(6)
+    expect(itemsToReview(r).map((i) => i.text).sort()).toEqual(['Rames', 'Zorblax', 'ibuprofen', 'Ram [ESH'].sort())
   })
 
   it('exactly 40 items is incomplete: the part is run again in smaller pieces', async () => {
