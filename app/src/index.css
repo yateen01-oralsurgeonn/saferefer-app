@@ -115,3 +115,232 @@ button:disabled {
   background: #dbe9fb;
   color: #0b4a8f;
 }
+
+/* ---------- T5 screen (FINISH.md section 1 colours) ---------- */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px 16px;
+  color: #1a2433;
+}
+.app .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.app h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.app .banner {
+  margin: 0;
+  padding: 6px 12px;
+}
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 12px;
+}
+.pane {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.pane label,
+.pane-label {
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.pane-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.pane-head .pane-label {
+  margin: 0;
+}
+.pane textarea,
+.preview {
+  box-sizing: border-box;
+  height: 380px;
+  padding: 12px;
+  border: 1px solid #d5dae1;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  line-height: 1.6;
+  resize: none;
+}
+.preview {
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.placeholder {
+  color: #5b6676;
+}
+.chip {
+  padding: 0 6px;
+  margin: 0 1px;
+  border-radius: 6px;
+  background: #e0f2f1;
+  color: #0b5c56;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.chip:hover {
+  background: #c7e8e5;
+}
+.amber {
+  background: #fef3c7;
+  text-decoration: underline;
+  text-decoration-color: #b45309;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+.pane-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+.small {
+  font-size: 14px;
+  color: #5b6676;
+  margin: 4px 0 0;
+}
+.amber-note {
+  color: #b45309;
+  font-weight: 600;
+  margin: 0;
+}
+.review {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fef3c7;
+  color: #1a2433;
+  overflow-wrap: anywhere;
+}
+.app button {
+  background: #0f766e;
+  padding: 10px 28px;
+  min-height: 44px;
+}
+.app button:disabled {
+  background: #9aa7b4;
+}
+.app button.secondary {
+  background: #fff;
+  color: #0f766e;
+  border: 1px solid #0f766e;
+  padding: 6px 14px;
+  min-height: 0;
+}
+.app button.secondary:disabled {
+  color: #9aa7b4;
+  border-color: #c9d0d8;
+  background: #fff;
+}
+.app button.chip {
+  background: #e0f2f1;
+  color: #0b5c56;
+  padding: 0 6px;
+  min-height: 0;
+}
+.app :focus-visible {
+  outline: 3px solid #0b5cad;
+  outline-offset: 2px;
+}
+.app .status {
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #475569;
+  min-height: 24px;
+}
+.app .status.error {
+  background: #fee4e2;
+  color: #b42318;
+}
+.app .status.ok {
+  background: #dcfce7;
+  color: #17663a;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.ticks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  margin: 0;
+}
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #c9d0d8;
+  border-top-color: #0f766e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .app {
+    padding: 12px 16px 96px;
+  }
+  .panes {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pane textarea,
+  .preview {
+    height: 220px;
+    font-size: 16px;
+  }
+  .bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 10px 16px;
+    background: #fff;
+    border-top: 1px solid #d5dae1;
+    box-sizing: border-box;
+  }
+  .buttons {
+    width: 100%;
+  }
+  .buttons button {
+    flex: 1;
+  }
+}

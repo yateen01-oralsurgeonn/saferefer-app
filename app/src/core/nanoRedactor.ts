@@ -144,7 +144,7 @@ export function buildTermSet(lists: NanoLists): Set<string> {
 }
 
 /** Words that label a person but are not a name. Nano sometimes returns them ("Patient: ..."). */
-const LABEL_WORDS: ReadonlySet<string> = new Set([
+export const LABEL_WORDS: ReadonlySet<string> = new Set([
   'patient', 'patients', 'doctor', 'dentist', 'dr', 'mr', 'mrs', 'ms', 'miss', 'sir', 'madam', 'name', 'age', 'sex',
   'male', 'female', 'husband', 'wife', 'mother', 'father', 'son', 'daughter', 'brother', 'sister', 'friend', 'relative',
 ])
