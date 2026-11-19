@@ -1,0 +1,25 @@
+Hi, thanks again for looking at the SafeRefer sheet. Here is how the tool performed for legal work, and 2 small things I need from you.
+
+*What it does*
+You type a case note. Before anything goes to the cloud AI, the browser hides names, phones, case and FIR numbers, cheque numbers, bar enrolment numbers and settlement sums on your own computer. The cloud only sees labels like [PATIENT] (your client) and [PERSON_1] (the other side). It writes a short brief for senior counsel. Acts, sections, court names, the stage of the case and claim amounts are NOT hidden. It must never give a legal opinion or quote case law.
+
+*How it performed (10 made-up case notes, 70 things to hide)*
+- Without the on-device AI: 4 missed (5.7%)
+- With the on-device AI: 1 missed (1.4%)
+- Hidden correctly: client, accused, witness and advocate names, phones, emails, case / FIR / CNR / cheque numbers, enrolment numbers, settlement sums
+- Missed: one street address typed fully in lower case
+- The other side (accused, defendant, witness) is always hidden as a separate person, never as your client
+Careful: I wrote those 10 notes myself, so this is better than it will be in real life. For my own dentist notes the same test gave 3% on my notes but 17% on notes I had not seen. So I need yours.
+
+*Please do 2 things (15 minutes in total)*
+1) Answer these about the sheet I sent:
+ a) Could you send the brief to senior counsel as it is? Usable / small edits / not usable
+ b) Is any fact, date, amount, court or section wrong, changed or added?
+ c) Are the client, complainant and accused in the right roles?
+ d) Does the brief give a legal opinion anywhere? Is the question for counsel clear?
+ e) Would you use a tool like this? One line why or why not.
+2) Write 10 made-up case notes, 2 to 5 sentences each, the way you really type. Mix nicknames, only a first name, lower case, Hindi/Marathi words, mixed date styles. Invent everything: no real person or case. Phones start with 00000.
+ Put [[ ]] around everything that should be hidden, like:
+ 1. Client [[name:Pappu bhai]] ([[phone:00000 55123]]) accused in [[id:Crime No. 88/2026]] at [[address:near Ganesh mandir, Baramati]] police station. Other side offered [[amount:Rs 2 lakh]] settlement. Bail hearing [[date:3/11]] before Sessions Court.
+ Do NOT mark claim amounts, Acts, sections or court names.
+Send the notes back here and I will run them and tell you the real score. Thank you!

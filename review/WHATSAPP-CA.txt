@@ -1,0 +1,24 @@
+Hi, thanks again for looking at the SafeRefer sheet. Here is how the tool performed for CA work, and 2 small things I need from you.
+
+*What it does*
+You type a client note. Before anything goes to the cloud AI, the browser hides names, phone, PAN, GSTIN, bank account, emails and addresses on your own computer. The cloud only sees labels like [PATIENT] and [ID]. It writes a short case summary for a specialist CA. Amounts, sections, forms and assessment years are NOT hidden, so the specialist still has the facts.
+
+*How it performed (10 made-up CA notes, 55 things to hide)*
+- Without the on-device AI: 2 missed (3.6%)
+- With the on-device AI: 1 missed (1.8%)
+- Hidden correctly: client and partner names, phones, emails, PAN, GSTIN, TAN, bank account, IFSC, CIN, UDIN
+- Missed: one street address typed fully in lower case
+Careful: I wrote those 10 notes myself, so this is better than it will be in real life. For my own dentist notes the same test gave 3% on my notes but 17% on notes I had not seen. So I need yours.
+
+*Please do 2 things (15 minutes in total)*
+1) Answer these about the sheet I sent:
+ a) Could you send the summary to a specialist as it is? Usable / small edits / not usable
+ b) Is any figure, section, date or form wrong, changed or added?
+ c) Does it give a tax opinion anywhere?
+ d) What would a specialist ask first that is missing?
+ e) Would you use a tool like this? One line why or why not.
+2) Write 10 made-up client notes, 2 to 5 sentences each, the way you really type. Mix nicknames, only a first name, lower case, Hindi/Marathi words, mixed date styles. Invent everything: no real client. Phones start with 00000. PAN like ZZZZZ0000Z. No real Aadhaar.
+ Put [[ ]] around everything that should be hidden, like:
+ 1. [[name:Rakesh bhau]] ([[phone:00000 55123]]) of [[organization:Sai Traders, Baramati]], PAN [[id:ZZZZZ1234Z]], notice under 143(1) on [[date:3/11]], demand Rs 38,400.
+ Do NOT mark amounts, sections, forms or assessment years.
+Send the notes back here and I will run them and tell you the real score. Thank you!
