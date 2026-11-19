@@ -62,7 +62,7 @@ Notes received on WhatsApp on 20 Nov 2026 in reply to `review/WHATSAPP-CA.txt`; 
 | Date | Profession | Notes | Mode | Leaked | Where measured |
 |---|---|---|---|---|---|
 | 20 Nov 2026 | CA (fresh) | 10 (56 identifiers) | code only | **26 of 56 (46.4%)** | Playwright Chromium (no Nano) |
-| | CA (fresh) | 10 | code + Gemini Nano | (to do) | Dr. Yatin's Chrome |
+| 20 Nov 2026 | **CA (fresh)** | 10 (56 identifiers) | **code + Gemini Nano** | **7 of 56 (12.5%)** | Dr. Yatin's own Chrome |
 
 ### Dentist fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026) - the number to quote
 - Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
@@ -72,3 +72,13 @@ Notes received on WhatsApp on 20 Nov 2026 in reply to `review/WHATSAPP-CA.txt`; 
   - **Street landmarks (4 of 8 addresses, all "partial"):** the lead words of an address are left behind while the place name is hidden: "stays behind", "near water tank,", "near", "Lives behind" (F02, F06, F08, F09). The place name itself ("Loni", "Rahata", "Sangamner") was hidden.
 - **Honest summary for the README:** on 10 notes written by a dentist the builder had not seen, 8 of 46 identifiers (17.4%) were left with the code rules plus Nano; names, phones, emails, IDs and employers were all hidden; relative dates and the leading words of landmark addresses were not. The dentist's check before Approve is the real control.
 - **Not yet done:** no rule has been changed after these runs. Any later improvement will be recorded as made after seeing these notes (so a later score on the same notes is flattered).
+
+### CA fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026)
+- Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
+- **Names 0 of 14, phones 0 of 8, record IDs 0 of 10 (PAN, GSTIN, TAN, CIN, bank account, IFSC), emails 0 of 1 leaked.** Nano turned 26 code-only leaks into 7: all names were caught, including unlabelled ones ("Rakesh bhau", "priya madam", "suresh kaka", "nikita").
+- **What is left (7):** the same two families as the dentist fresh notes.
+  - **Dates without a year or as a weekday (3 of 8):** "3/11" (F01), "last Tuesday" (F04), "Monday" (F07).
+  - **Landmark or place words of an address (3 of 4, "partial"):** "She stays near" (F02), ", Sangamner." left after "opp. Hanuman mandir" was hidden (F05), "He lives behind bus stand," (F10).
+  - **One organisation "partial" (F07):** the generic word "boutique" left in "her boutique" after "Nikita Boutique, Kopargaon" was hidden (a scorer false alarm of the "works" kind: the name itself is not in the text).
+- The caveats on the CA notes' provenance (see above) still apply.
+- **Pattern across both fresh sets (dentist 8 of 46, CA 7 of 56): the remaining leaks are almost all (a) short or relative dates and (b) the leading words and place names of landmark addresses.** Names, phones, emails and every ID were hidden. No rule has been changed after any of these runs.
