@@ -123,4 +123,32 @@ Marking correction made to the test data BEFORE the run (never to a rule): note 
 - **The advocate set improved with no advocate-specific rule:** every date and every address is now hidden by code alone; all 11 remaining code-only leaks are names, which Gemini Nano handles.
 - **No regression on the builder notes:** dentist 4 of 124, CA 2 of 55, advocate 4 of 70 (identical to before).
 - 552 unit tests pass (13 known-gap tests remain, two fewer than before).
-- **Nano re-runs after the fixes: pending** (Dr. Yatin's Chrome, all three fresh pages).
+
+### Nano re-runs AFTER the two fixes, Dr. Yatin's own Chrome (20 Nov 2026) - the numbers to quote
+All three runs: zero requests (PASS); 10 of 10 notes manual with the model removed (PASS); mode "code redactor plus Gemini Nano on this device".
+
+| Set | Identifiers | Before the fixes (code + Nano) | **After the fixes (code + Nano)** | Status of the number |
+|---|---|---|---|---|
+| Dentist fresh | 46 | 8 (17.4%) | **1 (2.2%)** | flattered (fixes written after seeing these notes) |
+| CA fresh | 56 | 7 (12.5%) | **2 (3.6%)** | flattered |
+| **Advocate fresh** | 69 | 11 (15.9%) | **0 (0.0%)** | **clean test: no rule was written for it** |
+
+- **Every name, phone, email, date, record ID, case number, settlement sum, relative and address was hidden in all three sets.** The only leftovers are generic words left after the name itself was hidden, which the scorer counts as "partial":
+  - Dentist F07: the word "College:" after "Pravara College" was hidden.
+  - CA F02: "She stays near" (the landmark after it was hidden; the lead-in words alone carry no information).
+  - CA F07: the word "boutique" in "her boutique" after "Nikita Boutique, Kopargaon" was hidden.
+- **How to quote this honestly:** "On 25 fresh synthetic notes written by a dentist and a helper, 3 of 171 identifiers were left (1.8%) with the code rules plus Gemini Nano; the three leftovers were generic words, not names, numbers or places." Add: only the advocate set (0 of 69) is a test of fixes written without seeing it; 10 notes per profession is a small set; 0 leaked on it is not "never leaks"; the dentist's check before Approve is the real control.
+- **Still true:** the numbers are for English notes with Roman-script Marathi/Hindi words, typed by one dentist and helpers; a real clinic note can be messier.
+
+## All results at a glance (code + Gemini Nano on Dr. Yatin's Chrome unless stated)
+| Set | Leaked | Note |
+|---|---|---|
+| Dentist builder notes (30) | 1 of 124 (0.8%) | written by the builder: flattered |
+| CA builder notes (10) | 1 of 55 (1.8%) | flattered |
+| Advocate builder notes (10) | 1 of 70 (1.4%) | flattered |
+| Dentist fresh, before fixes | 8 of 46 (17.4%) | fresh |
+| CA fresh, before fixes | 7 of 56 (12.5%) | fresh |
+| Advocate fresh, before fixes | 11 of 69 (15.9%) | fresh |
+| Dentist fresh, after fixes | 1 of 46 (2.2%) | flattered by the fixes |
+| CA fresh, after fixes | 2 of 56 (3.6%) | flattered by the fixes |
+| **Advocate fresh, after fixes** | **0 of 69 (0.0%)** | **clean generalisation test** |
