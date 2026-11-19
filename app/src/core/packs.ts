@@ -5,7 +5,9 @@
 // the token rules, the fact rules and the "note is data" rule are fixed in code and are the same for every pack.
 // validatePack() rejects any pack with an unknown field, so a pack from Remote Config (T11) cannot add one.
 
-export type PackId = 'dental'
+import { isSafeWord } from './redactRules'
+
+export type PackId = 'dental' | 'ca'
 
 /** The parts of the letter instruction a profession may change. Every other rule is fixed (letter.ts). */
 export interface LetterText {
@@ -23,6 +25,8 @@ export interface LetterText {
   noAdviceRule: string
   /** Rule 11: "a dental clinical note". */
   noteKind: string
+  /** Rule 7: who wrote the note ("the dentist"). */
+  writer: string
   /** The section list, in order. */
   template: readonly string[]
 }
@@ -37,6 +41,10 @@ export interface Pack {
   /** For the Nano prompt: "a dentist's clinical note". */
   nanoNoteKind: string
   letter: LetterText
+  /** Extra words for the code redactor. They only add to the base rules (redactRules.ts). */
+  redaction: { relations: readonly string[]; headers: readonly string[]; ids: 'none' | 'ca' }
+  /** Which fact checks run on the letter: 'dental' adds tooth, drug and treatment checks. */
+  facts: 'dental' | 'generic'
   /** Which item list runs after Approve. Teeth for dental; none until P2 adds citations. */
   items: 'teeth' | 'none'
 }
@@ -51,6 +59,7 @@ export const DENTAL_LETTER: LetterText = {
   personRule: 'Refer to the patient as [PATIENT] or "the patient". No "he" or "she" unless the NOTE states the sex.',
   noAdviceRule: 'No advice to the patient, no prognosis, no opinion.',
   noteKind: 'a dental clinical note',
+  writer: 'the dentist',
   template: [
     'Dear Colleague,',
     'Re: [PATIENT], with age only if recorded',
@@ -72,10 +81,52 @@ export const DENTAL_PACK: Pack = {
   placeholder: 'Type or paste a synthetic clinical note',
   nanoNoteKind: "a dentist's clinical note",
   letter: DENTAL_LETTER,
+  redaction: { relations: [], headers: [], ids: 'none' },
+  facts: 'dental',
   items: 'teeth',
 }
 
-export const PACKS: Readonly<Record<PackId, Pack>> = { dental: DENTAL_PACK }
+export const CA_LETTER: LetterText = {
+  intro:
+    'You draft a case summary from a chartered accountant to a specialist chartered accountant. The reader is the specialist, never the client. The accountant will review, edit and sign the summary.',
+  neverAdd: 'figure, amount, date, section, form, rate, penalty, due date, liability, document, notice or conclusion',
+  wordsRule:
+    "keep the accountant's own words for facts and for any conclusion they recorded. Fix grammar. Expand shorthand only when the meaning is certain; otherwise keep it as written.",
+  numbersRule:
+    'Figures and references: keep every amount, section number, form name, assessment year and rate exactly as written. Never convert, round, add up or recompute.',
+  personRule: "Refer to the client as [PATIENT] or \"the client\". Do not guess the client's sex.",
+  noAdviceRule: 'No tax or legal opinion, no recommendation, no advice to the client, no estimate of liability.',
+  noteKind: 'a chartered accountant client note',
+  writer: 'the accountant',
+  template: [
+    'Dear Colleague,',
+    'Re: [PATIENT], the client',
+    'Matter',
+    'Facts recorded',
+    'Documents on file',
+    'Figures recorded',
+    'Question for the specialist',
+    'Thank you for your help with this client.',
+  ],
+}
+
+export const CA_PACK: Pack = {
+  id: 'ca',
+  label: 'Chartered Accountant',
+  noteLabel: 'Your client note (stays in this browser)',
+  placeholder: 'Type or paste a synthetic client note',
+  nanoNoteKind: "a chartered accountant's client note",
+  letter: CA_LETTER,
+  redaction: {
+    relations: ['director', 'proprietor', 'karta', 'accountant', 'auditor', 'promoter', 'trustee'],
+    headers: ['client', 'assessee', 'party', 'client name'],
+    ids: 'ca',
+  },
+  facts: 'generic',
+  items: 'none',
+}
+
+export const PACKS: Readonly<Record<PackId, Pack>> = { dental: DENTAL_PACK, ca: CA_PACK }
 export const DEFAULT_PACK = DENTAL_PACK
 
 export function getPack(id: string | null | undefined): Pack {
@@ -84,8 +135,8 @@ export function getPack(id: string | null | undefined): Pack {
 
 // ---------- validation (for packs that do not come from this file) ----------
 
-const PACK_KEYS = ['id', 'label', 'noteLabel', 'placeholder', 'nanoNoteKind', 'letter', 'items']
-const LETTER_KEYS = ['intro', 'neverAdd', 'wordsRule', 'numbersRule', 'personRule', 'noAdviceRule', 'noteKind', 'template']
+const PACK_KEYS = ['id', 'label', 'noteLabel', 'placeholder', 'nanoNoteKind', 'letter', 'redaction', 'facts', 'items']
+const LETTER_KEYS = ['intro', 'neverAdd', 'wordsRule', 'numbersRule', 'personRule', 'noAdviceRule', 'noteKind', 'writer', 'template']
 const MAX_TEXT = 400
 /** Only these bracket words may appear in pack text: they are real tokens the model must copy. */
 const ALLOWED_BRACKETS = /\[(?:PATIENT)\]/g
@@ -105,6 +156,15 @@ export function validatePack(raw: unknown): Pack {
   for (const k of Object.keys(p)) if (!PACK_KEYS.includes(k)) throw new Error('Pack: unknown field')
   if (typeof p.id !== 'string' || !Object.prototype.hasOwnProperty.call(PACKS, p.id)) throw new Error('Pack: unknown id')
   if (p.items !== 'teeth' && p.items !== 'none') throw new Error('Pack: bad items')
+  if (p.facts !== 'dental' && p.facts !== 'generic') throw new Error('Pack: bad facts')
+  const r = p.redaction as Record<string, unknown>
+  if (typeof r !== 'object' || r === null || Array.isArray(r)) throw new Error('Pack: bad redaction')
+  for (const k of Object.keys(r)) if (!['relations', 'headers', 'ids'].includes(k)) throw new Error('Pack: unknown redaction field')
+  if (r.ids !== 'none' && r.ids !== 'ca') throw new Error('Pack: bad ids')
+  const words = (v: unknown, what: string): string[] => {
+    if (!Array.isArray(v) || v.length > 30 || !v.every(isSafeWord)) throw new Error(`Pack: bad ${what}`)
+    return v.map((w) => (w as string).trim())
+  }
   const l = p.letter as Record<string, unknown>
   if (typeof l !== 'object' || l === null || Array.isArray(l)) throw new Error('Pack: bad letter')
   for (const k of Object.keys(l)) if (!LETTER_KEYS.includes(k)) throw new Error('Pack: unknown letter field')
@@ -117,6 +177,8 @@ export function validatePack(raw: unknown): Pack {
     placeholder: cleanText(p.placeholder, 'placeholder'),
     nanoNoteKind: cleanText(p.nanoNoteKind, 'nanoNoteKind'),
     items: p.items,
+    facts: p.facts,
+    redaction: { relations: words(r.relations, 'relations'), headers: words(r.headers, 'headers'), ids: r.ids },
     letter: {
       intro: cleanText(l.intro, 'intro'),
       neverAdd: cleanText(l.neverAdd, 'neverAdd'),
@@ -125,6 +187,7 @@ export function validatePack(raw: unknown): Pack {
       personRule: cleanText(l.personRule, 'personRule'),
       noAdviceRule: cleanText(l.noAdviceRule, 'noAdviceRule'),
       noteKind: cleanText(l.noteKind, 'noteKind'),
+      writer: cleanText(l.writer, 'writer'),
       template: template.map((t, i) => cleanText(t, `template line ${i + 1}`)),
     },
   }

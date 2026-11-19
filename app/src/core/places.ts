@@ -21,13 +21,14 @@ const PAN_RE = /(?<![\p{L}\p{N}])[A-Z]{5}\d{4}[A-Z](?![\p{L}\p{N}])/gu
 const LABELLED_ID_RE =
   /(?<![\p{L}])(?:patient\s+id|uhid|mrn|aadhaar|aadhar|(?:record|file|case|reg(?:istration)?\.?|policy|member(?:ship)?|opd|ipd|card|report|ref(?:erence)?\.?|id)\s*(?:no\.?|number|id|#))\s*[:#-]?\s*((?=[A-Za-z0-9/-]*\d)[A-Za-z0-9][A-Za-z0-9/-]{3,})/giu
 
-export function findIds(text: string, taken: Span[] = []): Found[] {
+export function findIds(text: string, taken: Span[] = [], extraNotId: readonly string[] = []): Found[] {
+  const notId = extraNotId.length ? new Set([...NOT_AN_ID, ...extraNotId.map((w) => w.toUpperCase())]) : NOT_AN_ID
   const out: Found[] = []
   const add = (start: number, value: string) => {
     const f: Found = { start, end: start + value.length, type: 'ID', value }
     if (!hit(taken, f) && !hit(out, f)) out.push(f)
   }
-  for (const m of text.matchAll(CODE_ID_RE)) if (!NOT_AN_ID.has(m[1])) add(m.index, m[0])
+  for (const m of text.matchAll(CODE_ID_RE)) if (!notId.has(m[1])) add(m.index, m[0])
   for (const m of text.matchAll(PAN_RE)) add(m.index, m[0])
   for (const m of text.matchAll(LABELLED_ID_RE)) add(m.index + m[0].length - m[1].length, m[1])
   return out

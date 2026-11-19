@@ -4,6 +4,7 @@
 import { applyFound, claim, EVERYDAY_WORD_NAMES, findValue, isPersonType, tokenSpans, TokenMap, type Found, type TokenType } from './tokens'
 import { findDates, findEmails, findPhones } from './patterns'
 import { findIds, findPlaces } from './places'
+import { isSafeWord, NO_RULES, type RedactRules } from './redactRules'
 
 export interface RedactResult {
   /** The note with tokens in place of what the code found. */
@@ -18,7 +19,12 @@ const LOWER_WORD = String.raw`\p{L}[\p{L}\p{M}'\u2019-]*`
 // A title, then a dot or a space: "Mr ", "Mr.", "Smt. ", "Sau. "
 const TITLE_WORD = String.raw`(?:Mr|Mrs|Ms|Miss|Mx|Master|Baby|Shri|Sri|Shrimati|Smt|Sister|Dr|Prof|Kumari|Late|Fr|Rev|MR|MRS|MS|DR|mr|mrs|ms|dr|smt|shri)`
 const TITLE = String.raw`(?:(${TITLE_WORD})(?:\.\s*|\s+)|(Sau|Ku|Kum|Chi)\.\s*)`
-const RELATION = String.raw`(?:husband|wife|spouse|father|mother|son|daughter|brother|sister|uncle|aunt|aunty|cousin|nephew|niece|grandfather|grandmother|grandson|granddaughter|grandma|grandpa|father-in-law|mother-in-law|son-in-law|daughter-in-law|brother-in-law|sister-in-law|mom|mum|mummy|dad|daddy|papa|friend|neighbour|neighbor|guardian|parent|fianc[e\u00E9]e?|partner|colleague|boss|driver|caretaker|carer|attendant|maid|pati|patni|beta|beti|bhai|behen|bahin|aai|baba|vadil|mulga|mulgi|navra|bayko|mama|mami|kaka|kaku|chacha|chachi|dada|didi|tai|mavshi|atya|sasu|sasra|nana|nani|dadi|ajoba|aaji)`
+const RELATION_BASE = String.raw`(?:husband|wife|spouse|father|mother|son|daughter|brother|sister|uncle|aunt|aunty|cousin|nephew|niece|grandfather|grandmother|grandson|granddaughter|grandma|grandpa|father-in-law|mother-in-law|son-in-law|daughter-in-law|brother-in-law|sister-in-law|mom|mum|mummy|dad|daddy|papa|friend|neighbour|neighbor|guardian|parent|fianc[e\u00E9]e?|partner|colleague|boss|driver|caretaker|carer|attendant|maid|pati|patni|beta|beti|bhai|behen|bahin|aai|baba|vadil|mulga|mulgi|navra|bayko|mama|mami|kaka|kaku|chacha|chachi|dada|didi|tai|mavshi|atya|sasu|sasra|nana|nani|dadi|ajoba|aaji)`
+/** The relation words, plus a pack's own (plain words only). With no extras this is exactly the old text. */
+function relationSource(extra: readonly string[] = []): string {
+  const more = extra.filter(isSafeWord).map((w) => w.trim().replace(/[ -]+/g, '[ -]'))
+  return more.length ? RELATION_BASE.replace(/\)$/, `|${more.join('|')})`) : RELATION_BASE
+}
 const CUE = String.raw`(?:name\s+is|surname\s+is|named|called|known\s+as|ask\s+for|answers\s+to|has\s+(?:him|her|them)\s+as|have\s+(?:him|her|them)\s+as|reads|seeing|s\/o|d\/o|w\/o|c\/o)`
 
 /** Capitalised words that are field labels or clinical words, never part of a name. */
@@ -77,7 +83,9 @@ function readName(text: string, pos: number, max: number, allowLower: boolean): 
   return end
 }
 
-function findNames(text: string): NameHit[] {
+function findNames(text: string, rules: RedactRules = NO_RULES): NameHit[] {
+  const RELATION = relationSource(rules.relations)
+  const extraHeaders = (rules.headers ?? []).filter(isSafeWord).map((w) => w.trim().replace(/ +/g, String.raw`\s+`))
   const hits: NameHit[] = []
   const taken = (s: number, e: number) => hits.some((h) => h.start < e && s < h.end)
   let patientSet = false
@@ -89,7 +97,7 @@ function findNames(text: string): NameHit[] {
 
   // 1. Header: "Patient: Arvind Testwala", "Patient name: ...", "Name - ...", "Re: Mr ...", "Pt. ...", "Patient Arvind ..."
   const header = new RegExp(
-    String.raw`(?<![\p{L}])(?:(patient(?:'s)?\s+name|pt\.?\s+name|name\s+of\s+(?:the\s+)?patient|name|patient|pt\.?|re)\s*[:=\u2013-]\s*|(patient|pt\.)\s+(?=(?:${TITLE})?\p{Lu}))(?:${TITLE})?`,
+    String.raw`(?<![\p{L}])(?:(patient(?:'s)?\s+name|pt\.?\s+name|name\s+of\s+(?:the\s+)?patient|name|patient|pt\.?|re${extraHeaders.length ? `|${extraHeaders.join('|')}` : ''})\s*[:=\u2013-]\s*|(patient|pt\.${extraHeaders.length ? `|${extraHeaders.join('|')}` : ''})\s+(?=(?:${TITLE})?\p{Lu}))(?:${TITLE})?`,
     'giu',
   )
   for (const m of text.matchAll(header)) {
@@ -174,17 +182,19 @@ const allowedTypos = (len: number) => (len >= 12 ? 3 : len >= 8 ? 2 : len >= 5 ?
  * Age and tooth numbers stay. Everything else is left for Gemini Nano (T4) and the dentist.
  * Safe to run again on text that already has tokens.
  */
-export function redactByCode(note: string, map: TokenMap = new TokenMap()): RedactResult {
-  const blocked = tokenSpans(note)
+export function redactByCode(note: string, map: TokenMap = new TokenMap(), rules: RedactRules = NO_RULES): RedactResult {
+  // Protected spans (money amounts) are treated like tokens: nothing may claim or cut them.
+  const blocked = [...tokenSpans(note), ...(rules.protect?.(note) ?? [])]
   const found: Found[] = []
   const free = (s: number, e: number) => ![...found, ...blocked].some((f) => f.start < e && s < f.end)
 
   for (const f of findEmails(note)) claim(found, f, blocked)
+  for (const finder of rules.extraIds ?? []) for (const f of finder(note, [...found, ...blocked])) claim(found, f, blocked)
   for (const f of findDates(note)) claim(found, f, blocked)
   for (const f of findPhones(note, [...found, ...blocked])) claim(found, f, blocked)
-  for (const f of findIds(note, [...found, ...blocked])) claim(found, f, blocked)
+  for (const f of findIds(note, [...found, ...blocked], rules.notIdPrefixes)) claim(found, f, blocked)
 
-  const names = findNames(note).filter((n) => free(n.start, n.end))
+  const names = findNames(note, rules).filter((n) => free(n.start, n.end))
   // Longest names first, so "Ramesh Patil" is taken before "Ramesh".
   const byLength = [...names].sort((a, b) => b.value.length - a.value.length)
   const done = new Set<string>()

@@ -1,0 +1,341 @@
+[
+  {
+    "id": "CA01",
+    "text": "Client: Rajesh Testshah. Mobile 00000 55601. PAN AAAPT0001A. GSTIN 27AAAPT0001A1ZN. For assessment year 2025-26 the return was filed under section 139(1) on 28/07/2025 using ITR-3. Turnover Rs 1,85,00,000, net profit ₹14,20,000. Notice under section 143(1) received on 12 January 2026 with a demand of Rs 38,400. Please advise on rectification under section 154.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Rajesh Testshah"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55601"
+      },
+      {
+        "type": "record_id",
+        "value": "AAAPT0001A"
+      },
+      {
+        "type": "record_id",
+        "value": "27AAAPT0001A1ZN"
+      },
+      {
+        "type": "date",
+        "value": "28/07/2025"
+      },
+      {
+        "type": "date",
+        "value": "12 January 2026"
+      }
+    ],
+    "keep": [
+      "Rs 1,85,00,000",
+      "₹14,20,000",
+      "Rs 38,400",
+      "139(1)",
+      "143(1)",
+      "ITR-3",
+      "section 154",
+      "2025-26"
+    ]
+  },
+  {
+    "id": "CA02",
+    "text": "Mrs Sunita Mockdesai runs Fake Textiles Pvt Ltd from 14 Example Mill Road, Fakepur 413106. Her director husband Anil Mockdesai signs the returns. GSTIN 27AAACF0002B1ZP. GSTR-3B for the month was filed late; late fee Rs 2,000 and interest ₹ 7,350 were charged. Input tax credit of Rs 3.4 lakh is being questioned. Contact: sunita@example.org.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Sunita Mockdesai"
+      },
+      {
+        "type": "organization",
+        "value": "Fake Textiles Pvt Ltd"
+      },
+      {
+        "type": "address",
+        "value": "14 Example Mill Road, Fakepur 413106"
+      },
+      {
+        "type": "relative",
+        "value": "Anil Mockdesai"
+      },
+      {
+        "type": "record_id",
+        "value": "27AAACF0002B1ZP"
+      },
+      {
+        "type": "email",
+        "value": "sunita@example.org"
+      }
+    ],
+    "keep": [
+      "GSTR-3B",
+      "Rs 2,000",
+      "₹ 7,350",
+      "Rs 3.4 lakh"
+    ]
+  },
+  {
+    "id": "CA03",
+    "text": "Assessee: Meena Testkulkarni (Aadhaar 0123 4567 8901). Her savings account number 00112233445566 is at Example Bank, IFSC TEST0000123. Interest income of Rs 62,000 on fixed deposits; TDS under section 194A of Rs 6,200 was deducted. Form 26AS shows Rs 4,100 less. Her son Rohit Testkulkarni is a joint holder.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Meena Testkulkarni"
+      },
+      {
+        "type": "record_id",
+        "value": "0123 4567 8901"
+      },
+      {
+        "type": "record_id",
+        "value": "00112233445566"
+      },
+      {
+        "type": "record_id",
+        "value": "TEST0000123"
+      },
+      {
+        "type": "organization",
+        "value": "Example Bank"
+      },
+      {
+        "type": "relative",
+        "value": "Rohit Testkulkarni"
+      }
+    ],
+    "keep": [
+      "Rs 62,000",
+      "194A",
+      "Rs 6,200",
+      "26AS",
+      "Rs 4,100"
+    ]
+  },
+  {
+    "id": "CA04",
+    "text": "Client: M/s Sample Traders. TAN PUNE12345B. Proprietor Vijay Mocksharma, phone 00000 55604, vijay.mocksharma@example.org. The TDS return in Form 26Q for the second quarter was filed on 31/10/2026. Short deduction under section 194C: Rs 18,500.",
+    "identifiers": [
+      {
+        "type": "organization",
+        "value": "Sample Traders"
+      },
+      {
+        "type": "record_id",
+        "value": "PUNE12345B"
+      },
+      {
+        "type": "name",
+        "value": "Vijay Mocksharma"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55604"
+      },
+      {
+        "type": "email",
+        "value": "vijay.mocksharma@example.org"
+      },
+      {
+        "type": "date",
+        "value": "31/10/2026"
+      }
+    ],
+    "keep": [
+      "26Q",
+      "194C",
+      "Rs 18,500"
+    ]
+  },
+  {
+    "id": "CA05",
+    "text": "Mr Prakash Fakeraut (born 5 May 1968) asks about capital gains on the sale of Flat 4B, Placeholder Heights, Sample Nagar, Pune 411001, sold for Rs 82 lakh on 3rd June 2026. It was bought in 2009 for Rs 31,50,000. Phone zero zero zero zero zero five five six zero five. Exemption under section 54 is claimed.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Prakash Fakeraut"
+      },
+      {
+        "type": "dob",
+        "value": "5 May 1968"
+      },
+      {
+        "type": "address",
+        "value": "Flat 4B, Placeholder Heights, Sample Nagar, Pune 411001"
+      },
+      {
+        "type": "date",
+        "value": "3rd June 2026"
+      },
+      {
+        "type": "phone",
+        "value": "zero zero zero zero zero five five six zero five"
+      }
+    ],
+    "keep": [
+      "Rs 82 lakh",
+      "Rs 31,50,000",
+      "section 54"
+    ]
+  },
+  {
+    "id": "CA06",
+    "text": "Bunty bhai from the sweet shop near the bus stand wants GST registration. Turnover about 40 lakh. His wife Pinky keeps the books. Mobile 0 0 0 0 0 5 5 6 0 6. Wants to know if the composition scheme under section 10 is open to him.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Bunty"
+      },
+      {
+        "type": "relative",
+        "value": "Pinky"
+      },
+      {
+        "type": "phone",
+        "value": "0 0 0 0 0 5 5 6 0 6"
+      }
+    ],
+    "keep": [
+      "40 lakh",
+      "section 10"
+    ]
+  },
+  {
+    "id": "CA07",
+    "text": "Statutory audit of Mock Infratech Pvt Ltd (CIN U45200MH2015PTC000001) for FY 2025-26 is complete. UDIN 26123456ABCDEFGH12 is pending. Director Ms Neha Testjoshi (email neha.testjoshi@example.org) disputes the related party figures: loans of Rs 2.5 crore from Fake Holdings Ltd. Board meeting on 15/12/2026.",
+    "identifiers": [
+      {
+        "type": "organization",
+        "value": "Mock Infratech Pvt Ltd"
+      },
+      {
+        "type": "record_id",
+        "value": "U45200MH2015PTC000001"
+      },
+      {
+        "type": "record_id",
+        "value": "26123456ABCDEFGH12"
+      },
+      {
+        "type": "name",
+        "value": "Neha Testjoshi"
+      },
+      {
+        "type": "email",
+        "value": "neha.testjoshi@example.org"
+      },
+      {
+        "type": "organization",
+        "value": "Fake Holdings Ltd"
+      },
+      {
+        "type": "date",
+        "value": "15/12/2026"
+      }
+    ],
+    "keep": [
+      "FY 2025-26",
+      "Rs 2.5 crore"
+    ]
+  },
+  {
+    "id": "CA08",
+    "text": "Salaried client Dinesh Mockpawar (employer: Dummy Software Solutions) has Form 16 showing gross salary Rs 18,40,000. He also earned ₹2,10,000 from freelance work and wants to know if ITR-4 is possible. His brother Sanjay Mockpawar gifted Rs 5,00,000 on 22/03/2026. Phone 00000 55608.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Dinesh Mockpawar"
+      },
+      {
+        "type": "organization",
+        "value": "Dummy Software Solutions"
+      },
+      {
+        "type": "relative",
+        "value": "Sanjay Mockpawar"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55608"
+      },
+      {
+        "type": "date",
+        "value": "22/03/2026"
+      }
+    ],
+    "keep": [
+      "Form 16",
+      "Rs 18,40,000",
+      "₹2,10,000",
+      "ITR-4",
+      "Rs 5,00,000"
+    ]
+  },
+  {
+    "id": "CA09",
+    "text": "client name - sharda mocklele. ph 00000-55609. gstin 27aaapm0009k1z1 (typed in lower case). office at shop 12, example plaza, fakepur. refund claim of rs 4,20,000 was rejected on 9 nov 2026; wants to appeal under section 107 within 3 months.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "sharda mocklele"
+      },
+      {
+        "type": "phone",
+        "value": "00000-55609"
+      },
+      {
+        "type": "record_id",
+        "value": "27aaapm0009k1z1"
+      },
+      {
+        "type": "address",
+        "value": "shop 12, example plaza, fakepur"
+      },
+      {
+        "type": "date",
+        "value": "9 nov 2026"
+      }
+    ],
+    "keep": [
+      "rs 4,20,000",
+      "section 107"
+    ]
+  },
+  {
+    "id": "CA10",
+    "text": "Client: Kavita Fakeshinde. Bank balance on 31 March 2026 was Rs 12500000. Her mobile 00000 55610 and second number 00000 55611. She co-owns Placeholder Enterprises with partner Imran Testkhan. Cash deposits of Rs 9,80,000 in the month were flagged. Forms 15CA and 15CB are needed to remit ₹ 6,00,000 abroad.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Kavita Fakeshinde"
+      },
+      {
+        "type": "date",
+        "value": "31 March 2026"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55610"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55611"
+      },
+      {
+        "type": "organization",
+        "value": "Placeholder Enterprises"
+      },
+      {
+        "type": "relative",
+        "value": "Imran Testkhan"
+      }
+    ],
+    "keep": [
+      "Rs 12500000",
+      "Rs 9,80,000",
+      "15CA",
+      "15CB",
+      "₹ 6,00,000"
+    ]
+  }
+]

@@ -28,6 +28,7 @@ import {
   MANUAL_TICK,
   nanoRedact,
   redactFirst,
+  rulesForPack,
   restoreLetter,
   type Warning,
   segmentPreview,
@@ -54,6 +55,8 @@ const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules onl
 const NANO_DELAY_MS = 600
 const FACT_DELAY_MS = 300
 const factLists = { drugs, treatments: terms.treatments, findings: terms.findings, shorthand }
+/** Professions without teeth check only numbers, dates and the generic word lists (P2). */
+const genericFactLists = { drugs: [], treatments: [], findings: [], shorthand: {} }
 /** Template heading lines are not fact-checked; the model may add a colon to them. */
 const skipLinesOf = (pack: Pack) => pack.letter.template.flatMap((l) => [l, `${l}:`])
 const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim()
@@ -127,7 +130,7 @@ export default function NoteScreen() {
       return
     }
     // Stage one is instant: the code redactor, then the hand-hidden words.
-    const first = redactFirst(note, manualHides)
+    const first = redactFirst(note, manualHides, rulesForPack(pack))
     mapRef.current = first.map
     setPreview(unhideTokens(first.text, first.map, unhidden))
     setStageOneMissed(first.notFound)
@@ -168,7 +171,10 @@ export default function NoteScreen() {
         a.push({ level: 'amber', kind: 'patient-missing', message: 'Patient name is missing.', text: '', index: 0 })
       }
       setTokenWarnings(a)
-      setFactWarnings(checkFacts(letterText, note, factLists, { skipLines: skipLinesOf(pack) }))
+      setFactWarnings(checkFacts(letterText, note, pack.facts === 'dental' ? factLists : genericFactLists, {
+          skipLines: skipLinesOf(pack),
+          teeth: pack.facts === 'dental',
+        }))
     }, FACT_DELAY_MS)
     return () => clearTimeout(timer)
   }, [letterText, note, pack])
@@ -225,7 +231,7 @@ export default function NoteScreen() {
     setListingTeeth(true)
     const result = await listTeeth(frozen, mapRef.current, toothModelFn, {
       signal: ctrl.signal,
-      guard: { allowed: unhidden, safeWords: guardSafeWords },
+      guard: { allowed: unhidden, safeWords: guardSafeWords, protect: rulesForPack(pack).protect },
     })
     if (runCounter.current !== runId || ctrl.signal.aborted) return // edited meanwhile: stale
     setListingTeeth(false)
@@ -243,7 +249,7 @@ export default function NoteScreen() {
     const result = await draftLetter(approved, mapRef.current, letterModelFn, {
       signal: ctrl.signal,
       letterText: pack.letter,
-      guard: { allowed: unhidden, safeWords: guardSafeWords },
+      guard: { allowed: unhidden, safeWords: guardSafeWords, protect: rulesForPack(pack).protect },
     })
     if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
     setSending(false)

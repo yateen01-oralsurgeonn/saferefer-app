@@ -32,6 +32,11 @@ export interface GuardOptions {
    * "Lata" inside "palatal", "Amit" inside "amitriptyline". The name by itself always blocks.
    */
   safeWords?: string[]
+  /**
+   * Spans that hold a money amount (a pack's `protect` function, P2). Only the generic phone and email scan skips them,
+   * so "Rs 12500000" is not mistaken for a phone. Hidden values and hidden phone digits are still searched everywhere.
+   */
+  protect?: (text: string) => Array<{ start: number; end: number }>
 }
 
 const ZERO_WIDTH = /[\u00AD\u200B-\u200F\u2060\uFEFF]/g
@@ -110,8 +115,10 @@ export function checkSend(text: string, map: TokenMap, options: GuardOptions = {
     }
   }
 
-  for (const f of findEmails(plain)) if (!allowed.has(fold(f.value))) return block('email', f.value)
-  for (const f of findPhones(plain)) if (!allowed.has(fold(f.value))) return block('phone', f.value)
+  let scan = plain
+  for (const s of options.protect?.(plain) ?? []) scan = scan.slice(0, s.start) + ' '.repeat(s.end - s.start) + scan.slice(s.end)
+  for (const f of findEmails(scan)) if (!allowed.has(fold(f.value))) return block('email', f.value)
+  for (const f of findPhones(scan)) if (!allowed.has(fold(f.value))) return block('phone', f.value)
   return { ok: true }
 }
 

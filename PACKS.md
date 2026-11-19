@@ -61,5 +61,6 @@ One typed object per profession in `core/packs.ts` (changed in P1, 19 Nov: TypeS
 **P1 DONE 19 Nov** (branch `p1-pack-layer`). The dental letter and Nano prompt are byte-for-byte the same as before (checked against the T9 versions).
 
 - **P1 Pack layer.** Done when: all existing tests pass unchanged; the dropdown shows Dentist; `core/packs.ts` has no Firebase or React import; a test proves a pack cannot remove a base pattern or the guard.
+**P2 DONE 19 Nov** (branch `p2-ca-pack`). 10 CA notes, code-only leak 2 of 55 (3.6%, flattered: same session wrote notes and rules). Decisions made while building: a bare 10-digit number starting 6 to 9 after "Rs" is still hidden as a phone; an unlabelled 12-digit number is hidden as a phone (safe side); the send guard takes a `protect` option for amounts; one-line cloud replies are split into sections by code (`splitSections`).
 - **P2 CA pack.** Done when: a note with a PAN, GSTIN, bank account and client name shows only tokens on the right; amounts and "section 143(1)" stay; the CA leak test lists its score and every miss; the letter has no tax opinion.
 - **P3 Lawyer pack.** Done when: party names, case and FIR numbers are hidden; Act and section names stay; the brief has no legal opinion; the leak test lists its score and every miss.

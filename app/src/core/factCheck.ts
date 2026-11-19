@@ -19,6 +19,8 @@ export interface FactLists {
 export interface FactOptions {
   /** Heading lines of the letter template (T11). A line that is exactly one of these is not checked. */
   skipLines?: string[]
+  /** false for professions without teeth (CA, lawyer): tooth numbers and tooth words are not checked. Default true. */
+  teeth?: boolean
 }
 
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -89,12 +91,12 @@ export function checkFacts(letter: string, note: string, lists: FactLists, optio
   const noteNumbers = new Set(numerals(note).map((m) => canon(m[0])))
   for (const m of numerals(body)) {
     if (noteNumbers.has(canon(m[0]))) continue
-    if (isFdi(m[0])) warn('red', 'tooth', m[0], m.index, `Tooth ${m[0]} is not in your note`)
+    if (options.teeth !== false && isFdi(m[0])) warn('red', 'tooth', m[0], m.index, `Tooth ${m[0]} is not in your note`)
     else warn('red', 'number', m[0], m.index, `The number ${m[0]} is not in your note`)
   }
 
   // Tooth words (red)
-  for (const word of TOOTH_WORDS) {
+  for (const word of options.teeth === false ? [] : TOOTH_WORDS) {
     for (const m of body.matchAll(phraseRegex(word))) {
       if (!has(note, word)) warn('red', 'tooth-word', m[0], m.index, `"${m[0]}" is not in your note`)
     }

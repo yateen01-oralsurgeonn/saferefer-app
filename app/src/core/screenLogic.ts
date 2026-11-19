@@ -1,6 +1,7 @@
 // T5 screen logic (PROMPTS.md sections 1, 2 and 6.4). Plain TypeScript: no React, no Firebase, no network.
 // The screen calls these; the Nano call itself stays in nanoRedactor.ts.
 import { redactByCode } from './codeRedactor'
+import { NO_RULES, type RedactRules } from './redactRules'
 import { LABEL_WORDS } from './nanoRedactor'
 import { hideValues, tokenRegex, TokenMap, type HideItem } from './tokens'
 
@@ -10,9 +11,9 @@ const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' 
  * Stage one, instant: the code redactor, then the words the dentist hid by hand (they become PERSON).
  * Returns a fresh map. Memory only: the screen keeps it in a React ref.
  */
-export function redactFirst(note: string, manualHides: string[]): { map: TokenMap; text: string; notFound: HideItem[] } {
+export function redactFirst(note: string, manualHides: string[], rules: RedactRules = NO_RULES): { map: TokenMap; text: string; notFound: HideItem[] } {
   const map = new TokenMap()
-  const code = redactByCode(note, map)
+  const code = redactByCode(note, map, rules)
   const items: HideItem[] = manualHides.map((text) => ({ text, type: 'PERSON' }))
   const hidden = hideValues(code.text, items, map)
   return { map, text: hidden.text, notFound: hidden.notFound }
