@@ -23,3 +23,9 @@ Tooth numbers, ages, drug names, amounts of money (except a settlement sum), sec
 
 ## How to send
 Paste the numbered notes in the chat, or save them in a file in this folder (for example `dental-fresh.md`) and tell me. Do one profession at a time: dentist first.
+
+## For the CA and the advocate sets (same rules)
+- **CA notes:** client name (and business name), PAN, GSTIN, mobile, email, bank account or IFSC, address, dates, partners or directors. Mark PAN, GSTIN, account numbers and similar as `[[id:...]]`. Do NOT mark amounts, section numbers, assessment years or form names: they must stay.
+- **Advocate notes:** client, other side, witness, advocate names; case, FIR or cheque numbers (`[[id:...]]`); court location only if it names a person or a small place you want hidden; settlement sums as `[[amount:Rs 5 lakh]]`. Do NOT mark claim amounts, Acts, sections or court names (High Court, Sessions Court): they must stay.
+- Use all-made-up numbers: PAN like `ZZZZZ0000Z` style, GSTIN with state code 27, phones starting with five zeros, **no real Aadhaar** (write numbers starting with 0 or 1).
+- Mix it up as in the dentist notes: nicknames, lower case, only a first name, Marathi/Hindi words, mixed date styles.

@@ -38,7 +38,7 @@ One marking correction was made to the test data BEFORE any run, never to a rule
 | Date | Profession | Notes | Mode | Leaked | Where measured |
 |---|---|---|---|---|---|
 | 20 Nov 2026 | Dentist | 10 (46 identifiers) | code only | **20 of 46 (43.5%)** | Playwright Chromium (no Nano) |
-| | Dentist | 10 | code + Gemini Nano | (to do) | Dr. Yatin's Chrome |
+| 20 Nov 2026 | **Dentist** | 10 (46 identifiers) | **code + Gemini Nano** | **8 of 46 (17.4%)** | Dr. Yatin's own Chrome |
 
 ### Dentist fresh notes, code only (first run, 20 Nov 2026)
 - Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
@@ -51,3 +51,12 @@ One marking correction was made to the test data BEFORE any run, never to a rule
 - **Cause:** the cloud call first fetches an App Check token; with no connection that step fails with `appCheck/fetch-network-error`, and the AI SDK reports it as a bare "error" the app did not recognise. The laptop also keeps `navigator.onLine` true (virtual adapters), so the "back online" event would never have fired either.
 - **Fix (commit after 85f0e57):** the adapter reads that one App Check code (never the message text) and treats a network failure as offline and a refusal as "could not be verified"; a queued letter is retried every 10 seconds, quietly, and stays queued while the network is down. 5 new tests. Reproduced in a browser by blocking the internet while it still reported "online": queued, stayed queued through retries, and the letter arrived 7 s after the network returned.
 - **Repeated on his laptop after the fix (20 Nov 2026): PASSED, "as expected"** (Dr. Yatin: Send showed queued with Wi-Fi off, and the letter arrived by itself when Wi-Fi came back).
+
+### Dentist fresh notes, code + Nano, Dr. Yatin's Chrome (20 Nov 2026) - the number to quote
+- Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
+- **Names 0 of 8, relatives 0 of 8, organisations 0 of 6, phones 0 of 6, emails 0 of 1, dates of birth 0 of 1, record IDs 0 of 1 leaked.** Nano turned 20 code-only leaks into 8: every name, relative and employer or school was caught, including the ones with no label ("rahul bhau", "nikita", "Vikram Thorat -", "Kavita S.").
+- **What is left (8): two kinds.**
+  - **Dates written without a year or as a weekday (4 of 7):** "3/11" (F02), "last Tuesday" (F03), "Monday" (F07), "5/1" (F08). These are the "numeric date with no year" and "weekday" gaps already listed in HANDOVER.md as known; Nano does not fix them.
+  - **Street landmarks (4 of 8 addresses, all "partial"):** the lead words of an address are left behind while the place name is hidden: "stays behind", "near water tank,", "near", "Lives behind" (F02, F06, F08, F09). The place name itself ("Loni", "Rahata", "Sangamner") was hidden.
+- **Honest summary for the README:** on 10 notes written by a dentist the builder had not seen, 8 of 46 identifiers (17.4%) were left with the code rules plus Nano; names, phones, emails, IDs and employers were all hidden; relative dates and the leading words of landmark addresses were not. The dentist's check before Approve is the real control.
+- **Not yet done:** no rule has been changed after these runs. Any later improvement will be recorded as made after seeing these notes (so a later score on the same notes is flattered).
