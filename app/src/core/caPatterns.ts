@@ -19,6 +19,15 @@ const P = [
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 5, 7, 6, 2, 8, 3, 0, 9, 4], [5, 8, 0, 3, 7, 9, 6, 1, 4, 2], [8, 9, 1, 6, 0, 4, 3, 5, 2, 7],
   [9, 4, 5, 3, 1, 2, 6, 8, 7, 0], [4, 2, 8, 6, 5, 7, 3, 9, 0, 1], [2, 7, 9, 3, 8, 0, 6, 4, 1, 5], [7, 0, 4, 6, 9, 1, 3, 2, 5, 8],
 ]
+/** The Verhoeff check digit for a digit string (used by tests to build a valid number at run time). */
+export function verhoeffCheckDigit(digits: string): number {
+  const inv = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9]
+  let c = 0
+  const rev = digits.split('').reverse()
+  for (let i = 0; i < rev.length; i++) c = D[c][P[(i + 1) % 8][Number(rev[i])]]
+  return inv[c]
+}
+
 /** True when a digit string passes the Verhoeff check (used for Aadhaar). */
 export function verhoeffOk(digits: string): boolean {
   let c = 0
@@ -37,6 +46,9 @@ const IFSC_RE = /(?<![A-Za-z0-9])[A-Z]{4}0[A-Z0-9]{6}(?![A-Za-z0-9])/g
 const CIN_RE = /(?<![A-Za-z0-9])[LU]\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}(?![A-Za-z0-9])/g
 const UDIN_RE = /(?<![\p{L}])UDIN\s*[:#-]?\s*([A-Z0-9]{18})(?![A-Za-z0-9])/giu
 const AADHAAR_RE = /(?<![\d])[2-9]\d{3}[ -]?\d{4}[ -]?\d{4}(?![\d])/g
+// After the word "Aadhaar" (or UID): any 12 digits, with no checksum and any first digit. A typo or an invalid number
+// written next to the label is still an identifier, so it is hidden whole (the base finder would only take its first group).
+const LABELLED_AADHAAR_RE = /(?<![\p{L}])(?:aadhaar|aadhar|uid(?:ai)?)(?:\s*(?:no\.?|number|#))?\s*[:#-]?\s*(\d{4}[ -]?\d{4}[ -]?\d{4})(?!\d)/giu
 // "A/c No. 123456789012", "account number: 1234 5678 9012 34", "acct 00112233445"
 const ACCOUNT_RE =
   /(?<![\p{L}])(?:a\/c|acct?\.?|account)(?:\s*(?:no\.?|number|num|#))?\s*[:#-]?\s*(\d[\d ]{7,22}\d)(?![\d])/giu
@@ -63,9 +75,13 @@ export function findCaIds(text: string, taken: Span[] = []): Found[] {
 /** Aadhaar: 12 digits in any spacing, with a valid Verhoeff check digit (so a plain amount is left alone). */
 export function findAadhaarIds(text: string, taken: Span[] = []): Found[] {
   const out: Found[] = []
+  for (const m of text.matchAll(LABELLED_AADHAAR_RE)) {
+    const f: Found = { start: m.index + m[0].length - m[1].length, end: m.index + m[0].length, type: 'ID', value: m[1] }
+    if (!hit(taken, f) && !hit(out, f)) out.push(f)
+  }
   for (const m of text.matchAll(AADHAAR_RE)) {
     const f: Found = { start: m.index, end: m.index + m[0].length, type: 'ID', value: m[0] }
-    if (verhoeffOk(m[0].replace(/\D/g, '')) && !hit(taken, f)) out.push(f)
+    if (verhoeffOk(m[0].replace(/\D/g, '')) && !hit(taken, f) && !hit(out, f)) out.push(f)
   }
   return out
 }

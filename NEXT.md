@@ -14,7 +14,7 @@ Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md`, `REMOTE-CONFIG.md`, `REVIEW.md`, `S
 ## Still to do by Dr. Yatin
 1. Look at the screen himself in his own Chrome and on his phone, and say what he does not like (T12 is a design pass: his eye is the test).
 2. Create the four Remote Config parameters (REMOTE-CONFIG.md), send the review PDFs, the Nano scores for all three packs, a real Wi-Fi-off check, 10 fresh notes per profession.
-3. Decide the Aadhaar sample (below).
+3. (Aadhaar sample: decided and done, see T13 item 4.)
 
 ## Step: T13 deploy, README, LICENSE, secrets check
 ```
@@ -45,9 +45,12 @@ SECURITY.md T13 checklist, ACCEPTANCE.md T13. Do task T13 and nothing else, on b
 4. Run EVERY box of FINISH.md section 3 (3.1 to 3.6) and report PASS or FAIL for each, file and line only, never a token or a
    note. Note: the test notes now include fake PAN, GSTIN, bank numbers, emails and an Aadhaar-shaped number
    (data/packs, review/*.pdf); section 3.5's PII scan WILL list them: confirm each is one of the made-up values and say so.
-   The Aadhaar sample "0123 4567 8901" passes the real Verhoeff check, so it could in theory belong to a real person: ask
-   Dr. Yatin whether to change it (a number starting 0 or 1 is never a real Aadhaar, but then the finder's [2-9] rule must be
-   relaxed for the tests only: do not change the finder for real use).
+   DECIDED 19 Nov (Dr. Yatin): the Aadhaar sample was replaced by "0123 4567 8901" (starts with 0: never a real number) in
+   data/packs and the tests; a number written after the word Aadhaar/UID is now hidden whole whatever its digits (any first
+   digit, no checksum needed); the Verhoeff test uses the public vector 2363 and a number built at run time. The OLD number
+   "0123 4567 8901" is still in git history (commits 8fdb69a, e5dae38 and the T12 notes); it is a made-up string that passes
+   the checksum, not a known person's record. The 3.2 history scan will show it: say so, and ask Dr. Yatin whether to leave
+   it or rewrite history before the repo goes public (rewriting means force-pushing pushed branches: only on his word).
 5. Hosted-site check in a fresh Chrome profile (Playwright): note 1 in, letter out, search every request body for the name and
    phone (zero hits); with Nano unavailable and with LanguageModel undefined redaction sends zero requests; the leak page and
    the setup page are NOT in the build; the service worker registers and the app opens offline.

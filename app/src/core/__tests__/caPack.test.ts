@@ -17,6 +17,7 @@ import {
   splitSections,
   TokenMap,
   validatePack,
+  verhoeffCheckDigit,
   verhoeffOk,
   type TestNote,
 } from '..'
@@ -24,12 +25,16 @@ import {
 type CaNote = TestNote & { keep: string[] }
 const notes = caNotes as CaNote[]
 const rules = rulesForPack(CA_PACK)
+// A number with a valid Verhoeff check digit, built here at run time from a fixed prefix: no real person's number is written in this repo.
+const AADHAAR_PREFIX = '99999999999'
+const AADHAAR_RUNTIME = AADHAAR_PREFIX + verhoeffCheckDigit(AADHAAR_PREFIX)
 const ca = (text: string) => redactByCode(text, new TokenMap(), rules)
 
 describe('P2 CA patterns', () => {
-  it('Verhoeff accepts a valid Aadhaar and rejects a changed digit', () => {
-    expect(verhoeffOk('012345678901')).toBe(true)
-    expect(verhoeffOk('234567890125')).toBe(false)
+  it('Verhoeff accepts the public test vector 2363 and rejects a changed digit', () => {
+    expect(verhoeffCheckDigit('236')).toBe(3)
+    expect(verhoeffOk('2363')).toBe(true)
+    expect(verhoeffOk('2364')).toBe(false)
   })
 
   it.each([
@@ -40,15 +45,17 @@ describe('P2 CA patterns', () => {
     ['IFSC', 'IFSC TEST0000123 branch'],
     ['CIN', 'CIN U45200MH2015PTC000001 listed'],
     ['UDIN', 'UDIN 26123456ABCDEFGH12 pending'],
-    ['Aadhaar in groups', 'Aadhaar 0123 4567 8901 seen'],
-    ['Aadhaar with dashes, no label', 'id 2345-6789-0124 seen'],
+    ['Aadhaar in groups (a number starting 0, never a real one)', 'Aadhaar 0123 4567 8901 seen'],
+    ['Aadhaar with a wrong check digit after the label', 'Aadhaar number: 1234 5678 9012 seen'],
+    ['UID with dashes', 'UID 0123-4567-8901 seen'],
+    ['Aadhaar with a valid check digit and no label', `id ${AADHAAR_RUNTIME} seen`],
     ['account after "a/c"', 'a/c 00112233445566 held'],
     ['account after "Account No."', 'Account No. 1234 5678 9012 held'],
     ['PAN (base finder)', 'PAN AAAPT0001A noted'],
   ])('%s is hidden', (_name, text) => {
     const out = ca(text).text
     expect(out).toMatch(/\[ID(_\d+)?\]/)
-    expect(out).not.toMatch(/AAAPT0001A|PUNE12345B|TEST0000123|U45200|ABCDEFGH12|2345|0011223|1234 5678|AAAPT/i)
+    expect(out).not.toMatch(/AAAPT0001A|PUNE12345B|TEST0000123|U45200|ABCDEFGH12|0123|4567|8901|1234 5678|0011223|AAAPT/i)
   })
 
   it('a long number with no Rs, no label and no check digit is hidden as a phone: the safe side', () => {
