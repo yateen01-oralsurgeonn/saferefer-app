@@ -190,6 +190,14 @@ describe('T4 Nano redactor', () => {
     expect(r.text).not.toContain('123456')
   })
 
+  it('a label word such as "Patient" or "husband" is dropped, not hidden', async () => {
+    const { fn } = fake([reply([{ text: 'Patient', type: 'PERSON' }, { text: 'husband', type: 'RELATIVE' }, { text: 'Ramesh', type: 'RELATIVE' }])])
+    const { r } = await run(NOTE, fn)
+    expect(r.text).toContain('Patient: [PATIENT]')
+    expect(r.text).toContain('husband [RELATIVE_1]')
+    expect(r.dropped.map((d) => [d.text, d.reason])).toEqual([['Patient', 'label-word'], ['husband', 'label-word']])
+  })
+
   it('exactly 40 items is incomplete: the part is run again in smaller pieces', async () => {
     const note = Array.from({ length: 8 }, (_, i) => `Visit ${i + 1}: seen with relative Name${i} today for review of the tooth.`).join('\n')
     const forty = Array.from({ length: 40 }, (_, i) => ({ text: `Name${i % 8}`, type: 'RELATIVE' }))

@@ -121,7 +121,7 @@ export interface NanoLists {
   clinicalTerms: { treatments: string[][]; findings: string[]; other: string[] }
 }
 
-export type DropReason = 'too-short' | 'too-long' | 'short-number' | 'has-bracket' | 'clinical-term' | 'not-found'
+export type DropReason = 'too-short' | 'too-long' | 'short-number' | 'has-bracket' | 'clinical-term' | 'label-word' | 'not-found'
 
 export interface DroppedItem extends HideItem {
   reason: DropReason
@@ -143,6 +143,12 @@ export function buildTermSet(lists: NanoLists): Set<string> {
   return set
 }
 
+/** Words that label a person but are not a name. Nano sometimes returns them ("Patient: ..."). */
+const LABEL_WORDS: ReadonlySet<string> = new Set([
+  'patient', 'patients', 'doctor', 'dentist', 'dr', 'mr', 'mrs', 'ms', 'miss', 'sir', 'madam', 'name', 'age', 'sex',
+  'male', 'female', 'husband', 'wife', 'mother', 'father', 'son', 'daughter', 'brother', 'sister', 'friend', 'relative',
+])
+
 const TOOTH_PHRASE = /^(?:tooth|teeth|#)?\s*\d{1,2}$/i
 
 /** The reason an item must be dropped, or null when it passes the checks that need no note. */
@@ -155,6 +161,7 @@ export function itemProblem(item: HideItem, terms: ReadonlySet<string>): DropRea
   if (/^\d+$/.test(compact) && compact.length < 6) return 'short-number'
   if (TOOTH_PHRASE.test(t.trim())) return 'short-number'
   if (terms.has(termKey(t))) return 'clinical-term'
+  if (LABEL_WORDS.has(termKey(t))) return 'label-word'
   return null
 }
 
