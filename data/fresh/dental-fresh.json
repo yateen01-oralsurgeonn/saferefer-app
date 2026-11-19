@@ -1,0 +1,244 @@
+[
+  {
+    "id": "F01",
+    "text": "Mrs Savita Kolhe (00000 55123) came with her son Omkar on third Nov. Pain in 47 since 4 days. Works at Sai Medical Stores, near Ganesh mandir, Baramati. Please see for RCT.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Mrs Savita Kolhe"
+      },
+      {
+        "type": "phone",
+        "value": "00000 55123"
+      },
+      {
+        "type": "relative",
+        "value": "Omkar"
+      },
+      {
+        "type": "date",
+        "value": "third Nov"
+      },
+      {
+        "type": "organization",
+        "value": "Sai Medical Stores"
+      },
+      {
+        "type": "address",
+        "value": "near Ganesh mandir, Baramati"
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "text": "rahul bhau came alone 3/11 for swelling near 36. His aai Sangita called on 00000-98765 to confirm. He studies at New English School, Loni, stays behind bus stand, Loni.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "rahul"
+      },
+      {
+        "type": "date",
+        "value": "3/11"
+      },
+      {
+        "type": "relative",
+        "value": "Sangita"
+      },
+      {
+        "type": "phone",
+        "value": "00000-98765"
+      },
+      {
+        "type": "organization",
+        "value": "New English School, Loni"
+      },
+      {
+        "type": "address",
+        "value": "behind bus stand, Loni"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "text": "P. K. Jadhav - +91 00000 43210 - tooth 11 broken after fall last Tuesday. Daughter Priya will bring reports. Works in Shree Datta Dairy, opp. Hanuman mandir, Sangamner.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "P. K. Jadhav"
+      },
+      {
+        "type": "phone",
+        "value": "+91 00000 43210"
+      },
+      {
+        "type": "date",
+        "value": "last Tuesday"
+      },
+      {
+        "type": "relative",
+        "value": "Priya"
+      },
+      {
+        "type": "organization",
+        "value": "Shree Datta Dairy"
+      },
+      {
+        "type": "address",
+        "value": "opp. Hanuman mandir, Sangamner"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "text": "Anjali Patil anjali.patil.fake@example.com came for braces check on 12 Dec. Her kaka Baburao paid 2000 advance. School: DAV Public School, Flat 4, near railway crossing, Kopargaon.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Anjali Patil"
+      },
+      {
+        "type": "email",
+        "value": "anjali.patil.fake@example.com"
+      },
+      {
+        "type": "date",
+        "value": "12 Dec"
+      },
+      {
+        "type": "relative",
+        "value": "Baburao"
+      },
+      {
+        "type": "organization",
+        "value": "DAV Public School"
+      },
+      {
+        "type": "address",
+        "value": "Flat 4, near railway crossing, Kopargaon"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "text": "Patient came for scaling and polishing, no pain. Advised mouthwash twice daily, review after 6 months. Tooth 16 has mild stain, no cavity seen.",
+    "identifiers": []
+  },
+  {
+    "id": "F06",
+    "text": "Suresh M (zero zero zero zero zero four three two one nine) has sensitivity in 26 since 2 weeks. Wife Meena says he grinds teeth at night. 15/08/1985, DN-88231, near water tank, Rahata.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Suresh M"
+      },
+      {
+        "type": "phone",
+        "value": "zero zero zero zero zero four three two one nine"
+      },
+      {
+        "type": "relative",
+        "value": "Meena"
+      },
+      {
+        "type": "dob",
+        "value": "15/08/1985"
+      },
+      {
+        "type": "record_id",
+        "value": "DN-88231"
+      },
+      {
+        "type": "address",
+        "value": "near water tank, Rahata"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "text": "nikita came with her mother aai on Monday for 46 extraction. She is scared, wants sedation. College: Pravara College, near old petrol pump, Loni Bk.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "nikita"
+      },
+      {
+        "type": "date",
+        "value": "Monday"
+      },
+      {
+        "type": "organization",
+        "value": "Pravara College"
+      },
+      {
+        "type": "address",
+        "value": "near old petrol pump, Loni Bk"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "text": "Vikram Thorat - 00000 11223 - follow up for implant 36 on 5/1. His employer Mahesh Kirana will pay bill. Brother Akash dropped him, address Shirdi road, near Sai baba chowk.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Vikram Thorat"
+      },
+      {
+        "type": "phone",
+        "value": "00000 11223"
+      },
+      {
+        "type": "date",
+        "value": "5/1"
+      },
+      {
+        "type": "organization",
+        "value": "Mahesh Kirana"
+      },
+      {
+        "type": "relative",
+        "value": "Akash"
+      },
+      {
+        "type": "address",
+        "value": "Shirdi road, near Sai baba chowk"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "text": "Kavita S. came for child Aarav - 5 yrs - cavity in 64. Husband Rohit on +91-00000-77665. Lives behind ZP school, near canal, Sangamner, 20th Nov appointment confirmed.",
+    "identifiers": [
+      {
+        "type": "name",
+        "value": "Kavita S."
+      },
+      {
+        "type": "relative",
+        "value": "Aarav"
+      },
+      {
+        "type": "relative",
+        "value": "Rohit"
+      },
+      {
+        "type": "phone",
+        "value": "+91-00000-77665"
+      },
+      {
+        "type": "address",
+        "value": "behind ZP school, near canal, Sangamner"
+      },
+      {
+        "type": "date",
+        "value": "20th Nov"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "text": "Follow up, no new complaint. Old filling in 47 looks fine, gums healthy. Advised to avoid hard chewing on right side for 2 days.",
+    "identifiers": []
+  }
+]

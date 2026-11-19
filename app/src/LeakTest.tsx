@@ -7,6 +7,7 @@ import drugs from '../../data/drugs.json'
 import notesJson from '../../data/notes.json'
 import caNotesJson from '../../data/packs/ca-notes.json'
 import lawNotesJson from '../../data/packs/law-notes.json'
+import freshDentalJson from '../../data/fresh/dental-fresh.json'
 import { getPack, rulesForPack, runLeakTest, type LeakSummary, type PackId, type TestNote } from './core'
 import { ai } from './firebase'
 import { checkNoModel, makeRedact, withFetchCount, type NoModelCheck } from './leakRun'
@@ -14,8 +15,15 @@ import { createNanoModelFn, nanoIsReady } from './nanoAdapter'
 
 // P1: one synthetic test set per pack. ?leak&pack=dental (dental is the default).
 const NOTES_BY_PACK: Record<PackId, TestNote[]> = { dental: notesJson as TestNote[], ca: caNotesJson as TestNote[], law: lawNotesJson as TestNote[] }
-const pack = getPack(new URLSearchParams(window.location.search).get('pack'))
-const notes = NOTES_BY_PACK[pack.id]
+// Fresh notes: written by Dr. Yatin, never seen by the builder, no rule tuned on them. Open /?leak&pack=dental&set=fresh.
+// Only the sets that exist are listed; the page says so if a profession has none yet.
+const FRESH_BY_PACK: Partial<Record<PackId, TestNote[]>> = { dental: freshDentalJson as TestNote[] }
+const params = new URLSearchParams(window.location.search)
+const pack = getPack(params.get('pack'))
+const wantFresh = params.get('set') === 'fresh'
+const freshNotes = FRESH_BY_PACK[pack.id]
+const notes = wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
+const noteSetName = wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
 const rules = rulesForPack(pack)
 const lists = { drugs, clinicalTerms: terms }
 const modelFn = createNanoModelFn(ai)
@@ -71,7 +79,9 @@ export default function LeakTest() {
   return (
     <div className="app" role="main" data-testid="leak-page">
       <header className="top">
-        <h1>SafeRefer leak test: {pack.label}</h1>
+        <h1>
+          SafeRefer leak test: {pack.label} ({noteSetName})
+        </h1>
         <p className="banner">Synthetic data only: the {notes.length} test notes</p>
       </header>
       <div className="leak">

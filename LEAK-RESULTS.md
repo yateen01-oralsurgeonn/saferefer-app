@@ -32,7 +32,19 @@ Each row is one run of the leak-test page. Numbers come from the page, not from 
 Both new misses are **lower-case street addresses** in notes typed entirely in lower case. That is the weak spot to state in the README: a lower-case address with no capital letters is the hardest thing for the redactor, and the dentist's check is the real control.
 
 ## Fresh-note runs (notes the builder has not seen)
-(empty: Dr. Yatin writes 10 fresh notes per profession, then they are run here)
+Notes written by Dr. Yatin on 20 Nov 2026 following `data/fresh/HOW-TO-WRITE-FRESH-NOTES.md`. No redactor rule was changed before the first run. Test data: `data/fresh/dental-fresh.json`; open `/?leak&pack=dental&set=fresh`.
+One marking correction was made to the test data BEFORE any run, never to a rule: in note 7 the word "aai" (Marathi for "mother", marked as a relative) is a relation word, not an identifier, so it is not scored. Note 2 keeps "aai" unmarked as written.
+
+| Date | Profession | Notes | Mode | Leaked | Where measured |
+|---|---|---|---|---|---|
+| 20 Nov 2026 | Dentist | 10 (46 identifiers) | code only | **20 of 46 (43.5%)** | Playwright Chromium (no Nano) |
+| | Dentist | 10 | code + Gemini Nano | (to do) | Dr. Yatin's Chrome |
+
+### Dentist fresh notes, code only (first run, 20 Nov 2026)
+- Zero requests (PASS); 10 of 10 notes manual with the model removed (PASS).
+- By type: names 7 of 8 leaked, addresses 5 of 8, dates 4 of 7, organisations 3 of 6, relatives 1 of 8; **phones 0 of 6, emails 0 of 1, dates of birth 0 of 1, record IDs 0 of 1**.
+- **What this shows:** the code rules find structured things (phones, emails, IDs, DOB) but not names that are not introduced by a label or a title. In the builder's notes the patient name always followed "Patient:" or a title; in these fresh notes names start the note ("rahul bhau came...", "P. K. Jadhav - ...", "Anjali Patil anjali.patil.fake@...", "Suresh M (", "nikita came...", "Vikram Thorat - ...", "Kavita S. came..."), and addresses and employers written without cue words (behind bus stand, near water tank, Shirdi road) are left. The builder-note score of 3.2% (code only) was therefore **flattered by about 13 times**; the code-only score on notes nobody tuned for is 43.5%.
+- That is the job Gemini Nano does; the Nano run on the same notes (next row) is the number that matters.
 
 ## Wi-Fi-off check on Dr. Yatin's laptop (20 Nov 2026)
 - **First real run: FAILED.** With Wi-Fi off, Send showed "The letter could not be written. Nothing was lost. Please try again." instead of "queued".
