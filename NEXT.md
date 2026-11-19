@@ -1,47 +1,54 @@
-# NEXT: P3 is DONE (19 Nov). Now T10 offline queue
+# NEXT: T10 is DONE (19 Nov). Now T11 Remote Config
 
-Read `HANDOVER.md`, `CLAUDE.md` and **`PACKS.md`** first. Newest branch: **`p3-lawyer-pack`** (built on `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). T9 and P1 are pushed; P2 and P3 are committed locally. Nothing is merged to master. All three packs (Dentist, Chartered Accountant, Advocate) are done: the profession work is finished, so from here it is the old plan, T10 to T15.
+Read `HANDOVER.md`, `CLAUDE.md`, `PACKS.md` and `REVIEW.md` first. Newest branch: **`t10-offline`** (built on `p3-lawyer-pack` > `p2-ca-pack` > `p1-pack-layer` > `t9-tooth-lines` > `t8-leak-test`). Pushed to origin: everything up to `p3-lawyer-pack` (0412f4f). `t10-offline` is committed locally. Nothing is merged to master.
 
-## What P3 built (19 Nov)
-- **`core/lawPatterns.ts`:** case and FIR numbers by label ("Crime No. 88/2026", "CC 412/2026", "Civil Suit 55 of 2026", "RCS 77/2024", "sessions case no 19 of 2026"), cheque numbers, CNR, bar enrolment numbers, police stations (both orders; `P.S.` needs its dots so "PS" is not matched), Aadhaar (shared finder `findAadhaarIds` now exported from `caPatterns.ts`). **Settlement sums are hidden** (a sum within 50 characters of "settlement / settled / compromise" in the same sentence, before or after). Claim and cheque amounts stay (`findLawProtect` = `findAmounts` minus settlement sums). Act names, sections, court names, hearing stage stay. A date is never taken for a case number.
-- **Pack `law`:** label "Advocate"; letter = a short brief to senior counsel (Re / Forum and stage / Facts recorded / Documents on file / Issue for counsel), no opinion, no prediction, **never cite or recall case law**. **Design fix found while building:** other people's role labels ("Accused:", "defendant ...", "witness ...", "petitioner ...") are `roles`: hidden as PERSON and **never as `[PATIENT]`**, so `[PATIENT]` always means the client (before the fix a note that opened with the other side made them `[PATIENT]` and the letter could mix them up). New `RedactRules.roles`, `Pack.redaction.roles` (CA and dental have `[]`). Client labels: client, litigant, client name. Relation words: opposite party, advocate, counsel, arbitrator, mediator, director, surety, victim.
-- **`data/packs/law-notes.json`:** 10 synthetic notes + `keep` lists. `/?leak&pack=law`.
-- Tests: 392 pass, 14 expected fail; tsc and build clean; one oxlint warning (unchanged). Production build: 0 hits for any test name.
-- **Law leak score, code only (Playwright Chromium, no Nano): 4 of 70 identifiers leaked (5.7%).** All four are known limits: "Pappu" (a nickname alone), "suresh fakeghodke" (lower case), "plot 5, example nagar, fakewadi" (lower case), "village Samplewadi, Taluka Example, District Pune" (no street words). Zero requests; 10 of 10 go to manual mode with the model removed. **Do not quote 5.7%**: same session wrote the notes and the rules (same caveat as dental 3.2% and CA 3.6%). Nano score and fresh notes by Dr. Yatin or the reviewers are the honest numbers.
-- **Real cloud run (Advocate, Playwright):** request body held only `[PATIENT]`, `[PERSON_1]`, `[PHONE]`, `[ID]` (cheque no., CC number, **settlement sum**), `[ORG]`, `[DATE_n]`, plus the Act, court and `Rs 3,75,000`; the letter came back with names restored, "Not recorded." for the missing sections, no opinion, no warnings.
+## What T10 built (19 Nov)
+- **Decision (told to Dr. Yatin): the queue is local-only.** IndexedDB in the browser, not Firestore: there is no cloud copy, no rules to deploy, no console setup. PLAN.md, SECURITY.md A7, ACCEPTANCE.md T10 and SUBMISSION.md were changed to say so (SUBMISSION no longer claims Firestore or Anonymous Auth). If Firestore is ever added, SECURITY A7 applies again in full.
+- **`core/queue.ts`** (plain TS, no storage API): `enqueue` (through `guardedSend`, so a name, phone or email left in the text is never stored), `readQueued`, `clearQueue`, `sendQueued` (sends the item's own frozen string with its profession's letter words, through the guard again; removed only when a letter came back, or when the guard blocks it), `asQueuedItem` (storage is untrusted: exact four keys, known profession, size cap), `createMemoryStore`. One slot. **Stored record = exactly `{id, packId, approved, savedAt}`.**
+- **`queueStore.ts`**: the ONLY file that touches IndexedDB (a test greps `src/` and fails if `indexedDB`, `localStorage`, `sessionStorage`, `caches.` or `document.cookie` appears anywhere else). Falls back to memory if IndexedDB is missing.
+- **Service worker** (`app/sw-template.js`, built into `dist/sw.js` by a small plugin in `vite.config.ts`, registered in production only): precaches the 5 shell files and nothing else. No `.put(` anywhere; a POST, a Google/Firebase/reCAPTCHA call and any same-site file outside the list are never touched; pages are network-first, cached shell offline; `ignoreVary` is needed (module scripts send an Origin header, found by testing).
+- **Screen:** Send offline (or when the network fails) shows "You are offline. The letter is queued and will be sent when you are back online." and the button reads "Queued". The `online` event sends it by itself (guard again). Any edit clears the queued copy. After a reload, a queued letter shows in a "A letter from your last visit" panel and is sent with labels (the token map is never stored); it says so with a fixed sentence (`ORPHAN_NOTE`).
+- **Production bundle:** the leak page and its notes stay out (0 hits for any test name). `LETTER_MESSAGES.offline` is unchanged ("Nothing was sent") because the screen now queues instead of showing it; it appears only if the queue itself fails.
+- Tests: 426 pass, 14 expected fail; tsc, build and oxlint clean (0 warnings).
+- **Browser checks (Playwright, real cloud):** (1) offline: redaction works with 0 Google requests from it, tooth badge "Rules only", Send -> "Queued", record in IndexedDB = the 4 keys with the anonymous text, back online -> the letter arrived by itself with names restored and the record was gone. (2) queued, cloud blocked, reload -> orphan panel, "Send now" -> letter with `[PATIENT]` plus the fixed sentence, record gone. (3) production build via `vite preview`: SW active, cache = exactly the 5 shell files, offline reload shows the app and redaction works, cache unchanged after use.
+- **Not done / honest limits:** offline queueing was tested in Playwright's offline mode, not on a real phone or with a real Wi-Fi switch; Nano was absent in the test browser, so the offline on-device tooth list was only seen as "Rules only". The online-event-sends-by-itself path needs the tab open; a closed tab sends nothing (no background sync, on purpose).
 
-## Still to do by Dr. Yatin (small, can wait until after T10)
-1. A CA and an advocate he knows each read one synthetic letter (REVIEW.md has their questions). If nobody is free, the video says "reviewed by the builder only".
-2. In his own Chrome with Nano: the tooth badge says On-device; `/?leak` for dental, `/?leak&pack=ca`, `/?leak&pack=law` give the Nano scores (about 30 Nano calls for dental, 10 each for the others).
-3. 10 fresh notes per profession written by him or the reviewers.
+## Still to do by Dr. Yatin
+1. Send the review PDFs (`review/CA-review-packet.pdf`, `review/LAW-review-packet.pdf`) to a CA and an advocate (REVIEW.md).
+2. Nano On-device badge and `/?leak` scores in his own Chrome (dental, `&pack=ca`, `&pack=law`).
+3. A real Wi-Fi-off check in his Chrome: turn Wi-Fi off, type a note, Approve, Send: "Queued"; Wi-Fi on: the letter arrives.
+4. 10 fresh notes per profession.
 
-## Step: T10 offline queue
+## Step: T11 Remote Config
 ```
-Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, PLAN.md row T10, SECURITY.md rows A6, A7, A12, B1,
-ACCEPTANCE.md T10. Do task T10 and nothing else, on branch t10-offline from p3-lawyer-pack.
+Read CLAUDE.md, HANDOVER.md, NEXT.md, PACKS.md, PLAN.md row T11, SECURITY.md row A11, ACCEPTANCE.md T11.
+Do task T11 and nothing else, on branch t11-remote-config from t10-offline.
 
-Goal: Wi-Fi off: redaction still works (it is on-device), tooth lines work (Nano, or rules only),
-Send shows "Queued"; Wi-Fi on: the letter arrives by itself.
-1. Service worker: precache the app shell only. No runtime caching of POST or Google API calls (A12).
-2. Queue: the approved anonymous string and the pack id ONLY (the pack id is needed so the right
-   letter words are used when it is sent later). Never the note, the map, the restored letter or a
-   name (A7, B1). Storage APIs are used in the queue module alone; grep for them in T13. Choose the
-   simplest design that satisfies A7: if Firestore is used, rules are owner uid only, create and
-   delete only, size cap, the approved string only, deleted when the letter arrives; a second uid
-   cannot read it. If a local-only queue (IndexedDB) satisfies the done-check with no cloud copy,
-   prefer it and say so: a smaller privacy surface is better. Decide, tell Dr. Yatin in one line.
-3. The retry goes through draftLetter -> guardedSend with the SAME frozen approved string, the guard
-   run again (A6 includes the queue write if there is a cloud copy). Any edit to the note clears the
-   queued item (A2).
-4. Change LETTER_MESSAGES.offline in core/letter.ts to the queued wording from FINISH.md section 1
-   only when the queue really exists. Add the "Queued" state to the status line table.
-5. The restored letter is built in the browser when the reply arrives, from the map in memory. If the
-   page was closed while queued, the names cannot be restored: show the letter with its tokens and
-   say so in one fixed sentence. Do not persist the map to avoid this.
-Tests: queue unit tests (stores only approved text and pack id; guard blocks a queued text with a
-name), offline path with navigator.onLine false, service worker does not cache POST.
-Browser check (Playwright offline mode): redact offline, Send -> Queued, back online -> letter.
-Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T11.
+Goal: the letter wording (the section list) and the cloud model name can be changed in the Firebase
+console without a new build. Rename one section in the console, reload, send a note: the new wording
+shows in the letter.
+1. Remote Config values (read once at load, with the defaults compiled in so the app works with no
+   network and no console setup): `cloud_model` (string) and a section list per profession
+   (`template_dental`, `template_ca`, `template_law`, each a JSON array of strings or lines).
+2. A11 is the rule: the template fills the SECTION LIST ONLY (the `template` of the pack's letter
+   text), never any other part of the prompt. Cap the number of lines (2 to 14) and each line's length;
+   strip brackets, braces, angle brackets and backticks; reject override words (reuse `cleanText` in
+   core/packs.ts or its validator); keep "[PATIENT]" only in the "Re:" line if the default has it.
+   The model name must be on an ALLOW-LIST in code (today: gemini-3.5-flash-lite). `gemini-3.8-flash`
+   timed out twice at the 30 s limit in the 19 Nov test, so it may be added only with a longer letter
+   timeout and a test. Any bad value: fall back to the default silently. Plain logic in
+   core/remoteValues.ts (no Firebase import); the Firebase call in app/src/remoteConfig.ts only.
+3. The Firebase web SDK `firebase/remote-config`: fetch with a short minimum interval and a timeout so
+   it never delays the screen; if it fails, use defaults. No analytics.
+4. Dr. Yatin must create the parameters in the Firebase console (Remote Config) and publish: give him
+   the exact parameter names and a sample value for each in one short list in chat. Do not ask for
+   console access.
+Tests: values with brackets, too many lines, long lines, override words, a non-allow-listed model name,
+non-JSON, and an empty value all fall back to the defaults; a good template changes only the section
+list (the fixed rules text is byte-identical). Browser check with a temporary override (no console
+needed): show that a good template changes the letter and a bad one does not.
+Do not change files listed in HANDOVER.md "do not change". Commit, then rewrite NEXT.md for T12
+(design pass, FINISH.md section 1).
 ```
 
 ## If something fails

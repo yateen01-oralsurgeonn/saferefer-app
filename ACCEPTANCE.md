@@ -39,7 +39,7 @@ Test both. Check `typeof LanguageModel` and `await LanguageModel.availability()`
 
 ## T10 Offline
 - **You check:** Wi-Fi off: redaction still works, Send shows "Queued". Wi-Fi on: the letter arrives by itself.
-- **Sonnet tests:** Look at the queued Firestore document. It holds the approved anonymous text only, a second user cannot read it, and it is deleted when the letter arrives.
+- **Sonnet tests (local queue, decided 19 Nov):** Read the stored record (`indexedDB` database `saferefer-queue`). It holds exactly `id`, `packId`, `approved` (anonymous text only), `savedAt`; it is removed when the letter arrives; a reload shows the "letter from your last visit" panel and sends it with labels.
 
 ## T11 Remote Config
 - **You check:** Rename one section in the template in the Firebase console and publish. Reload the app and send a note: the new wording shows in the letter.

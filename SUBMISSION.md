@@ -15,7 +15,7 @@ Draft. Items marked `[FILL]` need real values before submitting.
 - On-device only: Gemini Nano in Chrome does the redaction, so the raw note stays in the browser. Redaction never falls back to the cloud.
 - On-device first, cloud fallback: the tooth lines run on Gemini Nano and fall back to the cloud Gemini model when Nano is missing. The fallback gets the tokenised note only, and a badge shows which model ran.
 - Cloud only: the cloud Gemini model drafts the letter from the tokenised note only.
-- App Check protects the cloud calls. Anonymous Auth and Firestore hold the offline queue; Remote Config sets the cloud model name and the letter template.
+- App Check protects the cloud calls. The offline queue lives only in the browser (IndexedDB, the approved anonymous text and the profession, never a name) and a service worker keeps the app shell, so there is no cloud copy; Remote Config sets the cloud model name and the letter template.
 - Offline, the on-device steps still work. The letter request is queued and sent when the connection returns.
 
 **Features.**

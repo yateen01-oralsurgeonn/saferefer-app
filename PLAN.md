@@ -30,7 +30,7 @@ Privacy lock: steps 1-3 never call the cloud. No Nano = dentist redacts by hand.
 | Platform | Web, Chrome desktop, Gemini Nano 4 | RULES: one platform |
 | AI calls | Firebase AI Logic web SDK (`firebase/ai`), three modes: `ONLY_ON_DEVICE` (redaction, behind the app-side `LanguageModel` guard: the mode alone is not a lock), `ONLY_IN_CLOUD` (letter), `PREFER_ON_DEVICE` (tooth lines). JSON output via `responseConstraint` on-device and `responseSchema` in cloud | RULES: required, hybrid |
 | Abuse guard | App Check, enforced, limited-use tokens: debug token locally, reCAPTCHA Enterprise on the hosted site | RULES: required |
-| Extras | Anonymous Auth, Firestore (offline queue of anonymous notes), Remote Config (cloud model name, letter template) | RULES: encouraged |
+| Extras | Remote Config (cloud model name, letter template). **T10 decision 19 Nov: the offline queue is local-only (IndexedDB), so Firestore and Anonymous Auth are not used** | RULES: encouraged, not required |
 | App | Vite + React + TypeScript, plain CSS, PWA service worker | Builder's choice |
 | Host | Firebase Hosting, Gemini Developer API on the free plan | RULES: free judge access |
 | Licence | Apache-2.0 | RULES: visible licence |
@@ -56,7 +56,7 @@ Each is half a day or less. For every task, also build the PROMPTS.md design for
 | T7 | Restore names, fact check, edit box, copy button | Names snap back; a letter with a tooth number not in the note shows a red warning |
 | T8 | Leak-test page over the 30 notes | Page shows "Identifiers leaked: X of Y" and lists any misses |
 | T9 | Tooth lines (FDI) from the anonymous note, Nano first, cloud fallback | Tooth list appears with a badge showing which model ran |
-| T10 | Offline: service worker, Firestore queue | Wi-Fi off: redaction works, letter shows "Queued"; Wi-Fi on: letter arrives |
+| T10 | Offline: service worker, local IndexedDB queue (decided 19 Nov, no Firestore) | Wi-Fi off: redaction works, letter shows "Queued"; Wi-Fi on: letter arrives |
 | T11 | Remote Config for model name and template | Change the template in the console, reload, new wording shows |
 | T12 | Design pass: one screen, empty and error states | Looks finished at 1280 px and phone width; no raw error text |
 | T13 | Deploy, README, LICENSE, secrets check | Hosted URL works in a fresh Chrome profile; repo is public |

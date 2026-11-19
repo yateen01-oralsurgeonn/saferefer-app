@@ -13,12 +13,14 @@ import shorthand from '../../data/shorthand.json'
 import {
   buildTermSet,
   checkFacts,
+  clearQueue,
   DEFAULT_PACK,
   getPack,
   PACKS,
   type Pack,
   draftLetter,
   droppedNotice,
+  enqueue,
   hasRed,
   itemsToReview,
   listTeeth,
@@ -27,20 +29,26 @@ import {
   MANUAL_MESSAGE,
   MANUAL_TICK,
   nanoRedact,
+  ORPHAN_NOTE,
+  QUEUED_MESSAGE,
+  readQueued,
   redactFirst,
   rulesForPack,
   restoreLetter,
   type Warning,
   segmentPreview,
+  sendQueued,
+  type QueuedItem,
   unhideTokens,
   type HideItem,
   type NanoResult,
   type ParsedLetter,
-  type TokenMap,
+  TokenMap,
 } from './core'
 import { ai, CLOUD_MODEL } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn } from './nanoAdapter'
+import { createQueueStore } from './queueStore'
 import { createToothModelFn } from './toothAdapter'
 
 const lists = { drugs, clinicalTerms: terms }
@@ -51,6 +59,8 @@ const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
 const letterModelFn = createLetterModelFn(ai, CLOUD_MODEL)
 const toothModelFn = createToothModelFn(ai, CLOUD_MODEL)
+/** T10: the offline queue. Holds the approved anonymous text and the profession id only (core/queue.ts). */
+const queueStore = createQueueStore()
 const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules only' } as const
 const NANO_DELAY_MS = 600
 const FACT_DELAY_MS = 300
@@ -88,6 +98,12 @@ export default function NoteScreen() {
   const [hint, setHint] = useState('')
   const [teeth, setTeeth] = useState<ToothResult | null>(null)
   const [listingTeeth, setListingTeeth] = useState(false)
+  // T10: this page queued the letter (offline), or a letter queued on an earlier visit is waiting (orphan: no names any more).
+  const [queued, setQueued] = useState(false)
+  const [orphan, setOrphan] = useState<QueuedItem | null>(null)
+  const [orphanBusy, setOrphanBusy] = useState(false)
+  const [orphanMsg, setOrphanMsg] = useState('')
+  const [orphanLetter, setOrphanLetter] = useState<ParsedLetter | null>(null)
 
   const mapRef = useRef<TokenMap | null>(null)
   const runCounter = useRef(0)
@@ -95,6 +111,10 @@ export default function NoteScreen() {
   const previewRef = useRef<HTMLDivElement>(null)
   const sendCtrl = useRef<AbortController | null>(null)
   const toothCtrl = useRef<AbortController | null>(null)
+  const queuedRef = useRef(false)
+  const orphanBusyRef = useRef(false)
+  const deliverRef = useRef<() => Promise<void>>(async () => {})
+  const orphanRef = useRef<QueuedItem | null>(null)
 
   useEffect(() => {
     approvedRef.current = approved
@@ -108,6 +128,12 @@ export default function NoteScreen() {
     toothCtrl.current?.abort()
     setTeeth(null)
     setListingTeeth(false)
+    // Any edit clears approval, so it clears the queued copy too (SECURITY A2). A queue left by an earlier visit is not touched here.
+    if (queuedRef.current) {
+      queuedRef.current = false
+      void clearQueue(queueStore)
+    }
+    setQueued(false)
     setApproved(null)
     setSending(false)
     setLetter(null)
@@ -238,29 +264,127 @@ export default function NoteScreen() {
     if (result.ok || result.failure !== 'aborted') setTeeth(result)
   }
 
+  const guardNow = () => ({ allowed: unhidden, safeWords: guardSafeWords, protect: rulesForPack(pack).protect })
+
+  /** Offline (or the network failed): keep the approved anonymous text for later. It goes through the send guard first (SECURITY A6). */
+  async function queueNow() {
+    if (approved === null || !mapRef.current) return
+    const r = await enqueue(queueStore, approved, pack.id, mapRef.current, guardNow())
+    if (r.ok) {
+      queuedRef.current = true
+      setQueued(true)
+      setProblem(null)
+    } else {
+      setProblem({ message: r.message, hit: r.hit, blocked: r.reason === 'blocked' })
+    }
+  }
+
   async function send() {
-    if (!isApproved || approved === null || !mapRef.current || sending || letter) return
+    if (!isApproved || approved === null || !mapRef.current || sending || letter || queued) return
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      await queueNow()
+      return
+    }
+    await deliver()
+  }
+
+  // The one door: draftLetter sends every attempt through guardedSend with the frozen string, never the live text.
+  async function deliver() {
+    if (approved === null || !mapRef.current || sending || letter) return
+    const wasQueued = queuedRef.current
     const runId = runCounter.current
     const ctrl = new AbortController()
     sendCtrl.current = ctrl
     setSending(true)
     setProblem(null)
-    // The one door: draftLetter sends every attempt through guardedSend with the frozen string, never the live text.
-    const result = await draftLetter(approved, mapRef.current, letterModelFn, {
-      signal: ctrl.signal,
-      letterText: pack.letter,
-      guard: { allowed: unhidden, safeWords: guardSafeWords, protect: rulesForPack(pack).protect },
-    })
+    const result = await draftLetter(approved, mapRef.current, letterModelFn, { signal: ctrl.signal, letterText: pack.letter, guard: guardNow() })
     if (runCounter.current !== runId) return // the dentist edited meanwhile: this result is stale
     setSending(false)
     if (result.ok) {
+      if (wasQueued) {
+        queuedRef.current = false
+        setQueued(false)
+        void clearQueue(queueStore)
+      }
       setLetter({ letter: result.letter, notRecorded: result.notRecorded })
       // Put the names back here, in the browser. The map never leaves this ref.
       const restored = restoreLetter(result.letter, mapRef.current)
       setLetterText(restored.text)
+      return
     }
-    else if (result.failure !== 'aborted') setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
+    if (result.failure === 'aborted') return
+    if (result.failure === 'offline') {
+      // Not online after all: keep it for later (a queued item simply stays queued).
+      if (!wasQueued) await queueNow()
+      return
+    }
+    if (result.failure === 'blocked' && wasQueued) {
+      // A text that now fails the guard must never be sent, and must not wait in the queue.
+      queuedRef.current = false
+      setQueued(false)
+      void clearQueue(queueStore)
+    }
+    setProblem({ message: result.message, hit: result.hit, blocked: result.failure === 'blocked' })
   }
+
+  // The "online" event sends a queued letter by itself; the ref always holds the newest deliver().
+  useEffect(() => {
+    deliverRef.current = deliver
+  })
+  useEffect(() => {
+    const onOnline = () => {
+      if (queuedRef.current) void deliverRef.current()
+      if (orphanRef.current) void runOrphan(orphanRef.current)
+    }
+    window.addEventListener('online', onOnline)
+    return () => window.removeEventListener('online', onOnline)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // A letter queued on an earlier visit. The names are gone (the map is never stored), so it is sent as labels (ORPHAN_NOTE).
+  async function runOrphan(item: QueuedItem) {
+    if (orphanBusyRef.current) return
+    orphanBusyRef.current = true
+    setOrphanBusy(true)
+    setOrphanMsg('')
+    const res = await sendQueued(queueStore, item, new TokenMap(), letterModelFn, {
+      guard: { safeWords: guardSafeWords, protect: rulesForPack(getPack(item.packId)).protect },
+    })
+    orphanBusyRef.current = false
+    setOrphanBusy(false)
+    if (res.ok) {
+      orphanRef.current = null
+      setOrphan(null)
+      setOrphanLetter({ letter: res.letter, notRecorded: res.notRecorded })
+    } else if (res.failure === 'blocked') {
+      orphanRef.current = null
+      setOrphan(null)
+      setOrphanMsg(res.message)
+    } else if (res.failure !== 'aborted') {
+      setOrphanMsg(res.message)
+    }
+  }
+
+  function discardOrphan() {
+    orphanRef.current = null
+    setOrphan(null)
+    setOrphanMsg('')
+    void clearQueue(queueStore)
+  }
+
+  useEffect(() => {
+    let alive = true
+    void readQueued(queueStore).then((item) => {
+      if (!alive || !item || queuedRef.current) return
+      orphanRef.current = item
+      setOrphan(item)
+      if (typeof navigator === 'undefined' || navigator.onLine !== false) void runOrphan(item)
+    })
+    return () => {
+      alive = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   function unhide(token: string) {
     const entry = mapRef.current?.get(token)
@@ -287,6 +411,7 @@ export default function NoteScreen() {
   if (!note.trim()) status = 'Type or paste a note to begin.'
   else if (running) status = 'Hiding names in this browser…'
   else if (sending) status = 'Writing the letter…'
+  else if (queued) status = QUEUED_MESSAGE
   else if (copied) status = 'Copied. Paste it into your letter.'
   else if (letter) status = 'Letter ready. Names are put back. Read it, edit it, then copy.'
   else if (problem) status = problem.message
@@ -422,6 +547,49 @@ export default function NoteScreen() {
         </section>
       </div>
 
+      {(orphan || orphanLetter) && (
+        <section className="teeth" data-testid="orphan" aria-live="polite">
+          <div className="pane-head">
+            <span className="pane-label">A letter from your last visit</span>
+            {orphanBusy && <span className="spinner" role="status" aria-label="Sending" />}
+          </div>
+          {orphan && (
+            <>
+              <p className="small">
+                A letter ({getPack(orphan.packId).label}) was queued while you were offline. It is sent by itself when you are online.
+              </p>
+              {orphanMsg && <p className="small">{orphanMsg}</p>}
+              <div className="pane-tools">
+                <button type="button" className="secondary" onClick={() => void runOrphan(orphan)} disabled={orphanBusy}>
+                  Send now
+                </button>
+                <button type="button" className="secondary" onClick={discardOrphan} disabled={orphanBusy}>
+                  Discard
+                </button>
+              </div>
+            </>
+          )}
+          {orphanLetter && (
+            <>
+              <textarea className="preview letter" data-testid="orphan-letter" value={orphanLetter.letter} readOnly spellCheck={false} />
+              <p className="small">{ORPHAN_NOTE}</p>
+              <div className="pane-tools">
+                <button
+                  type="button"
+                  className="secondary"
+                  onClick={() => void navigator.clipboard.writeText(orphanLetter.letter).catch(() => undefined)}
+                >
+                  Copy letter
+                </button>
+                <button type="button" className="secondary" onClick={() => setOrphanLetter(null)}>
+                  Close
+                </button>
+              </div>
+            </>
+          )}
+        </section>
+      )}
+
       <p className={`status${problem ? ' error' : isApproved || letter ? ' ok' : ''}`} aria-live="polite" data-testid="status">
         {status}
         {problem?.blocked && problem.hit && (
@@ -505,8 +673,8 @@ export default function NoteScreen() {
               </button>
             </>
           )}
-          <button type="button" onClick={send} disabled={!isApproved || sending || letter !== null} data-testid="send">
-            {problem && !problem.blocked ? 'Try again' : 'Send'}
+          <button type="button" onClick={send} disabled={!isApproved || sending || letter !== null || queued} data-testid="send">
+            {queued ? 'Queued' : problem && !problem.blocked ? 'Try again' : 'Send'}
           </button>
         </div>
       </div>
