@@ -49,7 +49,7 @@ typed note
 
 ## Try it
 
-- Live app: `[FILL live URL]` · Video: `[FILL video URL]`
+- Live app: https://saferefer-d5175.web.app · Video: `[FILL video URL]`
 - Use **Chrome 139 or newer on a computer.** For automatic name hiding the on-device model must be present: if `await LanguageModel.availability()` in the console does not say `available`, enable `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input`, restart, and give Chrome a few minutes to download the model once.
 - Without Nano (a phone, Edge, Firefox): **manual mode.** You select the words to hide, tick a box, then approve. The app says so in plain words. The tooth list falls back to the cloud, with the hidden text only.
 - Use only the example notes in `data/` or your own made-up notes.
@@ -57,7 +57,7 @@ typed note
 ## Run it yourself
 
 ```bash
-git clone [FILL repo URL] && cd [FILL repo name]/app
+git clone https://github.com/yateen01-oralsurgeonn/saferefer.git && cd saferefer/app
 npm install
 cp .env.example .env.local      # then fill in your own Firebase values
 npm run dev                     # http://localhost:5173

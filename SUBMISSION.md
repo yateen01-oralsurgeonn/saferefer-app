@@ -38,7 +38,7 @@ Updated 20 Nov 2026 (T13) to match the built app. Items marked `[FILL]` need rea
 
 **Pre-existing code.** None in this repo. Everything here was built during the hackathon, with the help of Claude (Anthropic) through Claude Code. Enamel is a separate, closed product that existed before; it is not part of this entry.
 
-**Links.** Repo: `[FILL]` · Live app: `[FILL]` · Video: `[FILL]`
+**Links.** Repo: https://github.com/yateen01-oralsurgeonn/saferefer · Live app: https://saferefer-d5175.web.app · Video: `[FILL]`
 
 ## 2. Demo script (target 2:50, hard limit 3:00, English, subtitles)
 
