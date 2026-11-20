@@ -3,14 +3,14 @@
  "mode": "code-only",
  "notes": 200,
  "total": 1104,
- "leaked": 209,
+ "leaked": 176,
  "byType": {
   "name": {
    "leaked": 101,
    "total": 176
   },
   "record_id": {
-   "leaked": 24,
+   "leaked": 0,
    "total": 323
   },
   "organization": {
@@ -18,7 +18,7 @@
    "total": 103
   },
   "date": {
-   "leaked": 9,
+   "leaked": 0,
    "total": 158
   },
   "phone": {

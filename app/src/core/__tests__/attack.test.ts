@@ -268,9 +268,8 @@ describe('known gaps: the code redactor misses these', () => {
   it.fails('a name in Devanagari with no "name:" label', () => {
     expect(hidden('रमेश पाटील came with pain in 36.', 'रमेश')).toBe('hidden')
   })
-  it.fails('a month and a day that could be a tooth number, with no year', () => {
-    expect(hidden('Seen Nov 26 for review.', 'Nov 26')).toBe('hidden')
-  })
+  // "a month and a day that could be a tooth number, with no year" ("Seen Nov 26") was FIXED on 20 Nov 2026 and moved
+  // up to harnessGaps.test.ts (fix 1).
   it.fails('"the 3rd" used as a date (the weekday half was fixed on 20 Nov 2026)', () => {
     expect(hidden('Review on the 3rd.', 'the 3rd')).toBe('hidden')
   })

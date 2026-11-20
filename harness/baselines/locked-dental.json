@@ -3,7 +3,7 @@
  "mode": "code-only",
  "notes": 100,
  "total": 412,
- "leaked": 130,
+ "leaked": 125,
  "byType": {
   "name": {
    "leaked": 66,
@@ -14,7 +14,7 @@
    "total": 21
   },
   "date": {
-   "leaked": 5,
+   "leaked": 1,
    "total": 98
   },
   "organization": {
@@ -34,7 +34,7 @@
    "total": 43
   },
   "record_id": {
-   "leaked": 1,
+   "leaked": 0,
    "total": 13
   },
   "dob": {

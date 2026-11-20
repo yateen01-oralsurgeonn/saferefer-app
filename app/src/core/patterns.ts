@@ -129,7 +129,12 @@ export function findDates(text: string): Found[] {
     const mo = MONTHS[m[1].toLowerCase()]
     if (!validDay(d, mo)) continue
     if (m[1].toLowerCase() === 'may' && m[1] !== 'May' && m[1] !== 'MAY') continue
-    if (!m[4] && !m[3] && isFdi(m[2])) continue
+    // Harness fix (20 Nov 2026, from TUNE-set misses only): a month written in full ("December 16", "october 14") is a
+    // date even when the day looks like a tooth number. Only a short form ("Oct 14", "Dec 16") still needs a year,
+    // "rd"/"th", or a date word in front.
+    const fullMonth = m[1].length >= 4 && m[1].toLowerCase() !== 'sept'
+    const cue = DATE_CUE_BEFORE.test(text.slice(Math.max(0, m.index - 24), m.index))
+    if (!m[4] && !m[3] && isFdi(m[2]) && !fullMonth && !cue) continue
     add(m.index, m[0], iso(m[4] ? Number(m[4]) : null, mo, d))
   }
   // "ninth of November", "twenty-first of October", "first of January nineteen sixty"

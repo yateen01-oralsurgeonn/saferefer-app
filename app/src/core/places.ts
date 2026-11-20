@@ -15,11 +15,11 @@ const NOT_AN_ID = new Set([
 ])
 // "SR-0006", "MOCK/0019/26", "TEST-000021"
 const CODE_ID_RE = /(?<![\p{L}\p{N}/-])([A-Z]{2,10})[-/]\d[\dA-Z]*(?:[-/][\dA-Z]+)*(?![\p{L}\p{N}])/gu
-// Indian PAN: ABCDE1234F
-const PAN_RE = /(?<![\p{L}\p{N}])[A-Z]{5}\d{4}[A-Z](?![\p{L}\p{N}])/gu
-// "Patient ID: 4521A", "UHID 123456", "file no. 77/2026"
+// Indian PAN: ABCDE1234F (also typed in lower case: harness fix 20 Nov 2026, from TUNE-set misses)
+const PAN_RE = /(?<![\p{L}\p{N}])[A-Z]{5}\d{4}[A-Z](?![\p{L}\p{N}])/giu
+// "Patient ID: 4521A", "UHID 123456", "file no. 77/2026", "OPD 2090" (bare OPD/IPD: harness fix 20 Nov 2026)
 const LABELLED_ID_RE =
-  /(?<![\p{L}])(?:patient\s+id|uhid|mrn|aadhaar|aadhar|(?:record|file|case|reg(?:istration)?\.?|policy|member(?:ship)?|opd|ipd|card|report|ref(?:erence)?\.?|id)\s*(?:no\.?|number|id|#))\s*[:#-]?\s*((?=[A-Za-z0-9/-]*\d)[A-Za-z0-9][A-Za-z0-9/-]{3,})/giu
+  /(?<![\p{L}])(?:patient\s+id|uhid|mrn|opd|ipd|aadhaar|aadhar|(?:record|file|case|reg(?:istration)?\.?|policy|member(?:ship)?|opd|ipd|card|report|ref(?:erence)?\.?|id)\s*(?:no\.?|number|id|#))\s*[:#-]?\s*((?=[A-Za-z0-9/-]*\d)[A-Za-z0-9][A-Za-z0-9/-]{3,})/giu
 
 export function findIds(text: string, taken: Span[] = [], extraNotId: readonly string[] = []): Found[] {
   const notId = extraNotId.length ? new Set([...NOT_AN_ID, ...extraNotId.map((w) => w.toUpperCase())]) : NOT_AN_ID

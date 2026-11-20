@@ -41,8 +41,9 @@ const STATE = String.raw`(?:0[1-9]|[12]\d|3[0-8]|9[79])`
 const PAN_BODY = String.raw`[A-Z]{5}\d{4}[A-Z]`
 // 15 characters: state code, PAN, entity number, "Z", check character.
 const GSTIN_RE = new RegExp(String.raw`(?<![A-Za-z0-9])${STATE}${PAN_BODY}[1-9A-Z]Z[0-9A-Z](?![A-Za-z0-9])`, 'gi')
-const TAN_RE = /(?<![A-Za-z0-9])[A-Z]{4}\d{5}[A-Z](?![A-Za-z0-9])/g
-const IFSC_RE = /(?<![A-Za-z0-9])[A-Z]{4}0[A-Z0-9]{6}(?![A-Za-z0-9])/g
+// TAN and IFSC are also typed in lower case (harness fix 20 Nov 2026, from TUNE-set misses).
+const TAN_RE = /(?<![A-Za-z0-9])[A-Z]{4}\d{5}[A-Z](?![A-Za-z0-9])/gi
+const IFSC_RE = /(?<![A-Za-z0-9])[A-Z]{4}0[A-Z0-9]{6}(?![A-Za-z0-9])/gi
 const CIN_RE = /(?<![A-Za-z0-9])[LU]\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6}(?![A-Za-z0-9])/g
 const UDIN_RE = /(?<![\p{L}])UDIN\s*[:#-]?\s*([A-Z0-9]{18})(?![A-Za-z0-9])/giu
 const AADHAAR_RE = /(?<![\d])[2-9]\d{3}[ -]?\d{4}[ -]?\d{4}(?![\d])/g

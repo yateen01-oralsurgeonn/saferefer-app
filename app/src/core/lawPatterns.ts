@@ -21,8 +21,8 @@ const CASE_NO_RE = new RegExp(
 const CHEQUE_RE = /(?<![\p{L}])(?:cheque|check)\s*(?:no\.?|number|#)?\s*[:#-]?\s*(\d{5,9})(?!\d)/giu
 // CNR: 4 letters (state and district), 12 digits
 const CNR_RE = /(?<![A-Za-z0-9])[A-Za-z]{4}\d{12}(?![A-Za-z0-9])/g
-// Bar enrolment: "MH/1234/2015", "D/567/2019"
-const ENROL_RE = /(?<![A-Za-z0-9/])[A-Z]{1,3}\/\d{3,5}\/\d{4}(?![\d/])/g
+// Bar enrolment: "MH/1234/2015", "D/567/2019", also lower case "mah/1754/2018" (harness fix 20 Nov 2026, TUNE-set misses)
+const ENROL_RE = /(?<![A-Za-z0-9/])[A-Z]{1,3}\/\d{3,5}\/\d{4}(?![\d/])/gi
 // "Fakepur police station", "P.S. Samplepur", "police station: Example Nagar"
 const POLICE_AFTER_RE =
   /(?<![\p{L}])(?:[Pp]\.?\s?[Ss]\.|[Pp]olice\s+[Ss]tation|[Pp]olice\s+[Cc]howki)\s*[:,-]?\s+(\p{Lu}[\p{L}'-]*(?:\s+\p{Lu}[\p{L}'-]*){0,2})/gu

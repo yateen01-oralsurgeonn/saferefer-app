@@ -184,3 +184,20 @@ Two labelling bugs in the generator were fixed **before any rule was tuned**, an
 | **locked law** | 100 | 558 | **122 (21.9%)** | 62/87 | 7/118 | 2/113 |
 
 Phones, emails, DOB and amounts: still 0 leaked on every set. Against `LEAK-TARGETS.md` section A the picture is unchanged: phones/emails 0 and over-redaction at most 2% **met**; dates and ID numbers above 2% **missed**.
+
+### After the four code-rule fixes (20 Nov 2026, approved by Dr. Yatin; POST-HOC on the tune sets)
+Made from the **TUNE-set misses only** (all 73 structured tune misses had one of four causes; the locked misses were never opened): (1) a month written in full is a date even when the day looks like a tooth number ("December 16"; short forms like "Dec 16" still need a year, "rd/th" or a date word); (2) a bare "OPD 2090" / "IPD 44512" is an ID; (3) PAN, TAN and IFSC typed in lower case; (4) bar enrolment numbers in lower case ("mah/1754/2018"). 23 new unit tests, including cases each fix must leave alone; one old known gap ("Seen Nov 26") now passes and moved up.
+
+| Set | Identifiers | Leaked (code only) | Names | Dates | ID numbers | "Keep" lost |
+|---|---|---|---|---|---|---|
+| tune dental | 888 | 255 (28.7%) | 136/200 | 0/211 | 0/20 | 0 of 0 |
+| tune CA | 1,104 | 176 (15.9%) | 101/176 | 0/158 | 0/323 | 0 of 383 |
+| tune law | 1,080 | 229 (21.2%) | 113/167 | 0/197 | 0/204 | 2 of 111 |
+| **locked dental** | 412 | **125 (30.3%)** | 66/100 | 1/98 | 0/13 | 0 of 0 |
+| **locked CA** | 536 | **94 (17.5%)** | 50/83 | 0/87 | 0/161 | 1 of 252 |
+| **locked law** | 558 | **113 (20.3%)** | 62/87 | 0/118 | 0/113 | 0 of 61 |
+
+- **Locked, measured once after the fix:** dates 1 of 98 / 0 of 87 / 0 of 118 and ID numbers 0 on all three: the `LEAK-TARGETS.md` section A target (each structured type at most 2%) is now **met** on all three locked sets. Over-redaction did not change.
+- **Caveat:** the locked notes come from the same generator as the tune notes, so this improvement was expected; it shows the fixes did not over-fit single notes, not that they generalise to real notes. Hand-written locked notes are the real test.
+- **Earlier sets unchanged** (code only, checked before and after the fix): builder notes 4/124, CA 2/55, law 4/70; fresh notes 11/46, 21/56, 11/69. The text passed to Nano on those notes is the same, so the fresh-note Nano results (1/46, 2/56, 0/69) still stand.
+- **Not live yet:** the hosted site runs the build from before these fixes. A redeploy after merging to master puts them live (then repeat the live check).

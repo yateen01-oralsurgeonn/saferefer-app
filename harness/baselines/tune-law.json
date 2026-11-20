@@ -3,7 +3,7 @@
  "mode": "code-only",
  "notes": 200,
  "total": 1080,
- "leaked": 251,
+ "leaked": 229,
  "byType": {
   "name": {
    "leaked": 113,
@@ -18,7 +18,7 @@
    "total": 50
   },
   "date": {
-   "leaked": 15,
+   "leaked": 0,
    "total": 197
   },
   "relative": {
@@ -26,7 +26,7 @@
    "total": 198
   },
   "record_id": {
-   "leaked": 7,
+   "leaked": 0,
    "total": 204
   },
   "address": {
