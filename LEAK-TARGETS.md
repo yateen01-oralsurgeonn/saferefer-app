@@ -1,6 +1,6 @@
 # LEAK-TARGETS: written BEFORE the first run on the locked set
 
-Written 21 Nov 2026, committed together with the sealed locked data and before any locked-set score was computed. **These targets are not edited after the runs.** A miss is reported as a miss; a new row may be added below with its own date, never an old row rewritten.
+Written 20 Nov 2026, committed together with the sealed locked data and before any locked-set score was computed. **These targets are not edited after the runs.** A miss is reported as a miss; a new row may be added below with its own date, never an old row rewritten.
 
 Status: **proposed by the builder, to be confirmed by Dr. Yatin.** If he changes a number, he does it before the first locked run, and the commit date shows it.
 
@@ -43,3 +43,7 @@ Status: **proposed by the builder, to be confirmed by Dr. Yatin.** If he changes
 
 ## Results
 (filled in after the runs, in `LEAK-RESULTS.md`; this file keeps only the targets)
+
+## Amendments (each dated; targets above are never rewritten)
+- **20 Nov 2026, review:** the date in line 3 said "21 Nov"; the real date is 20 Nov (commit 96a38a1 is dated 20 Nov 18:36). Date corrected, no target changed.
+- **20 Nov 2026, review:** the first locked run happened two minutes after this file was committed, **before Dr. Yatin confirmed the numbers**. So the targets above stand as written. Any change he makes now is post-hoc and must be added here as a new row with the reason, never by editing the table.

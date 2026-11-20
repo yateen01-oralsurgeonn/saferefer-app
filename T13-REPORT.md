@@ -62,7 +62,7 @@ firebase deploy --only hosting         # prints the live URL, usually https://sa
 - The Devpost description is about 890 words: check the Devpost length limit in T15.
 - A real CA and a real advocate have not reviewed the letters; the README says "reviewed by the builder only".
 
-## Decisions and deployment (21 Nov 2026)
+## Decisions and deployment (20 Nov 2026)
 - **Decision 1 (author on the 60 commits): A, accepted.** `[real name and personal email: removed]` stays on every commit and goes public with the repo. No history rewrite.
 - **Decision 2 (old made-up Aadhaar sample in 8fdb69a and e5dae38): left in history.** The current code uses `0123 4567 8901`, which is never a real number.
 - **Deployed:** Firebase Hosting, https://saferefer-d5175.web.app (project `saferefer-d5175`).

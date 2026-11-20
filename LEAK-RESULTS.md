@@ -153,7 +153,7 @@ All three runs: zero requests (PASS); 10 of 10 notes manual with the model remov
 | CA fresh, after fixes | 2 of 56 (3.6%) | flattered by the fixes |
 | **Advocate fresh, after fixes** | **0 of 69 (0.0%)** | **clean generalisation test** |
 
-## Harness runs (generated notes), code rules only: baselines of 21 Nov 2026
+## Harness runs (generated notes), code rules only: baselines of 20 Nov 2026
 Source: `harness/baselines/*.json`, produced by `npm run harness` (app/). Generated notes from `harness/gen-notes.ts` (seed 20261121): per profession 200 TUNE + 100 LOCKED, sealed with SHA-256 (`data/harness/SEAL.json`). Generated notes are more regular than real ones: do not quote these as "real-world". No rule was changed before these runs; `LEAK-TARGETS.md` was committed before the first locked run (commit 96a38a1).
 
 | Set | Notes | Identifiers | Leaked (code only) | Names | Dates | ID numbers | Phones / emails / DOB |

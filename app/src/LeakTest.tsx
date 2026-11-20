@@ -158,7 +158,10 @@ export default function LeakTest() {
             </table>
 
             <h3>Every miss ({s.misses.length})</h3>
-            {s.misses.length === 0 ? (
+            {harnessSet === 'locked' ? (
+              // Sealed set: counts only. Showing the misses would let anyone (or a screenshot) tune the rules on them.
+              <p data-testid="locked-note">Locked set: the misses are not shown. Report the totals and the table above only.</p>
+            ) : s.misses.length === 0 ? (
               <p>No misses.</p>
             ) : (
               <table data-testid="misses">
