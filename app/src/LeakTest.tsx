@@ -10,6 +10,12 @@ import lawNotesJson from '../../data/packs/law-notes.json'
 import freshDentalJson from '../../data/fresh/dental-fresh.json'
 import freshCaJson from '../../data/fresh/ca-fresh.json'
 import freshLawJson from '../../data/fresh/law-fresh.json'
+import tuneDentalJson from '../../data/harness/tune-dental.json'
+import tuneCaJson from '../../data/harness/tune-ca.json'
+import tuneLawJson from '../../data/harness/tune-law.json'
+import lockedDentalJson from '../../data/harness/locked-dental.json'
+import lockedCaJson from '../../data/harness/locked-ca.json'
+import lockedLawJson from '../../data/harness/locked-law.json'
 import { getPack, rulesForPack, runLeakTest, type LeakSummary, type PackId, type TestNote } from './core'
 import { ai } from './firebase'
 import { checkNoModel, makeRedact, withFetchCount, type NoModelCheck } from './leakRun'
@@ -22,10 +28,16 @@ const NOTES_BY_PACK: Record<PackId, TestNote[]> = { dental: notesJson as TestNot
 const FRESH_BY_PACK: Partial<Record<PackId, TestNote[]>> = { dental: freshDentalJson as TestNote[], ca: freshCaJson as TestNote[], law: freshLawJson as TestNote[] }
 const params = new URLSearchParams(window.location.search)
 const pack = getPack(params.get('pack'))
+// Harness sets (HARNESS_PLAN.md): ?leak&pack=dental&set=tune (200 notes) or set=locked (100 notes, sealed; no tuning on its misses).
+const HARNESS: Record<string, Record<PackId, TestNote[]>> = {
+  tune: { dental: tuneDentalJson as TestNote[], ca: tuneCaJson as TestNote[], law: tuneLawJson as TestNote[] },
+  locked: { dental: lockedDentalJson as TestNote[], ca: lockedCaJson as TestNote[], law: lockedLawJson as TestNote[] },
+}
+const harnessSet = params.get('set') === 'tune' || params.get('set') === 'locked' ? (params.get('set') as 'tune' | 'locked') : null
 const wantFresh = params.get('set') === 'fresh'
 const freshNotes = FRESH_BY_PACK[pack.id]
-const notes = wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
-const noteSetName = wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
+const notes = harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
+const noteSetName = harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
 const rules = rulesForPack(pack)
 const lists = { drugs, clinicalTerms: terms }
 const modelFn = createNanoModelFn(ai)

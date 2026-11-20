@@ -152,3 +152,21 @@ All three runs: zero requests (PASS); 10 of 10 notes manual with the model remov
 | Dentist fresh, after fixes | 1 of 46 (2.2%) | flattered by the fixes |
 | CA fresh, after fixes | 2 of 56 (3.6%) | flattered by the fixes |
 | **Advocate fresh, after fixes** | **0 of 69 (0.0%)** | **clean generalisation test** |
+
+## Harness runs (generated notes), code rules only: baselines of 21 Nov 2026
+Source: `harness/baselines/*.json`, produced by `npm run harness` (app/). Generated notes from `harness/gen-notes.ts` (seed 20261121): per profession 200 TUNE + 100 LOCKED, sealed with SHA-256 (`data/harness/SEAL.json`). Generated notes are more regular than real ones: do not quote these as "real-world". No rule was changed before these runs; `LEAK-TARGETS.md` was committed before the first locked run (commit 96a38a1).
+
+| Set | Notes | Identifiers | Leaked (code only) | Names | Dates | ID numbers | Phones / emails / DOB |
+|---|---|---|---|---|---|---|---|
+| tune dental | 200 | 888 | 276 (31.1%) | 136/200 | 12/211 | 6/20 | 0 |
+| tune CA | 200 | 1,104 | 212 (19.2%) | 101/176 | 9/158 | 24/323 | 0 |
+| tune law | 200 | 1,080 | 253 (23.4%) | 113/167 | 15/197 | 7/204 | 0 |
+| **locked dental** | 100 | 412 | **133 (32.3%)** | 66/100 | 5/98 | 1/13 | 0 |
+| **locked CA** | 100 | 536 | **117 (21.8%)** | 50/83 | 5/87 | 14/161 | 0 |
+| **locked law** | 100 | 558 | **123 (22.0%)** | 62/87 | 7/118 | 2/113 | 0 |
+
+- **Reading:** the code rules never miss a phone, email, DOB or amount, and do not over-hide (0 to 2 "keep" strings lost per set). Free names (no label, nickname, relative) are mostly left for Gemini Nano, as designed; that is why the code-only name rate is 60 to 70%.
+- **Against `LEAK-TARGETS.md` section A (locked, code only):** phones and emails 0 = **met**; over-redaction at most 2% = **met** (1 of 252 at worst); structured types at most 2% each = **missed for dates (5.1 to 5.9%) and ID numbers (CA 8.7%, dental 7.7%, law 1.8%)**.
+- **Gaps seen on the TUNE sets (not the locked ones):** dates written month-first ("December 16"), clinic record numbers ("OPD 2090"), CA ID numbers typed in lower case, advocate enrolment numbers ("MAH/1754/2018"). Fixing them is tuning on the tune set and will be marked post-hoc.
+- **Not run yet:** Nano passes on these sets (by hand, `/?leak&pack=<dental|ca|law>&set=<tune|locked>`), and the hand-written locked set.
+- **Gate:** `npm test` fails if any set gets worse than its baseline (checked once by weakening the phone rule: 6 of 7 gate tests failed; reverted).

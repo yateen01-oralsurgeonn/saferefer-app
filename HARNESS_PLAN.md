@@ -34,3 +34,7 @@ The letter harness (count facts added by the cloud letter against the note: figu
 | 26 to 27 Nov | Devpost entry, buffer |
 | 28 Nov | Submit |
 If the deploy or the video slips by more than a day, cut H3's Playwright mode, then H5's repeat runs; never cut the locked set or the regression gate.
+
+## Status (21 Nov 2026)
+- **H1 done** (`harness/gen-notes.ts`, 900 notes, seed 20261121). **H2 done** (200 tune / 100 locked per profession, sealed in `data/harness/SEAL.json`; the gate checks the hashes). **H3 done** (`npm run harness`, report in `harness/out/report.txt`, baselines in `harness/baselines/`; Playwright/Nano mode cut: Nano runs are by hand on `/?leak&pack=..&set=tune|locked`). **H4 done** (`app/src/harness/gate.test.ts`, tested once against a broken rule). **H5 done** (`LEAK-TARGETS.md`, written before the first locked run; results in `LEAK-RESULTS.md`).
+- Still to do: Nano passes by hand on the six sets, hand-written locked notes (`data/harness/hand/`), and the decision on tuning the code rules for the tune-set gaps.
