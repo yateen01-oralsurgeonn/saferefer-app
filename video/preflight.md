@@ -13,7 +13,7 @@
 - [ ] Paste **each of the three notes** from `demo-notes.md` in this Chrome with Nano on and read the right panel. **Every name, phone, date, ID and relative must show as a label.**
 - [ ] If the CA firm name (`Nandini Textiles`) or the other party (`Hemant Waghmare`) is still visible: select it and click **Hide selected words** (do this on camera if it happens, it is real behaviour). Do not change the notes.
 - [ ] On the dentist note the tooth list shows the **On-device** badge (not Cloud, not Rules only).
-- [ ] One full online run works: letter with the Cloud badge (the live site was checked by script on 21 Nov, after App Check enforcement and the key restriction).
+- [ ] One full online run works: letter with the Cloud badge (the live site was checked by script on 20 Nov, after App Check enforcement and the key restriction).
 
 ## C. The Wi-Fi shot
 - [ ] You know where the Wi-Fi switch is (laptop key, Windows quick settings, or airplane mode). Practice off/on once.

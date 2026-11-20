@@ -23,7 +23,7 @@ Client: Ketaki Lokhande. Phone: 00000 83456. Complaint filed against Hemant Wagh
 Expected: client, the other party, the phone, the cheque number, the case number, the hearing date and the **settlement sum** hidden; `section 138` and the claim `Rs 6,50,000` stay visible.
 
 ## IMPORTANT: these two need Gemini Nano on
-Checked on 21 Nov with code only (headless browser, no Nano): the **firm name `Nandini Textiles` (CA) and the other party `Hemant Waghmare` (advocate) were NOT hidden**, even with labels. Everything else was. This is the known split in `LEAK-RESULTS.md`: code finds structured identifiers, Nano finds names. So:
+Checked on 20 Nov with code only (headless browser, no Nano): the **firm name `Nandini Textiles` (CA) and the other party `Hemant Waghmare` (advocate) were NOT hidden**, even with labels. Everything else was. This is the known split in `LEAK-RESULTS.md`: code finds structured identifiers, Nano finds names. So:
 
 1. In the pre-flight, paste all three notes in your Chrome with Nano on and read the right panel. **Every name must show as a label.**
 2. If a name is still visible on camera: select it and click **Hide selected words** (it is a real feature, and it shows the human-in-the-loop). Do not edit the note to make the problem go away.

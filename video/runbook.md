@@ -2,7 +2,7 @@
 
 Read `preflight.md` first and tick every box. Notes to paste are in `demo-notes.md`. Spoken lines and timings are in `voiceover.md`; the subtitle file is `subtitles.srt`.
 
-## 0. Script versus the built app (ACCEPTANCE T14, checked 21 Nov 2026)
+## 0. Script versus the built app (ACCEPTANCE T14, checked 20 Nov 2026)
 
 | Script shot | Can the app do it today? | What to do |
 |---|---|---|

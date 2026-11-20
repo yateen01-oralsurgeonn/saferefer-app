@@ -1,4 +1,4 @@
-> **REMINDER (his choice, 21 Nov): the repo is still PRIVATE. Make it PUBLIC before submitting (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Ask him at the start of every session from 26 Nov. Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
+> **REMINDER (his choice, 20 Nov): the repo is still PRIVATE. He wants it made PUBLIC on 25 Nov, before the video is uploaded (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Remind him at the start of the 25 Nov session (and every session after, until done). Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
 > **Live now:** https://saferefer-d5175.web.app (deployed, console steps done, App Check enforced, API key restricted). master = origin/master. Video prep is on branch `t14-video`.
 
 # NEXT: T13 is DONE (20 Nov). Now T14 the video
