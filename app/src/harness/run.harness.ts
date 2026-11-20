@@ -37,6 +37,8 @@ describe('harness run (code-only)', () => {
         lines.push('   LOCKED: counts only, no misses are written or printed')
       }
     }
-    console.log(lines.join('\n'))
+    const report = lines.join('\n') + '\n'
+    writeFileSync(root('harness/out/report.txt'), report)
+    process.stdout.write(report)
   }, 120_000)
 })

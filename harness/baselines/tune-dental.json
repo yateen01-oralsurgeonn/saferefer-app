@@ -1,0 +1,50 @@
+{
+ "key": "tune-dental",
+ "mode": "code-only",
+ "notes": 200,
+ "total": 888,
+ "leaked": 276,
+ "byType": {
+  "name": {
+   "leaked": 136,
+   "total": 200
+  },
+  "date": {
+   "leaked": 12,
+   "total": 211
+  },
+  "organization": {
+   "leaked": 66,
+   "total": 132
+  },
+  "address": {
+   "leaked": 12,
+   "total": 46
+  },
+  "relative": {
+   "leaked": 44,
+   "total": 112
+  },
+  "record_id": {
+   "leaked": 6,
+   "total": 20
+  },
+  "email": {
+   "leaked": 0,
+   "total": 62
+  },
+  "dob": {
+   "leaked": 0,
+   "total": 40
+  },
+  "phone": {
+   "leaked": 0,
+   "total": 65
+  }
+ },
+ "keep": {
+  "total": 0,
+  "lost": 0
+ },
+ "savedOn": "2026-11-20"
+}

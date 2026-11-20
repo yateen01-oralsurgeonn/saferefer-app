@@ -1,0 +1,54 @@
+{
+ "key": "locked-law",
+ "mode": "code-only",
+ "notes": 100,
+ "total": 558,
+ "leaked": 123,
+ "byType": {
+  "name": {
+   "leaked": 62,
+   "total": 87
+  },
+  "date": {
+   "leaked": 7,
+   "total": 118
+  },
+  "record_id": {
+   "leaked": 2,
+   "total": 113
+  },
+  "phone": {
+   "leaked": 0,
+   "total": 32
+  },
+  "relative": {
+   "leaked": 30,
+   "total": 96
+  },
+  "amount": {
+   "leaked": 0,
+   "total": 13
+  },
+  "dob": {
+   "leaked": 0,
+   "total": 24
+  },
+  "address": {
+   "leaked": 14,
+   "total": 43
+  },
+  "email": {
+   "leaked": 0,
+   "total": 19
+  },
+  "organization": {
+   "leaked": 8,
+   "total": 13
+  }
+ },
+ "keep": {
+  "total": 61,
+  "lost": 0
+ },
+ "savedOn": "2026-11-20"
+}

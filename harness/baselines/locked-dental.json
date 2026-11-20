@@ -1,0 +1,50 @@
+{
+ "key": "locked-dental",
+ "mode": "code-only",
+ "notes": 100,
+ "total": 412,
+ "leaked": 133,
+ "byType": {
+  "name": {
+   "leaked": 66,
+   "total": 100
+  },
+  "phone": {
+   "leaked": 0,
+   "total": 21
+  },
+  "date": {
+   "leaked": 5,
+   "total": 98
+  },
+  "organization": {
+   "leaked": 33,
+   "total": 72
+  },
+  "address": {
+   "leaked": 4,
+   "total": 21
+  },
+  "email": {
+   "leaked": 0,
+   "total": 30
+  },
+  "relative": {
+   "leaked": 24,
+   "total": 43
+  },
+  "record_id": {
+   "leaked": 1,
+   "total": 13
+  },
+  "dob": {
+   "leaked": 0,
+   "total": 14
+  }
+ },
+ "keep": {
+  "total": 0,
+  "lost": 0
+ },
+ "savedOn": "2026-11-20"
+}
