@@ -210,7 +210,9 @@ const DENTAL_OPEN: Template[] = [
   (g) => { const p = person(g); return B([nameTag(g, p, 'name', 'nick'), ' came today, ', date(g), '. ']) },
   (g) => { const p = person(g); return B([nameTag(g, p, 'name', 'lastFirst'), '; DOB ', dob(g), '; ph ', phone(g), '. ']) },
   (g) => { const p = person(g); return B(['Pt ', nameTag(g, p, 'name', 'initials'), ' seen ', cueWeekday(g), '. ']) },
-  (g) => { const p = person(g); return B([nameTag(g, p, 'name', 'first'), ' ', p.last, ' came to the clinic. ']) },
+  // The two empty strings keep the number of plain segments of the old version (which left the surname untagged), so
+  // mess() draws the same random numbers and every note's text stays exactly as it was. Only the label changed.
+  (g) => { const p = person(g); return B([nameTag(g, p, 'name', 'full'), '', '', ' came to the clinic. ']) },
 ]
 const DENTAL_BODY: Template[] = [
   (g) => text(`Tooth ${g.pick(teeth)}: ${g.pick(toothFindings)}. `),
@@ -361,6 +363,14 @@ function buildNote(pack: string, idx: number, g: Gen) {
   const close = g.pick(P.close)(g)
   const built = join(open, ...bodies, close)
   const m = g.maybe(0.6) ? mess(built.segs, g) : { segs: built.segs, style: [] as string[] }
+  // "Sonu bhau": the respect word is not part of the identifier (the redactor treats it as a relation word, and so did
+  // the fresh-note labels). Tag the name only and keep the suffix as plain text, so a left-behind "bhau" is not a leak.
+  // Done AFTER mess(): mess() draws one random number per plain segment, so splitting earlier shifts every later note.
+  m.segs = m.segs.flatMap((s): Seg[] => {
+    if (typeof s === 'string' || (s.type !== 'name' && s.type !== 'relative')) return [s]
+    const x = /^(\S+) (bhai|bhau|tai|mama|kaka|anna)$/i.exec(s.value)
+    return x ? [T(s.type, x[1]), ` ${x[2]}`] : [s]
+  })
   const textOut = m.segs.map((s) => (typeof s === 'string' ? s : s.value)).join('')
   const identifiers = m.segs.filter((s): s is Tag => typeof s !== 'string').map((t) => ({ type: t.type, value: t.value }))
   const note: Record<string, unknown> = { id: `${pack.toUpperCase()}-${String(idx).padStart(3, '0')}`, text: textOut, identifiers, style: m.style }

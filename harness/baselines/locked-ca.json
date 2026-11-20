@@ -3,7 +3,7 @@
  "mode": "code-only",
  "notes": 100,
  "total": 536,
- "leaked": 117,
+ "leaked": 113,
  "byType": {
   "organization": {
    "leaked": 19,
@@ -14,7 +14,7 @@
    "total": 161
   },
   "relative": {
-   "leaked": 21,
+   "leaked": 17,
    "total": 48
   },
   "email": {

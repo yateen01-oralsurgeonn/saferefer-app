@@ -164,7 +164,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Pappu bhau"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -303,7 +303,7 @@
    },
    {
     "type": "relative",
-    "value": "Pappu kaka"
+    "value": "Pappu"
    }
   ],
   "style": [
@@ -416,7 +416,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Pappu bhai"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -699,7 +699,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Guddu anna"
+    "value": "Guddu"
    },
    {
     "type": "date",
@@ -762,7 +762,7 @@
    },
    {
     "type": "relative",
-    "value": "Pappu bhau"
+    "value": "Pappu"
    },
    {
     "type": "record_id",
@@ -1096,7 +1096,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "babloo mama"
+    "value": "babloo"
    },
    {
     "type": "date",
@@ -1393,7 +1393,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Monu tai"
+    "value": "Monu"
    },
    {
     "type": "date",
@@ -1544,7 +1544,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "sonu kaka"
+    "value": "sonu"
    },
    {
     "type": "date",
@@ -1934,7 +1934,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Rinku kaka"
+    "value": "Rinku"
    },
    {
     "type": "date",
@@ -2044,7 +2044,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Rinku bhai"
+    "value": "Rinku"
    },
    {
     "type": "date",
@@ -2128,7 +2128,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "pappu tai"
+    "value": "pappu"
    },
    {
     "type": "date",
@@ -3068,7 +3068,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Chintu bhau"
+    "value": "Chintu"
    },
    {
     "type": "date",
@@ -3263,7 +3263,7 @@
    },
    {
     "type": "relative",
-    "value": "Golu bhau"
+    "value": "Golu"
    }
   ],
   "style": [],
@@ -3307,7 +3307,7 @@
    },
    {
     "type": "relative",
-    "value": "Babloo bhai"
+    "value": "Babloo"
    },
    {
     "type": "date",
@@ -3349,7 +3349,7 @@
    },
    {
     "type": "relative",
-    "value": "tinku kaka"
+    "value": "tinku"
    }
   ],
   "style": [

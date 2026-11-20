@@ -170,3 +170,17 @@ Source: `harness/baselines/*.json`, produced by `npm run harness` (app/). Genera
 - **Gaps seen on the TUNE sets (not the locked ones):** dates written month-first ("December 16"), clinic record numbers ("OPD 2090"), CA ID numbers typed in lower case, advocate enrolment numbers ("MAH/1754/2018"). Fixing them is tuning on the tune set and will be marked post-hoc.
 - **Not run yet:** Nano passes on these sets (by hand, `/?leak&pack=<dental|ca|law>&set=<tune|locked>`), and the hand-written locked set.
 - **Gate:** `npm test` fails if any set gets worse than its baseline (checked once by weakening the phone rule: 6 of 7 gate tests failed; reverted).
+
+### Relabelled baselines (20 Nov 2026, after the review, approved by Dr. Yatin)
+Two labelling bugs in the generator were fixed **before any rule was tuned**, and the sealed files were regenerated with his approval (`--force-locked`): (1) one dental opener tagged only the first name and left the surname untagged, so a leaked surname was not counted (flattering); (2) a nickname with a respect word ("Sonu bhau") was tagged as one name, so a left-behind "bhau" counted as a leak (a false alarm; the redactor treats these words as relation words, and so did the fresh-note labels). **Every note's text is byte-for-byte unchanged**; only labels changed (159 respect-word splits, 29 surnames now tagged; checked note by note). New seal hashes in `data/harness/SEAL.json`. The table above is superseded by this one.
+
+| Set | Notes | Identifiers | Leaked (code only) | Names | Dates | ID numbers |
+|---|---|---|---|---|---|---|
+| tune dental | 200 | 888 | 273 (30.7%) | 136/200 | 12/211 | 6/20 |
+| tune CA | 200 | 1,104 | 209 (18.9%) | 101/176 | 9/158 | 24/323 |
+| tune law | 200 | 1,080 | 251 (23.2%) | 113/167 | 15/197 | 7/204 |
+| **locked dental** | 100 | 412 | **130 (31.6%)** | 66/100 | 5/98 | 1/13 |
+| **locked CA** | 100 | 536 | **113 (21.1%)** | 50/83 | 5/87 | 14/161 |
+| **locked law** | 100 | 558 | **122 (21.9%)** | 62/87 | 7/118 | 2/113 |
+
+Phones, emails, DOB and amounts: still 0 leaked on every set. Against `LEAK-TARGETS.md` section A the picture is unchanged: phones/emails 0 and over-redaction at most 2% **met**; dates and ID numbers above 2% **missed**.

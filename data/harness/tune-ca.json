@@ -126,7 +126,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Sonu kaka"
+    "value": "Sonu"
    },
    {
     "type": "date",
@@ -178,7 +178,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Raju mama"
+    "value": "Raju"
    },
    {
     "type": "date",
@@ -206,7 +206,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Pappu tai"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -245,7 +245,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Sonu kaka"
+    "value": "Sonu"
    },
    {
     "type": "date",
@@ -330,7 +330,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Pappu kaka"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -580,7 +580,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Monu tai"
+    "value": "Monu"
    },
    {
     "type": "date",
@@ -1245,7 +1245,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "monu bhai"
+    "value": "monu"
    },
    {
     "type": "date",
@@ -1310,7 +1310,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Bunty bhai"
+    "value": "Bunty"
    },
    {
     "type": "date",
@@ -1422,7 +1422,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Rinku bhai"
+    "value": "Rinku"
    },
    {
     "type": "date",
@@ -1968,7 +1968,7 @@
    },
    {
     "type": "relative",
-    "value": "raju bhau"
+    "value": "raju"
    },
    {
     "type": "email",
@@ -2111,7 +2111,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Golu anna"
+    "value": "Golu"
    },
    {
     "type": "date",
@@ -2227,7 +2227,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Pappu anna"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -2447,7 +2447,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "bittu kaka"
+    "value": "bittu"
    },
    {
     "type": "date",
@@ -2789,7 +2789,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Golu mama"
+    "value": "Golu"
    },
    {
     "type": "date",
@@ -3008,7 +3008,7 @@
    },
    {
     "type": "relative",
-    "value": "raju bhai"
+    "value": "raju"
    },
    {
     "type": "dob",
@@ -3292,7 +3292,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Sonu bhau"
+    "value": "Sonu"
    },
    {
     "type": "date",
@@ -3564,7 +3564,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Raju anna"
+    "value": "Raju"
    },
    {
     "type": "date",
@@ -3596,7 +3596,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Raju kaka"
+    "value": "Raju"
    },
    {
     "type": "date",
@@ -3746,7 +3746,7 @@
    },
    {
     "type": "relative",
-    "value": "Tinku kaka"
+    "value": "Tinku"
    },
    {
     "type": "record_id",
@@ -4334,7 +4334,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "raju tai"
+    "value": "raju"
    },
    {
     "type": "date",
@@ -4670,7 +4670,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Guddu kaka"
+    "value": "Guddu"
    },
    {
     "type": "date",
@@ -4994,7 +4994,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Bunty anna"
+    "value": "Bunty"
    },
    {
     "type": "date",
@@ -5109,7 +5109,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Raju bhai"
+    "value": "Raju"
    },
    {
     "type": "date",
@@ -5346,7 +5346,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "bittu tai"
+    "value": "bittu"
    },
    {
     "type": "date",
@@ -5383,7 +5383,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Bittu tai"
+    "value": "Bittu"
    },
    {
     "type": "date",
@@ -5471,7 +5471,7 @@
    },
    {
     "type": "relative",
-    "value": "Pappu kaka"
+    "value": "Pappu"
    },
    {
     "type": "date",
@@ -5553,7 +5553,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "bunty bhai"
+    "value": "bunty"
    },
    {
     "type": "date",
@@ -5692,7 +5692,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Babloo anna"
+    "value": "Babloo"
    },
    {
     "type": "date",
@@ -6083,7 +6083,7 @@
    },
    {
     "type": "relative",
-    "value": "Rinku anna"
+    "value": "Rinku"
    },
    {
     "type": "relative",
@@ -6385,7 +6385,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Golu bhau"
+    "value": "Golu"
    },
    {
     "type": "date",
@@ -6417,7 +6417,7 @@
   "identifiers": [
    {
     "type": "name",
-    "value": "Sonu mama"
+    "value": "Sonu"
    },
    {
     "type": "date",
