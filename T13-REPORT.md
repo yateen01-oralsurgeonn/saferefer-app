@@ -61,3 +61,11 @@ firebase deploy --only hosting         # prints the live URL, usually https://sa
 - The repo must be **public** with its licence visible before submitting; hosting must stay live until 21 Dec.
 - The Devpost description is about 890 words: check the Devpost length limit in T15.
 - A real CA and a real advocate have not reviewed the letters; the README says "reviewed by the builder only".
+
+## Decisions and deployment (21 Nov 2026)
+- **Decision 1 (author on the 60 commits): A, accepted.** `[real name and personal email: removed]` stays on every commit and goes public with the repo. No history rewrite.
+- **Decision 2 (old made-up Aadhaar sample in 8fdb69a and e5dae38): left in history.** The current code uses `0123 4567 8901`, which is never a real number.
+- **Deployed:** Firebase Hosting, https://saferefer-d5175.web.app (project `saferefer-d5175`).
+- **Console:** reCAPTCHA Enterprise key allows both hosting domains; App Check **enforced** for Firebase AI Logic (66 of 66 requests verified, 0 unverified); web API key restricted to the two hosting domains plus `localhost` and `localhost:5199`, and to the 25 Firebase APIs; Google Analytics not connected; AI monitoring off; template-only mode unenforced.
+- **Live check (headless Chromium, clean profile, made-up note N01, Nano unavailable so manual mode):** the letter was written with the Cloud badge; the 2 cloud calls (tooth lines, letter) carried only the anonymous note (`[PATIENT]`, `[PHONE]`, `[DATE_1]`); the name, phone and date were found in 0 requests; hosts were all on the allow-list; typing a note made 0 requests. Repeated after App Check enforcement and after the key restriction: same result. A request using the key from `evil.example.com` gets PERMISSION_DENIED.
+- **Not tested on the live domain:** the Gemini Nano (On-device badge) path, phone width.
