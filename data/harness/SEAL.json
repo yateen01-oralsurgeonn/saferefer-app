@@ -1,0 +1,7 @@
+{
+ "note": "SHA-256 of each sealed locked file. Do not tune on the locked set. Regenerating must reproduce these exactly.",
+ "seed": 20261121,
+ "locked-dental.json": "48740d7edbfbe8bcdfb7f2827c7da46ef3016d98eaa93159c694c0141045a46a",
+ "locked-ca.json": "bd1f657ac5cccae57e84c46596329c85aa9cd80980289e7d5969f646ec202608",
+ "locked-law.json": "867ee822ca8ce81be3f6e63e808baeb7592994aac1a95b488a35a7eb2b73b107"
+}

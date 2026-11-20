@@ -1,0 +1,3399 @@
+[
+ {
+  "id": "CA-200",
+  "text": "Vijay Dairy (GSTIN 27ZZZCH0442A1Z5) Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 2,05,000 in turnover Accountant Shri Ganesh Tambe sent the books UDIN 26182284CGCGHFSA67 pending Send the working to usha87@example.com or call 0000 033236 Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Dairy"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCH0442A1Z5"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Ganesh Tambe"
+   },
+   {
+    "type": "record_id",
+    "value": "26182284CGCGHFSA67"
+   },
+   {
+    "type": "email",
+    "value": "usha87@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "0000 033236"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 2,05,000",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-201",
+  "text": "Re: Mr Nair, proprietor of Jai Hind Traders. TAN PUNE50459J for the deductor. Response due 19/12. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Nair"
+   },
+   {
+    "type": "organization",
+    "value": "Jai Hind Traders"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE50459J"
+   },
+   {
+    "type": "date",
+    "value": "19/12"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-202",
+  "text": "Om Agro (GSTIN 27ZZZCO0838U1Z5). TAN PUNE97300O for the deductor. The client's husband Dhumal, Dinesh is a joint holder. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Om Agro"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCO0838U1Z5"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE97300O"
+   },
+   {
+    "type": "relative",
+    "value": "Dhumal, Dinesh"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-203",
+  "text": "Om Traders (GSTIN 27ZZZCG0894E1Z9) The client's son Ms Bhosale is a joint holder Aadhaar 1886 7197 8267 on file GSTR-3B for the quarter shows tax of Rs 3,26,000 Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Om Traders"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCG0894E1Z9"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Bhosale"
+   },
+   {
+    "type": "record_id",
+    "value": "1886 7197 8267"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 3,26,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-204",
+  "text": "Tushar Nair called on 15/10/2026 (00000-17568). UDIN 26806307TMDAUXYK98 pending. Born 06/12/1975. Savings account 00080881962582 at Janata Sahakari Bank, IFSC TEST0426295. Pls list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tushar Nair"
+   },
+   {
+    "type": "date",
+    "value": "15/10/2026"
+   },
+   {
+    "type": "phone",
+    "value": "00000-17568"
+   },
+   {
+    "type": "record_id",
+    "value": "26806307TMDAUXYK98"
+   },
+   {
+    "type": "dob",
+    "value": "06/12/1975"
+   },
+   {
+    "type": "record_id",
+    "value": "00080881962582"
+   },
+   {
+    "type": "organization",
+    "value": "Janata Sahakari Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0426295"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-205",
+  "text": "Pappu bhau dropped his papers on 05/12/2026. Send the working to sharma.s@example.net or call (00000) 08203. TAN PUNE98472S for the deductor. Born 15/05/1992. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 3,02,500 in turnover. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pappu bhau"
+   },
+   {
+    "type": "date",
+    "value": "05/12/2026"
+   },
+   {
+    "type": "email",
+    "value": "sharma.s@example.net"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 08203"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE98472S"
+   },
+   {
+    "type": "dob",
+    "value": "15/05/1992"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,02,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-206",
+  "text": "Client: Karthik Phadke. Advance tax paid Rs 85,000 on 22 Oct 2026. UDIN 26728729KIIEMGKX30 pending. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Karthik Phadke"
+   },
+   {
+    "type": "date",
+    "value": "22 Oct 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "26728729KIIEMGKX30"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 85,000"
+  ]
+ },
+ {
+  "id": "CA-207",
+  "text": "Jai Hind Agro (GSTIN 27ZZZPG0475H1ZA). Aadhaar 074537277095 on file. GSTR-3B for the quarter shows tax of Rs 1,30,500. Pls review the working & prepare a summary.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Jai Hind Agro"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZPG0475H1ZA"
+   },
+   {
+    "type": "record_id",
+    "value": "074537277095"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 1,30,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-208",
+  "text": "Client: Tushar Gaikwad. Born 9 September 1981. Office at opp. Hanuman mandir, Ram Mandir Road, Satara. GSTR-3B for the quarter shows tax of Rs 39,000. Aadhaar 1191 1763 1544 on file. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tushar Gaikwad"
+   },
+   {
+    "type": "dob",
+    "value": "9 September 1981"
+   },
+   {
+    "type": "address",
+    "value": "opp. Hanuman mandir, Ram Mandir Road, Satara"
+   },
+   {
+    "type": "record_id",
+    "value": "1191 1763 1544"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 39,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-209",
+  "text": "Laxmi Bakery (GSTIN 27ZZZFQ0561S1Z9). TAN PUNE81266T for the deductor. Office at H.No. 48, Station Road, Baramati. GSTR-3B for the qaurter shows tax of Rs 1,32,000. Savings account 00093551360 at Janata Sahakari Bank, IFSC TEST0579870. The client's brother Pappu kaka is a joint holder. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Laxmi Bakery"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFQ0561S1Z9"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE81266T"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 48, Station Road, Baramati"
+   },
+   {
+    "type": "record_id",
+    "value": "00093551360"
+   },
+   {
+    "type": "organization",
+    "value": "Janata Sahakari Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0579870"
+   },
+   {
+    "type": "relative",
+    "value": "Pappu kaka"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": [
+   "Rs 1,32,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-210",
+  "text": "Re: Master Reddy, proprietor of Krishna Textiles. Office at H.No. 51, Sadashiv Peth, Ahmednagar. GSTR-3B for the quarter shows tax of Rs 64,500. Advance tax paid Rs 14,000 on 11.12.2026. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Reddy"
+   },
+   {
+    "type": "organization",
+    "value": "Krishna Textiles"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 51, Sadashiv Peth, Ahmednagar"
+   },
+   {
+    "type": "date",
+    "value": "11.12.2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 64,500",
+   "GSTR-3B",
+   "Rs 14,000"
+  ]
+ },
+ {
+  "id": "CA-211",
+  "text": "Gajanan Dairy (GSTIN 27ZZZFF0665J1Z9) Send the working to neha.sawant@example.org or call 0000036729 Office at Flat 14, Om Sai Heights, Sangamner Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 3,19,000 in turnover Interest income of Rs 3,66,500 on fixed deposits TDS under section 194A of Rs 3,64,500 was deducted Form 26AS differs Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Gajanan Dairy"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFF0665J1Z9"
+   },
+   {
+    "type": "email",
+    "value": "neha.sawant@example.org"
+   },
+   {
+    "type": "phone",
+    "value": "0000036729"
+   },
+   {
+    "type": "address",
+    "value": "Flat 14, Om Sai Heights, Sangamner"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 3,19,000",
+   "139(9)",
+   "Rs 3,66,500",
+   "194A",
+   "Rs 3,64,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-212",
+  "text": "client: shabana kamble. send the working to savita.shinde@example.org or call +91-00000-28047. notice under section 148 for ay 2025-26 shows a mismatch of rs 1,28,000 in turnover. interest income of rs 43,500 on fixed deposits; tds under section 194a of rs 3,23,500 was deducted. form 26as differs. pls list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "shabana kamble"
+   },
+   {
+    "type": "email",
+    "value": "savita.shinde@example.org"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-28047"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,28,000",
+   "148",
+   "Rs 43,500",
+   "194A",
+   "Rs 3,23,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-213",
+  "text": "Pappu bhai dropped his papers on 12th August. TAN PUNE18101F for the deductor. GSTR-3B for the quarter shows tax of Rs 1,13,000. Interest income of Rs 1,90,500 on fixed deposits; TDS under section 194A of Rs 15,000 was deducted. Form 26AS differs. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pappu bhai"
+   },
+   {
+    "type": "date",
+    "value": "12th August"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE18101F"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,13,000",
+   "GSTR-3B",
+   "Rs 1,90,500",
+   "194A",
+   "Rs 15,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-214",
+  "text": "client: siddharth chavan. notice under section 143(1) for ay 2025-26 shows a mismatch of rs 4,75,500 in turnover. send the working to jagtap.n@example.net or call +91-00000-29097. gstr-3b for the quarter shows tax of rs 4,85,500. born 14-11-1951. udin 26073467jabetxuk44 pending. please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "siddharth chavan"
+   },
+   {
+    "type": "email",
+    "value": "jagtap.n@example.net"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-29097"
+   },
+   {
+    "type": "dob",
+    "value": "14-11-1951"
+   },
+   {
+    "type": "record_id",
+    "value": "26073467jabetxuk44"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 4,75,500",
+   "143(1)",
+   "Rs 4,85,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-215",
+  "text": "Client: Omkar Dhumal GSTR-3B for the quarter shows tax of Rs 1,84,000 Response due 15/12/2026 Notice under section 148 for AY 2025-26 shows a mismatch of Rs 3,88,000 in turnover Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Omkar Dhumal"
+   },
+   {
+    "type": "date",
+    "value": "15/12/2026"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 1,84,000",
+   "GSTR-3B",
+   "Rs 3,88,000",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-216",
+  "text": "Re: Mrs Shah, proprietor of Shree Traders. Response due 15/12. The client's wife Sharma, Vikram is a joint holder. Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 4,32,500 in turnover. UDIN 26546342CJGUDEHU69 pending. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Shah"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Traders"
+   },
+   {
+    "type": "date",
+    "value": "15/12"
+   },
+   {
+    "type": "relative",
+    "value": "Sharma, Vikram"
+   },
+   {
+    "type": "record_id",
+    "value": "26546342CJGUDEHU69"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,32,500",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-217",
+  "text": "Bharat Motors (GSTIN 27ZZZCS0869R1Z5). TAN PUNE17802Q for the deductor. The client's brother Mrs Shah is a joint holder. Response due 17/11/2026. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Bharat Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCS0869R1Z5"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE17802Q"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Shah"
+   },
+   {
+    "type": "date",
+    "value": "17/11/2026"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-218",
+  "text": "Assessee Master Rajesh Gaikwad (PAN ZZZFB0991C) Notice under seciton 139(9) for AY 2025-26 shows a mismatch of Rs 6,500 in turnover GSTR-3B for the quarter shows tax of Rs 3,67,000 Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Rajesh Gaikwad"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZFB0991C"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ],
+  "keep": [
+   "Rs 6,500",
+   "139(9)",
+   "Rs 3,67,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-219",
+  "text": "Re: Smt. Salunke, proprietor of Laxmi Traders Interest income of Rs 4,74,000 on fixed deposits TDS under section 194A of Rs 1,56,000 was deducted Form 26AS differs GSTR-3B for the quarter shows tax of Rs 2,03,000 Response due 12/11 Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Salunke"
+   },
+   {
+    "type": "organization",
+    "value": "Laxmi Traders"
+   },
+   {
+    "type": "date",
+    "value": "12/11"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 4,74,000",
+   "194A",
+   "Rs 1,56,000",
+   "26AS",
+   "Rs 2,03,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-220",
+  "text": "neha kale called on 16/11/2026 (0000045487) accountant smt. pooja deshmukh sent the books notice under section 139(9) for ay 2025-26 shows a mismatch of rs 49,500 in turnover savings account 000679045733 at gramin bank, ifsc test0630303 response due 19th november prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "neha kale"
+   },
+   {
+    "type": "date",
+    "value": "16/11/2026"
+   },
+   {
+    "type": "phone",
+    "value": "0000045487"
+   },
+   {
+    "type": "relative",
+    "value": "smt. pooja deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "000679045733"
+   },
+   {
+    "type": "organization",
+    "value": "gramin bank"
+   },
+   {
+    "type": "record_id",
+    "value": "test0630303"
+   },
+   {
+    "type": "date",
+    "value": "19th november"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": [
+   "Rs 49,500",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-221",
+  "text": "Client: Ramesh Bhosale. Send the working to vikram.thorat@example.org or call 00000 05340. Response due 15 Dec 2026. Accountant Shri Dinesh Kadam sent the books. Advance tax paid Rs 4,84,500 on 5 Oct 2026. Interest income of Rs 3,78,000 on fixed deposits; TDS under section 194A of Rs 68,500 was deducted. Form 26AS differs. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ramesh Bhosale"
+   },
+   {
+    "type": "email",
+    "value": "vikram.thorat@example.org"
+   },
+   {
+    "type": "phone",
+    "value": "00000 05340"
+   },
+   {
+    "type": "date",
+    "value": "15 Dec 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Dinesh Kadam"
+   },
+   {
+    "type": "date",
+    "value": "5 Oct 2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,84,500",
+   "Rs 3,78,000",
+   "194A",
+   "Rs 68,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-222",
+  "text": "Guddu anna dropped his ppaers on 28-09-26 The client's brother Faisal Kulkarni is a joint holedr TAN PUNE06824X for the deductor Office at Parijat Society, Kothrud, Phaltan Notice under section 143(1) for AY 2025-26 shows a mismatch of Rs 3,44,500 in turnover Savings account 000701173184 at Nagrik Bank, IFSC TEST0216536 Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu anna"
+   },
+   {
+    "type": "date",
+    "value": "28-09-26"
+   },
+   {
+    "type": "relative",
+    "value": "Faisal Kulkarni"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE06824X"
+   },
+   {
+    "type": "address",
+    "value": "Parijat Society, Kothrud, Phaltan"
+   },
+   {
+    "type": "record_id",
+    "value": "000701173184"
+   },
+   {
+    "type": "organization",
+    "value": "Nagrik Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0216536"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": [
+   "Rs 3,44,500",
+   "143(1)"
+  ]
+ },
+ {
+  "id": "CA-223",
+  "text": "Assessee Master Aniket Joshi (PAN ZZZHN0977R). Interest income of Rs 72,500 on fixed deposits; TDS under section 194A of Rs 96,500 was deducted. Form 26AS differs. Send the working to pallavi71@example.com or call +91-00000-61226. The client's partner Pappu bhau is a joint holder. TAN PUNE05230S for the deductor. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Aniket Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHN0977R"
+   },
+   {
+    "type": "email",
+    "value": "pallavi71@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-61226"
+   },
+   {
+    "type": "relative",
+    "value": "Pappu bhau"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE05230S"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 72,500",
+   "194A",
+   "Rs 96,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-224",
+  "text": "Laxmi Motors (GSTIN 27ZZZFL0814B1ZA). The client's husband Prakash Gupta is a joint holder. TAN PUNE11936Q for the deductor. Send the working to pooja37@example.com or call 0000 088073. Office at behind ST depot, Solapur. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Laxmi Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFL0814B1ZA"
+   },
+   {
+    "type": "relative",
+    "value": "Prakash Gupta"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE11936Q"
+   },
+   {
+    "type": "email",
+    "value": "pooja37@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "0000 088073"
+   },
+   {
+    "type": "address",
+    "value": "behind ST depot, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-225",
+  "text": "faisal jadhav called on 20/9 (0000065918). send the working to desai.r@example.net or call +91-00000-87320. savings account 00093202705 at janata sahakari bank, ifsc test0722589. udin 26111609fixdawbk29 pending. office at behind hanuman mandir, pune. pls review the working & prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "faisal jadhav"
+   },
+   {
+    "type": "date",
+    "value": "20/9"
+   },
+   {
+    "type": "phone",
+    "value": "0000065918"
+   },
+   {
+    "type": "email",
+    "value": "desai.r@example.net"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-87320"
+   },
+   {
+    "type": "record_id",
+    "value": "00093202705"
+   },
+   {
+    "type": "organization",
+    "value": "janata sahakari bank"
+   },
+   {
+    "type": "record_id",
+    "value": "test0722589"
+   },
+   {
+    "type": "record_id",
+    "value": "26111609fixdawbk29"
+   },
+   {
+    "type": "address",
+    "value": "behind hanuman mandir, pune"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-226",
+  "text": "Assessee Smt. Divya Ghule (PAN ZZZPN0247A). Send the working to prakash23@example.com or call 0000 096501. Interest income of Rs 4,40,000 on fixed deposits; TDS under section 194A of Rs 1,08,000 was deducted. Form 26AS differs. Advance tax paid Rs 35,500 on 5/11. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Divya Ghule"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPN0247A"
+   },
+   {
+    "type": "email",
+    "value": "prakash23@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "0000 096501"
+   },
+   {
+    "type": "date",
+    "value": "5/11"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,40,000",
+   "194A",
+   "Rs 1,08,000",
+   "26AS",
+   "Rs 35,500"
+  ]
+ },
+ {
+  "id": "CA-227",
+  "text": "Mansi Bhosale called on 23/8 ((00000) 29101). The client's wife Nitin Desai is a joint holder. Interest income of Rs 3,10,000 on fixed deposits; TDS under section 194A of Rs 52,000 was deducted. Form 26AS differs. Born 04/01/1963. UDIN 26632509LQZEQGZD09 pending. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mansi Bhosale"
+   },
+   {
+    "type": "date",
+    "value": "23/8"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 29101"
+   },
+   {
+    "type": "relative",
+    "value": "Nitin Desai"
+   },
+   {
+    "type": "dob",
+    "value": "04/01/1963"
+   },
+   {
+    "type": "record_id",
+    "value": "26632509LQZEQGZD09"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,10,000",
+   "194A",
+   "Rs 52,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-228",
+  "text": "File: Bhosale, Amit, PAN ZZZPM0167X. Interest income of Rs 2,20,500 on fixed deposits; TDS under section 194A of Rs 76,500 was deducted. Form 26AS differs. UDIN 26696923NTZFPYLM22 pending. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bhosale, Amit"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPM0167X"
+   },
+   {
+    "type": "record_id",
+    "value": "26696923NTZFPYLM22"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ],
+  "keep": [
+   "Rs 2,20,500",
+   "194A",
+   "Rs 76,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-229",
+  "text": "Bharat Agro (GSTIN 27ZZZFL0799T1Z9). Savings account 00024570639370 at Shivneri Bank, IFSC TEST0526167. The client's son Qureshi, Sheetal is a joint holder. Aadhaar 0355 5854 6935 on file. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 63,500 in turnover. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Bharat Agro"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFL0799T1Z9"
+   },
+   {
+    "type": "record_id",
+    "value": "00024570639370"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0526167"
+   },
+   {
+    "type": "relative",
+    "value": "Qureshi, Sheetal"
+   },
+   {
+    "type": "record_id",
+    "value": "0355 5854 6935"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 63,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-230",
+  "text": "Vijay Motors (GSTIN 27ZZZPK0152Q1ZK). TAN PUNE01901A for the deductor. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 3,95,500 in turnover. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZPK0152Q1ZK"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE01901A"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,95,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-231",
+  "text": "re: shri kale, proprietor of vijay stores tan pune39561z for the deductor aadhaar 179719259867 on file advance tax paid rs 3,23,500 on 23-11-26 the client's husband shilpa tambe is a joint holder notice under section 148 for ay 2025-26 shows a mismatch of rs 3,35,500 in turnover regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "shri kale"
+   },
+   {
+    "type": "organization",
+    "value": "vijay stores"
+   },
+   {
+    "type": "record_id",
+    "value": "pune39561z"
+   },
+   {
+    "type": "record_id",
+    "value": "179719259867"
+   },
+   {
+    "type": "date",
+    "value": "23-11-26"
+   },
+   {
+    "type": "relative",
+    "value": "shilpa tambe"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,23,500",
+   "Rs 3,35,500",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-232",
+  "text": "Vijay Electricals (GSTIN 27ZZZCT0134C1ZK) Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 1,19,500 in turnover UDIN 26235233XXNLDWJQ73 pending Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Electricals"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCT0134C1ZK"
+   },
+   {
+    "type": "record_id",
+    "value": "26235233XXNLDWJQ73"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 1,19,500",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-233",
+  "text": "babloo mama dropped his papers on 09/10/2026. savings acocunt 000869803201 at janata sahakari bank, ifsc test0618935. send the working to arjun60@example.com or call (00000) 36593. accountant shri yogesh rane sent the books. prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "babloo mama"
+   },
+   {
+    "type": "date",
+    "value": "09/10/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "000869803201"
+   },
+   {
+    "type": "organization",
+    "value": "janata sahakari bank"
+   },
+   {
+    "type": "record_id",
+    "value": "test0618935"
+   },
+   {
+    "type": "email",
+    "value": "arjun60@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 36593"
+   },
+   {
+    "type": "relative",
+    "value": "shri yogesh rane"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-234",
+  "text": "assessee smt. farida joshi (pan zzzff0026d). the client's wife rekha gaikwad is a joint holder. born 11-1-1971. response due 6/12. office at h.no. 61, station road, jejuri. notice under section 156 for ay 2025-26 shows a mismatch of rs 3,34,500 in turnover. please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. farida joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "zzzff0026d"
+   },
+   {
+    "type": "relative",
+    "value": "rekha gaikwad"
+   },
+   {
+    "type": "dob",
+    "value": "11-1-1971"
+   },
+   {
+    "type": "date",
+    "value": "6/12"
+   },
+   {
+    "type": "address",
+    "value": "h.no. 61, station road, jejuri"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,34,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-235",
+  "text": "Assessee Master Ganesh Kadam (PAN ZZZCO0801S). Interest income of Rs 1,91,000 on fixed deposits; TDS under section 194A of Rs 2,05,500 was deducted. Form 26AS differs. Notice under section 143(1) for AY 2025-26 shows a mismatch of Rs 2,33,000 in turnover. TAN PUNE94332B for the deductor. The client's wife Master Imran Bagade is a joint holder. Response due 23rd November. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Ganesh Kadam"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZCO0801S"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE94332B"
+   },
+   {
+    "type": "relative",
+    "value": "Master Imran Bagade"
+   },
+   {
+    "type": "date",
+    "value": "23rd November"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 1,91,000",
+   "194A",
+   "Rs 2,05,500",
+   "26AS",
+   "Rs 2,33,000",
+   "143(1)"
+  ]
+ },
+ {
+  "id": "CA-236",
+  "text": "re: smt. dhumal, proprietor of ganesh bakery. send the working to mehta.r@example.net or call +91-00000-25544. udin 26381192qvwgyiyg94 pending. interest income of rs 31,000 on fixed deposits; tds under section 194a of rs 3,47,000 was deducted. form 26as differs. accountant master vikram salunke sent the books. please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. dhumal"
+   },
+   {
+    "type": "organization",
+    "value": "ganesh bakery"
+   },
+   {
+    "type": "email",
+    "value": "mehta.r@example.net"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-25544"
+   },
+   {
+    "type": "record_id",
+    "value": "26381192qvwgyiyg94"
+   },
+   {
+    "type": "relative",
+    "value": "master vikram salunke"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 31,000",
+   "194A",
+   "Rs 3,47,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-237",
+  "text": "Assessee Ms Shabana Salunke (PAN ZZZFV0066E). Aadhaar 027884128314 on file. Office at Om Sai Heights, Gandhi Chowk, Daund. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Shabana Salunke"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZFV0066E"
+   },
+   {
+    "type": "record_id",
+    "value": "027884128314"
+   },
+   {
+    "type": "address",
+    "value": "Om Sai Heights, Gandhi Chowk, Daund"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-238",
+  "text": "Assessee Smt. Sheetal Qureshi (PAN ZZZFE0952V). Accountant Mrs Shweta Sharma sent the books. The client's brother Rohan Sawant is a joint holder. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Sheetal Qureshi"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZFE0952V"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Shweta Sharma"
+   },
+   {
+    "type": "relative",
+    "value": "Rohan Sawant"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-239",
+  "text": "Faisal Jagtap called on 16.8.2026 ((00000) 10482). Send the working to manisha35@example.com or call 00000-88383. Aadhaar 0657 8068 5830 on file. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Faisal Jagtap"
+   },
+   {
+    "type": "date",
+    "value": "16.8.2026"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 10482"
+   },
+   {
+    "type": "email",
+    "value": "manisha35@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "00000-88383"
+   },
+   {
+    "type": "record_id",
+    "value": "0657 8068 5830"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-240",
+  "text": "Aniket Qureshi called on 13.10.2026 (0000 084866). Aadhaar 1728 4839 8281 on file. Response due 7/12. Advance tax paid Rs 97,500 on 21 Dec 2026. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aniket Qureshi"
+   },
+   {
+    "type": "date",
+    "value": "13.10.2026"
+   },
+   {
+    "type": "phone",
+    "value": "0000 084866"
+   },
+   {
+    "type": "record_id",
+    "value": "1728 4839 8281"
+   },
+   {
+    "type": "date",
+    "value": "7/12"
+   },
+   {
+    "type": "date",
+    "value": "21 Dec 2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 97,500"
+  ]
+ },
+ {
+  "id": "CA-241",
+  "text": "File: Nikam, Shweta, PAN ZZZHJ0810O. Response due 14 Dec 2026. UDIN 26148575MAWXZNIO21 pending. GSTR-3B for the quarter shows tax of Rs 2,11,000. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Nikam, Shweta"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHJ0810O"
+   },
+   {
+    "type": "date",
+    "value": "14 Dec 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "26148575MAWXZNIO21"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,11,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-242",
+  "text": "Monu tai dropped his papres on 04/09/2026. Aadhaar 0678 0274 3252 on file. Born 15-5-2013. Response due 26.11.2026. Savings account 000880265972519 at Shivneri Bank, IFSC TEST0956262. Pls summraise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Monu tai"
+   },
+   {
+    "type": "date",
+    "value": "04/09/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "0678 0274 3252"
+   },
+   {
+    "type": "dob",
+    "value": "15-5-2013"
+   },
+   {
+    "type": "date",
+    "value": "26.11.2026"
+   },
+   {
+    "type": "record_id",
+    "value": "000880265972519"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0956262"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-243",
+  "text": "Client: Anil Patil Accountant Mr Anil Shah sent the books Response due 15/11 Office at opp. bus stand, Ram Mandir Road, Phaltan Notice under section 148 for AY 2025-26 shows a mismatch of Rs 3,38,000 in turnover Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Anil Patil"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Anil Shah"
+   },
+   {
+    "type": "date",
+    "value": "15/11"
+   },
+   {
+    "type": "address",
+    "value": "opp. bus stand, Ram Mandir Road, Phaltan"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 3,38,000",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-244",
+  "text": "Shilpa Chavan called on 15-08-26 (0000042919). Savings account 0007826591203 at Janata Sahakari Bank, IFSC TEST0373002. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 1,94,000 in turnover. GSTR-3B for the quarter shows tax of Rs 3,76,500. Response due 21 Nov 2026. TAN PUNE14064I for the deductor. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shilpa Chavan"
+   },
+   {
+    "type": "date",
+    "value": "15-08-26"
+   },
+   {
+    "type": "phone",
+    "value": "0000042919"
+   },
+   {
+    "type": "record_id",
+    "value": "0007826591203"
+   },
+   {
+    "type": "organization",
+    "value": "Janata Sahakari Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0373002"
+   },
+   {
+    "type": "date",
+    "value": "21 Nov 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE14064I"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,94,000",
+   "156",
+   "Rs 3,76,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-245",
+  "text": "File: Dhumal, Pallavi, PAN ZZZCI0137O. Savings account 00035378611 at Shivneri Bank, IFSC TEST0747549. Advance tax paid Rs 2,35,000 on November 9. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dhumal, Pallavi"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZCI0137O"
+   },
+   {
+    "type": "record_id",
+    "value": "00035378611"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0747549"
+   },
+   {
+    "type": "date",
+    "value": "November 9"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,35,000"
+  ]
+ },
+ {
+  "id": "CA-246",
+  "text": "sonu kaka dropped his papers on october 5. notice under section 156 for ay 2025-26 shows a mismatch of rs 3,74,000 in turnover. tan pune01234g for the deductor. born 10 january 2010. please sumamrise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "sonu kaka"
+   },
+   {
+    "type": "date",
+    "value": "october 5"
+   },
+   {
+    "type": "record_id",
+    "value": "pune01234g"
+   },
+   {
+    "type": "dob",
+    "value": "10 january 2010"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,74,000",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-247",
+  "text": "File: Kamble, Ashok, PAN ZZZHI0416G. GSTR-3B for the quarter shows tax of Rs 2,03,000. Aadhaar 1220 8549 7278 on file. Accountant Mr Kiran Sawant sent the books. Send the working to gokhale.s@example.net or call 00000-14906. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kamble, Ashok"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHI0416G"
+   },
+   {
+    "type": "record_id",
+    "value": "1220 8549 7278"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Kiran Sawant"
+   },
+   {
+    "type": "email",
+    "value": "gokhale.s@example.net"
+   },
+   {
+    "type": "phone",
+    "value": "00000-14906"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,03,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-248",
+  "text": "re: mrs singh, proprietor of sai bakery udin 26210320xtyzdzsi36 pending advance tax paid rs 84,000 on 23.9.2026 born 20 september 1966 prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs singh"
+   },
+   {
+    "type": "organization",
+    "value": "sai bakery"
+   },
+   {
+    "type": "record_id",
+    "value": "26210320xtyzdzsi36"
+   },
+   {
+    "type": "date",
+    "value": "23.9.2026"
+   },
+   {
+    "type": "dob",
+    "value": "20 september 1966"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": [
+   "Rs 84,000"
+  ]
+ },
+ {
+  "id": "CA-249",
+  "text": "Assessee Mr Amit Bagade (PAN ZZZCT0570E). Aadhaar 1883 1640 6253 on file. Response due 10/12/2026. Interest income of Rs 1,29,500 on fixed deposits; TDS under section 194A of Rs 4,48,000 was deducted. Form 26AS differs. Born 4-5-1961. GSTR-3B for the quarter shows tax of Rs 75,500. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Amit Bagade"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZCT0570E"
+   },
+   {
+    "type": "record_id",
+    "value": "1883 1640 6253"
+   },
+   {
+    "type": "date",
+    "value": "10/12/2026"
+   },
+   {
+    "type": "dob",
+    "value": "4-5-1961"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,29,500",
+   "194A",
+   "Rs 4,48,000",
+   "26AS",
+   "Rs 75,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-250",
+  "text": "Re: Shri Pande, proprietor of Shree Dairy. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 2,42,500 in turnover. Savings account 000942443542605 at Shivneri Bank, IFSC TEST0731062. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Pande"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Dairy"
+   },
+   {
+    "type": "record_id",
+    "value": "000942443542605"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0731062"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,42,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-251",
+  "text": "Assessee Mrs Madhuri Pawar (PAN ZZZPJ0979B). Notice under section 143(1) for AY 2025-26 shows a mismatch of Rs 1,98,000 in turnover. Accountant Ms Shweta Bagade sent the books. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Madhuri Pawar"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPJ0979B"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Shweta Bagade"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,98,000",
+   "143(1)"
+  ]
+ },
+ {
+  "id": "CA-252",
+  "text": "Divya Deshmukh called on 10/09/2026 ((00000) 67008). Response due 28/11/2026. Interest income of Rs 1,89,500 on fixed deposits; TDS under section 194A of Rs 2,34,500 was deducted. Form 26AS differs. Advance tax paid Rs 47,000 on 3 August 2026. Aadhaar 1073 7042 3015 on file. TAN PUNE80091G for the deductor. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Divya Deshmukh"
+   },
+   {
+    "type": "date",
+    "value": "10/09/2026"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 67008"
+   },
+   {
+    "type": "date",
+    "value": "28/11/2026"
+   },
+   {
+    "type": "date",
+    "value": "3 August 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "1073 7042 3015"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE80091G"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,89,500",
+   "194A",
+   "Rs 2,34,500",
+   "26AS",
+   "Rs 47,000"
+  ]
+ },
+ {
+  "id": "CA-253",
+  "text": "Raju dropped his papers on August 28. Accountant Master Anil Gaikwad sent the books. Notice under section 148 for AY 2025-26 shows a mismatch of Rs 2,38,000 in turnover. Response due 22.11.2026. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Raju"
+   },
+   {
+    "type": "date",
+    "value": "August 28"
+   },
+   {
+    "type": "relative",
+    "value": "Master Anil Gaikwad"
+   },
+   {
+    "type": "date",
+    "value": "22.11.2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,38,000",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-254",
+  "text": "Re: Smt. Desai, proprietor of Maruti Motors. TAN PUNE25897D for the deductor. Interest income of Rs 3,86,000 on fixed deposits; TDS under section 194A of Rs 1,44,500 was deducted. Form 26AS differs. Born 09/11/1980. Advance tax paid Rs 2,83,500 on 8.11.2026. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Desai"
+   },
+   {
+    "type": "organization",
+    "value": "Maruti Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE25897D"
+   },
+   {
+    "type": "dob",
+    "value": "09/11/1980"
+   },
+   {
+    "type": "date",
+    "value": "8.11.2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,86,000",
+   "194A",
+   "Rs 1,44,500",
+   "26AS",
+   "Rs 2,83,500"
+  ]
+ },
+ {
+  "id": "CA-255",
+  "text": "Client: Jyoti Mehta. Office at H.No. 13, Sadashiv Peth, Pune. Born 25-1-1997. UDIN 26607061RXKSJDGR51 pending. Response due November 27. Savings account 00052825456806 at Gramin Bank, IFSC TEST0069766. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jyoti Mehta"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 13, Sadashiv Peth, Pune"
+   },
+   {
+    "type": "dob",
+    "value": "25-1-1997"
+   },
+   {
+    "type": "record_id",
+    "value": "26607061RXKSJDGR51"
+   },
+   {
+    "type": "date",
+    "value": "November 27"
+   },
+   {
+    "type": "record_id",
+    "value": "00052825456806"
+   },
+   {
+    "type": "organization",
+    "value": "Gramin Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0069766"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-256",
+  "text": "Assessee Shri Tushar Salunke (PAN ZZZPY0984R). Aadhaar 1392 4607 4526 on file. Accountant Mrs Aarti Patil sent the books. GSTR-3B for the quarter shows tax of Rs 87,000. Pls summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Tushar Salunke"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPY0984R"
+   },
+   {
+    "type": "record_id",
+    "value": "1392 4607 4526"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Aarti Patil"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 87,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-257",
+  "text": "Krishna Dairy (GSTIN 27ZZZCV0841L1Z5). Aadhaar 1618 2097 1640 on file. Notice under section 148 for AY 2025-26 shows a mismatch of Rs 3,92,500 in turnover. Interest income of Rs 2,76,000 on fixed deposits; TDS under section 194A of Rs 4,12,500 was deducted. Form 26AS differs. The client's husband V. R. Kadam is a joint holder. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Krishna Dairy"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZCV0841L1Z5"
+   },
+   {
+    "type": "record_id",
+    "value": "1618 2097 1640"
+   },
+   {
+    "type": "relative",
+    "value": "V. R. Kadam"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,92,500",
+   "148",
+   "Rs 2,76,000",
+   "194A",
+   "Rs 4,12,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-258",
+  "text": "Rinku kaka dropped his papers on 22/12/2026. TAN PUNE86762L for the deductor. Advance tax paid Rs 2,37,000 on 7/9. GSTR-3B for the quarter shows tax of Rs 1,99,000. Office at Kaveri Towers, MIDC Road, Satara. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku kaka"
+   },
+   {
+    "type": "date",
+    "value": "22/12/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE86762L"
+   },
+   {
+    "type": "date",
+    "value": "7/9"
+   },
+   {
+    "type": "address",
+    "value": "Kaveri Towers, MIDC Road, Satara"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,37,000",
+   "Rs 1,99,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-259",
+  "text": "Ashok Jadhav called on 08/10/2026 (+91-00000-86040) Aadhaar 1513 9889 2724 on file Advance tax paid Rs 3,83,000 on 8 Aug 2026 Response due 22 November 2026 The client's husband Manisha Kale is a joint holder Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ashok Jadhav"
+   },
+   {
+    "type": "date",
+    "value": "08/10/2026"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-86040"
+   },
+   {
+    "type": "record_id",
+    "value": "1513 9889 2724"
+   },
+   {
+    "type": "date",
+    "value": "8 Aug 2026"
+   },
+   {
+    "type": "date",
+    "value": "22 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Manisha Kale"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 3,83,000"
+  ]
+ },
+ {
+  "id": "CA-260",
+  "text": "file: sawant, swati, pan zzzpa0760k. gstr-3b for the quarter shows tax of rs 4,58,500. the client's husband anita dalvi is a joint holder. advance tax paid rs 4,42,500 on september 11. aadhaar 110073836339 on file. response due 5.12.2026. prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "sawant, swati"
+   },
+   {
+    "type": "record_id",
+    "value": "zzzpa0760k"
+   },
+   {
+    "type": "relative",
+    "value": "anita dalvi"
+   },
+   {
+    "type": "date",
+    "value": "september 11"
+   },
+   {
+    "type": "record_id",
+    "value": "110073836339"
+   },
+   {
+    "type": "date",
+    "value": "5.12.2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 4,58,500",
+   "GSTR-3B",
+   "Rs 4,42,500"
+  ]
+ },
+ {
+  "id": "CA-261",
+  "text": "Rinku bhai dropped his papers on 17 September 2026. Advance tax paid Rs 3,14,000 on 23/12/2026. Savings account 000597505811 at Gramin Bank, IFSC TEST0006149. UDIN 26351772QOQUYDUS22 pending. Aadhaar 098067289153 on file. Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 50,000 in turnover. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku bhai"
+   },
+   {
+    "type": "date",
+    "value": "17 September 2026"
+   },
+   {
+    "type": "date",
+    "value": "23/12/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "000597505811"
+   },
+   {
+    "type": "organization",
+    "value": "Gramin Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0006149"
+   },
+   {
+    "type": "record_id",
+    "value": "26351772QOQUYDUS22"
+   },
+   {
+    "type": "record_id",
+    "value": "098067289153"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,14,000",
+   "Rs 50,000",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-262",
+  "text": "Assessee Master Siddharth Salunke (PAN ZZZCM0836T). Advance tax paid Rs 1,07,500 on 25.10.2026. Notice under section 156 for AY 2025-26 shows a mismatch of Rs 56,000 in turnover. Response due 27/11/2026. Savings account 00095878962 at Gramin Bank, IFSC TEST0412850. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Siddharth Salunke"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZCM0836T"
+   },
+   {
+    "type": "date",
+    "value": "25.10.2026"
+   },
+   {
+    "type": "date",
+    "value": "27/11/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "00095878962"
+   },
+   {
+    "type": "organization",
+    "value": "Gramin Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0412850"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,07,500",
+   "Rs 56,000",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-263",
+  "text": "pappu tai dropped his papers on 02/12/2026 aadhaar 019218935184 on file office at ganesh apartments, station road, jejuri savings account 000358431882 at nagrik bank, ifsc test0894610 advance tax paid rs 2,07,000 on 22/10 born 16 november 1987 prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pappu tai"
+   },
+   {
+    "type": "date",
+    "value": "02/12/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "019218935184"
+   },
+   {
+    "type": "address",
+    "value": "ganesh apartments, station road, jejuri"
+   },
+   {
+    "type": "record_id",
+    "value": "000358431882"
+   },
+   {
+    "type": "organization",
+    "value": "nagrik bank"
+   },
+   {
+    "type": "record_id",
+    "value": "test0894610"
+   },
+   {
+    "type": "date",
+    "value": "22/10"
+   },
+   {
+    "type": "dob",
+    "value": "16 november 1987"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,07,000"
+  ]
+ },
+ {
+  "id": "CA-264",
+  "text": "assessee smt. komal bhosale (pan zzzhv0769l) tan pune23626b for the deductor accountant mr vikram ghule sent the books the client's partner more, siddharth is a joint holder pls review the working & prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. komal bhosale"
+   },
+   {
+    "type": "record_id",
+    "value": "zzzhv0769l"
+   },
+   {
+    "type": "record_id",
+    "value": "pune23626b"
+   },
+   {
+    "type": "relative",
+    "value": "mr vikram ghule"
+   },
+   {
+    "type": "relative",
+    "value": "more, siddharth"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-265",
+  "text": "krishna electricals (gstin 27zzzpm0236k1z9). born 9 april 1970. advance tax paid rs 1,27,500 on 23-08-26. notice under section 148 for ay 2025-26 shows a mismatch of rs 1,66,000 in turnover. interest income of rs 4,68,500 on fixed deposits; tds under section 194a of rs 3,43,000 was deducted. form 26as differs. office at flat 24, om sai heights, phaltan. please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "krishna electricals"
+   },
+   {
+    "type": "record_id",
+    "value": "27zzzpm0236k1z9"
+   },
+   {
+    "type": "dob",
+    "value": "9 april 1970"
+   },
+   {
+    "type": "date",
+    "value": "23-08-26"
+   },
+   {
+    "type": "address",
+    "value": "flat 24, om sai heights, phaltan"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,27,500",
+   "Rs 1,66,000",
+   "148",
+   "Rs 4,68,500",
+   "194A",
+   "Rs 3,43,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-266",
+  "text": "client: nikita gokhale born 17/08/1988 notice under section 148 for ay 2025-26 shows a mismatch of rs 3,12,000 in turnover response due 1.11.2026 interest income of rs 1,64,500 on fixed deposits tds under section 194a of rs 2,27,000 was deducted form 26as differs gstr-3b for the quarter shows tax of rs 1,48,000 regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "nikita gokhale"
+   },
+   {
+    "type": "dob",
+    "value": "17/08/1988"
+   },
+   {
+    "type": "date",
+    "value": "1.11.2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,12,000",
+   "148",
+   "Rs 1,64,500",
+   "194A",
+   "Rs 2,27,000",
+   "26AS",
+   "Rs 1,48,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-267",
+  "text": "Client: Rekha Gokhale. Born 21-11-2012. Savings account 000333460899 at Shivneri Bank, IFSC TEST0011547. Send the working to suresh74@example.com or call +91 00000 39646. Office at near bus stand, Satara. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rekha Gokhale"
+   },
+   {
+    "type": "dob",
+    "value": "21-11-2012"
+   },
+   {
+    "type": "record_id",
+    "value": "000333460899"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0011547"
+   },
+   {
+    "type": "email",
+    "value": "suresh74@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 39646"
+   },
+   {
+    "type": "address",
+    "value": "near bus stand, Satara"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-268",
+  "text": "om textiles (gstin 27zzzco0655r1z9). accountant shri vikram rane sent the books. gstr-3b for the quarter shows tax of rs 2,29,500. pls review the working & prepare a summary.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "om textiles"
+   },
+   {
+    "type": "record_id",
+    "value": "27zzzco0655r1z9"
+   },
+   {
+    "type": "relative",
+    "value": "shri vikram rane"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,29,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-269",
+  "text": "assessee master ramesh jagtap (pan zzzhq0804u) the client's brother shri patil is a joint holder response due 22.11.2026 accountant master harshad thorat sent the books pls list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "master ramesh jagtap"
+   },
+   {
+    "type": "record_id",
+    "value": "zzzhq0804u"
+   },
+   {
+    "type": "relative",
+    "value": "shri patil"
+   },
+   {
+    "type": "date",
+    "value": "22.11.2026"
+   },
+   {
+    "type": "relative",
+    "value": "master harshad thorat"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-270",
+  "text": "Re: Mr Dhumal, proprietor of Gajanan Enterprises. Interest income of Rs 3,64,500 on fixed deposits; TDS under section 194A of Rs 4,17,000 was deducted. Form 26AS differs. GSTR-3B for the quarter shows tax of Rs 2,23,000. TAN PUNE45865M for the deductor. Send the working to anita67@example.com or call 00000 11584. The client's husband Smt. Aarti Phadke is a joint holder. Pls summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Dhumal"
+   },
+   {
+    "type": "organization",
+    "value": "Gajanan Enterprises"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE45865M"
+   },
+   {
+    "type": "email",
+    "value": "anita67@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "00000 11584"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Aarti Phadke"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 3,64,500",
+   "194A",
+   "Rs 4,17,000",
+   "26AS",
+   "Rs 2,23,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-271",
+  "text": "File: Thorat, Archana, PAN ZZZPQ0772A. GSTR-3B for the quarter shows tax of Rs 1,55,500. Born 19 August 1949. Send the working to imran.phadke@example.org or call +91 00000 83112. Response due 12 December 2026. Accountant Mr Imran More sent the books. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Thorat, Archana"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPQ0772A"
+   },
+   {
+    "type": "dob",
+    "value": "19 August 1949"
+   },
+   {
+    "type": "email",
+    "value": "imran.phadke@example.org"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 83112"
+   },
+   {
+    "type": "date",
+    "value": "12 December 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Imran More"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,55,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-272",
+  "text": "Vinod Nikam called on 20 Sep 2026 (0000 091167). Office at Parijat Society, Hadapsar, Indapur. Response due 28 November 2026. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Vinod Nikam"
+   },
+   {
+    "type": "date",
+    "value": "20 Sep 2026"
+   },
+   {
+    "type": "phone",
+    "value": "0000 091167"
+   },
+   {
+    "type": "address",
+    "value": "Parijat Society, Hadapsar, Indapur"
+   },
+   {
+    "type": "date",
+    "value": "28 November 2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-273",
+  "text": "File: Sawant, Arjun, PAN ZZZFM0294I. Response due 27 November 2026. Advance tax paid Rs 4,14,000 on 22/11. Savings account 000062458274 at Gramin Bank, IFSC TEST0603889. UDIN 26166906MVUYUVMA44 pending. Send the working to vikram75@example.com or call 0000 062661. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sawant, Arjun"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZFM0294I"
+   },
+   {
+    "type": "date",
+    "value": "27 November 2026"
+   },
+   {
+    "type": "date",
+    "value": "22/11"
+   },
+   {
+    "type": "record_id",
+    "value": "000062458274"
+   },
+   {
+    "type": "organization",
+    "value": "Gramin Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0603889"
+   },
+   {
+    "type": "record_id",
+    "value": "26166906MVUYUVMA44"
+   },
+   {
+    "type": "email",
+    "value": "vikram75@example.com"
+   },
+   {
+    "type": "phone",
+    "value": "0000 062661"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,14,000"
+  ]
+ },
+ {
+  "id": "CA-274",
+  "text": "Client: Rekha Deshmukh. Aadhaar 1003 4606 1567 on file. Interest income of Rs 3,72,500 on fixed deposits; TDS under section 194A of Rs 1,69,000 was deducted. Form 26AS differs. Accountant Mrs Smita Singh sent the books. Savings account 000197882530 at Gramin Bank, IFSC TEST0344139. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rekha Deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "1003 4606 1567"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Smita Singh"
+   },
+   {
+    "type": "record_id",
+    "value": "000197882530"
+   },
+   {
+    "type": "organization",
+    "value": "Gramin Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0344139"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,72,500",
+   "194A",
+   "Rs 1,69,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-275",
+  "text": "Komal Shinde called on 10th November (00000 99107). Advance tax paid Rs 1,66,500 on 06/08/2026. Savings account 000802860397 at Shivneri Bank, IFSC TEST0832806. Office at H.No. 17, Ram Mandir Road, Solapur. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Komal Shinde"
+   },
+   {
+    "type": "date",
+    "value": "10th November"
+   },
+   {
+    "type": "phone",
+    "value": "00000 99107"
+   },
+   {
+    "type": "date",
+    "value": "06/08/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "000802860397"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0832806"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 17, Ram Mandir Road, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,66,500"
+  ]
+ },
+ {
+  "id": "CA-276",
+  "text": "Sai Bakery (GSTIN 27ZZZFX0772E1Z9). Interest income of Rs 39,000 on fixed deposits; TDS under section 194A of Rs 13,000 was deducted. Form 26AS differs. Notice under section 148 for AY 2025-26 shows a mismatch of Rs 1,27,500 in turnover. TAN PUNE45384M for the deductor. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Sai Bakery"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFX0772E1Z9"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE45384M"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 39,000",
+   "194A",
+   "Rs 13,000",
+   "26AS",
+   "Rs 1,27,500",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-277",
+  "text": "Assessee Mr Arjun Shinde (PAN ZZZHW0709Y) Advance tax paid Rs 15,000 on 05/11/2026 Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 4,41,000 in turnover Accountant Mrs Pallavi Chavan sent the books Born 14 November 1978 Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Arjun Shinde"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHW0709Y"
+   },
+   {
+    "type": "date",
+    "value": "05/11/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Pallavi Chavan"
+   },
+   {
+    "type": "dob",
+    "value": "14 November 1978"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 15,000",
+   "Rs 4,41,000",
+   "139(9)"
+  ]
+ },
+ {
+  "id": "CA-278",
+  "text": "file: jagtap, aniket, pan zzzpw0255l. office at opp. zilla parishad school, sadashiv peth, solapur. interest income of rs 1,32,000 on fixed deposits; tds under section 194a of rs 1,66,500 was deducted. form 26as differs. prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "jagtap, aniket"
+   },
+   {
+    "type": "record_id",
+    "value": "zzzpw0255l"
+   },
+   {
+    "type": "address",
+    "value": "opp. zilla parishad school, sadashiv peth, solapur"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,32,000",
+   "194A",
+   "Rs 1,66,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-279",
+  "text": "maruti electricals (gstin 27zzzpk0810u1za). response due december 23. notice under section 139(9) for ay 2025-26 shows a mismatch of rs 2,94,500 in turnover. interest income of rs 67,500 on fixed deposits; tds under section 194a of rs 2,90,500 was deducted. form 26as differs. prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "maruti electricals"
+   },
+   {
+    "type": "record_id",
+    "value": "27zzzpk0810u1za"
+   },
+   {
+    "type": "date",
+    "value": "december 23"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,94,500",
+   "139(9)",
+   "Rs 67,500",
+   "194A",
+   "Rs 2,90,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-280",
+  "text": "File: Jagtap, Siddharth, PAN ZZZHX0723C Advance tax paid Rs 2,09,500 on 02/08/2026 Notice under section 156 for AY 2025-26 shows a mismatch of Rs 1,11,000 in turnover UDIN 26818195RQFINJVL98 pending Pls list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jagtap, Siddharth"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHX0723C"
+   },
+   {
+    "type": "date",
+    "value": "02/08/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "26818195RQFINJVL98"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 2,09,500",
+   "Rs 1,11,000",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-281",
+  "text": "File: Singh, Madhuri, PAN ZZZFX0083V. Advance tax paid Rs 3,77,000 on 10/09/2026. Accountant Mrs Sunita Thorat sent the books. Notice under section 148 for AY 2025-26 shows a mismatch of Rs 4,17,000 in turnover. Born 9 October 1951. UDIN 26185470MLUFIUEW91 pending. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Singh, Madhuri"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZFX0083V"
+   },
+   {
+    "type": "date",
+    "value": "10/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Sunita Thorat"
+   },
+   {
+    "type": "dob",
+    "value": "9 October 1951"
+   },
+   {
+    "type": "record_id",
+    "value": "26185470MLUFIUEW91"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,77,000",
+   "Rs 4,17,000",
+   "148"
+  ]
+ },
+ {
+  "id": "CA-282",
+  "text": "Assessee Smt. Shweta Pawar (PAN ZZZPI0684J). Savings account 000598270731901 at Mahila Sahakari Bank, IFSC TEST0049165. The client's husband Ms Smita Gupta is a joint holder. Notice under section 143(1) for AY 2025-26 shows a mismatch of Rs 2,54,000 in turnover. GSTR-3B for the quarter shows tax of Rs 3,45,500. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Shweta Pawar"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZPI0684J"
+   },
+   {
+    "type": "record_id",
+    "value": "000598270731901"
+   },
+   {
+    "type": "organization",
+    "value": "Mahila Sahakari Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0049165"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Smita Gupta"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,54,000",
+   "143(1)",
+   "Rs 3,45,500",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-283",
+  "text": "re: mrs iyer, proprietor of jai hind constructions. accountant mr vinod jadhav sent the books. savings account 000884628011 at mahila sahakari bank, ifsc test0140113. udin 26208933rbouzgfj78 pending. tan pune57800b for the deductor. born 18/09/1960. pls summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs iyer"
+   },
+   {
+    "type": "organization",
+    "value": "jai hind constructions"
+   },
+   {
+    "type": "relative",
+    "value": "mr vinod jadhav"
+   },
+   {
+    "type": "record_id",
+    "value": "000884628011"
+   },
+   {
+    "type": "organization",
+    "value": "mahila sahakari bank"
+   },
+   {
+    "type": "record_id",
+    "value": "test0140113"
+   },
+   {
+    "type": "record_id",
+    "value": "26208933rbouzgfj78"
+   },
+   {
+    "type": "record_id",
+    "value": "pune57800b"
+   },
+   {
+    "type": "dob",
+    "value": "18/09/1960"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-284",
+  "text": "Lata Gaikwad called on September 19 (0000012266). Born 26 July 1970. Response due 02/12/2026. Advance tax paid Rs 38,000 on 5 September 2026. TAN PUNE94117O for the deductor. Savings account 00014019361 at Nagrik Bank, IFSC TEST0095744. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Lata Gaikwad"
+   },
+   {
+    "type": "date",
+    "value": "September 19"
+   },
+   {
+    "type": "phone",
+    "value": "0000012266"
+   },
+   {
+    "type": "dob",
+    "value": "26 July 1970"
+   },
+   {
+    "type": "date",
+    "value": "02/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "5 September 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE94117O"
+   },
+   {
+    "type": "record_id",
+    "value": "00014019361"
+   },
+   {
+    "type": "organization",
+    "value": "Nagrik Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0095744"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 38,000"
+  ]
+ },
+ {
+  "id": "CA-285",
+  "text": "Anil Dalvi called on 1 Oct 2026 (+91 00000 60682). Accountant Smt. Sneha Sharma sent the books. Interest income of Rs 1,16,000 on fixed deposits; TDS under section 194A of Rs 73,500 was deducted. Form 26AS differs. UDIN 26731407NWLHANJM29 pending. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Anil Dalvi"
+   },
+   {
+    "type": "date",
+    "value": "1 Oct 2026"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 60682"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Sneha Sharma"
+   },
+   {
+    "type": "record_id",
+    "value": "26731407NWLHANJM29"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,16,000",
+   "194A",
+   "Rs 73,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-286",
+  "text": "Laxmi Constructions (GSTIN 27ZZZFW0959F1Z5). UDIN 26474559ZQTHZMUA79 pending. The client's husband Mrs Shabana Sawant is a joint holder. Response due 06-11-26. Interest income of Rs 1,09,000 on fixed deposits; TDS under section 194A of Rs 4,69,000 was deducted. Form 26AS differs. Please review the working and prepare a summary.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Laxmi Constructions"
+   },
+   {
+    "type": "record_id",
+    "value": "27ZZZFW0959F1Z5"
+   },
+   {
+    "type": "record_id",
+    "value": "26474559ZQTHZMUA79"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Shabana Sawant"
+   },
+   {
+    "type": "date",
+    "value": "06-11-26"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,09,000",
+   "194A",
+   "Rs 4,69,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-287",
+  "text": "Assessee Shri Pravin Desai (PAN ZZZHZ0543I). Aadhaar 1016 3191 7954 on file. Office at H.No. 77, Market Yard, Latur. Advance tax paid Rs 23,000 on 18/9. UDIN 26053954ZDPVCYCM19 pending. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Pravin Desai"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHZ0543I"
+   },
+   {
+    "type": "record_id",
+    "value": "1016 3191 7954"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 77, Market Yard, Latur"
+   },
+   {
+    "type": "date",
+    "value": "18/9"
+   },
+   {
+    "type": "record_id",
+    "value": "26053954ZDPVCYCM19"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 23,000"
+  ]
+ },
+ {
+  "id": "CA-288",
+  "text": "Re: Master Sawant, proprietor of Shree Traders Born 17-11-1975 Advance tax paid Rs 3,88,500 on 12 August 2026 Office at behind Ganesh mandir, Baramati Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Sawant"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Traders"
+   },
+   {
+    "type": "dob",
+    "value": "17-11-1975"
+   },
+   {
+    "type": "date",
+    "value": "12 August 2026"
+   },
+   {
+    "type": "address",
+    "value": "behind Ganesh mandir, Baramati"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": [
+   "Rs 3,88,500"
+  ]
+ },
+ {
+  "id": "CA-289",
+  "text": "Chintu bhau dropped his papers on 24 Oct 2026. Office at Flat 34, Parijat Society, Nashik. Response due 2.12.2026. Notice under section 143(1) for AY 2025-26 shows a mismatch of Rs 3,39,000 in turnover. GSTR-3B for the quarter shows tax of Rs 1,46,000. UDIN 26126065XUSTBAKS20 pending. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chintu bhau"
+   },
+   {
+    "type": "date",
+    "value": "24 Oct 2026"
+   },
+   {
+    "type": "address",
+    "value": "Flat 34, Parijat Society, Nashik"
+   },
+   {
+    "type": "date",
+    "value": "2.12.2026"
+   },
+   {
+    "type": "record_id",
+    "value": "26126065XUSTBAKS20"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,39,000",
+   "143(1)",
+   "Rs 1,46,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-290",
+  "text": "Client: Karthik Gokhale. TAN PUNE36377N for the deductor. Office at opp. petrol pump, Sadashiv Peth, Solapur. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Karthik Gokhale"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE36377N"
+   },
+   {
+    "type": "address",
+    "value": "opp. petrol pump, Sadashiv Peth, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-291",
+  "text": "Sonu dropped his papers on 14/10. Interest income of Rs 69,000 on fixed deposits; TDS under section 194A of Rs 1,14,500 was deducted. Form 26AS differs. Office at near water tank, Solapur. Please summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu"
+   },
+   {
+    "type": "date",
+    "value": "14/10"
+   },
+   {
+    "type": "address",
+    "value": "near water tank, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 69,000",
+   "194A",
+   "Rs 1,14,500",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-292",
+  "text": "aniket sharma called on 25 december 2026 (00000 39768). udin 26282238xzowtrrf66 pending. response due 17th december. pls list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "aniket sharma"
+   },
+   {
+    "type": "date",
+    "value": "25 december 2026"
+   },
+   {
+    "type": "phone",
+    "value": "00000 39768"
+   },
+   {
+    "type": "record_id",
+    "value": "26282238xzowtrrf66"
+   },
+   {
+    "type": "date",
+    "value": "17th december"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "CA-293",
+  "text": "Client: Sneha Bagade. TAN PUNE64293D for the deductor. Notice under section 139(9) for AY 2025-26 shows a mismatch of Rs 4,10,500 in turnover. Response due 17/11. GSTR-3B for the quarter shows tax of Rs 4,30,000. Savings account 000620805788517 at Shivneri Bank, IFSC TEST0747661. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sneha Bagade"
+   },
+   {
+    "type": "record_id",
+    "value": "PUNE64293D"
+   },
+   {
+    "type": "date",
+    "value": "17/11"
+   },
+   {
+    "type": "record_id",
+    "value": "000620805788517"
+   },
+   {
+    "type": "organization",
+    "value": "Shivneri Bank"
+   },
+   {
+    "type": "record_id",
+    "value": "TEST0747661"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,10,500",
+   "139(9)",
+   "Rs 4,30,000",
+   "GSTR-3B"
+  ]
+ },
+ {
+  "id": "CA-294",
+  "text": "Sheetal Gaikwad called on 23-08-26 (0000020951). Send the working to sunil.jagtap@example.org or call 0000014622. Office at Anand Nagar, Kothrud, Ahmednagar. Interest income of Rs 1,91,500 on fixed deposits; TDS under section 194A of Rs 4,46,000 was deducted. Form 26AS differs. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sheetal Gaikwad"
+   },
+   {
+    "type": "date",
+    "value": "23-08-26"
+   },
+   {
+    "type": "phone",
+    "value": "0000020951"
+   },
+   {
+    "type": "email",
+    "value": "sunil.jagtap@example.org"
+   },
+   {
+    "type": "phone",
+    "value": "0000014622"
+   },
+   {
+    "type": "address",
+    "value": "Anand Nagar, Kothrud, Ahmednagar"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,91,500",
+   "194A",
+   "Rs 4,46,000",
+   "26AS"
+  ]
+ },
+ {
+  "id": "CA-295",
+  "text": "Re: Mrs Phadke, proprietor of Vijay Hardware. Aadhaar 117666745779 on file. The client's wife Golu bhau is a joint holder. Prepare a short note of the figures.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Phadke"
+   },
+   {
+    "type": "organization",
+    "value": "Vijay Hardware"
+   },
+   {
+    "type": "record_id",
+    "value": "117666745779"
+   },
+   {
+    "type": "relative",
+    "value": "Golu bhau"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-296",
+  "text": "Client: Divya Sharma. UDIN 26495945TWCPUQLZ04 pending. Accountant Mrs Farida Reddy sent the books. Aadhaar 1151 5022 2643 on file. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Divya Sharma"
+   },
+   {
+    "type": "record_id",
+    "value": "26495945TWCPUQLZ04"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Farida Reddy"
+   },
+   {
+    "type": "record_id",
+    "value": "1151 5022 2643"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "CA-297",
+  "text": "File: Pawar, Rupali, PAN ZZZHU0944Z. The client's partner Babloo bhai is a joint holder. Advance tax paid Rs 3,36,000 on 20 August 2026. Office at near Shivaji statue, Kolhapur. Please list the documents still needed.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pawar, Rupali"
+   },
+   {
+    "type": "record_id",
+    "value": "ZZZHU0944Z"
+   },
+   {
+    "type": "relative",
+    "value": "Babloo bhai"
+   },
+   {
+    "type": "date",
+    "value": "20 August 2026"
+   },
+   {
+    "type": "address",
+    "value": "near Shivaji statue, Kolhapur"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,36,000"
+  ]
+ },
+ {
+  "id": "CA-298",
+  "text": "ganesh kadam called on december 28 (+91-00000-65444). notice under section 156 for ay 2025-26 shows a mismatch of rs 4,48,500 in turnover. born 03/09/1982. accountant smt. lata salunke sent the books. the client's son tinku kaka is a joint holder. pls summarise what is pending.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ganesh kadam"
+   },
+   {
+    "type": "date",
+    "value": "december 28"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-65444"
+   },
+   {
+    "type": "dob",
+    "value": "03/09/1982"
+   },
+   {
+    "type": "relative",
+    "value": "smt. lata salunke"
+   },
+   {
+    "type": "relative",
+    "value": "tinku kaka"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 4,48,500",
+   "156"
+  ]
+ },
+ {
+  "id": "CA-299",
+  "text": "Rajesh Jadhav called on 8 September 2026 (00000 09957). Notice under section 148 for AY 2025-26 shows a mismatch of Rs 46,500 in turnover. UDIN 26718787FAFBXHPY61 pending. Office at near sabzi mandi, Pune. Accountant Smt. Meera Rane sent the books. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rajesh Jadhav"
+   },
+   {
+    "type": "date",
+    "value": "8 September 2026"
+   },
+   {
+    "type": "phone",
+    "value": "00000 09957"
+   },
+   {
+    "type": "record_id",
+    "value": "26718787FAFBXHPY61"
+   },
+   {
+    "type": "address",
+    "value": "near sabzi mandi, Pune"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Meera Rane"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 46,500",
+   "148"
+  ]
+ }
+]

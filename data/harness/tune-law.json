@@ -1,0 +1,6349 @@
+[
+ {
+  "id": "LAW-000",
+  "text": "Client: Usha Nikam. Phone: (00000) 42737. Client email kavita98@example.com. Next hearing 24.12.2026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Usha Nikam"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 42737"
+   },
+   {
+    "type": "email",
+    "value": "kavita98@example.com"
+   },
+   {
+    "type": "date",
+    "value": "24.12.2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-001",
+  "text": "Matter: Imran Nikam v/s Ganesh Gokhale. CNR MHPU014854222026. Claim is for Rs 2,07,500 with interest. Client email pravin91@example.com. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Imran Nikam"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh Gokhale"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU014854222026"
+   },
+   {
+    "type": "email",
+    "value": "pravin91@example.com"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,07,500"
+  ]
+ },
+ {
+  "id": "LAW-002",
+  "text": "Matter: Faisal Sawant v/s Anita Bagade. The client's brother Karthik was with the client. CNR MHPU018691832026. Cheque dishoonured on 13 October 2026. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Faisal Sawant"
+   },
+   {
+    "type": "relative",
+    "value": "Anita Bagade"
+   },
+   {
+    "type": "relative",
+    "value": "Karthik"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU018691832026"
+   },
+   {
+    "type": "date",
+    "value": "13 October 2026"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-003",
+  "text": "matter: vikram dalvi v/s neha kale the client's father prakash was with the client cnr mhpu010940712026 opposite counsel ms divya thorat (enrolment mah/1754/2018) asked for time notice served at near water tank, sangamner incident at behind hanuman mandir, jejuri, satara police station prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "vikram dalvi"
+   },
+   {
+    "type": "relative",
+    "value": "neha kale"
+   },
+   {
+    "type": "relative",
+    "value": "prakash"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu010940712026"
+   },
+   {
+    "type": "relative",
+    "value": "ms divya thorat"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/1754/2018"
+   },
+   {
+    "type": "address",
+    "value": "near water tank, sangamner"
+   },
+   {
+    "type": "address",
+    "value": "behind hanuman mandir, jejuri"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-004",
+  "text": "Babloo (client) called on 27/08/2026. Next hearing 9/11. R.C.S. 404/2026 is pending before the court at Jejuri. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Babloo"
+   },
+   {
+    "type": "date",
+    "value": "27/08/2026"
+   },
+   {
+    "type": "date",
+    "value": "9/11"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 404/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-005",
+  "text": "client: rohan phadke. phone: 0000061003. cnr mhpu011220112026. incident at opp. hanuman mandir, hadapsar, ahmednagar, pune police station. the opposite party ansari, sandeep denies the claim. cheque dishonoured on 20/08/2026. fir registered on 23/08/2026. please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "rohan phadke"
+   },
+   {
+    "type": "phone",
+    "value": "0000061003"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu011220112026"
+   },
+   {
+    "type": "address",
+    "value": "opp. hanuman mandir, hadapsar, ahmednagar"
+   },
+   {
+    "type": "relative",
+    "value": "ansari, sandeep"
+   },
+   {
+    "type": "date",
+    "value": "20/08/2026"
+   },
+   {
+    "type": "date",
+    "value": "23/08/2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-006",
+  "text": "More, Prakash (0000 043889) met me on November 26. The complainant Amit denies the claim. Born 08/09/1986. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "More, Prakash"
+   },
+   {
+    "type": "phone",
+    "value": "0000 043889"
+   },
+   {
+    "type": "date",
+    "value": "November 26"
+   },
+   {
+    "type": "relative",
+    "value": "Amit"
+   },
+   {
+    "type": "dob",
+    "value": "08/09/1986"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-007",
+  "text": "Jadhav, Vikram (+91-00000-93969) met me on August 26. The client's wife Tushar was with the client. Witness Ms Komal Kamble saw it. Cheque dishonoured on September 19. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jadhav, Vikram"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-93969"
+   },
+   {
+    "type": "date",
+    "value": "August 26"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Komal Kamble"
+   },
+   {
+    "type": "date",
+    "value": "September 19"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-008",
+  "text": "Matter: Rajesh Sawant v/s Anita Shaikh. Opposite counsel Mrs Madhuri Deshmukh (enrolment MAH/4004/2020) asked for time. The defendant Shabana Qureshi denies the claim. FIR registered on 17.8.2026. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rajesh Sawant"
+   },
+   {
+    "type": "relative",
+    "value": "Anita Shaikh"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Madhuri Deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/4004/2020"
+   },
+   {
+    "type": "relative",
+    "value": "Shabana Qureshi"
+   },
+   {
+    "type": "date",
+    "value": "17.8.2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-009",
+  "text": "Client: Santosh Bagade. Phone: 0000009351. Incident at H.No. 3, Gandhi Chowk, Nashik, Satara police station. FIR registered on 19.9.2026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Santosh Bagade"
+   },
+   {
+    "type": "phone",
+    "value": "0000009351"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 3, Gandhi Chowk, Nashik"
+   },
+   {
+    "type": "date",
+    "value": "19.9.2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-010",
+  "text": "Om Dairy (client) has a dispute Witness Mr Omkar Dhumal saw it The complainant Vikram denies the claim Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Om Dairy"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Omkar Dhumal"
+   },
+   {
+    "type": "relative",
+    "value": "Vikram"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-011",
+  "text": "Gokhale, Shabana (00000-88048) met me on 18/12/2026 Born 27-9-2001 Opposite counsel Mrs Sneha Nikam (enrolment MAH/1152/2015) asked for time CNR MHPU016726862026 Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Gokhale, Shabana"
+   },
+   {
+    "type": "phone",
+    "value": "00000-88048"
+   },
+   {
+    "type": "date",
+    "value": "18/12/2026"
+   },
+   {
+    "type": "dob",
+    "value": "27-9-2001"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Sneha Nikam"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1152/2015"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU016726862026"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-012",
+  "text": "Matter: Pallavi Deshmukh v/s Suresh Pande Opposite counsel Mrs Archana Nair (enrolment MAH/3535/2014) asked for time Settlement discussed at Rs 4,84,000 Next hearing 7.12.2026 Cheque dishonoured on 06/09/2026 Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pallavi Deshmukh"
+   },
+   {
+    "type": "relative",
+    "value": "Suresh Pande"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Archana Nair"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/3535/2014"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,84,000"
+   },
+   {
+    "type": "date",
+    "value": "7.12.2026"
+   },
+   {
+    "type": "date",
+    "value": "06/09/2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-013",
+  "text": "Matter: Vinod Deshmukh v/s Aarti Deshmukh Crime No. 664/2026 is pending befroe the court at Satara Witness Master Pravin Phadke saw it Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Vinod Deshmukh"
+   },
+   {
+    "type": "relative",
+    "value": "Aarti Deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 664/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Pravin Phadke"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-014",
+  "text": "Re: Ms Archana Shah, SCC 491/2026. FIR registered on 26-11-26. Witness Smt. Kavita Ghule saw it. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Archana Shah"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 491/2026"
+   },
+   {
+    "type": "date",
+    "value": "26-11-26"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Kavita Ghule"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-015",
+  "text": "Maruti Agro (client) has a dispute. The client's wife Ganesh was with the client. CNR MHPU012818992026. Notice served at Flat 17, Kaveri Towers, Baramati. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Maruti Agro"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012818992026"
+   },
+   {
+    "type": "address",
+    "value": "Flat 17, Kaveri Towers, Baramati"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-016",
+  "text": "Matter: Rohan More v/s Tushar Dalvi. Notice served at Kaveri Towers, Ram Mandir Road, Jejuri. Next hearing 20 November 2026. The client's brother Mahesh was with the client. Client email bagade.k@example.net. FIR registered on 04-08-26. Kindly list the penidng steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rohan More"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar Dalvi"
+   },
+   {
+    "type": "address",
+    "value": "Kaveri Towers, Ram Mandir Road, Jejuri"
+   },
+   {
+    "type": "date",
+    "value": "20 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mahesh"
+   },
+   {
+    "type": "email",
+    "value": "bagade.k@example.net"
+   },
+   {
+    "type": "date",
+    "value": "04-08-26"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-017",
+  "text": "Matter: Shabana Kulkarni v/s Rupali Salunke. Born 7-2-1960. Opposite cousnel Master Imran Pawar (enrolment MAH/6807/2019) asked for time. Claim is for Rs 3,29,500 with interest. Incident at Flat 36, Shivam Residency, Pune, Pune police station. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shabana Kulkarni"
+   },
+   {
+    "type": "relative",
+    "value": "Rupali Salunke"
+   },
+   {
+    "type": "dob",
+    "value": "7-2-1960"
+   },
+   {
+    "type": "relative",
+    "value": "Master Imran Pawar"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6807/2019"
+   },
+   {
+    "type": "address",
+    "value": "Flat 36, Shivam Residency, Pune"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": [
+   "Rs 3,29,500"
+  ]
+ },
+ {
+  "id": "LAW-018",
+  "text": "Client: Vikram Jagtap. Phone: +91-00000-32739. Cheque dishonoured on 16-09-26. CNR MHPU015255602026. Crime No. 418/2026 is pending before the court at Phaltan. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Vikram Jagtap"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-32739"
+   },
+   {
+    "type": "date",
+    "value": "16-09-26"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU015255602026"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 418/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-019",
+  "text": "Matter: Anil Sharma v/s Sunil Gokhale. Client email salunke.f@example.net. Incident at near water tank, Latur, Pune police station. Cheque dishonoured on 18 October 2026. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Anil Sharma"
+   },
+   {
+    "type": "relative",
+    "value": "Sunil Gokhale"
+   },
+   {
+    "type": "email",
+    "value": "salunke.f@example.net"
+   },
+   {
+    "type": "address",
+    "value": "near water tank, Latur"
+   },
+   {
+    "type": "date",
+    "value": "18 October 2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-020",
+  "text": "Client: Yogesh Bagade Phone: 00000 69261 Next hearing 25-11-26 Claim is for Rs 3,30,000 with interest Settlement discussed at Rs 3,20,000 Opposite counsel Ms Meera Desai (enrolment MAH/1880/2016) asked for time FIR No. 0338/2026 is pending before the court at Latur Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Yogesh Bagade"
+   },
+   {
+    "type": "phone",
+    "value": "00000 69261"
+   },
+   {
+    "type": "date",
+    "value": "25-11-26"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,20,000"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Meera Desai"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1880/2016"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0338/2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 3,30,000"
+  ]
+ },
+ {
+  "id": "LAW-021",
+  "text": "Re: Mr Arjun Gupta, Bail Application No. 202/2026 Opposite counsel Mr Arjun Pawar (enrolment MAH/2540/2011) asked for time Born 16/07/2009 Cheque dishonoured on 7th December Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Arjun Gupta"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 202/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Arjun Pawar"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/2540/2011"
+   },
+   {
+    "type": "dob",
+    "value": "16/07/2009"
+   },
+   {
+    "type": "date",
+    "value": "7th December"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-022",
+  "text": "Client: Sachin Tambe. Phone: +91 00000 04101. FIR registered on 18 Nov 2026. Settlement discussed at Rs 3,26,000. The client's husband Ganesh was with the client. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sachin Tambe"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 04101"
+   },
+   {
+    "type": "date",
+    "value": "18 Nov 2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,26,000"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-023",
+  "text": "Jai Hind Electricals (client) has a dispute. R.C.S. 450/2026 is pending before the court at Kolhapur. Next hearing 25-11-26. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Jai Hind Electricals"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 450/2026"
+   },
+   {
+    "type": "date",
+    "value": "25-11-26"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-024",
+  "text": "Re: Shri Prakash Dhumal, Crime No. 187/2026. The opposite party Asha Salunke denies the claim. The client's brother Pallavi was with the client. Client email pravin66@example.com. Notice served at Flat 37, Om Sai Heights, Satara. Next hearing 21-11-26. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Prakash Dhumal"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 187/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Asha Salunke"
+   },
+   {
+    "type": "relative",
+    "value": "Pallavi"
+   },
+   {
+    "type": "email",
+    "value": "pravin66@example.com"
+   },
+   {
+    "type": "address",
+    "value": "Flat 37, Om Sai Heights, Satara"
+   },
+   {
+    "type": "date",
+    "value": "21-11-26"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-025",
+  "text": "krishna electricals (client) has a dispute. claim is for rs 1,87,500 with interest. opposite counsel ms pooja deshmukh (enrolment mah/7531/2019) asked for time. settlement discussed at rs 1,43,500. the client's wife usha was with the client. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "krishna electricals"
+   },
+   {
+    "type": "relative",
+    "value": "ms pooja deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/7531/2019"
+   },
+   {
+    "type": "amount",
+    "value": "rs 1,43,500"
+   },
+   {
+    "type": "relative",
+    "value": "usha"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,87,500"
+  ]
+ },
+ {
+  "id": "LAW-026",
+  "text": "Guddu kaka (client) called on 15 Sep 2026. Cheque dishonoured on 2nd November. Incident at H.No. 16, Gandhi Chowk, Daund, Pune police station. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000531, Rs 2,42,500. Settlement discussed at Rs 4,30,000. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu kaka"
+   },
+   {
+    "type": "date",
+    "value": "15 Sep 2026"
+   },
+   {
+    "type": "date",
+    "value": "2nd November"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 16, Gandhi Chowk, Daund"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000531"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,30,000"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,42,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-027",
+  "text": "Client: Rohan Mehta. Phone: 00000-53269. Incident at behind Zilla Parishad school, Daund, Baramati police station. Witness Shri Pravin Sharma saw it. Next hearing 07/12/2026. Crime No. 839/2026 is pending before the court at Pune. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rohan Mehta"
+   },
+   {
+    "type": "phone",
+    "value": "00000-53269"
+   },
+   {
+    "type": "address",
+    "value": "behind Zilla Parishad school, Daund"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Pravin Sharma"
+   },
+   {
+    "type": "date",
+    "value": "07/12/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 839/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-028",
+  "text": "Client: Harshad Dhumal. Phone: +91 00000 48552. Next hearing 14.12.2026. The client's wife Nitin was with the client. FIR registered on 3.10.2026. Incident at near old post office, Latur, Satara police station. Cheque dishonoured on September 10. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Harshad Dhumal"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 48552"
+   },
+   {
+    "type": "date",
+    "value": "14.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Nitin"
+   },
+   {
+    "type": "date",
+    "value": "3.10.2026"
+   },
+   {
+    "type": "address",
+    "value": "near old post office, Latur"
+   },
+   {
+    "type": "date",
+    "value": "September 10"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-029",
+  "text": "Bittu kaka (client) called on 14th August Claim is for Rs 4,07,000 with interest CNR MHPU014019092026 The accused M. D. Bagade denies the claim Incident at Flat 28, Anand Nagar, Ahmednagar, Satara police station Crime No. 52/2026 is pending before the court at Karad Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bittu kaka"
+   },
+   {
+    "type": "date",
+    "value": "14th August"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU014019092026"
+   },
+   {
+    "type": "relative",
+    "value": "M. D. Bagade"
+   },
+   {
+    "type": "address",
+    "value": "Flat 28, Anand Nagar, Ahmednagar"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 52/2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 4,07,000"
+  ]
+ },
+ {
+  "id": "LAW-030",
+  "text": "Re: Mrs Mansi Kulkarni, Cr. Case 112/2026. Next hearing 21st December. FIR No. 0341/2026 is pending before the court at Latur. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Mansi Kulkarni"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 112/2026"
+   },
+   {
+    "type": "date",
+    "value": "21st December"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0341/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-031",
+  "text": "Mehta, Karthik ((00000) 17417) met me on 4 Dec 2026 Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000794, Rs 4,79,000 Civil Suit 64 of 2026 is pending before the court at Sangamner Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mehta, Karthik"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 17417"
+   },
+   {
+    "type": "date",
+    "value": "4 Dec 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000794"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 64 of 2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 4,79,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-032",
+  "text": "Vijay Traders (client) has a dispute. CNR MHPU010783432026. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000559, Rs 1,79,000. Incident at opp. sabzi mandi, Camp, Pune, Baramati police station. Crime No. 684/2026 is pending before the court at Satara. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Traders"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU010783432026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000559"
+   },
+   {
+    "type": "address",
+    "value": "opp. sabzi mandi, Camp, Pune"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 684/2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,79,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-033",
+  "text": "Client: Kiran Desai. Phone: 0000040868. Cheque dishonoured on 18 Sep 2026. Next hearing December 21. The defendant Mr Pravin Dalvi denies the claim. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kiran Desai"
+   },
+   {
+    "type": "phone",
+    "value": "0000040868"
+   },
+   {
+    "type": "date",
+    "value": "18 Sep 2026"
+   },
+   {
+    "type": "date",
+    "value": "December 21"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Pravin Dalvi"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-034",
+  "text": "Re: Smt. Nikita Joshi, Cr. Case 469/2026. Client email rupali50@example.com. Opposite counsel Mrs Divya Nikam (enrolment MAH/1243/2012) asked for time. The client's husband Ashok was with the client. Claim is for Rs 3,36,500 with interest. Born 12/10/2002. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Nikita Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 469/2026"
+   },
+   {
+    "type": "email",
+    "value": "rupali50@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Divya Nikam"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1243/2012"
+   },
+   {
+    "type": "relative",
+    "value": "Ashok"
+   },
+   {
+    "type": "dob",
+    "value": "12/10/2002"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,36,500"
+  ]
+ },
+ {
+  "id": "LAW-035",
+  "text": "Chintu tai (client) called on 6.9.2026. Born 14-5-2015. Settlement discussed at Rs 1,16,000. Client email vikram.verma@example.org. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chintu tai"
+   },
+   {
+    "type": "date",
+    "value": "6.9.2026"
+   },
+   {
+    "type": "dob",
+    "value": "14-5-2015"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,16,000"
+   },
+   {
+    "type": "email",
+    "value": "vikram.verma@example.org"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-036",
+  "text": "Matter: Aniket Singh v/s Lata Bhosale Settlement discussed at Rs 2,40,500 Witness Mr Prakash Shah saw it Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aniket Singh"
+   },
+   {
+    "type": "relative",
+    "value": "Lata Bhosale"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,40,500"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Prakash Shah"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-037",
+  "text": "Client: Kiran Nair. Phone: 00000-66421. Witness Shri Rohan Nikam saw it. Cheque dishonoured on 04/08/2026. FIR registered on 24 December 2026. Next hearing 23rd November. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kiran Nair"
+   },
+   {
+    "type": "phone",
+    "value": "00000-66421"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Rohan Nikam"
+   },
+   {
+    "type": "date",
+    "value": "04/08/2026"
+   },
+   {
+    "type": "date",
+    "value": "24 December 2026"
+   },
+   {
+    "type": "date",
+    "value": "23rd November"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-038",
+  "text": "Re: Mrs Pallavi Joshi, Bail Application No. 392/2026. Incident at near petrol pump, Jejuri, Karad police station. The client's father Neha was with the client. Notice served at behind Hanuman mandir, Solapur. Next hearing 24 Nov 2026. Cheque dishonoured on 10.9.2026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Pallavi Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 392/2026"
+   },
+   {
+    "type": "address",
+    "value": "near petrol pump, Jejuri"
+   },
+   {
+    "type": "relative",
+    "value": "Neha"
+   },
+   {
+    "type": "address",
+    "value": "behind Hanuman mandir, Solapur"
+   },
+   {
+    "type": "date",
+    "value": "24 Nov 2026"
+   },
+   {
+    "type": "date",
+    "value": "10.9.2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-039",
+  "text": "Sonu mama (client) called on 28/9. CNR MHPU017609692026. The client's brother Imran was with the client. Born 9-9-2008. Notice served at Sai Kripa, Station Road, Phaltan. Cheque dishonoured on August 22. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu mama"
+   },
+   {
+    "type": "date",
+    "value": "28/9"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU017609692026"
+   },
+   {
+    "type": "relative",
+    "value": "Imran"
+   },
+   {
+    "type": "dob",
+    "value": "9-9-2008"
+   },
+   {
+    "type": "address",
+    "value": "Sai Kripa, Station Road, Phaltan"
+   },
+   {
+    "type": "date",
+    "value": "August 22"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-040",
+  "text": "Matter: Komal Sawant v/s Deepak Chavan Next hearing 10th November CNR MHPU012300022026 Cheque dishonoured on 24-09-26 Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Komal Sawant"
+   },
+   {
+    "type": "relative",
+    "value": "Deepak Chavan"
+   },
+   {
+    "type": "date",
+    "value": "10th November"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012300022026"
+   },
+   {
+    "type": "date",
+    "value": "24-09-26"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-041",
+  "text": "Rinku tai (client) called on 26 Dec 2026. Incident at near bus stand, Ahmednagar, Karad police station. Born 28 February 1988. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku tai"
+   },
+   {
+    "type": "date",
+    "value": "26 Dec 2026"
+   },
+   {
+    "type": "address",
+    "value": "near bus stand, Ahmednagar"
+   },
+   {
+    "type": "dob",
+    "value": "28 February 1988"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-042",
+  "text": "Client: Manoj Qureshi. Phone: +91 00000 31262. Opposite counsel Mrs Anita Singh (enrolment MAH/6250/2008) asked for time. Settlement discussed at Rs 1,23,000. FIR registered on September 20. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Manoj Qureshi"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 31262"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Anita Singh"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6250/2008"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,23,000"
+   },
+   {
+    "type": "date",
+    "value": "September 20"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-043",
+  "text": "Matter: Farida Kulkarni v/s Shweta Kamble Client email anita51@example.com Notice served at Flat 25, Om Sai Heights, Sangamner Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Farida Kulkarni"
+   },
+   {
+    "type": "relative",
+    "value": "Shweta Kamble"
+   },
+   {
+    "type": "email",
+    "value": "anita51@example.com"
+   },
+   {
+    "type": "address",
+    "value": "Flat 25, Om Sai Heights, Sangamner"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-044",
+  "text": "matter: karthik bagade v/s shweta kamble. the opposite party anil denies the claim. settlement discussed at rs 59,000. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "karthik bagade"
+   },
+   {
+    "type": "relative",
+    "value": "shweta kamble"
+   },
+   {
+    "type": "relative",
+    "value": "anil"
+   },
+   {
+    "type": "amount",
+    "value": "rs 59,000"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-045",
+  "text": "Shree Medical (client) has a dispute. The defendant Smt. More denies the claim. The client's wife Faisal was with the client. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Shree Medical"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. More"
+   },
+   {
+    "type": "relative",
+    "value": "Faisal"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-046",
+  "text": "Sonu bhau (client) called on 10/12/2026 Cheque dishonoured on 2/9 The client's father Shabana was with the client Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu bhau"
+   },
+   {
+    "type": "date",
+    "value": "10/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "2/9"
+   },
+   {
+    "type": "relative",
+    "value": "Shabana"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-047",
+  "text": "kale, sachin (+91 00000 46158) met me on 4th october. cheque dishonoured on 23-08-26. fir registered on 11/10/2026. client email kamble.s@example.net. please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "kale, sachin"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 46158"
+   },
+   {
+    "type": "date",
+    "value": "4th october"
+   },
+   {
+    "type": "date",
+    "value": "23-08-26"
+   },
+   {
+    "type": "date",
+    "value": "11/10/2026"
+   },
+   {
+    "type": "email",
+    "value": "kamble.s@example.net"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-048",
+  "text": "Re: Smt. Swati Sawant, R.C.S. 621/2026. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000309, Rs 4,71,500. Born 18-1-1983. Settlement discussed at Rs 2,33,000. Claim is for Rs 1,49,000 with interest. Witness Mr Siddharth Mehta saw it. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Swati Sawant"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 621/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000309"
+   },
+   {
+    "type": "dob",
+    "value": "18-1-1983"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,33,000"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Siddharth Mehta"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,71,500",
+   "section 138",
+   "Rs 1,49,000"
+  ]
+ },
+ {
+  "id": "LAW-049",
+  "text": "Vijay Enterprises (client) has a dispute. The client's son Sandeep was with the client. Opposite counsel Shri Nitin Deshmukh (enrolment MAH/8886/2017) asked for time. Notice served at behind bus stand, Karad. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000534, Rs 4,73,000. FIR registered on August 6. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Enterprises"
+   },
+   {
+    "type": "relative",
+    "value": "Sandeep"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Nitin Deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/8886/2017"
+   },
+   {
+    "type": "address",
+    "value": "behind bus stand, Karad"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000534"
+   },
+   {
+    "type": "date",
+    "value": "August 6"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,73,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-050",
+  "text": "Re: Smt. Sneha Gaikwad, Cr. Case 431/2026. Claim is for Rs 2,89,000 with interest. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000957, Rs 25,000. Settlement discussed at Rs 4,65,500. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Sneha Gaikwad"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 431/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000957"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,65,500"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,89,000",
+   "Rs 25,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-051",
+  "text": "Pappu tai (client) called on 14.12.2026. The opposite party Prakash Kale denies the claim. Incident at behind Hanuman mandir, Sangamner, Pune ploice station. FIR regisetred on 22.9.2026. Settlement discusesd at Rs 3,35,000. Witness Smt. Jyoti Gupta saw it. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pappu tai"
+   },
+   {
+    "type": "date",
+    "value": "14.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Prakash Kale"
+   },
+   {
+    "type": "address",
+    "value": "behind Hanuman mandir, Sangamner"
+   },
+   {
+    "type": "date",
+    "value": "22.9.2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,35,000"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Jyoti Gupta"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-052",
+  "text": "Re: Master Ganesh Phadke, FIR No. 0537/2026 Opposite counsel Master Vinod Jadhav (enrolment MAH/8235/2015) asked for time Witness Mr Ganesh Ansari saw it Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Ganesh Phadke"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0537/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Vinod Jadhav"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/8235/2015"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Ganesh Ansari"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-053",
+  "text": "Client: Rupali Shinde Phone: (00000) 31594 Settlement discussed at Rs 2,64,500 Born 12/04/1951 Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rupali Shinde"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 31594"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,64,500"
+   },
+   {
+    "type": "dob",
+    "value": "12/04/1951"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-054",
+  "text": "Matter: Aniket Rane v/s Anita Desai. CNR MHPU014090482026. The accused Master Tambe denies the claim. FIR registered on 23 Dec 2026. Client email sunil.gokhale@example.org. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aniket Rane"
+   },
+   {
+    "type": "relative",
+    "value": "Anita Desai"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU014090482026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Tambe"
+   },
+   {
+    "type": "date",
+    "value": "23 Dec 2026"
+   },
+   {
+    "type": "email",
+    "value": "sunil.gokhale@example.org"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-055",
+  "text": "Matter: Deepak Shah v/s Manoj Nikam. Claim is for Rs 2,37,000 with interest. Settlement discussed at Rs 17,000. Client email deshmukh.t@example.net. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Deepak Shah"
+   },
+   {
+    "type": "relative",
+    "value": "Manoj Nikam"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 17,000"
+   },
+   {
+    "type": "email",
+    "value": "deshmukh.t@example.net"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,37,000"
+  ]
+ },
+ {
+  "id": "LAW-056",
+  "text": "client: mahesh sharma. phone: 00000-40797. fir registered on 14-11-26. cheque dishoonured on 26/11. opposite counsel ms asha verma (enrolment mah/7586/2011) asked for time. incident at behind shivaji statue, karad, karad ploice station. witness ms komal verma saw it. please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mahesh sharma"
+   },
+   {
+    "type": "phone",
+    "value": "00000-40797"
+   },
+   {
+    "type": "date",
+    "value": "14-11-26"
+   },
+   {
+    "type": "date",
+    "value": "26/11"
+   },
+   {
+    "type": "relative",
+    "value": "ms asha verma"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/7586/2011"
+   },
+   {
+    "type": "address",
+    "value": "behind shivaji statue, karad"
+   },
+   {
+    "type": "relative",
+    "value": "ms komal verma"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-057",
+  "text": "bunty bhau (client) called on 20/10/2026 the accused m. s. kadam denies the claim opposite counsel shri rohan ghule (enrolment mah/1819/2017) asked for time complaint under section 138 of the negotiable instruments act, cheque no. 000622, rs 59,000 regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "bunty bhau"
+   },
+   {
+    "type": "date",
+    "value": "20/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "m. s. kadam"
+   },
+   {
+    "type": "relative",
+    "value": "shri rohan ghule"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/1819/2017"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000622"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 59,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-058",
+  "text": "Re: Smt. Anita Joshi, R.C.S. 100/2026. Notice served at Flat 26, Kaveri Towers, Satara. Claim is for Rs 1,59,500 with interest. The opposite party Divya denies the claim. Next hearing 19/12/2026. Settlement discussed at Rs 96,000. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Anita Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 100/2026"
+   },
+   {
+    "type": "address",
+    "value": "Flat 26, Kaveri Towers, Satara"
+   },
+   {
+    "type": "relative",
+    "value": "Divya"
+   },
+   {
+    "type": "date",
+    "value": "19/12/2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 96,000"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,59,500"
+  ]
+ },
+ {
+  "id": "LAW-059",
+  "text": "re: mr karthik kulkarni, cr. case 909/2026. client email shah.a@example.net. complaint under section 138 of the negotiable instruments act, cheque no. 000722, rs 25,000. next hearing 5 dec 2026. regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr karthik kulkarni"
+   },
+   {
+    "type": "record_id",
+    "value": "cr. case 909/2026"
+   },
+   {
+    "type": "email",
+    "value": "shah.a@example.net"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000722"
+   },
+   {
+    "type": "date",
+    "value": "5 dec 2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 25,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-060",
+  "text": "Ghule, Jyoti (00000-55587) met me on 01-10-26 CNR MHPU013024882026 The client's wife Pravin was with the client Pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ghule, Jyoti"
+   },
+   {
+    "type": "phone",
+    "value": "00000-55587"
+   },
+   {
+    "type": "date",
+    "value": "01-10-26"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU013024882026"
+   },
+   {
+    "type": "relative",
+    "value": "Pravin"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-061",
+  "text": "re: mr dinesh sharma, civil suit 237 of 2026. bail application no. 611/2026 is pending before the court at ahmednagar. the client's father amit was with the client. next hearing 10-11-26. witness shri sachin jagtap saw it. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr dinesh sharma"
+   },
+   {
+    "type": "record_id",
+    "value": "civil suit 237 of 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "bail application no. 611/2026"
+   },
+   {
+    "type": "relative",
+    "value": "amit"
+   },
+   {
+    "type": "date",
+    "value": "10-11-26"
+   },
+   {
+    "type": "relative",
+    "value": "shri sachin jagtap"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-062",
+  "text": "Krishna Motors (client) has a dispute Claim is for Rs 4,42,000 with interest CNR MHPU011562482026 Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000919, Rs 1,30,000 FIR registered on 07-12-26 The accused Shaikh, Pooja denies the claim Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Krishna Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU011562482026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000919"
+   },
+   {
+    "type": "date",
+    "value": "07-12-26"
+   },
+   {
+    "type": "relative",
+    "value": "Shaikh, Pooja"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ],
+  "keep": [
+   "Rs 4,42,000",
+   "Rs 1,30,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-063",
+  "text": "Sharma, Amit (+91-00000-31977) met me on 8 Nov 2026. Born 26/12/2014. The client's husband Amit was with the client. Client email patil.k@example.net. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sharma, Amit"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-31977"
+   },
+   {
+    "type": "date",
+    "value": "8 Nov 2026"
+   },
+   {
+    "type": "dob",
+    "value": "26/12/2014"
+   },
+   {
+    "type": "relative",
+    "value": "Amit"
+   },
+   {
+    "type": "email",
+    "value": "patil.k@example.net"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-064",
+  "text": "desai, sheetal ((00000) 85703) met me on october 6. witness ms komal nikam saw it. incident at h.no. 63, tilak road, sangamner, pune ploice station. client email rajesh.jagtap@example.org. settlement discussed at rs 3,24,000. please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "desai, sheetal"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 85703"
+   },
+   {
+    "type": "date",
+    "value": "october 6"
+   },
+   {
+    "type": "relative",
+    "value": "ms komal nikam"
+   },
+   {
+    "type": "address",
+    "value": "h.no. 63, tilak road, sangamner"
+   },
+   {
+    "type": "email",
+    "value": "rajesh.jagtap@example.org"
+   },
+   {
+    "type": "amount",
+    "value": "rs 3,24,000"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-065",
+  "text": "re: mr manoj rane, bail application no. 13/2026. opposite counsel ms mansi kulkarni (enrolment mah/2509/2012) asked for time. cheque dishonoured on 10th december. the accused master imran patil denies the claim. cnr mhpu010373362026. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr manoj rane"
+   },
+   {
+    "type": "record_id",
+    "value": "bail application no. 13/2026"
+   },
+   {
+    "type": "relative",
+    "value": "ms mansi kulkarni"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/2509/2012"
+   },
+   {
+    "type": "date",
+    "value": "10th december"
+   },
+   {
+    "type": "relative",
+    "value": "master imran patil"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu010373362026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-066",
+  "text": "Matter: Yogesh Sawant v/s Deepak Bagade. Opposite counsel Smt. Nikita Pande (enrolment MAH/4581/2019) asked for time. Witness Master Anil Gaikwad saw it. Notice served at Flat 29, Shivam Residency, Jejuri. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Yogesh Sawant"
+   },
+   {
+    "type": "relative",
+    "value": "Deepak Bagade"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Nikita Pande"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/4581/2019"
+   },
+   {
+    "type": "relative",
+    "value": "Master Anil Gaikwad"
+   },
+   {
+    "type": "address",
+    "value": "Flat 29, Shivam Residency, Jejuri"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-067",
+  "text": "Client: Kiran Desai. Phone: +91-00000-58663. The complainant Arjun Bagade denies the claim. Opposite counsel Smt. Pooja Bhosale (enrolment MAH/1548/2012) asked for time. Client email gaikwad.p@example.net. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kiran Desai"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-58663"
+   },
+   {
+    "type": "relative",
+    "value": "Arjun Bagade"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Pooja Bhosale"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1548/2012"
+   },
+   {
+    "type": "email",
+    "value": "gaikwad.p@example.net"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-068",
+  "text": "Matter: Lata Mane v/s Divya Gokhale. Born 28/11/1991. The defendant Ashok Kamble denies the claim. CNR MHPU017468582026. Notice served at near Shivaji statue, Kolhapur. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Lata Mane"
+   },
+   {
+    "type": "relative",
+    "value": "Divya Gokhale"
+   },
+   {
+    "type": "dob",
+    "value": "28/11/1991"
+   },
+   {
+    "type": "relative",
+    "value": "Ashok Kamble"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU017468582026"
+   },
+   {
+    "type": "address",
+    "value": "near Shivaji statue, Kolhapur"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-069",
+  "text": "Re: Mr Ganesh Joshi, SCC 751/2026. Claim is for Rs 4,34,500 with interest. Cheque dishonoured on 20.12.2026. The client's wife Pallavi was with the client. Next hearing 5 Nov 2026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Ganesh Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 751/2026"
+   },
+   {
+    "type": "date",
+    "value": "20.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Pallavi"
+   },
+   {
+    "type": "date",
+    "value": "5 Nov 2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,34,500"
+  ]
+ },
+ {
+  "id": "LAW-070",
+  "text": "Matter: Komal Salunke v/s Ganesh Thorat. Cheque dishonoured on 09/08/2026. The complainant R. R. Gaikwad denies the claim. Settlement discussed at Rs 65,000. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000632, Rs 64,500. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Komal Salunke"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh Thorat"
+   },
+   {
+    "type": "date",
+    "value": "09/08/2026"
+   },
+   {
+    "type": "relative",
+    "value": "R. R. Gaikwad"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 65,000"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000632"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 64,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-071",
+  "text": "Matter: Harshad Pawar v/s Ganesh Patil. Incident at H.No. 3, Laxmi Nagar, Solapur, Pune police station. CNR MHPU012217522026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Harshad Pawar"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh Patil"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 3, Laxmi Nagar, Solapur"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012217522026"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-072",
+  "text": "Raju tai (client) called on 9th August. Witness Smt. Aarti Ghule saw it. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000157, Rs 94,500. Client email imran76@example.com. The client's brother Faisal was with the client. R.C.S. 747/2026 is pending before the court at Latur. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Raju tai"
+   },
+   {
+    "type": "date",
+    "value": "9th August"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Aarti Ghule"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000157"
+   },
+   {
+    "type": "email",
+    "value": "imran76@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Faisal"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 747/2026"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": [
+   "Rs 94,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-073",
+  "text": "Re: Smt. Shweta Mane, Bail Application No. 653/2026 The accused Sachin Nikam denies the claim Claim is for Rs 3,93,000 with interest Settlement discussed at Rs 3,32,000 Cheque dishonoured on 28/11/2026 Opposite counsel Mr Sandeep Ghule (enrolment MAH/7375/2010) asked for time Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Shweta Mane"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 653/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin Nikam"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,32,000"
+   },
+   {
+    "type": "date",
+    "value": "28/11/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Sandeep Ghule"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/7375/2010"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 3,93,000"
+  ]
+ },
+ {
+  "id": "LAW-074",
+  "text": "Re: Master Ramesh Bhosale, SCC 858/2026 Incident at near old post office, Baramati, Karad police station Settlement discussed at Rs 3,50,000 Born 21 February 2002 Opposite counsel Shri Suresh Dhumal (enrolment MAH/2420/2016) asked for time Client email rajesh64@example.com Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Ramesh Bhosale"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 858/2026"
+   },
+   {
+    "type": "address",
+    "value": "near old post office, Baramati"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,50,000"
+   },
+   {
+    "type": "dob",
+    "value": "21 February 2002"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Suresh Dhumal"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/2420/2016"
+   },
+   {
+    "type": "email",
+    "value": "rajesh64@example.com"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-075",
+  "text": "bharat constructions (client) has a dispute. settlement discussed at rs 2,82,000. the accused f. d. desai denies the claim. claim is for rs 1,56,500 with interest. cnr mhpu019221822026. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "bharat constructions"
+   },
+   {
+    "type": "amount",
+    "value": "rs 2,82,000"
+   },
+   {
+    "type": "relative",
+    "value": "f. d. desai"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu019221822026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,56,500"
+  ]
+ },
+ {
+  "id": "LAW-076",
+  "text": "Client: Divya Salunke. Phone: 0000 024091. Born 14/10/1949. Incident at near Hanuman mandir, Solapur, Satara police station. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Divya Salunke"
+   },
+   {
+    "type": "phone",
+    "value": "0000 024091"
+   },
+   {
+    "type": "dob",
+    "value": "14/10/1949"
+   },
+   {
+    "type": "address",
+    "value": "near Hanuman mandir, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-077",
+  "text": "Client: Prakash Tambe. Phone: 0000 057065. Client email smita99@example.com. CNR MHPU010213342026. The opposite party Mrs Sheetal Iyer denies the claim. Next hearing 17 Dec 2026. Settlement discussed at Rs 2,90,500. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Prakash Tambe"
+   },
+   {
+    "type": "phone",
+    "value": "0000 057065"
+   },
+   {
+    "type": "email",
+    "value": "smita99@example.com"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU010213342026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Sheetal Iyer"
+   },
+   {
+    "type": "date",
+    "value": "17 Dec 2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,90,500"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-078",
+  "text": "Client: Sheetal Mane Phone: 00000 00002 Opposite counsel Mr Karthik Rane (enrolment MAH/1780/2015) asked for time CNR MHPU011819942026 Client email qureshi.m@example.net FIR No. 0734/2026 is pending before the court at Ahmednagar Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sheetal Mane"
+   },
+   {
+    "type": "phone",
+    "value": "00000 00002"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Karthik Rane"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1780/2015"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU011819942026"
+   },
+   {
+    "type": "email",
+    "value": "qureshi.m@example.net"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0734/2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-079",
+  "text": "Re: Mrs Shilpa Rane, SCC 34/2026. FIR registered on 6 Oct 2026. Next hearing November 15. Witness Mr Santosh Sawant saw it. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Shilpa Rane"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 34/2026"
+   },
+   {
+    "type": "date",
+    "value": "6 Oct 2026"
+   },
+   {
+    "type": "date",
+    "value": "November 15"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Santosh Sawant"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-080",
+  "text": "Matter: Harshad Sharma v/s Lata Jadhav Client email karthik.bhosale@example.org The accused Mrs Gokhale denies the claim Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Harshad Sharma"
+   },
+   {
+    "type": "relative",
+    "value": "Lata Jadhav"
+   },
+   {
+    "type": "email",
+    "value": "karthik.bhosale@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Gokhale"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-081",
+  "text": "Ansari, Harshad (+91-00000-03645) met me on 13/09/2026. Incident at Laxmi Niwas, Shahu Nagar, Ahmednagar, Karad police station. Cheque dishonoured on 17.12.2026. The defendant Arjun Kulkarni denies the claim. Notice served at Om Sai Heights, Kothrud, Karad. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ansari, Harshad"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-03645"
+   },
+   {
+    "type": "date",
+    "value": "13/09/2026"
+   },
+   {
+    "type": "address",
+    "value": "Laxmi Niwas, Shahu Nagar, Ahmednagar"
+   },
+   {
+    "type": "date",
+    "value": "17.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Arjun Kulkarni"
+   },
+   {
+    "type": "address",
+    "value": "Om Sai Heights, Kothrud, Karad"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-082",
+  "text": "re: smt. nikita shah, cr. case 832/2026. opposite counsel mrs divya singh (enrolment mah/1235/2018) asked for time. the client's brother rohan was with the client. pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. nikita shah"
+   },
+   {
+    "type": "record_id",
+    "value": "cr. case 832/2026"
+   },
+   {
+    "type": "relative",
+    "value": "mrs divya singh"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/1235/2018"
+   },
+   {
+    "type": "relative",
+    "value": "rohan"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-083",
+  "text": "Client: Imran Desai. Phone: 0000 084191. Opposite counsel Mrs Asha Pande (enrolment MAH/8800/2014) asked for time. Incident at Kaveri Towers, Station Road, Sangamner, Baramati police station. Pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Imran Desai"
+   },
+   {
+    "type": "phone",
+    "value": "0000 084191"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Asha Pande"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/8800/2014"
+   },
+   {
+    "type": "address",
+    "value": "Kaveri Towers, Station Road, Sangamner"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-084",
+  "text": "Matter: Ganesh Tambe v/s Ramesh Verma. Claim is for Rs 4,68,000 with interest. Client email sneha40@example.com. R.C.S. 66/2026 is pending before the court at Latur. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ganesh Tambe"
+   },
+   {
+    "type": "relative",
+    "value": "Ramesh Verma"
+   },
+   {
+    "type": "email",
+    "value": "sneha40@example.com"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 66/2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,68,000"
+  ]
+ },
+ {
+  "id": "LAW-085",
+  "text": "Client: Dinesh Ghule. Phone: (00000) 66074. The acucsed Ashok Nikam denies the claim. Incident at Flat 38, Sai Kripa, Latur, Karad ploice station. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dinesh Ghule"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 66074"
+   },
+   {
+    "type": "relative",
+    "value": "Ashok Nikam"
+   },
+   {
+    "type": "address",
+    "value": "Flat 38, Sai Kripa, Latur"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-086",
+  "text": "Krishna Traders (client) has a dispute. Born 19-5-1980. CNR MHPU011137662026. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000848, Rs 67,000. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Krishna Traders"
+   },
+   {
+    "type": "dob",
+    "value": "19-5-1980"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU011137662026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000848"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 67,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-087",
+  "text": "Client: Pooja Mane. Phone: +91 00000 25840. Incident at near Zilla Parishad school, Solapur, Karad police station. Opposite counsel Mr Manoj Ansari (enrolment MAH/6269/2009) asked for time. CNR MHPU019814722026. Pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pooja Mane"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 25840"
+   },
+   {
+    "type": "address",
+    "value": "near Zilla Parishad school, Solapur"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Manoj Ansari"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6269/2009"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU019814722026"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-088",
+  "text": "Matter: Smita Chavan v/s Rekha Gupta. Born 12-8-1960. The accused Mansi denies the claim. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smita Chavan"
+   },
+   {
+    "type": "relative",
+    "value": "Rekha Gupta"
+   },
+   {
+    "type": "dob",
+    "value": "12-8-1960"
+   },
+   {
+    "type": "relative",
+    "value": "Mansi"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-089",
+  "text": "client: yogesh pawar. phone: 00000-32870. cheque dishonoured on 01/09/2026. claim is for rs 2,87,000 with interest. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "yogesh pawar"
+   },
+   {
+    "type": "phone",
+    "value": "00000-32870"
+   },
+   {
+    "type": "date",
+    "value": "01/09/2026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,87,000"
+  ]
+ },
+ {
+  "id": "LAW-090",
+  "text": "Chintu bhai (client) called on September 22 Notice served at Flat 6, Vaibhav Park, Jejuri Born 26/09/1987 Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chintu bhai"
+   },
+   {
+    "type": "date",
+    "value": "September 22"
+   },
+   {
+    "type": "address",
+    "value": "Flat 6, Vaibhav Park, Jejuri"
+   },
+   {
+    "type": "dob",
+    "value": "26/09/1987"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-091",
+  "text": "Raju kaka (client) called on December 8 Bail Application No. 581/2026 is pending before the court at Karad Claim is for Rs 1,06,500 with interest The complainant Bunty bhau denies the claim Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000395, Rs 3,14,000 FIR registered on 16 October 2026 Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Raju kaka"
+   },
+   {
+    "type": "date",
+    "value": "December 8"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 581/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Bunty bhau"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000395"
+   },
+   {
+    "type": "date",
+    "value": "16 October 2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 1,06,500",
+   "Rs 3,14,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-092",
+  "text": "Client: Archana Shah. Phone: (00000) 43358. The client's father Asha was with the client. FIR registered on 17/10/2026. Opposite counsel Master Ashok Joshi (enrolment MAH/9174/2020) asked for time. Settlement discussed at Rs 4,64,000. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Archana Shah"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 43358"
+   },
+   {
+    "type": "relative",
+    "value": "Asha"
+   },
+   {
+    "type": "date",
+    "value": "17/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Ashok Joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/9174/2020"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,64,000"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-093",
+  "text": "re: ms rekha joshi, fir no. 0490/2026 fir registered on 16-08-26 born 20/01/1954 client email yogesh35@example.com incident at behind shivaji statue, daund, baramati police station pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ms rekha joshi"
+   },
+   {
+    "type": "record_id",
+    "value": "fir no. 0490/2026"
+   },
+   {
+    "type": "date",
+    "value": "16-08-26"
+   },
+   {
+    "type": "dob",
+    "value": "20/01/1954"
+   },
+   {
+    "type": "email",
+    "value": "yogesh35@example.com"
+   },
+   {
+    "type": "address",
+    "value": "behind shivaji statue, daund"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-094",
+  "text": "Guddu (client) called on 24th September FIR No. 0679/2026 is pending before the court at Ahmednagar Settlement discussed at Rs 3,75,000 The opposite party Mrs Rane denies the claim Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu"
+   },
+   {
+    "type": "date",
+    "value": "24th September"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0679/2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,75,000"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Rane"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-095",
+  "text": "Annapurna Agro (client) has a dispute. CNR MHPU013809812026. The copmlainant Mrs Kale deines the claim. FIR registered on 27.8.2026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Annapurna Agro"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU013809812026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Kale"
+   },
+   {
+    "type": "date",
+    "value": "27.8.2026"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-096",
+  "text": "Client: Aniket Iyer. Phone: 0000 079591. Incident at H.No. 37, Kothrud, Solapur, Pune police station. Civil Suit 528 of 2026 is pending before the court at Latur. Opposite counsel Mr Anil Qureshi (enrolment MAH/6660/2012) asked for time. The client's son Santosh was with the client. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aniket Iyer"
+   },
+   {
+    "type": "phone",
+    "value": "0000 079591"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 37, Kothrud, Solapur"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 528 of 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Anil Qureshi"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6660/2012"
+   },
+   {
+    "type": "relative",
+    "value": "Santosh"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-097",
+  "text": "re: mrs neha shinde, crime no. 727/2026 next hearing 21 november 2026 crime no. 217/2026 is pending before the court at karad fir registered on 14 november 2026 cnr mhpu018659972026 please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs neha shinde"
+   },
+   {
+    "type": "record_id",
+    "value": "crime no. 727/2026"
+   },
+   {
+    "type": "date",
+    "value": "21 november 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "crime no. 217/2026"
+   },
+   {
+    "type": "date",
+    "value": "14 november 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu018659972026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-098",
+  "text": "Matter: Sunil Ansari v/s Harshad Kulkarni Client email gupta.h@example.net Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000762, Rs 4,12,500 The client's brother Ramesh was with the client The accused S. K. Shah denies the claim Settlement discussed at Rs 3,35,000 Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sunil Ansari"
+   },
+   {
+    "type": "relative",
+    "value": "Harshad Kulkarni"
+   },
+   {
+    "type": "email",
+    "value": "gupta.h@example.net"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000762"
+   },
+   {
+    "type": "relative",
+    "value": "Ramesh"
+   },
+   {
+    "type": "relative",
+    "value": "S. K. Shah"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,35,000"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 4,12,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-099",
+  "text": "om dairy (client) has a dispute. the accused sunita denies the claim. settlement discussed at rs 4,38,000. client email prakash96@example.com. regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "om dairy"
+   },
+   {
+    "type": "relative",
+    "value": "sunita"
+   },
+   {
+    "type": "amount",
+    "value": "rs 4,38,000"
+   },
+   {
+    "type": "email",
+    "value": "prakash96@example.com"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-100",
+  "text": "re: mrs komal jadhav, crime no. 672/2026. client email manisha86@example.com. cnr mhpu011644282026. fir registered on 23 august 2026. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs komal jadhav"
+   },
+   {
+    "type": "record_id",
+    "value": "crime no. 672/2026"
+   },
+   {
+    "type": "email",
+    "value": "manisha86@example.com"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu011644282026"
+   },
+   {
+    "type": "date",
+    "value": "23 august 2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-101",
+  "text": "Maruti Constructions (client) has a dispute. Incident at behind sabzi mandi, Nashik, Karad police station. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000152, Rs 1,07,000. Claim is for Rs 36,000 with interest. Civil Suit 216 of 2026 is pending before the court at Karad. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Maruti Constructions"
+   },
+   {
+    "type": "address",
+    "value": "behind sabzi mandi, Nashik"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000152"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 216 of 2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,07,000",
+   "section 138",
+   "Rs 36,000"
+  ]
+ },
+ {
+  "id": "LAW-102",
+  "text": "Rinku bhai (client) called on 2/11. Opposite counsel Smt. Sneha Kamble (enrolment MAH/9883/2014) asked for time. Client email chavan.m@example.net. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku bhai"
+   },
+   {
+    "type": "date",
+    "value": "2/11"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Sneha Kamble"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/9883/2014"
+   },
+   {
+    "type": "email",
+    "value": "chavan.m@example.net"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-103",
+  "text": "Re: Ms Pooja Kadam, Civil Suit 111 of 2026. Next hearing 02/12/2026. CNR MHPU016922152026. Cheque dishonoured on October 25. Notice served at behind old post office, Latur. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000425, Rs 2,48,000. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Pooja Kadam"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 111 of 2026"
+   },
+   {
+    "type": "date",
+    "value": "02/12/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU016922152026"
+   },
+   {
+    "type": "date",
+    "value": "October 25"
+   },
+   {
+    "type": "address",
+    "value": "behind old post office, Latur"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000425"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,48,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-104",
+  "text": "vijay constructions (client) has a dispute. cheque dishonoured on november 9. born 08/02/1962. complaint under section 138 of the negotiable instruments act, cheque no. 000162, rs 4,38,000. fir registered on october 16. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "vijay constructions"
+   },
+   {
+    "type": "date",
+    "value": "november 9"
+   },
+   {
+    "type": "dob",
+    "value": "08/02/1962"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000162"
+   },
+   {
+    "type": "date",
+    "value": "october 16"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 4,38,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-105",
+  "text": "Vijay Motors (client) has a dispute. Bail Application No. 822/2026 is pending before the court at Daund. Cheque dishonoured on 28 October 2026. Claim is for Rs 1,02,500 with interest. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000081, Rs 4,53,000. CNR MHPU010967102026. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Motors"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 822/2026"
+   },
+   {
+    "type": "date",
+    "value": "28 October 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000081"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU010967102026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,02,500",
+   "Rs 4,53,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-106",
+  "text": "More, Rajesh (0000099683) met me on 03/12/2026. Opposite counsel Master Ashok Ansari (enrolment MAH/1869/2011) asked for time. Claim is for Rs 28,500 with interest. Notice served at Flat 1, Sai Kripa, Satara. Bail Application No. 559/2026 is pending before the court at Indapur. Settlement discussed at Rs 3,23,500. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "More, Rajesh"
+   },
+   {
+    "type": "phone",
+    "value": "0000099683"
+   },
+   {
+    "type": "date",
+    "value": "03/12/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Ashok Ansari"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1869/2011"
+   },
+   {
+    "type": "address",
+    "value": "Flat 1, Sai Kripa, Satara"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 559/2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,23,500"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 28,500"
+  ]
+ },
+ {
+  "id": "LAW-107",
+  "text": "Bittu bhai (client) called on 20/11/2026. Next hearing 15/12/2026. Client email thorat.m@example.net. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bittu bhai"
+   },
+   {
+    "type": "date",
+    "value": "20/11/2026"
+   },
+   {
+    "type": "date",
+    "value": "15/12/2026"
+   },
+   {
+    "type": "email",
+    "value": "thorat.m@example.net"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-108",
+  "text": "Re: Mrs Shilpa Bhosale, FIR No. 0909/2026. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000605, Rs 4,23,500. Client email rane.i@example.net. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Shilpa Bhosale"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0909/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000605"
+   },
+   {
+    "type": "email",
+    "value": "rane.i@example.net"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,23,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-109",
+  "text": "Client: Sunil Nikam. Phone: 0000 028917. Bail Application No. 271/2026 is pending before the court at Daund. Incident at opp. sabzi mandi, Market Yard, Latur, Pune police station. FIR registered on 15th November. Settlement discussed at Rs 2,38,000. Cheque dishonoured on 20th August. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sunil Nikam"
+   },
+   {
+    "type": "phone",
+    "value": "0000 028917"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 271/2026"
+   },
+   {
+    "type": "address",
+    "value": "opp. sabzi mandi, Market Yard, Latur"
+   },
+   {
+    "type": "date",
+    "value": "15th November"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,38,000"
+   },
+   {
+    "type": "date",
+    "value": "20th August"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-110",
+  "text": "Re: Mr Nitin Phadke, Bail Application No. 506/2026. FIR registered on 01/09/2026. Born 09/08/1973. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Nitin Phadke"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 506/2026"
+   },
+   {
+    "type": "date",
+    "value": "01/09/2026"
+   },
+   {
+    "type": "dob",
+    "value": "09/08/1973"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-111",
+  "text": "Sai Enterprises (client) has a dispute. Born 27-6-2000. The client's brother Amit was with the client. Incident at Parijat Society, Camp, Sangamner, Karad police station. Client email rajesh32@example.com. Witness Mrs Seema Gokhale saw it. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Sai Enterprises"
+   },
+   {
+    "type": "dob",
+    "value": "27-6-2000"
+   },
+   {
+    "type": "relative",
+    "value": "Amit"
+   },
+   {
+    "type": "address",
+    "value": "Parijat Society, Camp, Sangamner"
+   },
+   {
+    "type": "email",
+    "value": "rajesh32@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Seema Gokhale"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-112",
+  "text": "Bharat Dairy (client) has a dispute. Incident at opp. sabzi mandi, Shahu Nagar, Baramati, Karad police station. Client email shweta.phadke@example.org. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000241, Rs 3,04,000. Claim is for Rs 1,88,500 with interest. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Bharat Dairy"
+   },
+   {
+    "type": "address",
+    "value": "opp. sabzi mandi, Shahu Nagar, Baramati"
+   },
+   {
+    "type": "email",
+    "value": "shweta.phadke@example.org"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000241"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,04,000",
+   "section 138",
+   "Rs 1,88,500"
+  ]
+ },
+ {
+  "id": "LAW-113",
+  "text": "patil, seema (+91-00000-18674) met me on 16/08/2026. cnr mhpu018403012026. settlement discussed at rs 3,68,500. pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "patil, seema"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-18674"
+   },
+   {
+    "type": "date",
+    "value": "16/08/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu018403012026"
+   },
+   {
+    "type": "amount",
+    "value": "rs 3,68,500"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-114",
+  "text": "Client: Rajesh Pande Phone: 0000031140 FIR registered on 18 October 2026 Next hearing 27/12/2026 Pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rajesh Pande"
+   },
+   {
+    "type": "phone",
+    "value": "0000031140"
+   },
+   {
+    "type": "date",
+    "value": "18 October 2026"
+   },
+   {
+    "type": "date",
+    "value": "27/12/2026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-115",
+  "text": "matter: mansi kadam v/s prakash deshmukh. complaint under section 138 of the negotiable instruments act, cheque no. 000066, rs 3,95,500. settlement discusesd at rs 3,92,000. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mansi kadam"
+   },
+   {
+    "type": "relative",
+    "value": "prakash deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000066"
+   },
+   {
+    "type": "amount",
+    "value": "rs 3,92,000"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,95,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-116",
+  "text": "Sai Traders (client) has a dispute. Next hearing 17-11-26. Opposite counsel Mr Karthik Iyer (enrolment MAH/9542/2011) asked for time. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Sai Traders"
+   },
+   {
+    "type": "date",
+    "value": "17-11-26"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Karthik Iyer"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/9542/2011"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-117",
+  "text": "om medical (client) has a dispute. fir registered on 9 december 2026. client email pallavi20@example.com. claim is for rs 2,49,500 with interest. pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "om medical"
+   },
+   {
+    "type": "date",
+    "value": "9 december 2026"
+   },
+   {
+    "type": "email",
+    "value": "pallavi20@example.com"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,49,500"
+  ]
+ },
+ {
+  "id": "LAW-118",
+  "text": "Bunty tai (client) called on October 28. Notice served at Flat 32, Kaveri Towers, Solapur. Settlement discussed at Rs 2,80,000. Opposite counsel Mrs Sneha Bagade (enrolment MAH/7283/2009) asked for time. Next hearing 05-12-26. Born 21-3-2011. Pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty tai"
+   },
+   {
+    "type": "date",
+    "value": "October 28"
+   },
+   {
+    "type": "address",
+    "value": "Flat 32, Kaveri Towers, Solapur"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,80,000"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Sneha Bagade"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/7283/2009"
+   },
+   {
+    "type": "date",
+    "value": "05-12-26"
+   },
+   {
+    "type": "dob",
+    "value": "21-3-2011"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-119",
+  "text": "Babloo anna (client) called on 06-09-26. Incident at Flat 38, Ganesh Apartments, Kolhapur, Pune police station. Opposite counsel Shri Aniket Tambe (enrolment MAH/4648/2009) asked for time. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000194, Rs 1,24,500. The client's son Sunil was with the client. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Babloo anna"
+   },
+   {
+    "type": "date",
+    "value": "06-09-26"
+   },
+   {
+    "type": "address",
+    "value": "Flat 38, Ganesh Apartments, Kolhapur"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Aniket Tambe"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/4648/2009"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000194"
+   },
+   {
+    "type": "relative",
+    "value": "Sunil"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,24,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-120",
+  "text": "Re: Mrs Sunita Reddy, FIR No. 0964/2026. Cr. Case 442/2026 is pending before the court at Indapur. Client email rohan.shaikh@example.org. Born 23-3-1952. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000471, Rs 2,91,500. FIR registered on 02/12/2026. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Sunita Reddy"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0964/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 442/2026"
+   },
+   {
+    "type": "email",
+    "value": "rohan.shaikh@example.org"
+   },
+   {
+    "type": "dob",
+    "value": "23-3-1952"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000471"
+   },
+   {
+    "type": "date",
+    "value": "02/12/2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,91,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-121",
+  "text": "Maruti Agro (client) has a dispute. Cheque dishonoured on 3 Oct 2026. CNR MHPU017981502026. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Maruti Agro"
+   },
+   {
+    "type": "date",
+    "value": "3 Oct 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU017981502026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-122",
+  "text": "Matter: Komal Shaikh v/s Pooja Ansari. Client email desai.i@example.net. Next hearing 17th December. Please summarise the psoition for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Komal Shaikh"
+   },
+   {
+    "type": "relative",
+    "value": "Pooja Ansari"
+   },
+   {
+    "type": "email",
+    "value": "desai.i@example.net"
+   },
+   {
+    "type": "date",
+    "value": "17th December"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-123",
+  "text": "Jagtap, Manoj (0000047418) met me on 8/12. Claim is for Rs 1,74,500 with interest. Civil Suit 317 of 2026 is pending before the court at Kolhapur. Cheque dishonoured on December 16. CNR MHPU012595742026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jagtap, Manoj"
+   },
+   {
+    "type": "phone",
+    "value": "0000047418"
+   },
+   {
+    "type": "date",
+    "value": "8/12"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 317 of 2026"
+   },
+   {
+    "type": "date",
+    "value": "December 16"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012595742026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,74,500"
+  ]
+ },
+ {
+  "id": "LAW-124",
+  "text": "Ansari, Imran ((00000) 12484) met me on 22.8.2026 Settlement discussed at Rs 1,76,500 FIR registered on 21/08/2026 Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000264, Rs 4,00,000 Incident at H.No. 8, Laxmi Nagar, Baramati, Baramati police station Born 07/04/1949 Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ansari, Imran"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 12484"
+   },
+   {
+    "type": "date",
+    "value": "22.8.2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,76,500"
+   },
+   {
+    "type": "date",
+    "value": "21/08/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000264"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 8, Laxmi Nagar, Baramati"
+   },
+   {
+    "type": "dob",
+    "value": "07/04/1949"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 4,00,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-125",
+  "text": "Re: Mrs Seema Kamble, Crime No. 988/2026. Client email dinesh91@example.com. Opposite counsel Mrs Priya Sawant (enrolment MAH/6896/2019) asked for time. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Seema Kamble"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 988/2026"
+   },
+   {
+    "type": "email",
+    "value": "dinesh91@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Priya Sawant"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6896/2019"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-126",
+  "text": "Bunty bhai (client) called on 4/10. Incident at behind Shivaji statue, Indapur, Pune police station. Notice served at Shivam Residency, Camp, Latur. Cheque dishonoured on November 28. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty bhai"
+   },
+   {
+    "type": "date",
+    "value": "4/10"
+   },
+   {
+    "type": "address",
+    "value": "behind Shivaji statue, Indapur"
+   },
+   {
+    "type": "address",
+    "value": "Shivam Residency, Camp, Latur"
+   },
+   {
+    "type": "date",
+    "value": "November 28"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-127",
+  "text": "Pawar, Siddharth (+91-00000-48872) met me on 11th September. CNR MHPU018788732026. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000701, Rs 88,500. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pawar, Siddharth"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-48872"
+   },
+   {
+    "type": "date",
+    "value": "11th September"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU018788732026"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000701"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 88,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-128",
+  "text": "Client: Madhuri Mehta. Phone: 0000 015850. Cr. Case 951/2026 is pending before the court at Latur. Incident at Laxmi Niwas, Gandhi Chowk, Satara, Pune police station. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Madhuri Mehta"
+   },
+   {
+    "type": "phone",
+    "value": "0000 015850"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 951/2026"
+   },
+   {
+    "type": "address",
+    "value": "Laxmi Niwas, Gandhi Chowk, Satara"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-129",
+  "text": "re: mrs rupali tambe, scc 475/2026. incident at near old post office, jejuri, karad police station. the client's son suresh was with the client. please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs rupali tambe"
+   },
+   {
+    "type": "record_id",
+    "value": "scc 475/2026"
+   },
+   {
+    "type": "address",
+    "value": "near old post office, jejuri"
+   },
+   {
+    "type": "relative",
+    "value": "suresh"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-130",
+  "text": "re: mr tushar dalvi, crime no. 809/2026. born 10 february 2000. next hearing 12th november. incident at h.no. 12, ram mandir road, daund, baramati police station. cheque dishonoured on 11/10. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr tushar dalvi"
+   },
+   {
+    "type": "record_id",
+    "value": "crime no. 809/2026"
+   },
+   {
+    "type": "dob",
+    "value": "10 february 2000"
+   },
+   {
+    "type": "date",
+    "value": "12th november"
+   },
+   {
+    "type": "address",
+    "value": "h.no. 12, ram mandir road, daund"
+   },
+   {
+    "type": "date",
+    "value": "11/10"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-131",
+  "text": "Sharma, Yogesh (+91 00000 31709) met me on 21/8. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000571, Rs 4,12,500. Witness Mr Ramesh Sharma saw it. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sharma, Yogesh"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 31709"
+   },
+   {
+    "type": "date",
+    "value": "21/8"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000571"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Ramesh Sharma"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": [
+   "Rs 4,12,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-132",
+  "text": "Matter: Sneha Pawar v/s Ganesh Gokhale. Next hearing 1/11. The client's wife Asha was with the client. Crime No. 846/2026 is pending before the court at Sangamner. Notice served at opp. water tank, Kothrud, Phaltan. Settlement discussed at Rs 1,43,000. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sneha Pawar"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh Gokhale"
+   },
+   {
+    "type": "date",
+    "value": "1/11"
+   },
+   {
+    "type": "relative",
+    "value": "Asha"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 846/2026"
+   },
+   {
+    "type": "address",
+    "value": "opp. water tank, Kothrud, Phaltan"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,43,000"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-133",
+  "text": "Guddu bhai (client) claled on 9.10.2026 The client's husband Aniket was with the client Born 08/06/2008 CNR MHPU010414492026 Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu bhai"
+   },
+   {
+    "type": "date",
+    "value": "9.10.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Aniket"
+   },
+   {
+    "type": "dob",
+    "value": "08/06/2008"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU010414492026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-134",
+  "text": "Client: Rupali Deshmukh. Phone: 00000-76685. Born 14/04/1965. CNR MHPU018158132026. Civil Suit 570 of 2026 is pending before the court at Pune. FIR registered on 18 September 2026. The client's brother Meera was with the client. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rupali Deshmukh"
+   },
+   {
+    "type": "phone",
+    "value": "00000-76685"
+   },
+   {
+    "type": "dob",
+    "value": "14/04/1965"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU018158132026"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 570 of 2026"
+   },
+   {
+    "type": "date",
+    "value": "18 September 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Meera"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-135",
+  "text": "Golu mama (client) called on 15/9. Client email harshad33@example.com. The client's husband Smita was with the client. FIR registered on 5 October 2026. Cheque dishonoured on 25/10/2026. The defendant Bittu anna denies the claim. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu mama"
+   },
+   {
+    "type": "date",
+    "value": "15/9"
+   },
+   {
+    "type": "email",
+    "value": "harshad33@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Smita"
+   },
+   {
+    "type": "date",
+    "value": "5 October 2026"
+   },
+   {
+    "type": "date",
+    "value": "25/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Bittu anna"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-136",
+  "text": "Golu tai (client) called on 28/09/2026. Witness Mr Imran Nikam saw it. Client email nitin43@example.com. Next hearing 5 December 2026. Cheque dishonouerd on 02/12/2026. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu tai"
+   },
+   {
+    "type": "date",
+    "value": "28/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Imran Nikam"
+   },
+   {
+    "type": "email",
+    "value": "nitin43@example.com"
+   },
+   {
+    "type": "date",
+    "value": "5 December 2026"
+   },
+   {
+    "type": "date",
+    "value": "02/12/2026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-137",
+  "text": "Matter: Aarti Mehta v/s Farida Rane. The defendant Swati Verma denies the claim. CNR MHPU014634132026. Notice served at behind petrol pump, Satara. FIR registered on 01/12/2026. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aarti Mehta"
+   },
+   {
+    "type": "relative",
+    "value": "Farida Rane"
+   },
+   {
+    "type": "relative",
+    "value": "Swati Verma"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU014634132026"
+   },
+   {
+    "type": "address",
+    "value": "behind petrol pump, Satara"
+   },
+   {
+    "type": "date",
+    "value": "01/12/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-138",
+  "text": "Ganesh Hardware (client) has a dispute. Civil Suit 281 of 2026 is pending before the court at Phaltan. The client's son Savita was with the client. Next hearing 26/12/2026. FIR registered on 28/10. Settlement discussed at Rs 4,76,500. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Ganesh Hardware"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 281 of 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Savita"
+   },
+   {
+    "type": "date",
+    "value": "26/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "28/10"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,76,500"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-139",
+  "text": "babloo anna (client) called on 16-11-26. opposite counsel mrs divya sawant (enrolment mah/8692/2012) asked for time. complaint under section 138 of the negotiable instruments act, cheque no. 000474, rs 1,69,000. fir registered on 20 december 2026. pls note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "babloo anna"
+   },
+   {
+    "type": "date",
+    "value": "16-11-26"
+   },
+   {
+    "type": "relative",
+    "value": "mrs divya sawant"
+   },
+   {
+    "type": "record_id",
+    "value": "mah/8692/2012"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000474"
+   },
+   {
+    "type": "date",
+    "value": "20 december 2026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,69,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-140",
+  "text": "Matter: Shweta Verma v/s Tushar Mane. Opposite cuonsel Master Nitin Qureshi (enrolment MAH/6759/2012) asked for time. Born 14-11-2013. Next hearing 25.11.2026. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shweta Verma"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar Mane"
+   },
+   {
+    "type": "relative",
+    "value": "Master Nitin Qureshi"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6759/2012"
+   },
+   {
+    "type": "dob",
+    "value": "14-11-2013"
+   },
+   {
+    "type": "date",
+    "value": "25.11.2026"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-141",
+  "text": "client: prakash shinde. phone: 0000 020223. settlement discussed at rs 1,96,500. cnr mhpu014055792026. cheque dishonoured on 25.10.2026. notice served at flat 23, vaibhav park, karad. complaint under section 138 of the negotiable instruments act, cheque no. 000941, rs 61,500. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "prakash shinde"
+   },
+   {
+    "type": "phone",
+    "value": "0000 020223"
+   },
+   {
+    "type": "amount",
+    "value": "rs 1,96,500"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu014055792026"
+   },
+   {
+    "type": "date",
+    "value": "25.10.2026"
+   },
+   {
+    "type": "address",
+    "value": "flat 23, vaibhav park, karad"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000941"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": [
+   "Rs 61,500",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-142",
+  "text": "Phadke, Meera ((00000) 72393) met me on 27 November 2026. The defendant Priya Chavan denies the claim. Opposite counsel Shri Amit Ghule (enrolment MAH/5138/2022) asked for time. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000162, Rs 1,80,000. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Phadke, Meera"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 72393"
+   },
+   {
+    "type": "date",
+    "value": "27 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Priya Chavan"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Amit Ghule"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/5138/2022"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000162"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,80,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-143",
+  "text": "Sonu mama (client) called on 20 Oct 2026. The client's brother Savita was with the client. CNR MHPU012305362026. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu mama"
+   },
+   {
+    "type": "date",
+    "value": "20 Oct 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Savita"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012305362026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-144",
+  "text": "Client: Archana Kale. Phone: 0000 071837. Next hearnig 17/11/2026. The client's brother Karthik was with the client. Please summairse the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Archana Kale"
+   },
+   {
+    "type": "phone",
+    "value": "0000 071837"
+   },
+   {
+    "type": "date",
+    "value": "17/11/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Karthik"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-145",
+  "text": "client: usha shah. phone: (00000) 32979. born 28 september 1962. complaint under section 138 of the negotiable instruments act, cheque no. 000759, rs 3,90,000. the client's father pooja was with the client. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "usha shah"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 32979"
+   },
+   {
+    "type": "dob",
+    "value": "28 september 1962"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000759"
+   },
+   {
+    "type": "relative",
+    "value": "pooja"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,90,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-146",
+  "text": "Sai Enterprises (client) has a dispute. FIR No. 0654/2026 is pending before the court at Jejuri. Witness Mrs Lata Joshi saw it. The defendant Shri Salunke denies the claim. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Sai Enterprises"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0654/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Lata Joshi"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Salunke"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-147",
+  "text": "Client: Neha Pande. Phone: (00000) 41581. Claim is for Rs 4,30,000 with interest. The client's wife Harshad was with the client. Incident at near ST depot, Indapur, Baramati police station. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Neha Pande"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 41581"
+   },
+   {
+    "type": "relative",
+    "value": "Harshad"
+   },
+   {
+    "type": "address",
+    "value": "near ST depot, Indapur"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": [
+   "Rs 4,30,000"
+  ]
+ },
+ {
+  "id": "LAW-148",
+  "text": "Chintu mama (client) called on 16th December. Cheque dishonoured on 28-11-26. Incident at H.No. 93, Market Yard, Latur, Pune police station. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chintu mama"
+   },
+   {
+    "type": "date",
+    "value": "16th December"
+   },
+   {
+    "type": "date",
+    "value": "28-11-26"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 93, Market Yard, Latur"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-149",
+  "text": "om medical (client) has a dispute. fir registered on 18 oct 2026. cheque dishonoured on 9/12. regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "om medical"
+   },
+   {
+    "type": "date",
+    "value": "18 oct 2026"
+   },
+   {
+    "type": "date",
+    "value": "9/12"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-150",
+  "text": "Vijay Textiles (client) has a dispute. Client email verma.r@example.net. Civil Suit 987 of 2026 is pending before the court at Jejuri. The client's husband Sunil was with the client. Born 20-12-2003. Notice served at behind ST depot, Nashik. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Vijay Textiles"
+   },
+   {
+    "type": "email",
+    "value": "verma.r@example.net"
+   },
+   {
+    "type": "record_id",
+    "value": "Civil Suit 987 of 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Sunil"
+   },
+   {
+    "type": "dob",
+    "value": "20-12-2003"
+   },
+   {
+    "type": "address",
+    "value": "behind ST depot, Nashik"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-151",
+  "text": "Re: Mr Faisal Pande, Cr. Case 240/2026. Notice served at H.No. 43, Ram Mandir Road, Baramati. FIR No. 0635/2026 is pending before the court at Kolhapur. Opposite counsel Mrs Archana Pawar (enrolment MAH/2808/2019) asked for time. Incident at behind Ganesh mandir, Karad, Karad police station. Settlement discussed at Rs 1,36,000. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Faisal Pande"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 240/2026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 43, Ram Mandir Road, Baramati"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0635/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Archana Pawar"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/2808/2019"
+   },
+   {
+    "type": "address",
+    "value": "behind Ganesh mandir, Karad"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,36,000"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-152",
+  "text": "Matter: Meera Desai v/s Madhuri Kadam Notice served at Laxmi Niwas, Sadashiv Peth, Pune Next hearing November 6 Cheque dishonoured on 26 Aug 2026 FIR registered on 7.12.2026 Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Meera Desai"
+   },
+   {
+    "type": "relative",
+    "value": "Madhuri Kadam"
+   },
+   {
+    "type": "address",
+    "value": "Laxmi Niwas, Sadashiv Peth, Pune"
+   },
+   {
+    "type": "date",
+    "value": "November 6"
+   },
+   {
+    "type": "date",
+    "value": "26 Aug 2026"
+   },
+   {
+    "type": "date",
+    "value": "7.12.2026"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-153",
+  "text": "Matter: Vikram Shah v/s Divya Bagade. Settlement discussed at Rs 3,38,000. The client's wife Vikram was with the client. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Vikram Shah"
+   },
+   {
+    "type": "relative",
+    "value": "Divya Bagade"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,38,000"
+   },
+   {
+    "type": "relative",
+    "value": "Vikram"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-154",
+  "text": "Matter: Priya Desai v/s Ashok Ansari. Notice served at Shivam Residency, Shahu Nagar, Latur. The client's father Amit was with the client. Opposite counsel Master Nitin Kamble (enrolment MAH/6255/2017) asked for time. Client email salunke.a@example.net. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Priya Desai"
+   },
+   {
+    "type": "relative",
+    "value": "Ashok Ansari"
+   },
+   {
+    "type": "address",
+    "value": "Shivam Residency, Shahu Nagar, Latur"
+   },
+   {
+    "type": "relative",
+    "value": "Amit"
+   },
+   {
+    "type": "relative",
+    "value": "Master Nitin Kamble"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/6255/2017"
+   },
+   {
+    "type": "email",
+    "value": "salunke.a@example.net"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-155",
+  "text": "om hardware (client) has a dispute. incident at flat 29, vaibhav park, ahmednagar, baramati ploice station. cnr mhpu016068792026. regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "om hardware"
+   },
+   {
+    "type": "address",
+    "value": "flat 29, vaibhav park, ahmednagar"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu016068792026"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-156",
+  "text": "matter: divya patil v/s yogesh more. complaint under section 138 of the negotiable instruments act, cheque no. 000872, rs 1,60,500. claim is for rs 1,99,500 with interest. notice served at anand nagar, hadapsar, nashik. next hearing 08/11/2026. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "divya patil"
+   },
+   {
+    "type": "relative",
+    "value": "yogesh more"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000872"
+   },
+   {
+    "type": "address",
+    "value": "anand nagar, hadapsar, nashik"
+   },
+   {
+    "type": "date",
+    "value": "08/11/2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,60,500",
+   "section 138",
+   "Rs 1,99,500"
+  ]
+ },
+ {
+  "id": "LAW-157",
+  "text": "Babloo tai (client) called on 13.10.2026. Opposite counsel Master Harshad Desai (enrolment MAH/2280/2018) asked for time. Claim is for Rs 4,32,500 with interest. The client's husband Sachin was with the client. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Babloo tai"
+   },
+   {
+    "type": "date",
+    "value": "13.10.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Harshad Desai"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/2280/2018"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 4,32,500"
+  ]
+ },
+ {
+  "id": "LAW-158",
+  "text": "Re: Mr Rohan Shaikh, R.C.S. 189/2026. FIR registered on 16 Nov 2026. Born 19-6-1984. Cheque dishonoured on 02-12-26. Settlement discussed at Rs 2,58,000. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Rohan Shaikh"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 189/2026"
+   },
+   {
+    "type": "date",
+    "value": "16 Nov 2026"
+   },
+   {
+    "type": "dob",
+    "value": "19-6-1984"
+   },
+   {
+    "type": "date",
+    "value": "02-12-26"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 2,58,000"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-159",
+  "text": "Sonu kaka (client) called on 07/08/2026. Client email priya.deshmukh@example.org. Witness Mrs Divya Verma saw it. Claim is for Rs 1,21,500 with interest. Incident at H.No. 54, Station Road, Latur, Karad police station. The client's son Rajesh was with the client. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu kaka"
+   },
+   {
+    "type": "date",
+    "value": "07/08/2026"
+   },
+   {
+    "type": "email",
+    "value": "priya.deshmukh@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Divya Verma"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 54, Station Road, Latur"
+   },
+   {
+    "type": "relative",
+    "value": "Rajesh"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,21,500"
+  ]
+ },
+ {
+  "id": "LAW-160",
+  "text": "Re: Mr Mahesh Rane, SCC 447/2026. Bail Application No. 706/2026 is pending before the court at Kolhapur. CNR MHPU019455602026. Incident at H.No. 14, Ram Mandir Road, Baramati, Satara police station. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Mahesh Rane"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 447/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 706/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU019455602026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 14, Ram Mandir Road, Baramati"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-161",
+  "text": "Pappu (client) called on 3/8. Witness Master Karthik Joshi saw it. Incident at behind Shivaji statue, Solapur, Karad police station. Notice served at H.No. 55, Shahu Nagar, Ahmednagar. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pappu"
+   },
+   {
+    "type": "date",
+    "value": "3/8"
+   },
+   {
+    "type": "relative",
+    "value": "Master Karthik Joshi"
+   },
+   {
+    "type": "address",
+    "value": "behind Shivaji statue, Solapur"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 55, Shahu Nagar, Ahmednagar"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-162",
+  "text": "Annapurna Stores (client) has a dispute Notice served at H.No. 94, Hadapsar, Daund Opposite counsel Mrs Lata Nikam (enrolment MAH/4612/2014) asked for time Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Annapurna Stores"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 94, Hadapsar, Daund"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Lata Nikam"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/4612/2014"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-163",
+  "text": "monu mama (client) called on november 21. cheque dishonoured on 23 sep 2026. fir registered on september 14. pls summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "monu mama"
+   },
+   {
+    "type": "date",
+    "value": "november 21"
+   },
+   {
+    "type": "date",
+    "value": "23 sep 2026"
+   },
+   {
+    "type": "date",
+    "value": "september 14"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-164",
+  "text": "chintu mama (client) called on 1/11. born 17/05/1970. claim is for rs 1,62,500 with interest. complaint under section 138 of the negotiable instruments act, cheque no. 000776, rs 2,39,000. fir registered on 26 sep 2026. scc 504/2026 is pending before the court at karad. regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "chintu mama"
+   },
+   {
+    "type": "date",
+    "value": "1/11"
+   },
+   {
+    "type": "dob",
+    "value": "17/05/1970"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000776"
+   },
+   {
+    "type": "date",
+    "value": "26 sep 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "scc 504/2026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ],
+  "keep": [
+   "Rs 1,62,500",
+   "Rs 2,39,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-165",
+  "text": "Matter: Sunil Desai v/s Nikita Deshmukh. CNR MHPU016658142026. FIR registered on 21st December. Claim is for Rs 3,26,000 with interest. Cheque dishonoured on 9/12. Incident at opp. water tank, Ram Mandir Road, Solapur, Karad police station. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sunil Desai"
+   },
+   {
+    "type": "relative",
+    "value": "Nikita Deshmukh"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU016658142026"
+   },
+   {
+    "type": "date",
+    "value": "21st December"
+   },
+   {
+    "type": "date",
+    "value": "9/12"
+   },
+   {
+    "type": "address",
+    "value": "opp. water tank, Ram Mandir Road, Solapur"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,26,000"
+  ]
+ },
+ {
+  "id": "LAW-166",
+  "text": "Matter: Archana Kadam v/s Faisal Phadke. R.C.S. 103/2026 is pending before the court at Pune. Incident at behind water tank, Pune, Baramati police station. Cheque dishonoured on 04-12-26. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Archana Kadam"
+   },
+   {
+    "type": "relative",
+    "value": "Faisal Phadke"
+   },
+   {
+    "type": "record_id",
+    "value": "R.C.S. 103/2026"
+   },
+   {
+    "type": "address",
+    "value": "behind water tank, Pune"
+   },
+   {
+    "type": "date",
+    "value": "04-12-26"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-167",
+  "text": "patil, pooja (00000 57738) met me on 28-09-26. the defendant s. s. salunke denies the claim. cheque dishonoured on 13th december. please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "patil, pooja"
+   },
+   {
+    "type": "phone",
+    "value": "00000 57738"
+   },
+   {
+    "type": "date",
+    "value": "28-09-26"
+   },
+   {
+    "type": "relative",
+    "value": "s. s. salunke"
+   },
+   {
+    "type": "date",
+    "value": "13th december"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-168",
+  "text": "Chavan, Madhuri (+91-00000-91554) met me on 13/11/2026. Opposite counsel Mrs Savita Desai (enrolment MAH/3206/2013) asked for time. Born 3 October 2015. SCC 627/2026 is pending before the court at Jejuri. Notice served at behind sabzi mandi, Karad. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chavan, Madhuri"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-91554"
+   },
+   {
+    "type": "date",
+    "value": "13/11/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Savita Desai"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/3206/2013"
+   },
+   {
+    "type": "dob",
+    "value": "3 October 2015"
+   },
+   {
+    "type": "record_id",
+    "value": "SCC 627/2026"
+   },
+   {
+    "type": "address",
+    "value": "behind sabzi mandi, Karad"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-169",
+  "text": "Matter: Kavita Iyer v/s Anita Reddy. FIR registered on 2 November 2026. Client email swati25@example.com. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kavita Iyer"
+   },
+   {
+    "type": "relative",
+    "value": "Anita Reddy"
+   },
+   {
+    "type": "date",
+    "value": "2 November 2026"
+   },
+   {
+    "type": "email",
+    "value": "swati25@example.com"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-170",
+  "text": "Bunty tai (client) called on October 3 Notice served at Flat 24, Kaveri Towers, Nashik Settlement discussed at Rs 1,06,000 The client's son Kiran was with the client Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty tai"
+   },
+   {
+    "type": "date",
+    "value": "October 3"
+   },
+   {
+    "type": "address",
+    "value": "Flat 24, Kaveri Towers, Nashik"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,06,000"
+   },
+   {
+    "type": "relative",
+    "value": "Kiran"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-171",
+  "text": "Ansari, Yogesh (+91 00000 28315) met me on 05/09/2026. The defendant Yogesh denies the claim. Witness Smt. Smita Qureshi saw it. CNR MHPU012252882026. Bail Application No. 659/2026 is pending before the court at Pune. Client email lata42@example.com. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ansari, Yogesh"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 28315"
+   },
+   {
+    "type": "date",
+    "value": "05/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Yogesh"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Smita Qureshi"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU012252882026"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 659/2026"
+   },
+   {
+    "type": "email",
+    "value": "lata42@example.com"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-172",
+  "text": "Client: Aarti Desai. Phone: (00000) 36408. Settlement discussed at Rs 1,23,500. Notice served at Flat 35, Gajanan Colony, Nashik. Client email ramesh73@example.com. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aarti Desai"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 36408"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,23,500"
+   },
+   {
+    "type": "address",
+    "value": "Flat 35, Gajanan Colony, Nashik"
+   },
+   {
+    "type": "email",
+    "value": "ramesh73@example.com"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-173",
+  "text": "matter: divya bhosale v/s sachin sharma. the opposite party tinku denies the claim. cheque dishonoured on 18/12. incident at near st depot, sangamner, baramati police station. the client's wife siddharth was with the client. cnr mhpu016066342026. kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "divya bhosale"
+   },
+   {
+    "type": "relative",
+    "value": "sachin sharma"
+   },
+   {
+    "type": "relative",
+    "value": "tinku"
+   },
+   {
+    "type": "date",
+    "value": "18/12"
+   },
+   {
+    "type": "address",
+    "value": "near st depot, sangamner"
+   },
+   {
+    "type": "relative",
+    "value": "siddharth"
+   },
+   {
+    "type": "record_id",
+    "value": "mhpu016066342026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-174",
+  "text": "mehta, meera ((00000) 52618) met me on october 28. next hearing 24.11.2026. the accused omkar denies the claim. notice served at om sai heights, kothrud, karad. complaint under section 138 of the negotiable instruments act, cheque no. 000214, rs 4,71,000. client email ganesh73@example.com. regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mehta, meera"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 52618"
+   },
+   {
+    "type": "date",
+    "value": "october 28"
+   },
+   {
+    "type": "date",
+    "value": "24.11.2026"
+   },
+   {
+    "type": "relative",
+    "value": "omkar"
+   },
+   {
+    "type": "address",
+    "value": "om sai heights, kothrud, karad"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000214"
+   },
+   {
+    "type": "email",
+    "value": "ganesh73@example.com"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 4,71,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-175",
+  "text": "Gajanan Medical (client) has a dispute. CNR MHPU013860992026. Next hearing 1 November 2026. The client's brother Mansi was with the client. Settlement discussed at Rs 1,93,000. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Gajanan Medical"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU013860992026"
+   },
+   {
+    "type": "date",
+    "value": "1 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mansi"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,93,000"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-176",
+  "text": "Matter: Omkar Joshi v/s Meera Gaikwad. Claim is for Rs 1,84,500 with interest. Next hearing November 15. Settlement discussed at Rs 3,67,000. Opposite counsel Shri Prakash Mehta (enrolment MAH/2093/2008) asked for time. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Omkar Joshi"
+   },
+   {
+    "type": "relative",
+    "value": "Meera Gaikwad"
+   },
+   {
+    "type": "date",
+    "value": "November 15"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 3,67,000"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Prakash Mehta"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/2093/2008"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,84,500"
+  ]
+ },
+ {
+  "id": "LAW-177",
+  "text": "Client: Dinesh Mane. Phone: 00000-86961. Born 27-12-2007. Bail Application No. 617/2026 is pending before the court at Phaltan. CNR MHPU018156972026. FIR registered on 06/10/2026. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dinesh Mane"
+   },
+   {
+    "type": "phone",
+    "value": "00000-86961"
+   },
+   {
+    "type": "dob",
+    "value": "27-12-2007"
+   },
+   {
+    "type": "record_id",
+    "value": "Bail Application No. 617/2026"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU018156972026"
+   },
+   {
+    "type": "date",
+    "value": "06/10/2026"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-178",
+  "text": "Shree Dairy (client) has a dispute. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000929, Rs 77,000. Born 7-11-1994. Opposite counsel Smt. Mansi Iyer (enrolment MAH/8354/2013) asked for time. The client's husband Harshad was with the client. Claim is for Rs 93,000 with interest. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Shree Dairy"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000929"
+   },
+   {
+    "type": "dob",
+    "value": "7-11-1994"
+   },
+   {
+    "type": "relative",
+    "value": "Smt. Mansi Iyer"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/8354/2013"
+   },
+   {
+    "type": "relative",
+    "value": "Harshad"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 77,000",
+   "section 138",
+   "Rs 93,000"
+  ]
+ },
+ {
+  "id": "LAW-179",
+  "text": "Guddu bhau (client) called on 16-08-26. Born 8 August 1959. CNR MHPU013358822026. Next hearing 19 November 2026. The opposite party Priya Sawant denies the claim. Client email madhuri76@example.com. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu bhau"
+   },
+   {
+    "type": "date",
+    "value": "16-08-26"
+   },
+   {
+    "type": "dob",
+    "value": "8 August 1959"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU013358822026"
+   },
+   {
+    "type": "date",
+    "value": "19 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Priya Sawant"
+   },
+   {
+    "type": "email",
+    "value": "madhuri76@example.com"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-180",
+  "text": "Re: Shri Deepak Shinde, Cr. Case 383/2026 FIR registered on 17/10 Notice sevred at Anand Nagar, Station Road, Phaltan Client email kiran.bagade@example.org Claim is for Rs 50,500 with interest Opposite cousnel Mrs Mansi Rane (enrolment MAH/1164/2018) asked for time Pls summarise the psoition for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Deepak Shinde"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 383/2026"
+   },
+   {
+    "type": "date",
+    "value": "17/10"
+   },
+   {
+    "type": "address",
+    "value": "Anand Nagar, Station Road, Phaltan"
+   },
+   {
+    "type": "email",
+    "value": "kiran.bagade@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Mansi Rane"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1164/2018"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": [
+   "Rs 50,500"
+  ]
+ },
+ {
+  "id": "LAW-181",
+  "text": "re: mr suresh more, crime no. 921/2026. claim is for rs 2,47,000 with interest. fir registered on 19 oct 2026. scc 348/2026 is pending before the court at nashik. cheque dishonoured on 11/09/2026. born 23 may 1990. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr suresh more"
+   },
+   {
+    "type": "record_id",
+    "value": "crime no. 921/2026"
+   },
+   {
+    "type": "date",
+    "value": "19 oct 2026"
+   },
+   {
+    "type": "record_id",
+    "value": "scc 348/2026"
+   },
+   {
+    "type": "date",
+    "value": "11/09/2026"
+   },
+   {
+    "type": "dob",
+    "value": "23 may 1990"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": [
+   "Rs 2,47,000"
+  ]
+ },
+ {
+  "id": "LAW-182",
+  "text": "Chavan, Shilpa (0000021679) met me on 10.9.2026. Next hearing 12-12-26. Notice served at behind bus stand, Jejuri. Crime No. 245/2026 is pending before the court at Phaltan. Claim is for Rs 1,01,000 with interest. FIR registered on 09-09-26. Kindly list the pending steps.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Chavan, Shilpa"
+   },
+   {
+    "type": "phone",
+    "value": "0000021679"
+   },
+   {
+    "type": "date",
+    "value": "10.9.2026"
+   },
+   {
+    "type": "date",
+    "value": "12-12-26"
+   },
+   {
+    "type": "address",
+    "value": "behind bus stand, Jejuri"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 245/2026"
+   },
+   {
+    "type": "date",
+    "value": "09-09-26"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 1,01,000"
+  ]
+ },
+ {
+  "id": "LAW-183",
+  "text": "Client: Madhuri Kale. Phone: 00000-42023. FIR registered on 3 Oct 2026. Incident at H.No. 56, Sadashiv Peth, Daund, Pune police station. Cheque dishonoured on 03/12/2026. Settlement discussed at Rs 4,50,000. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Madhuri Kale"
+   },
+   {
+    "type": "phone",
+    "value": "00000-42023"
+   },
+   {
+    "type": "date",
+    "value": "3 Oct 2026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 56, Sadashiv Peth, Daund"
+   },
+   {
+    "type": "date",
+    "value": "03/12/2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 4,50,000"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-184",
+  "text": "Client: Usha Mane. Phone: 0000 034074. Client email asha51@example.com. Witness Shri Imran Mane saw it. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Usha Mane"
+   },
+   {
+    "type": "phone",
+    "value": "0000 034074"
+   },
+   {
+    "type": "email",
+    "value": "asha51@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Imran Mane"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-185",
+  "text": "Om Stores (client) has a dispute. The client's father Yogesh was with the client. Client email faisal.chavan@example.org. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Om Stores"
+   },
+   {
+    "type": "relative",
+    "value": "Yogesh"
+   },
+   {
+    "type": "email",
+    "value": "faisal.chavan@example.org"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-186",
+  "text": "client: kiran sawant. phone: 00000-29264. born 11-4-2005. cheque dishonoured on 11.9.2026. prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "kiran sawant"
+   },
+   {
+    "type": "phone",
+    "value": "00000-29264"
+   },
+   {
+    "type": "dob",
+    "value": "11-4-2005"
+   },
+   {
+    "type": "date",
+    "value": "11.9.2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-187",
+  "text": "Matter: Faisal Mane v/s Ganesh Reddy Witness Mrs Pallavi Verma saw it Born 17/11/2012 FIR No. 0659/2026 is pending before the court at Baramati Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Faisal Mane"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh Reddy"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Pallavi Verma"
+   },
+   {
+    "type": "dob",
+    "value": "17/11/2012"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0659/2026"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-188",
+  "text": "Phadke, Deepak (+91-00000-36071) met me on 7.10.2026 Opposite counsel Shri Omkar Chavan (enrolment MAH/1948/2018) asked for time Next hearing 23rd December CNR MHPU015289622026 Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Phadke, Deepak"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-36071"
+   },
+   {
+    "type": "date",
+    "value": "7.10.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Omkar Chavan"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/1948/2018"
+   },
+   {
+    "type": "date",
+    "value": "23rd December"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU015289622026"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-189",
+  "text": "Matter: Anil Chavan v/s Usha More. FIR registered on 4.9.2026. Witness Ms Kavita Shinde saw it. Claim is for Rs 3,63,500 with interest. Incident at behind Zilla Parishad school, Sangamner, Satara police station. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Anil Chavan"
+   },
+   {
+    "type": "relative",
+    "value": "Usha More"
+   },
+   {
+    "type": "date",
+    "value": "4.9.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Ms Kavita Shinde"
+   },
+   {
+    "type": "address",
+    "value": "behind Zilla Parishad school, Sangamner"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 3,63,500"
+  ]
+ },
+ {
+  "id": "LAW-190",
+  "text": "vijay bakery (client) has a dispute scc 492/2026 is pending before the court at sangamner notice served at opp. water tank, laxmi nagar, phaltan cheque dishonoured on 21.8.2026 the client's wife sachin was with the client client email chavan.n@example.net prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "vijay bakery"
+   },
+   {
+    "type": "record_id",
+    "value": "scc 492/2026"
+   },
+   {
+    "type": "address",
+    "value": "opp. water tank, laxmi nagar, phaltan"
+   },
+   {
+    "type": "date",
+    "value": "21.8.2026"
+   },
+   {
+    "type": "relative",
+    "value": "sachin"
+   },
+   {
+    "type": "email",
+    "value": "chavan.n@example.net"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-191",
+  "text": "Rane, Pooja ((00000) 57275) met me on 18/09/2026. Witness Master Faisal Tambe saw it. FIR No. 0455/2026 is pendnig before the court at Daund. Client email bhosale.u@example.net. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rane, Pooja"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 57275"
+   },
+   {
+    "type": "date",
+    "value": "18/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Master Faisal Tambe"
+   },
+   {
+    "type": "record_id",
+    "value": "FIR No. 0455/2026"
+   },
+   {
+    "type": "email",
+    "value": "bhosale.u@example.net"
+   }
+  ],
+  "style": [
+   "typo"
+  ],
+  "keep": []
+ },
+ {
+  "id": "LAW-192",
+  "text": "Krishna Electricals (client) has a dispute. Witness Mrs Rekha Bagade saw it. Incident at opp. petrol pump, Tilak Road, Daund, Pune police station. Next hearing 05-11-26. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Krishna Electricals"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Rekha Bagade"
+   },
+   {
+    "type": "address",
+    "value": "opp. petrol pump, Tilak Road, Daund"
+   },
+   {
+    "type": "date",
+    "value": "05-11-26"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-193",
+  "text": "Krishna Bakery (client) has a dispute. Born 24-2-1958. Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000472, Rs 2,99,000. FIR registered on 13/12. Cr. Case 784/2026 is pending before the court at Pune. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Krishna Bakery"
+   },
+   {
+    "type": "dob",
+    "value": "24-2-1958"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000472"
+   },
+   {
+    "type": "date",
+    "value": "13/12"
+   },
+   {
+    "type": "record_id",
+    "value": "Cr. Case 784/2026"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,99,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-194",
+  "text": "client: vinod joshi phone: +91-00000-08201 next hearing 12/12/2026 cheque dishonoured on 25th september claim is for rs 3,18,500 with interest complaint under section 138 of the negotiable instruments act, cheque no. 000828, rs 3,82,000 regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "vinod joshi"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-08201"
+   },
+   {
+    "type": "date",
+    "value": "12/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "25th september"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000828"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ],
+  "keep": [
+   "Rs 3,18,500",
+   "Rs 3,82,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-195",
+  "text": "Sai Motors (client) has a dispute. Notice served at Sai Kripa, Sadashiv Peth, Satara. Next hearing 11-11-26. Regards",
+  "identifiers": [
+   {
+    "type": "organization",
+    "value": "Sai Motors"
+   },
+   {
+    "type": "address",
+    "value": "Sai Kripa, Sadashiv Peth, Satara"
+   },
+   {
+    "type": "date",
+    "value": "11-11-26"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-196",
+  "text": "Desai, Harshad (0000027738) met me on 20.8.2026. Client email ashok97@example.com. Crime No. 489/2026 is pending before the court at Pune. Notice served at behind old post office, Ahmednagar. Please note the dates.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Desai, Harshad"
+   },
+   {
+    "type": "phone",
+    "value": "0000027738"
+   },
+   {
+    "type": "date",
+    "value": "20.8.2026"
+   },
+   {
+    "type": "email",
+    "value": "ashok97@example.com"
+   },
+   {
+    "type": "record_id",
+    "value": "Crime No. 489/2026"
+   },
+   {
+    "type": "address",
+    "value": "behind old post office, Ahmednagar"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-197",
+  "text": "Golu anna (client) claled on 04-09-26 Opposite counesl Mr Deepak Sawant (enrolment MAH/7941/2022) asked for time Complaint under section 138 of the Negotiable Instruments Act, cheque no. 000761, Rs 1,66,000 Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu anna"
+   },
+   {
+    "type": "date",
+    "value": "04-09-26"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Deepak Sawant"
+   },
+   {
+    "type": "record_id",
+    "value": "MAH/7941/2022"
+   },
+   {
+    "type": "record_id",
+    "value": "cheque no. 000761"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ],
+  "keep": [
+   "Rs 1,66,000",
+   "section 138"
+  ]
+ },
+ {
+  "id": "LAW-198",
+  "text": "Client: Omkar Deshmukh. Phone: 00000 98917. Incident at H.No. 41, Gandhi Chowk, Nashik, Satara police station. CNR MHPU015501192026. The client's wife Rajesh was with the client. Please summarise the position for the senior.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Omkar Deshmukh"
+   },
+   {
+    "type": "phone",
+    "value": "00000 98917"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 41, Gandhi Chowk, Nashik"
+   },
+   {
+    "type": "record_id",
+    "value": "MHPU015501192026"
+   },
+   {
+    "type": "relative",
+    "value": "Rajesh"
+   }
+  ],
+  "style": [],
+  "keep": []
+ },
+ {
+  "id": "LAW-199",
+  "text": "Verma, Harshad (00000 19457) met me on 02/11/2026. Settlement discussed at Rs 1,78,000. Claim is for Rs 2,65,500 with interest. Notice served at Flat 17, Shivam Residency, Ahmednagar. Prepare a short chronology.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Verma, Harshad"
+   },
+   {
+    "type": "phone",
+    "value": "00000 19457"
+   },
+   {
+    "type": "date",
+    "value": "02/11/2026"
+   },
+   {
+    "type": "amount",
+    "value": "Rs 1,78,000"
+   },
+   {
+    "type": "address",
+    "value": "Flat 17, Shivam Residency, Ahmednagar"
+   }
+  ],
+  "style": [],
+  "keep": [
+   "Rs 2,65,500"
+  ]
+ }
+]

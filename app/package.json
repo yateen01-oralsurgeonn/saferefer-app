@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "harness": "vitest run -c vitest.harness.config.ts",
+    "harness:gen": "node ../harness/gen-notes.ts"
   },
   "dependencies": {
     "firebase": "^13.4.0",

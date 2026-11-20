@@ -1,0 +1,5195 @@
+[
+ {
+  "id": "DENTAL-000",
+  "text": "Sonu bhau came today, 26-09-26. Tooth 45 and 47: vertical fracture, unrestorable by my assessment. Previously treated at City Dental Centre. Lives at H.No. 62, Ram Mandir Road, Pune. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu bhau"
+   },
+   {
+    "type": "date",
+    "value": "26-09-26"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 62, Ram Mandir Road, Pune"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-001",
+  "text": "Pt P. R. Verma seen on Saturday bhau Anil was with the patient School: New English School Tooth 46 and 24: failed crown, recurrent decay at the margin Tooth 16: pericoronitis, partly erupted, recurrent episodes Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "P. R. Verma"
+   },
+   {
+    "type": "date",
+    "value": "on Saturday"
+   },
+   {
+    "type": "relative",
+    "value": "Anil"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-002",
+  "text": "Kiran Bagade came to the clinic Previously treated at City Dental Centre IOPA taken, no periapical change Tooth 25: swelling and a draining sinus for three days The patient's husband Dinesh Dalvi came with the patient Concerns tooth 14, failed crown, recurrent decay at the margin Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kiran"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "relative",
+    "value": "Dinesh Dalvi"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-003",
+  "text": "opd file no. 108/2026 - amit pawar. reach by email gupta.a@example.net. tai tushar was with the patient. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 108/2026"
+   },
+   {
+    "type": "name",
+    "value": "amit pawar"
+   },
+   {
+    "type": "email",
+    "value": "gupta.a@example.net"
+   },
+   {
+    "type": "relative",
+    "value": "tushar"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-004",
+  "text": "sonu mama came today, 09/09/2026. next visit 17th september. aai madhuri was with the pt. tooth 46 & 21: sensitive to hot & cold, no spontaneous pain. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "sonu mama"
+   },
+   {
+    "type": "date",
+    "value": "09/09/2026"
+   },
+   {
+    "type": "date",
+    "value": "17th september"
+   },
+   {
+    "type": "relative",
+    "value": "madhuri"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-005",
+  "text": "Guddu kaka came today, 20/08/2026. Previously treated at City Dental Centre. The patient's husband S. R. Bhosale accompanied the patient. Tooth 37 and 16: vertical fracture, unrestorable by my assessment. Reach by email savita59@example.com. Next visit 14-11-26. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu kaka"
+   },
+   {
+    "type": "date",
+    "value": "20/08/2026"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "relative",
+    "value": "S. R. Bhosale"
+   },
+   {
+    "type": "email",
+    "value": "savita59@example.com"
+   },
+   {
+    "type": "date",
+    "value": "14-11-26"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-006",
+  "text": "Dear colleague, thank you for seeing Ms Sunita Mane (14), who attended on 05-09-26 with Concerns tooth 45, sensitive to hot and cold, no spontaneous pain. Next visit 23 Aug 2026. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Sunita Mane"
+   },
+   {
+    "type": "date",
+    "value": "05-09-26"
+   },
+   {
+    "type": "date",
+    "value": "23 Aug 2026"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-007",
+  "text": "Kindly see Ms Komal Mane, born 6-12-1999, for Employed at Ganesh Medical School: Zilla Parishad School The patient's daughter Dinesh Shah accompanied the patient Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Komal Mane"
+   },
+   {
+    "type": "dob",
+    "value": "6-12-1999"
+   },
+   {
+    "type": "organization",
+    "value": "Ganesh Medical"
+   },
+   {
+    "type": "organization",
+    "value": "Zilla Parishad School"
+   },
+   {
+    "type": "relative",
+    "value": "Dinesh Shah"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-008",
+  "text": "OPD file no. 285/2026 - Aniket Bagade. Runs Ganesh Medical. School: Gyan Prabodhini. baba Vikram was with the pt. IOPA taken, periapical radiolucency seen. Pls evaluate & manage.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 285/2026"
+   },
+   {
+    "type": "name",
+    "value": "Aniket Bagade"
+   },
+   {
+    "type": "organization",
+    "value": "Ganesh Medical"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "relative",
+    "value": "Vikram"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-009",
+  "text": "pooja patil (0000 032637) came on 13/12/2026 with appointment last thursday if free previously treated at ortho plus clinic the patient's daughter sharma, karthik will bring the x-ray for the patient baba karthik was with the patient tooth 36 and 37: mobile after a fall, tenedr to percussion kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pooja patil"
+   },
+   {
+    "type": "phone",
+    "value": "0000 032637"
+   },
+   {
+    "type": "date",
+    "value": "13/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "last thursday"
+   },
+   {
+    "type": "organization",
+    "value": "ortho plus clinic"
+   },
+   {
+    "type": "relative",
+    "value": "sharma, karthik"
+   },
+   {
+    "type": "relative",
+    "value": "karthik"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-010",
+  "text": "OPD SR-6445 - Nitin Bhosale. baba Farida was with the patient. Tooth 21 and 21: deep distal caries with lingering pain to cold for one week. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "SR-6445"
+   },
+   {
+    "type": "name",
+    "value": "Nitin Bhosale"
+   },
+   {
+    "type": "relative",
+    "value": "Farida"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-011",
+  "text": "Kindly see Smt. Mansi Joshi, born 15-1-1986, for School: New English School The pt's mother Faisal will bring the X-ray for the pt Pls evaluate & manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Mansi Joshi"
+   },
+   {
+    "type": "dob",
+    "value": "15-1-1986"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   },
+   {
+    "type": "relative",
+    "value": "Faisal"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-012",
+  "text": "Pande, Suresh; DOB 23-12-1949; ph 0000079216. Reach by email sachin.singh@example.org. IOPA taken, periapical radiolucency seen. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pande, Suresh"
+   },
+   {
+    "type": "dob",
+    "value": "23-12-1949"
+   },
+   {
+    "type": "phone",
+    "value": "0000079216"
+   },
+   {
+    "type": "email",
+    "value": "sachin.singh@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-013",
+  "text": "Dear colleague, thank you for seeing Shri Aniket Sawant (65), who attended on 18 August 2026 with Lives at H.No. 51, Laxmi Nagar, Latur. Appointment on Friday if free. Medical: asthma, uses a reliever inhaler. Tooth 46 and 26: deep distal caries with lingering pain to cold for one week. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Aniket Sawant"
+   },
+   {
+    "type": "date",
+    "value": "18 August 2026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 51, Laxmi Nagar, Latur"
+   },
+   {
+    "type": "date",
+    "value": "on Friday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-014",
+  "text": "Patient: Seema Kadam. Phone: 00000-52136. Seen on 16.10.2026. IOPA taken, widened ligament space. Tooth 45 and 26: sensitive to hot and cold, no spontaneous pain. Previously treated at Care Dental Clinic. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Seema Kadam"
+   },
+   {
+    "type": "phone",
+    "value": "00000-52136"
+   },
+   {
+    "type": "date",
+    "value": "16.10.2026"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-015",
+  "text": "Prakash Mehta (0000 081820) came on 15th December with Tooth 21: sensitive to hot and cold, no spontaneous pain baba Tushar was with the patient Previously treated at Ortho Plus clinic Next visit 13/11/2026 Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Prakash Mehta"
+   },
+   {
+    "type": "phone",
+    "value": "0000 081820"
+   },
+   {
+    "type": "date",
+    "value": "15th December"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   },
+   {
+    "type": "date",
+    "value": "13/11/2026"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-016",
+  "text": "Patient: Faisal Kale. Phone: 00000 84212. Seen on 6.11.2026. Medical: hypertension on amlodipine. tai Dinesh was with the patient. Appointment on Saturday if free. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Faisal Kale"
+   },
+   {
+    "type": "phone",
+    "value": "00000 84212"
+   },
+   {
+    "type": "date",
+    "value": "6.11.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Dinesh"
+   },
+   {
+    "type": "date",
+    "value": "on Saturday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-017",
+  "text": "Pt A. D. Kamble seen this Thursday Tooth 47 & 45: failed crown, recurrent decay at the margin Next visit December 16 Previously treated at Care Dental Clinic Concerns tth 26, deep distal caries with lingering pain to cold for one week Appointment this Saturday if free Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "A. D. Kamble"
+   },
+   {
+    "type": "date",
+    "value": "this Thursday"
+   },
+   {
+    "type": "date",
+    "value": "December 16"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   },
+   {
+    "type": "date",
+    "value": "this Saturday"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-018",
+  "text": "re: mrs neha jagtap, 29 years. reach by email anita49@example.com. iopa taken, periapical radiolucency seen. aai anil was with the patient. next visit 18/9. the patient's brother karthik more will bring the x-ray for the patient. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs neha jagtap"
+   },
+   {
+    "type": "email",
+    "value": "anita49@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "anil"
+   },
+   {
+    "type": "date",
+    "value": "18/9"
+   },
+   {
+    "type": "relative",
+    "value": "karthik more"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-019",
+  "text": "Divya Dhumal came to the clinic. The patient's brother Sheetal More accompanied the patient. Appointment on Thursday if free. bhau Anil was with the patient. Previously treated at Care Dental Clinic. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Divya"
+   },
+   {
+    "type": "relative",
+    "value": "Sheetal More"
+   },
+   {
+    "type": "date",
+    "value": "on Thursday"
+   },
+   {
+    "type": "relative",
+    "value": "Anil"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-020",
+  "text": "Dhumal, Seema; DOB 26/06/1972; ph +91 00000 91869. Lives at behind Shivaji statue, Sangamner. IOPA taken, widened ligament space. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dhumal, Seema"
+   },
+   {
+    "type": "dob",
+    "value": "26/06/1972"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 91869"
+   },
+   {
+    "type": "address",
+    "value": "behind Shivaji statue, Sangamner"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-021",
+  "text": "Patient: Sneha Gupta. Phone: 00000-61805. Seen on 2nd August. Reach by email nitin.bhosale@example.org. The patient's husband Tushar Patil will bring the X-ray for the patient. aai Aarti was with the patient. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sneha Gupta"
+   },
+   {
+    "type": "phone",
+    "value": "00000-61805"
+   },
+   {
+    "type": "date",
+    "value": "2nd August"
+   },
+   {
+    "type": "email",
+    "value": "nitin.bhosale@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar Patil"
+   },
+   {
+    "type": "relative",
+    "value": "Aarti"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-022",
+  "text": "Sheetal Shaikh came to the clinic. Previously treated at City Dental Centre. IOPA taken, no periapical change. Tooth 46 and 26: deep distal caries with lingering pain to cold for one week. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sheetal"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-023",
+  "text": "Dear colleague, thank you for seeing Shri Yogesh Joshi (14), who attended on 28/8 with Previously treated at Care Dental Clinic The patient's husband Bittu kaka will bring the X-ray for the patient Tooth 24 and 21: failed crown, recurrent decay at the margin Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Yogesh Joshi"
+   },
+   {
+    "type": "date",
+    "value": "28/8"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   },
+   {
+    "type": "relative",
+    "value": "Bittu kaka"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-024",
+  "text": "Asha Chavan came to the clinic. Appointment on Monday if free. Lives at opp. Hanuman mandir, Camp, Pune. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Asha"
+   },
+   {
+    "type": "date",
+    "value": "on Monday"
+   },
+   {
+    "type": "address",
+    "value": "opp. Hanuman mandir, Camp, Pune"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-025",
+  "text": "Patient: Santosh Chavan. Phone: +91-00000-41000. Seen on 24 November 2026. Works at Jai Hind Motors. Reach by email imran74@example.com. Tooth 16: sensitive to hot and cold, no spontaneous pain. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Santosh Chavan"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-41000"
+   },
+   {
+    "type": "date",
+    "value": "24 November 2026"
+   },
+   {
+    "type": "organization",
+    "value": "Jai Hind Motors"
+   },
+   {
+    "type": "email",
+    "value": "imran74@example.com"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-026",
+  "text": "Dear colleague, thank you for seeing Smt. Aarti Gokhale (14), who attended on 23-11-26 with Reach by email tushar.sawant@example.org. Appointment on Wednesday if free. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Aarti Gokhale"
+   },
+   {
+    "type": "date",
+    "value": "23-11-26"
+   },
+   {
+    "type": "email",
+    "value": "tushar.sawant@example.org"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-027",
+  "text": "Nikita Pawar (+91 00000 18195) came on 26/12 with School: Saraswati Vidyalaya Concerns tth 16, root filling done elsewhere, dull ache on biting for two weeks Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Nikita Pawar"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 18195"
+   },
+   {
+    "type": "date",
+    "value": "26/12"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-028",
+  "text": "Dear colleague, thank you for seeing Ms Rekha Bhosale (37), who attended on 10 October 2026 with baba Rupali was with the patient. Runs Krishna Hardware. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Rekha Bhosale"
+   },
+   {
+    "type": "date",
+    "value": "10 October 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Rupali"
+   },
+   {
+    "type": "organization",
+    "value": "Krishna Hardware"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-029",
+  "text": "Pt M. R. Verma seen on Wednesday. Medical: diabetic, last HbA1c acceptable. Previously treated at Dr. Rao's clinic. Next visit 7.9.2026. IOPA taken, periapical radiolucency seen. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "M. R. Verma"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "date",
+    "value": "7.9.2026"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-030",
+  "text": "madhuri reddy came to the clinic. previously treated at city dental centre. baba ashok was with the pt. works at vijay hardware. next visit november 11. the pt's mother ganesh will bring the x-ray for the pt. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "madhuri"
+   },
+   {
+    "type": "organization",
+    "value": "city dental centre"
+   },
+   {
+    "type": "relative",
+    "value": "ashok"
+   },
+   {
+    "type": "organization",
+    "value": "vijay hardware"
+   },
+   {
+    "type": "date",
+    "value": "november 11"
+   },
+   {
+    "type": "relative",
+    "value": "ganesh"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-031",
+  "text": "Aarti Shah came to the clinic. Reach by email nair.n@example.net. IOPA taken, widened ligament space. Tooth 21: root filling done elsewhere, dull ache on biting for two weeks. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Aarti"
+   },
+   {
+    "type": "email",
+    "value": "nair.n@example.net"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-032",
+  "text": "Kavita Desai came to the clinic. Employed at Shree Bakery. IOPA taken, no periapical change. Medical: diabetic, last HbA1c acceptable. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kavita"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Bakery"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-033",
+  "text": "Sawant, Karthik; DOB 26/04/2013; ph 00000 70328. Next visit 24 November 2026. Medical: thyroid, on levothyroxine. Reach by email anita.jadhav@example.org. Lives at Flat 31, Om Sai Heights, Baramati. Appointment this Tuesday if free. Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sawant, Karthik"
+   },
+   {
+    "type": "dob",
+    "value": "26/04/2013"
+   },
+   {
+    "type": "phone",
+    "value": "00000 70328"
+   },
+   {
+    "type": "date",
+    "value": "24 November 2026"
+   },
+   {
+    "type": "email",
+    "value": "anita.jadhav@example.org"
+   },
+   {
+    "type": "address",
+    "value": "Flat 31, Om Sai Heights, Baramati"
+   },
+   {
+    "type": "date",
+    "value": "this Tuesday"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-034",
+  "text": "Dear colleague, thank you for seeing Shri Sachin Verma (50), who attended on 6 September 2026 with Concerns tooth 37, swelling and a draining sinus for three days Tooth 45 and 25: mobile after a fall, tedner to percussion Next visit 1/12 The patient's husabnd R. K. Verma came with the patient Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Sachin Verma"
+   },
+   {
+    "type": "date",
+    "value": "6 September 2026"
+   },
+   {
+    "type": "date",
+    "value": "1/12"
+   },
+   {
+    "type": "relative",
+    "value": "R. K. Verma"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-035",
+  "text": "Re: Smt. Archana Jagtap, 53 years. Tooth 26: mobile after a fall, tender to percussion. Next visit 6.10.2026. Medical: thyroid, on levothyroxine. Lives at H.No. 28, Ram Mandir Road, Karad. The patient's daughter Farida Kulkarni will bring the X-ray for the patient. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Archana Jagtap"
+   },
+   {
+    "type": "date",
+    "value": "6.10.2026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 28, Ram Mandir Road, Karad"
+   },
+   {
+    "type": "relative",
+    "value": "Farida Kulkarni"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-036",
+  "text": "Jyoti Sawant (0000080800) came on 21-11-26 with Next visit 5.12.2026. Previously treated at Dr. Rao's clinic. Concerns tooth 11, failed crown, recurrent decay at the margin. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jyoti Sawant"
+   },
+   {
+    "type": "phone",
+    "value": "0000080800"
+   },
+   {
+    "type": "date",
+    "value": "21-11-26"
+   },
+   {
+    "type": "date",
+    "value": "5.12.2026"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-037",
+  "text": "Kindly see Ms Mansi Nair, born 17/02/2001, for Tooth 16 and 36: swelling and a draining sinus for three days. Medical: asthma, uses a reliever inhaler. Appointment last Friday if free. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Mansi Nair"
+   },
+   {
+    "type": "dob",
+    "value": "17/02/2001"
+   },
+   {
+    "type": "date",
+    "value": "last Friday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-038",
+  "text": "Sonu bhai came today, 4 Aug 2026. IOPA taken, periapical radiolucency seen. Next visit 1 Sep 2026. The patient's wife Sachin Ansari came with the patient. School: Zilla Parishad School. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sonu bhai"
+   },
+   {
+    "type": "date",
+    "value": "4 Aug 2026"
+   },
+   {
+    "type": "date",
+    "value": "1 Sep 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin Ansari"
+   },
+   {
+    "type": "organization",
+    "value": "Zilla Parishad School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-039",
+  "text": "Tinku tai came today, October 14. Previously treated at Smile Point. The patient's wife Manoj Deshmukh accompanied the patient. Tooth 37: deep distal caries with lingering pain to cold for one week. Medical: hypertension on amlodipine. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tinku tai"
+   },
+   {
+    "type": "date",
+    "value": "October 14"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   },
+   {
+    "type": "relative",
+    "value": "Manoj Deshmukh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-040",
+  "text": "Dear colleague, thank you for seeing Ms Farida Kulkarni (29), who attended on 22nd November with Lives at H.No. 15, Station Road, Phaltan. Next visit 28/10/2026. aai Imran was with the patient. Medical: no known allergies. Concerns tooth 21, root filling done elsewhere, dull ache on biting for two weeks. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Farida Kulkarni"
+   },
+   {
+    "type": "date",
+    "value": "22nd November"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 15, Station Road, Phaltan"
+   },
+   {
+    "type": "date",
+    "value": "28/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Imran"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-041",
+  "text": "Kindly see Mr Vikram Rane, born 23-3-1977, for Medical: hypertension on amlodipine. Reach by email kamble.k@example.net. Next visit 3rd October. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Vikram Rane"
+   },
+   {
+    "type": "dob",
+    "value": "23-3-1977"
+   },
+   {
+    "type": "email",
+    "value": "kamble.k@example.net"
+   },
+   {
+    "type": "date",
+    "value": "3rd October"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-042",
+  "text": "Patient: Swati Thorat. Phone: (00000) 39748. Seen on 27/08/2026. Previously treated at Smile Point. School: St. Joseph High School. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Swati Thorat"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 39748"
+   },
+   {
+    "type": "date",
+    "value": "27/08/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-043",
+  "text": "Re: Mr Aniket Shaikh, 41 years. The patient's mother Raju bhai accompanied the patient. Appointment on Tuesday if free. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Aniket Shaikh"
+   },
+   {
+    "type": "relative",
+    "value": "Raju bhai"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-044",
+  "text": "Re: Master Rajesh Patil, 6 years. Medical: hypertension on amlodipine. Employed at Bharat Hardware. tai Santosh was with the patient. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Rajesh Patil"
+   },
+   {
+    "type": "organization",
+    "value": "Bharat Hardware"
+   },
+   {
+    "type": "relative",
+    "value": "Santosh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-045",
+  "text": "pravin deshmukh (00000 33052) came on august 9 with iopa taken, no periapical change appointment this friday if free school: saraswati vidyalaya runs laxmi textiles lives at h.no. 19, tilak road, jejuri regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pravin deshmukh"
+   },
+   {
+    "type": "phone",
+    "value": "00000 33052"
+   },
+   {
+    "type": "date",
+    "value": "august 9"
+   },
+   {
+    "type": "date",
+    "value": "this friday"
+   },
+   {
+    "type": "organization",
+    "value": "saraswati vidyalaya"
+   },
+   {
+    "type": "organization",
+    "value": "laxmi textiles"
+   },
+   {
+    "type": "address",
+    "value": "h.no. 19, tilak road, jejuri"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-046",
+  "text": "re: smt. jyoti salunke, 75 years reach by email sneha43@example.com next visit 16/9 tooth 36 and 26: root filling done elsewhere, dull ache on biting for two weeks concerns tooth 25, failed crown, recurrent decay at the margin tai swati was with the patient please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. jyoti salunke"
+   },
+   {
+    "type": "email",
+    "value": "sneha43@example.com"
+   },
+   {
+    "type": "date",
+    "value": "16/9"
+   },
+   {
+    "type": "relative",
+    "value": "swati"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-047",
+  "text": "dear colleague, thank you for seeing mr arjun ghule (70), who attended on 24th september with iopa taken, periapical radiolucency seen. lives at h.no. 40, market yard, karad. tooth 14 & 26: sensitive to hot & cold, no spontaneous pain. tooth 36: root filling done elsewhere, dull ache on biting for two weeks. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mr arjun ghule"
+   },
+   {
+    "type": "date",
+    "value": "24th september"
+   },
+   {
+    "type": "address",
+    "value": "h.no. 40, market yard, karad"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-048",
+  "text": "Pt S. S. Dhumal seen last Tuesday. Concerns tth 16, root fillnig done elsewhere, dull ache on biting for two weeks. Lives at behind ST depot, Indapur. Next visit 22-10-26. aai Anita was with the pt. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. S. Dhumal"
+   },
+   {
+    "type": "date",
+    "value": "last Tuesday"
+   },
+   {
+    "type": "address",
+    "value": "behind ST depot, Indapur"
+   },
+   {
+    "type": "date",
+    "value": "22-10-26"
+   },
+   {
+    "type": "relative",
+    "value": "Anita"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-049",
+  "text": "Re: Mrs Shweta Singh, 58 years The patient's brother Chintu kaka accompanied the patient bhau Mansi was with the patient Tooth 26 and 26: failed crown, recurrent decay at the margin School: St. Joseph High School Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Shweta Singh"
+   },
+   {
+    "type": "relative",
+    "value": "Chintu kaka"
+   },
+   {
+    "type": "relative",
+    "value": "Mansi"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-050",
+  "text": "Pt S. R. Nair seen on Monday. Previously treated at Care Dental Clinic. Next visit 27th August. IOPA taken, widened ligament space. Reach by email dhumal.k@example.net. Lives at opp. petrol pump, Gandhi Chowk, Phaltan. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. R. Nair"
+   },
+   {
+    "type": "date",
+    "value": "on Monday"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   },
+   {
+    "type": "date",
+    "value": "27th August"
+   },
+   {
+    "type": "email",
+    "value": "dhumal.k@example.net"
+   },
+   {
+    "type": "address",
+    "value": "opp. petrol pump, Gandhi Chowk, Phaltan"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-051",
+  "text": "kindly see ms pooja shah, born 05/07/1968, for reach by email pravin65@example.com. appointment last saturday if free. concerns tooth 21, mobile after a fall, tender to percussion. regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ms pooja shah"
+   },
+   {
+    "type": "dob",
+    "value": "05/07/1968"
+   },
+   {
+    "type": "email",
+    "value": "pravin65@example.com"
+   },
+   {
+    "type": "date",
+    "value": "last saturday"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-052",
+  "text": "Kavita Nair (+91 00000 30451) came on 25-11-26 with Tooth 21 and 45: pericoronitis, partly erupted, recurrent episodes. IOPA taken, no periapical change. Works at Gajanan Bakery. Reach by email amit48@example.com. Medical: diabetic, last HbA1c acceptable. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kavita Nair"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 30451"
+   },
+   {
+    "type": "date",
+    "value": "25-11-26"
+   },
+   {
+    "type": "organization",
+    "value": "Gajanan Bakery"
+   },
+   {
+    "type": "email",
+    "value": "amit48@example.com"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-053",
+  "text": "nitin gaikwad came to the clinic. lives at near sabzi mandi, jejuri. appointment this wednesday if free. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "nitin"
+   },
+   {
+    "type": "address",
+    "value": "near sabzi mandi, jejuri"
+   },
+   {
+    "type": "date",
+    "value": "this wednesday"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-054",
+  "text": "Tambe, Seema DOB 01/05/1971 ph +91 00000 22421 IOPA taken, periapical radiolucency seen Runs Gajanan Hardware The patient's mother Seema Chavan came with the patient Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tambe, Seema"
+   },
+   {
+    "type": "dob",
+    "value": "01/05/1971"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 22421"
+   },
+   {
+    "type": "organization",
+    "value": "Gajanan Hardware"
+   },
+   {
+    "type": "relative",
+    "value": "Seema Chavan"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-055",
+  "text": "Pt A. D. Rane seen last Friday. Tooth 37 and 25: mobile after a fall, tender to percussion. aai Prakash was with the patient. Concerns tooth 36, root filling done elsewhere, dull ache on biting for two weeks. Lives at opp. Hanuman mandir, Station Road, Baramati. IOPA taken, periapical radiolucency seen. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "A. D. Rane"
+   },
+   {
+    "type": "date",
+    "value": "last Friday"
+   },
+   {
+    "type": "relative",
+    "value": "Prakash"
+   },
+   {
+    "type": "address",
+    "value": "opp. Hanuman mandir, Station Road, Baramati"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-056",
+  "text": "Re: Mrs Anita Bagade, 69 years The patient's mother S. D. Kadam will bring the X-ray for the patient School: Zilla Parishad School Lives at Flat 21, Parijat Society, Indapur Concerns tooth 46, sensitive to hot and cold, no spontaneous pain Please see and reprot back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Anita Bagade"
+   },
+   {
+    "type": "relative",
+    "value": "S. D. Kadam"
+   },
+   {
+    "type": "organization",
+    "value": "Zilla Parishad School"
+   },
+   {
+    "type": "address",
+    "value": "Flat 21, Parijat Society, Indapur"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-057",
+  "text": "Pt S. S. Nair seen this Thursday. Concerns tooth 37, failed crown, recurrent decay at the margin. Reach by email joshi.n@example.net. Tooth 26 and 47: sensitive to hot and cold, no spontaneous pain. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. S. Nair"
+   },
+   {
+    "type": "date",
+    "value": "this Thursday"
+   },
+   {
+    "type": "email",
+    "value": "joshi.n@example.net"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-058",
+  "text": "Re: Mr Santosh Qureshi, 15 years. Appointment on Monday if free. Concerns tooth 16, pericoronitis, partly erupted, recurrent episodes. Medical: diabetic, last HbA1c acceptable. Reach by email nikam.s@example.net. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Santosh Qureshi"
+   },
+   {
+    "type": "date",
+    "value": "on Monday"
+   },
+   {
+    "type": "email",
+    "value": "nikam.s@example.net"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-059",
+  "text": "Neha Desai (+91-00000-80057) came on October 14 with tai Suresh was with the patient. Concerns tooth 36, mobile after a fall, tender to percussion. Tooth 36: vertical fracture, unrestorable by my assessment. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Neha Desai"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-80057"
+   },
+   {
+    "type": "date",
+    "value": "October 14"
+   },
+   {
+    "type": "relative",
+    "value": "Suresh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-060",
+  "text": "Patient: Nitin Shaikh. Phone: 0000040682. Seen on 12/12/2026. Next visit 22-08-26. Previously treated at Smile Point. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Nitin Shaikh"
+   },
+   {
+    "type": "phone",
+    "value": "0000040682"
+   },
+   {
+    "type": "date",
+    "value": "12/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "22-08-26"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-061",
+  "text": "Kale, Shabana; DOB 10-3-1981; ph +91-00000-28005. Reach by email ashok95@example.com. Tooth 21: sensitive to hot and cold, no spontaneous pain. tai Sheetal was with the patient. Concerns tooth 47, root filling done elsewhere, dull ache on biting for two weeks. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kale, Shabana"
+   },
+   {
+    "type": "dob",
+    "value": "10-3-1981"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-28005"
+   },
+   {
+    "type": "email",
+    "value": "ashok95@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Sheetal"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-062",
+  "text": "Dear colleague, thank you for seeing Mr Prakash Ghule (31), who attended on 25.12.2026 with Previously treated at City Dental Centre. Next visit 21/09/2026. School: Vidya Mandir School. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Prakash Ghule"
+   },
+   {
+    "type": "date",
+    "value": "25.12.2026"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "date",
+    "value": "21/09/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-063",
+  "text": "Re: Mrs Pallavi Rane, 26 years. Tooth 14: pericoronitis, partly erupted, recurrent episodes. The pt's father Shilpa Phadke accompanied the pt. Tooth 47 & 45: swelling & a draining sinus for three days. Previously treated at Dr. Rao's clinic. IOPA taken, periapical radiolucency seen. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Pallavi Rane"
+   },
+   {
+    "type": "relative",
+    "value": "Shilpa Phadke"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-064",
+  "text": "Pt R. P. Verma seen last Monday. Tooth 37 and 46: vertical fracture, unrestorable by my assessment. aai Sachin was with the patient. School: Zilla Parishad School. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "R. P. Verma"
+   },
+   {
+    "type": "date",
+    "value": "last Monday"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin"
+   },
+   {
+    "type": "organization",
+    "value": "Zilla Parishad School"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-065",
+  "text": "Re: Master Imran Nikam, 27 years. IOPA taken, widened ligament space. Employed at Gajanan Agro. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Imran Nikam"
+   },
+   {
+    "type": "organization",
+    "value": "Gajanan Agro"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-066",
+  "text": "OPD OPD 2090 - Vikram Gokhale. Reach by email mehta.s@example.net. bhau Ramesh was with the patient. Runs Laxmi Stores. Medical: on a blood thinner. School: St. Joseph High School. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 2090"
+   },
+   {
+    "type": "name",
+    "value": "Vikram Gokhale"
+   },
+   {
+    "type": "email",
+    "value": "mehta.s@example.net"
+   },
+   {
+    "type": "relative",
+    "value": "Ramesh"
+   },
+   {
+    "type": "organization",
+    "value": "Laxmi Stores"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-067",
+  "text": "Patient: Seema Gokhale. Phone: 0000029614. Seen on October 26. School: St. Joseph High School. Medical: hypertension on amlodipine. Appointment last Wednesday if free. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Seema Gokhale"
+   },
+   {
+    "type": "phone",
+    "value": "0000029614"
+   },
+   {
+    "type": "date",
+    "value": "October 26"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   },
+   {
+    "type": "date",
+    "value": "last Wednesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-068",
+  "text": "Bunty anna came today, 5th August. Next visit 9th December. Reach by email harshad.bhosale@example.org. The patient's daughter Gokhale, Seema will bring the X-ray for the patient. Concerns tooth 16, root filling done elsewhere, dull ache on biting for two weeks. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty anna"
+   },
+   {
+    "type": "date",
+    "value": "5th August"
+   },
+   {
+    "type": "date",
+    "value": "9th December"
+   },
+   {
+    "type": "email",
+    "value": "harshad.bhosale@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Gokhale, Seema"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-069",
+  "text": "Bunty came today, 18th November. Appointment last Tuesday if free. Previously treated at Smile Point. Medical: asthma, uses a reliever inhaler. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty"
+   },
+   {
+    "type": "date",
+    "value": "18th November"
+   },
+   {
+    "type": "date",
+    "value": "last Tuesday"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-070",
+  "text": "Rinku anna came today, 17th November. Works at Laxmi Medical. Reach by email faisal76@example.com. Tooth 46 and 36: pericoronitis, partly erupted, recurrent episodes. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku anna"
+   },
+   {
+    "type": "date",
+    "value": "17th November"
+   },
+   {
+    "type": "organization",
+    "value": "Laxmi Medical"
+   },
+   {
+    "type": "email",
+    "value": "faisal76@example.com"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-071",
+  "text": "Golu came today, 25 October 2026. School: Gyan Prabodhini. Reach by email smita.ghule@example.org. Lives at H.No. 3, Shahu Nagar, Latur. Works at Om Hardware. The patient's father Mrs Kulkarni accompanied the patient. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu"
+   },
+   {
+    "type": "date",
+    "value": "25 October 2026"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "email",
+    "value": "smita.ghule@example.org"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 3, Shahu Nagar, Latur"
+   },
+   {
+    "type": "organization",
+    "value": "Om Hardware"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Kulkarni"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-072",
+  "text": "Kindly see Mrs Divya Jagtap, born 06/08/1958, for Medical: diabetic, last HbA1c acceptable Previously treated at City Dental Centre Appointment on Saturday if free Reach by email nair.a@example.net Lives at H.No. 35, Market Yard, Ahmednagar Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Divya Jagtap"
+   },
+   {
+    "type": "dob",
+    "value": "06/08/1958"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "date",
+    "value": "on Saturday"
+   },
+   {
+    "type": "email",
+    "value": "nair.a@example.net"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 35, Market Yard, Ahmednagar"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-073",
+  "text": "Kindly see Shri Santosh Patil, born 3 February 1974, for Tooth 16 and 11: deep distal caries with lingering pain to cold for one week. The patient's brother Mrs Ansari accompanied the patient. Lives at H.No. 34, Laxmi Nagar, Latur. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Santosh Patil"
+   },
+   {
+    "type": "dob",
+    "value": "3 February 1974"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Ansari"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 34, Laxmi Nagar, Latur"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-074",
+  "text": "Tambe, Anil; DOB 6-12-1970; ph 0000050635. Concerns tth 14, deep distal caries with lingering pain to cold for one week. The pt's wife Pande, Pallavi accompanied the pt. Employed at Annapurna Bakery. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tambe, Anil"
+   },
+   {
+    "type": "dob",
+    "value": "6-12-1970"
+   },
+   {
+    "type": "phone",
+    "value": "0000050635"
+   },
+   {
+    "type": "relative",
+    "value": "Pande, Pallavi"
+   },
+   {
+    "type": "organization",
+    "value": "Annapurna Bakery"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-075",
+  "text": "deshmukh, imran; dob 13 april 1948; ph +91 00000 68211. reach by email ashok57@example.com. previously treated at smile point. next visit 11/10. tooth 24 and 24: root filling done elsewhere, dull ache on biting for two weeks. appointment this tuesday if free. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "deshmukh, imran"
+   },
+   {
+    "type": "dob",
+    "value": "13 april 1948"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 68211"
+   },
+   {
+    "type": "email",
+    "value": "ashok57@example.com"
+   },
+   {
+    "type": "organization",
+    "value": "smile point"
+   },
+   {
+    "type": "date",
+    "value": "11/10"
+   },
+   {
+    "type": "date",
+    "value": "this tuesday"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-076",
+  "text": "ghule, anita; dob 20-8-2005; ph 0000037502. employed at ganesh motors. iopa taken, no periapical change. medical: thyroid, on levothyroxine. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ghule, anita"
+   },
+   {
+    "type": "dob",
+    "value": "20-8-2005"
+   },
+   {
+    "type": "phone",
+    "value": "0000037502"
+   },
+   {
+    "type": "organization",
+    "value": "ganesh motors"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-077",
+  "text": "patient: neha kamble phone: +91-00000-45751 seen on 17th october medical: asthma, uses a rleiever inhaler runs vijay motors the patient's wife sneha bagade came with the patient iopa taken, no peraipical change previously treated at care dental clinic please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "neha kamble"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-45751"
+   },
+   {
+    "type": "date",
+    "value": "17th october"
+   },
+   {
+    "type": "organization",
+    "value": "vijay motors"
+   },
+   {
+    "type": "relative",
+    "value": "sneha bagade"
+   },
+   {
+    "type": "organization",
+    "value": "care dental clinic"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-078",
+  "text": "OPD OPD 6731 - Vikram Singh. Medical: on a blood thinner. IOPA taken, no periapical change. aai Sachin was with the patient. Appointment on Monday if free. Tooth 25: vertical fracture, unrestorable by my assessment. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 6731"
+   },
+   {
+    "type": "name",
+    "value": "Vikram Singh"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin"
+   },
+   {
+    "type": "date",
+    "value": "on Monday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-079",
+  "text": "Pt N. K. Nair seen this Wednesday. Tooth 46 and 46: root filling done elsewhere, dull ache on biting for two weeks. bhau Archana was with the patient. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "N. K. Nair"
+   },
+   {
+    "type": "date",
+    "value": "this Wednesday"
+   },
+   {
+    "type": "relative",
+    "value": "Archana"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-080",
+  "text": "Rinku mama came today, 11.11.2026 Previously treated at Dr. Rao's clinic Tooth 14 & 24: deep distal caries with lingering pain to cold for one week The pt's son Mr Kadam will bring the X-ray for the pt Appointment last Thursday if free Lives at Ganesh Apartments, MIDC Road, Karad Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku mama"
+   },
+   {
+    "type": "date",
+    "value": "11.11.2026"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Kadam"
+   },
+   {
+    "type": "date",
+    "value": "last Thursday"
+   },
+   {
+    "type": "address",
+    "value": "Ganesh Apartments, MIDC Road, Karad"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-081",
+  "text": "Bunty anna came today, 24/08/2026. School: Saraswati Vidyalaya. Concerns tooth 37, mobile after a fall, tender to percussion. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bunty anna"
+   },
+   {
+    "type": "date",
+    "value": "24/08/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-082",
+  "text": "sheetal shaikh (0000 075011) came on 19/12 with tai lata was with the patient next visit november 1 tooth 37 and 37: root filling done elsewhere, dull ache on biting for two weeks appointment last monday if free please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "sheetal shaikh"
+   },
+   {
+    "type": "phone",
+    "value": "0000 075011"
+   },
+   {
+    "type": "date",
+    "value": "19/12"
+   },
+   {
+    "type": "relative",
+    "value": "lata"
+   },
+   {
+    "type": "date",
+    "value": "november 1"
+   },
+   {
+    "type": "date",
+    "value": "last monday"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-083",
+  "text": "Kiran Qureshi (+91-00000-23546) came on 12/12/2026 with Reach by email mane.h@example.net. School: Saraswati Vidyalaya. Tooth 24: vertical fracture, unrestorable by my assessment. Medical: diabetic, last HbA1c acceptable. Next visit 17-10-26. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kiran Qureshi"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-23546"
+   },
+   {
+    "type": "date",
+    "value": "12/12/2026"
+   },
+   {
+    "type": "email",
+    "value": "mane.h@example.net"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   },
+   {
+    "type": "date",
+    "value": "17-10-26"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-084",
+  "text": "Dear colleague, thank you for seeing Shri Prakash Rane (44), who attended on 24-09-26 with Appointment last Saturday if free. aai Ashok was with the patient. Reach by email rohan.bhosale@example.org. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Prakash Rane"
+   },
+   {
+    "type": "date",
+    "value": "24-09-26"
+   },
+   {
+    "type": "date",
+    "value": "last Saturday"
+   },
+   {
+    "type": "relative",
+    "value": "Ashok"
+   },
+   {
+    "type": "email",
+    "value": "rohan.bhosale@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-085",
+  "text": "Dear colleague, thank you for seeing Smt. Rupali Mehta (33), who attended on 26/10/2026 with The patient's father Karthik More accompanied the patient. IOPA taken, no periapical change. Next visit 2/10. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smt. Rupali Mehta"
+   },
+   {
+    "type": "date",
+    "value": "26/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Karthik More"
+   },
+   {
+    "type": "date",
+    "value": "2/10"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-086",
+  "text": "Golu anna came today, 10.10.2026 Medical: on a blood thinner Lives at H.No. 21, Shahu Nagar, Indapur Tooth 16: root filling done elsewhere, dull ache on biting for two weeks Appointment this Thursday if free aai Rajesh was with the pt Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu anna"
+   },
+   {
+    "type": "date",
+    "value": "10.10.2026"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 21, Shahu Nagar, Indapur"
+   },
+   {
+    "type": "date",
+    "value": "this Thursday"
+   },
+   {
+    "type": "relative",
+    "value": "Rajesh"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-087",
+  "text": "Sheetal Dhumal (+91 00000 22409) came on 06/10/2026 with Previously treated at Dr. Rao's clinic. bhau Seema was with the patient. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sheetal Dhumal"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 22409"
+   },
+   {
+    "type": "date",
+    "value": "06/10/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "relative",
+    "value": "Seema"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-088",
+  "text": "qureshi, karthik; dob 5-3-1981; ph +91-00000-89846. next visit 28 october 2026. tai shabana was with the patient. tooth 47: mobile after a fall, tender to percussion. reach by email sharma.m@example.net. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "qureshi, karthik"
+   },
+   {
+    "type": "dob",
+    "value": "5-3-1981"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-89846"
+   },
+   {
+    "type": "date",
+    "value": "28 october 2026"
+   },
+   {
+    "type": "relative",
+    "value": "shabana"
+   },
+   {
+    "type": "email",
+    "value": "sharma.m@example.net"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-089",
+  "text": "pt: Rekha Joshi. Phone: +91 00000 59025. Seen on 2.12.2026. The pt's wife Pravin Dalvi will bring the X-ray for the pt. Tooth 37 & 21: swelling & a draining sinus for three days. Concerns tth 25, root filling done elsewhere, dull ache on biting for two weeks. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rekha Joshi"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 59025"
+   },
+   {
+    "type": "date",
+    "value": "2.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Pravin Dalvi"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-090",
+  "text": "OPD MRN 8485135 - Shilpa Joshi The pt's wife Imran Jadhav will bring the X-ray for the pt Lives at H.No. 49, Laxmi Nagar, Daund Next visit September 17 bhau Nikita was with the pt Tooth 47 & 24: deep distal caries with lingering pain to cold for one week Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "MRN 8485135"
+   },
+   {
+    "type": "name",
+    "value": "Shilpa Joshi"
+   },
+   {
+    "type": "relative",
+    "value": "Imran Jadhav"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 49, Laxmi Nagar, Daund"
+   },
+   {
+    "type": "date",
+    "value": "September 17"
+   },
+   {
+    "type": "relative",
+    "value": "Nikita"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-091",
+  "text": "Kindly see Mrs Swati Qureshi, born 12 March 1989, for Runs Maruti Motors. Appointment on Wednesday if free. Tooth 37 and 47: pericoronitis, partly erupted, recurrent episodes. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Swati Qureshi"
+   },
+   {
+    "type": "dob",
+    "value": "12 March 1989"
+   },
+   {
+    "type": "organization",
+    "value": "Maruti Motors"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-092",
+  "text": "Kindly see Master Deepak Kadam, born 05/11/1995, for Previously treated at Ortho Plus clinic. IOPA taken, no peirapical change. Tooth 25: swelling and a draiinng sinus for three days. Tooth 36 and 45: failed crown, recurrent decay at the margin. Runs Krishna Enterprises. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Deepak Kadam"
+   },
+   {
+    "type": "dob",
+    "value": "05/11/1995"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   },
+   {
+    "type": "organization",
+    "value": "Krishna Enterprises"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-093",
+  "text": "pt: ganesh gokhale. phone: 0000 087185. seen on 7.10.2026. concerns tth 37, pericoronitis, partly erupted, recurrent episodes. school: new english school. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ganesh gokhale"
+   },
+   {
+    "type": "phone",
+    "value": "0000 087185"
+   },
+   {
+    "type": "date",
+    "value": "7.10.2026"
+   },
+   {
+    "type": "organization",
+    "value": "new english school"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-094",
+  "text": "Dear colleague, thank you for seeing Master Suresh Shaikh (13), who attended on 20/12/2026 with The patient's daughter Deepak accompanied the patient. Reach by email gupta.a@example.net. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Suresh Shaikh"
+   },
+   {
+    "type": "date",
+    "value": "20/12/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Deepak"
+   },
+   {
+    "type": "email",
+    "value": "gupta.a@example.net"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-095",
+  "text": "Patient: Usha Gokhale. Phone: +91-00000-70745. Seen on 17.11.2026. School: New English School. aai Usha was with the patient. Next visit December 20. Previously treated at Dr. Rao's clinic. Lives at Sai Kripa, Market Yard, Jejuri. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Usha Gokhale"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-70745"
+   },
+   {
+    "type": "date",
+    "value": "17.11.2026"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   },
+   {
+    "type": "relative",
+    "value": "Usha"
+   },
+   {
+    "type": "date",
+    "value": "December 20"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "address",
+    "value": "Sai Kripa, Market Yard, Jejuri"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-096",
+  "text": "Re: Ms Farida Qureshi, 67 years. IOPA taken, no periapical change. Previously treated at City Dental Centre. Reach by email imran42@example.com. Runs Gajanan Enterprises. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Farida Qureshi"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "email",
+    "value": "imran42@example.com"
+   },
+   {
+    "type": "organization",
+    "value": "Gajanan Enterprises"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-097",
+  "text": "rupali phadke came to the clinic lives at behind bus stand, nashik reach by email sunita.bhosale@example.org appointment on friday if free iopa taken, no periapical change thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "rupali"
+   },
+   {
+    "type": "address",
+    "value": "behind bus stand, nashik"
+   },
+   {
+    "type": "email",
+    "value": "sunita.bhosale@example.org"
+   },
+   {
+    "type": "date",
+    "value": "on friday"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-098",
+  "text": "Patient: Jyoti Reddy Phone: 00000-49982 Seen on August 26 Medical: diabetic, last HbA1c acceptable Reach by email vikram.nair@example.org Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jyoti Reddy"
+   },
+   {
+    "type": "phone",
+    "value": "00000-49982"
+   },
+   {
+    "type": "date",
+    "value": "August 26"
+   },
+   {
+    "type": "email",
+    "value": "vikram.nair@example.org"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-099",
+  "text": "pappu bhai came today, 20.9.2026. school: st. joseph high school. employed at annapurna bakery. tooth 24: swelling and a draining sinus for three days. next visit 28/12/2026. appointment this tuesday if free. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pappu bhai"
+   },
+   {
+    "type": "date",
+    "value": "20.9.2026"
+   },
+   {
+    "type": "organization",
+    "value": "st. joseph high school"
+   },
+   {
+    "type": "organization",
+    "value": "annapurna bakery"
+   },
+   {
+    "type": "date",
+    "value": "28/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "this tuesday"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-100",
+  "text": "Dear colleague, thank you for seeing Mrs Nikita Sawant (9), who attended on 16.10.2026 with IOPA taken, no periapical change. Tooth 11 and 45: mobile after a fall, tender to percussion. Next visit 18-11-26. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Nikita Sawant"
+   },
+   {
+    "type": "date",
+    "value": "16.10.2026"
+   },
+   {
+    "type": "date",
+    "value": "18-11-26"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-101",
+  "text": "OPD OPD 1178 - Faisal Shinde. Tooth 46 and 16: pericoronitis, partly erupted, recurrent episodes. Previously treated at City Dental Centre. School: Zilla Parishad School. Lives at Flat 21, Vaibhav Park, Daund. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 1178"
+   },
+   {
+    "type": "name",
+    "value": "Faisal Shinde"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   },
+   {
+    "type": "organization",
+    "value": "Zilla Parishad School"
+   },
+   {
+    "type": "address",
+    "value": "Flat 21, Vaibhav Park, Daund"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-102",
+  "text": "Jagtap, Sachin; DOB 2-4-1989; ph +91 00000 58446. School: Vidya Mandir School. Lives at behind bus stand, Nashik. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jagtap, Sachin"
+   },
+   {
+    "type": "dob",
+    "value": "2-4-1989"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 58446"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   },
+   {
+    "type": "address",
+    "value": "behind bus stand, Nashik"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-103",
+  "text": "Vinod Thorat ((00000) 67455) came on 3 Aug 2026 with Concerns tth 11, mobile after a fall, tender to percussion. Previously treated at Ortho Plus clinic. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Vinod Thorat"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 67455"
+   },
+   {
+    "type": "date",
+    "value": "3 Aug 2026"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-104",
+  "text": "OPD OPD 8452 - Dinesh Gokhale. Tooth 37 and 16: pericoronitis, partly erupted, recurrent episodes. Medical: on a blood thinner. Runs Krishna Agro. School: Gyan Prabodhini. Appointment last Tuesday if free. Regards",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 8452"
+   },
+   {
+    "type": "name",
+    "value": "Dinesh Gokhale"
+   },
+   {
+    "type": "organization",
+    "value": "Krishna Agro"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "date",
+    "value": "last Tuesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-105",
+  "text": "Gaikwad, Vikram; DOB 7 November 2008; ph (00000) 06929. Appointment on Tuesday if free. IOPA taken, widened ligament space. Medical: hypertension on amlodipine. Concerns tooth 45, mobile after a fall, tender to percussion. The patient's brother Usha Nair will bring the X-ray for the patient. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Gaikwad, Vikram"
+   },
+   {
+    "type": "dob",
+    "value": "7 November 2008"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 06929"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "relative",
+    "value": "Usha Nair"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-106",
+  "text": "pt: Archana Gaikwad. Phone: 00000-06380. Seen on 04/11/2026. IOPA taken, no periapical change. Tooth 25 & 14: vertical fracture, unrestorable by my assessment. Appointment last Thursday if free. Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Archana Gaikwad"
+   },
+   {
+    "type": "phone",
+    "value": "00000-06380"
+   },
+   {
+    "type": "date",
+    "value": "04/11/2026"
+   },
+   {
+    "type": "date",
+    "value": "last Thursday"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-107",
+  "text": "Re: Mrs Seema Salunke, 51 years. Appointment this Monday if free. Concerns tooth 45, mobile after a fall, tender to percussion. Works at Annapurna Motors. Tooth 21 and 45: swelling and a draining sinus for three days. Previously treated at Smile Point. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Seema Salunke"
+   },
+   {
+    "type": "date",
+    "value": "this Monday"
+   },
+   {
+    "type": "organization",
+    "value": "Annapurna Motors"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-108",
+  "text": "Pt S. D. Jagtap seen on Tuesday. Next visit 17/09/2026. The patient's brother Mansi came with the patient. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. D. Jagtap"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "date",
+    "value": "17/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Mansi"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-109",
+  "text": "Re: Shri Rohan Bhosale, 39 years. Next visit 23-08-26. Concerns tooth 24, vertical fracture, unrestorable by my assessment. School: Vidya Mandir School. Tooth 24: sensitive to hot and cold, no spontaneous pain. IOPA taken, no periapical change. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Rohan Bhosale"
+   },
+   {
+    "type": "date",
+    "value": "23-08-26"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-110",
+  "text": "Patient: Jyoti Dalvi. Phone: 00000-01659. Seen on 5 October 2026. The patient's husband Sunil Shinde will bring the X-ray for the patient. Reach by email pallavi19@example.com. School: St. Joseph High School. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jyoti Dalvi"
+   },
+   {
+    "type": "phone",
+    "value": "00000-01659"
+   },
+   {
+    "type": "date",
+    "value": "5 October 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Sunil Shinde"
+   },
+   {
+    "type": "email",
+    "value": "pallavi19@example.com"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-111",
+  "text": "Smita Desai came to the clinic. Lives at H.No. 84, Gandhi Chowk, Kolhapur. Works at Jai Hind Textiles. Appointment on Tuesday if free. The patient's wife V. P. Gaikwad accompanied the patient. Concerns tooth 47, mobile after a fall, tender to percussion. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Smita"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 84, Gandhi Chowk, Kolhapur"
+   },
+   {
+    "type": "organization",
+    "value": "Jai Hind Textiles"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "relative",
+    "value": "V. P. Gaikwad"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-112",
+  "text": "Pt S. S. Qureshi seen on Saturday. School: Saraswati Vidyalaya. Tooth 47 and 45: failed crown, recurrent decay at the margin. IOPA taken, widened ligament space. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. S. Qureshi"
+   },
+   {
+    "type": "date",
+    "value": "on Saturday"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-113",
+  "text": "Kindly see Mr Karthik Chavan, born 12/10/1994, for Appointment last Tuesday if free. Next visit 7.9.2026. Reach by email sneha19@example.com. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Karthik Chavan"
+   },
+   {
+    "type": "dob",
+    "value": "12/10/1994"
+   },
+   {
+    "type": "date",
+    "value": "last Tuesday"
+   },
+   {
+    "type": "date",
+    "value": "7.9.2026"
+   },
+   {
+    "type": "email",
+    "value": "sneha19@example.com"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-114",
+  "text": "Rinku kaka came today, 6 Dec 2026. Lives at Shivam Residency, Gandhi Chowk, Pune. Concerns tth 37, root filling done elsewhere, dull ache on biting for two weeks. The pt's father Arjun Sawant came with the pt. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku kaka"
+   },
+   {
+    "type": "date",
+    "value": "6 Dec 2026"
+   },
+   {
+    "type": "address",
+    "value": "Shivam Residency, Gandhi Chowk, Pune"
+   },
+   {
+    "type": "relative",
+    "value": "Arjun Sawant"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-115",
+  "text": "Amit Shinde came to the clinic Lives at opp. sabzi mandi, Gandhi Chowk, Karad bhau Archana was with the patient IOPA taken, no periapical change Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Amit"
+   },
+   {
+    "type": "address",
+    "value": "opp. sabzi mandi, Gandhi Chowk, Karad"
+   },
+   {
+    "type": "relative",
+    "value": "Archana"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-116",
+  "text": "Imran Pande came to the clinic. Lives at H.No. 21, Laxmi Nagar, Phaltan. Tooth 21 & 46: swelling & a draining sinus for three days. Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Imran"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 21, Laxmi Nagar, Phaltan"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-117",
+  "text": "Dear colleague, thank you for seeing Shri Sachin Bagade (38), who attended on 05/08/2026 with Concerns tooth 24, failed crown, recurrent decay at the margin. Lives at opp. Shivaji statue, Hadapsar, Daund. The patient's husband Nitin came with the patient. Tooth 37: sensitive to hot and cold, no spontaneous pain. Appointment this Saturday if free. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Sachin Bagade"
+   },
+   {
+    "type": "date",
+    "value": "05/08/2026"
+   },
+   {
+    "type": "address",
+    "value": "opp. Shivaji statue, Hadapsar, Daund"
+   },
+   {
+    "type": "relative",
+    "value": "Nitin"
+   },
+   {
+    "type": "date",
+    "value": "this Saturday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-118",
+  "text": "Patient: Karthik Mehta. Phone: 00000 92951. Seen on 24/8. Appointment last Monday if free. Employed at Shree Medical. IOPA taken, peraipical radiolucency seen. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Karthik Mehta"
+   },
+   {
+    "type": "phone",
+    "value": "00000 92951"
+   },
+   {
+    "type": "date",
+    "value": "24/8"
+   },
+   {
+    "type": "date",
+    "value": "last Monday"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Medical"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-119",
+  "text": "Re: Shri Harshad Gaikwad, 59 years Reach by email siddharth76@example.com Tooth 46: pericoronitis, partly erupted, recurrent episodes Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Harshad Gaikwad"
+   },
+   {
+    "type": "email",
+    "value": "siddharth76@example.com"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-120",
+  "text": "kindly see mrs archana tambe, born 01/05/1967, for school: st. joseph high school previously treated at care dental clinic works at om bakery thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mrs archana tambe"
+   },
+   {
+    "type": "dob",
+    "value": "01/05/1967"
+   },
+   {
+    "type": "organization",
+    "value": "st. joseph high school"
+   },
+   {
+    "type": "organization",
+    "value": "care dental clinic"
+   },
+   {
+    "type": "organization",
+    "value": "om bakery"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-121",
+  "text": "OPD MRN 4296290 - Tushar Bhosale. Tooth 25 and 24: mobile after a fall, tender to percussion. IOPA taken, no periapical change. Concerns tooth 46, pericoronitis, partly erupted, recurrent episodes. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "MRN 4296290"
+   },
+   {
+    "type": "name",
+    "value": "Tushar Bhosale"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-122",
+  "text": "Faisal Nair (+91-00000-37034) came on 26/12 with The patient's father Priya Sawant accompanied the patient. Concerns tooth 37, vertical fracture, unrestorable by my assessment. Reach by email pravin57@example.com. tai Harshad was with the patient. Previously treated at Smile Point. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Faisal Nair"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-37034"
+   },
+   {
+    "type": "date",
+    "value": "26/12"
+   },
+   {
+    "type": "relative",
+    "value": "Priya Sawant"
+   },
+   {
+    "type": "email",
+    "value": "pravin57@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Harshad"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-123",
+  "text": "Neha Qureshi (0000061280) came on 12 Dec 2026 with Reach by email suresh54@example.com School: Gyan Prabodhini bhau Sachin was with the pt IOPA taken, widened ligament space Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Neha Qureshi"
+   },
+   {
+    "type": "phone",
+    "value": "0000061280"
+   },
+   {
+    "type": "date",
+    "value": "12 Dec 2026"
+   },
+   {
+    "type": "email",
+    "value": "suresh54@example.com"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "relative",
+    "value": "Sachin"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-124",
+  "text": "Babloo tai came today, 20-10-26. Tooth 16: pericoronitis, partly erupted, recurrent episodes. tai Vinod was with the patient. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Babloo tai"
+   },
+   {
+    "type": "date",
+    "value": "20-10-26"
+   },
+   {
+    "type": "relative",
+    "value": "Vinod"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-125",
+  "text": "Rinku bhau came today, 16 November 2026 Concerns tooth 46, vertical fracture, unrestorable by my assessment baba Omkar was with the patinet Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku bhau"
+   },
+   {
+    "type": "date",
+    "value": "16 November 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Omkar"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-126",
+  "text": "Priya Gupta (+91-00000-49462) came on 15 Oct 2026 with The patient's brother Archana Tambe accompanied the patient Concerns tooth 21, pericoronitis, partly erupted, recurrent episodes Tooth 46 and 25: root filling done elsewhere, dull ache on biting for two weeks Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Priya Gupta"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-49462"
+   },
+   {
+    "type": "date",
+    "value": "15 Oct 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Archana Tambe"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-127",
+  "text": "Jyoti Sharma came to the clinic. Medical: thyroid, on levothyroxine. Appointment this Monday if free. Reach by email shweta.dalvi@example.org. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jyoti"
+   },
+   {
+    "type": "date",
+    "value": "this Monday"
+   },
+   {
+    "type": "email",
+    "value": "shweta.dalvi@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-128",
+  "text": "Kindly see Ms Shilpa Gupta, born 28 August 1976, for Previously treated at Dr. Rao's clinic. IOPA taken, no periapical change. Tooth 24: failed crown, recurrent decay at the margin. School: Saraswati Vidyalaya. Reach by email manoj.verma@example.org. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Shilpa Gupta"
+   },
+   {
+    "type": "dob",
+    "value": "28 August 1976"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   },
+   {
+    "type": "email",
+    "value": "manoj.verma@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-129",
+  "text": "Kindly see Master Nitin Ghule, born 22 January 1979, for Tooth 47 and 14: mobile after a fall, tender to percussion. Lives at opp. ST depot, Market Yard, Phaltan. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Master Nitin Ghule"
+   },
+   {
+    "type": "dob",
+    "value": "22 January 1979"
+   },
+   {
+    "type": "address",
+    "value": "opp. ST depot, Market Yard, Phaltan"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-130",
+  "text": "Kulkarni, Priya; DOB 21-4-1974; ph +91 00000 39694. Reach by email savita.salunke@example.org. Appointment on Wednesday if free. Tooth 14: mobile after a fall, tender to percussion. The patient's wife Sandeep Gaikwad accompanied the patient. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Kulkarni, Priya"
+   },
+   {
+    "type": "dob",
+    "value": "21-4-1974"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 39694"
+   },
+   {
+    "type": "email",
+    "value": "savita.salunke@example.org"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   },
+   {
+    "type": "relative",
+    "value": "Sandeep Gaikwad"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-131",
+  "text": "Pt A. R. Gaikwad seen on Tuesday. Lives at Flat 21, Laxmi Niwas, Nashik. Runs Om Enterprises. Previously treated at Dr. Rao's clinic. Appointment last Monday if free. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "A. R. Gaikwad"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "address",
+    "value": "Flat 21, Laxmi Niwas, Nashik"
+   },
+   {
+    "type": "organization",
+    "value": "Om Enterprises"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   },
+   {
+    "type": "date",
+    "value": "last Monday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-132",
+  "text": "rane, omkar; dob 11/05/1954; ph 00000-46949. the patient's wife l. r. thorat accompanied the patient. reach by email ganesh82@example.com. tooth 24 and 47: deep distal caries with lingering pain to cold for one week. appointment last tuesday if free. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "rane, omkar"
+   },
+   {
+    "type": "dob",
+    "value": "11/05/1954"
+   },
+   {
+    "type": "phone",
+    "value": "00000-46949"
+   },
+   {
+    "type": "relative",
+    "value": "l. r. thorat"
+   },
+   {
+    "type": "email",
+    "value": "ganesh82@example.com"
+   },
+   {
+    "type": "date",
+    "value": "last tuesday"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-133",
+  "text": "Guddu tai came today, 25.11.2026. aai Santosh was with the patient. School: Gyan Prabodhini. Reach by email sharma.n@example.net. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Guddu tai"
+   },
+   {
+    "type": "date",
+    "value": "25.11.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Santosh"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "email",
+    "value": "sharma.n@example.net"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-134",
+  "text": "kavita joshi came to the clinic. reach by email sneha.chavan@example.org. works at krishna bakery. tooth 26: sensitive to hot and cold, no spontaneous pain. appointment last wednesday if free. iopa taken, widened ligament space. please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "kavita"
+   },
+   {
+    "type": "email",
+    "value": "sneha.chavan@example.org"
+   },
+   {
+    "type": "organization",
+    "value": "krishna bakery"
+   },
+   {
+    "type": "date",
+    "value": "last wednesday"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-135",
+  "text": "Pravin Bagade (+91-00000-34977) came on 11 September 2026 with Concerns tth 14, vertical fracture, unrestorable by my assessment. Reach by email suresh32@example.com. Next visit 16/09/2026. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pravin Bagade"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-34977"
+   },
+   {
+    "type": "date",
+    "value": "11 September 2026"
+   },
+   {
+    "type": "email",
+    "value": "suresh32@example.com"
+   },
+   {
+    "type": "date",
+    "value": "16/09/2026"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-136",
+  "text": "Kindly see Mr Sunil Deshmukh, born 7 March 1995, for Tooth 26 and 21: failed crown, recurrent decay at the margin. Medical: on a blood thinner. School: St. Joseph High School. Lives at Shivam Residency, Kothrud, Ahmednagar. Tooth 11: pericoronitis, partly erupted, recurrent episodes. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Sunil Deshmukh"
+   },
+   {
+    "type": "dob",
+    "value": "7 March 1995"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   },
+   {
+    "type": "address",
+    "value": "Shivam Residency, Kothrud, Ahmednagar"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-137",
+  "text": "Patient: Meera Shaikh. Phone: (00000) 94263. Seen on 07-08-26. Appointment on Tuesday if free. School: New English School. The patient's son Mrs Komal Bhosale accompanied the patient. Lives at near ST depot, Jejuri. IOPA taken, widened ligament space. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Meera Shaikh"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 94263"
+   },
+   {
+    "type": "date",
+    "value": "07-08-26"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   },
+   {
+    "type": "relative",
+    "value": "Mrs Komal Bhosale"
+   },
+   {
+    "type": "address",
+    "value": "near ST depot, Jejuri"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-138",
+  "text": "Pt P. S. Patil seen on Wednesday Medical: asthma, uses a relieevr inhaler Lives at Shivam Residency, MIDC Road, Kolhapur School: Vidya Mandir School Concerns tth 25, sensitive to hot & cold, no sopntaneous pain Appointment on Thursday if free Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "P. S. Patil"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   },
+   {
+    "type": "address",
+    "value": "Shivam Residency, MIDC Road, Kolhapur"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   },
+   {
+    "type": "date",
+    "value": "on Thursday"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-139",
+  "text": "Dear colleague, thank you for seeing Mrs Savita Dhumal (23), who attended on 12/12/2026 with Reach by email nair.a@example.net. Appointment this Saturday if free. The patient's brother Sharma, Suresh came with the patient. Medical: on a blood thinner. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Savita Dhumal"
+   },
+   {
+    "type": "date",
+    "value": "12/12/2026"
+   },
+   {
+    "type": "email",
+    "value": "nair.a@example.net"
+   },
+   {
+    "type": "date",
+    "value": "this Saturday"
+   },
+   {
+    "type": "relative",
+    "value": "Sharma, Suresh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-140",
+  "text": "Rinku came today, 20-10-26. baba Sandeep was with the patient. Reach by email anil.nikam@example.org. Tooth 45: deep distal caries with lingering pain to cold for one week. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Rinku"
+   },
+   {
+    "type": "date",
+    "value": "20-10-26"
+   },
+   {
+    "type": "relative",
+    "value": "Sandeep"
+   },
+   {
+    "type": "email",
+    "value": "anil.nikam@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-141",
+  "text": "Bittu bhai came today, August 2. The patient's mother Tushar Shaikh came with the patient. Runs Vijay Hardware. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bittu bhai"
+   },
+   {
+    "type": "date",
+    "value": "August 2"
+   },
+   {
+    "type": "relative",
+    "value": "Tushar Shaikh"
+   },
+   {
+    "type": "organization",
+    "value": "Vijay Hardware"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-142",
+  "text": "Pooja Desai came to the clinic. Next visit 21-10-26. Tooth 21: failed crown, recurrent decay at the margin. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pooja"
+   },
+   {
+    "type": "date",
+    "value": "21-10-26"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-143",
+  "text": "OPD file no. 738/2026 - Suresh Kamble. Next visit 4/8. Tooth 37 and 36: sensitive to hot and cold, no spontaneous pain. Tooth 46: pericoronitis, partly erupted, recurrent episodes. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 738/2026"
+   },
+   {
+    "type": "name",
+    "value": "Suresh Kamble"
+   },
+   {
+    "type": "date",
+    "value": "4/8"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-144",
+  "text": "Pravin Jadhav (+91 00000 72823) came on 26/10 with Next visit 27.10.2026. Reach by email shweta15@example.com. Concerns tooth 11, vertical fracture, unrestorable by my assessment. IOPA taken, no periapical change. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Pravin Jadhav"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 72823"
+   },
+   {
+    "type": "date",
+    "value": "26/10"
+   },
+   {
+    "type": "date",
+    "value": "27.10.2026"
+   },
+   {
+    "type": "email",
+    "value": "shweta15@example.com"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-145",
+  "text": "OPD file no. 244/2026 - Anil Sharma. Previously treated at Dr. Rao's clinic. Tooth 45: failed crown, recurrent decay at the margin. Concerns tooth 11, vertical fracture, unrestorable by my assessment. Tooth 36 and 11: deep distal caries with lingering pain to cold for one week. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 244/2026"
+   },
+   {
+    "type": "name",
+    "value": "Anil Sharma"
+   },
+   {
+    "type": "organization",
+    "value": "Dr. Rao's clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-146",
+  "text": "Dear colleague, thank you for seeing Shri Dinesh Sawant (74), who attended on 10 October 2026 with IOPA taken, widened ligament space. Previously treated at Care Dental Clinic. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Dinesh Sawant"
+   },
+   {
+    "type": "date",
+    "value": "10 October 2026"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-147",
+  "text": "Sawant, Siddharth; DOB 21/08/1967; ph 0000017833. Reach by email faisal.bhosale@example.org. Appointment this Saturday if free. Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sawant, Siddharth"
+   },
+   {
+    "type": "dob",
+    "value": "21/08/1967"
+   },
+   {
+    "type": "phone",
+    "value": "0000017833"
+   },
+   {
+    "type": "email",
+    "value": "faisal.bhosale@example.org"
+   },
+   {
+    "type": "date",
+    "value": "this Saturday"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-148",
+  "text": "sunil iyer (0000068504) came on 4th december with previously treaetd at city dental centre reach by email tushar22@example.com appointment on monday if free baba imran was with the patient please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "sunil iyer"
+   },
+   {
+    "type": "phone",
+    "value": "0000068504"
+   },
+   {
+    "type": "date",
+    "value": "4th december"
+   },
+   {
+    "type": "organization",
+    "value": "city dental centre"
+   },
+   {
+    "type": "email",
+    "value": "tushar22@example.com"
+   },
+   {
+    "type": "date",
+    "value": "on monday"
+   },
+   {
+    "type": "relative",
+    "value": "imran"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-149",
+  "text": "phadke, siddharth dob 15 june 1956 ph +91 00000 36589 aai ashok was with the patient medical: no known allergies works at om bakery concerns tooth 11, vertical fracture, unrestorable by my assessment lives at flat 25, anand nagar, ahmednagar please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "phadke, siddharth"
+   },
+   {
+    "type": "dob",
+    "value": "15 june 1956"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 36589"
+   },
+   {
+    "type": "relative",
+    "value": "ashok"
+   },
+   {
+    "type": "organization",
+    "value": "om bakery"
+   },
+   {
+    "type": "address",
+    "value": "flat 25, anand nagar, ahmednagar"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-150",
+  "text": "Pt M. K. Sawant seen on Friday. Next visit 16 Sep 2026. The patient's mother Kavita accompanied the patient. bhau Nikita was with the patient. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "M. K. Sawant"
+   },
+   {
+    "type": "date",
+    "value": "on Friday"
+   },
+   {
+    "type": "date",
+    "value": "16 Sep 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Kavita"
+   },
+   {
+    "type": "relative",
+    "value": "Nikita"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-151",
+  "text": "OPD file no. 231/2026 - Santosh Nikam. Previously treated at City Dental Centre. Tooth 26 and 14: failed crown, recurrent decay at the margin. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 231/2026"
+   },
+   {
+    "type": "name",
+    "value": "Santosh Nikam"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-152",
+  "text": "Sunita Kadam came to the clinic. Next visit September 26. Previously treated at Ortho Plus clinic. Reach by email aniket.qureshi@example.org. Lives at Kaveri Towers, Tilak Road, Daund. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Sunita"
+   },
+   {
+    "type": "date",
+    "value": "September 26"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   },
+   {
+    "type": "email",
+    "value": "aniket.qureshi@example.org"
+   },
+   {
+    "type": "address",
+    "value": "Kaveri Towers, Tilak Road, Daund"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-153",
+  "text": "Shah, Ashok; DOB 22-6-1987; ph +91 00000 06687. IOPA taken, periapical radiolucnecy seen. Previously traeted at Ortho Plus clinic. Concerns tooth 16, deep distal caries with lingeirng pain to cold for one week. Please see and rpeort back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shah, Ashok"
+   },
+   {
+    "type": "dob",
+    "value": "22-6-1987"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 06687"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-154",
+  "text": "Tinku kaka came today, 26/10/2026. Concerns tooth 24, swelling and a draining sinus for three days. School: Saraswati Vidyalaya. Lives at near petrol pump, Indapur. The patient's wife Kale, Manisha accompanied the patient. Reach by email jyoti.nikam@example.org. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Tinku kaka"
+   },
+   {
+    "type": "date",
+    "value": "26/10/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   },
+   {
+    "type": "address",
+    "value": "near petrol pump, Indapur"
+   },
+   {
+    "type": "relative",
+    "value": "Kale, Manisha"
+   },
+   {
+    "type": "email",
+    "value": "jyoti.nikam@example.org"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-155",
+  "text": "Raju anna came today, 18/09/2026. tai Yogesh was with the patient. School: Vidya Mandir School. Tooth 47: failed crown, recurrent decay at the margin. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Raju anna"
+   },
+   {
+    "type": "date",
+    "value": "18/09/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Yogesh"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-156",
+  "text": "Patient: Suresh Gokhale. Phone: (00000) 56785. Seen on 12.9.2026. Appointment this Thursday if free. School: Gyan Prabodhini. IOPA taken, periapical radiolucency seen. Lives at behind ST depot, Karad. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Suresh Gokhale"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 56785"
+   },
+   {
+    "type": "date",
+    "value": "12.9.2026"
+   },
+   {
+    "type": "date",
+    "value": "this Thursday"
+   },
+   {
+    "type": "organization",
+    "value": "Gyan Prabodhini"
+   },
+   {
+    "type": "address",
+    "value": "behind ST depot, Karad"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-157",
+  "text": "OPD file no. 717/2026 - Suresh Kamble. Concerns tooth 16, failed crown, recurrent decay at the margin. Next visit 10/12/2026. Runs Vijay Textiles. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "file no. 717/2026"
+   },
+   {
+    "type": "name",
+    "value": "Suresh Kamble"
+   },
+   {
+    "type": "date",
+    "value": "10/12/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Vijay Textiles"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-158",
+  "text": "Dinesh Verma (0000 087277) came on 26 Dec 2026 with The patient's father Shilpa Gupta came with the patient. Medical: on a blood thinner. Appointment on Tuesday if free. Lives at H.No. 32, Gandhi Chowk, Satara. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dinesh Verma"
+   },
+   {
+    "type": "phone",
+    "value": "0000 087277"
+   },
+   {
+    "type": "date",
+    "value": "26 Dec 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Shilpa Gupta"
+   },
+   {
+    "type": "date",
+    "value": "on Tuesday"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 32, Gandhi Chowk, Satara"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-159",
+  "text": "OPD SR-8418 - Imran Kulkarni Employed at Sai Constructions Tooth 25: root filling done elsewhere, dull ache on biting for two weeks Next visit August 26 Kindly advise.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "SR-8418"
+   },
+   {
+    "type": "name",
+    "value": "Imran Kulkarni"
+   },
+   {
+    "type": "organization",
+    "value": "Sai Constructions"
+   },
+   {
+    "type": "date",
+    "value": "August 26"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-160",
+  "text": "OPD MRN 9370122 - Suresh Phadke. Medical: on a blood thinner. School: St. Joseph High School. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "MRN 9370122"
+   },
+   {
+    "type": "name",
+    "value": "Suresh Phadke"
+   },
+   {
+    "type": "organization",
+    "value": "St. Joseph High School"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-161",
+  "text": "Pt S. P. Bhosale seen on Thursday. Employed at Maruti Enterprises. Concerns tooth 14, failed crown, recurrent decay at the margin. Previously treated at Care Dental Clinic. Lives at near petrol pump, Phaltan. Next visit 20/12/2026. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. P. Bhosale"
+   },
+   {
+    "type": "date",
+    "value": "on Thursday"
+   },
+   {
+    "type": "organization",
+    "value": "Maruti Enterprises"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   },
+   {
+    "type": "address",
+    "value": "near petrol pump, Phaltan"
+   },
+   {
+    "type": "date",
+    "value": "20/12/2026"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-162",
+  "text": "Dear colleague, thank you for seeing Mr Ramesh Kale (15), who attended on 05/10/2026 with Medical: thyroid, on levothyroxine. Tooth 11: deep distal caries with lingering pain to cold for one week. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Ramesh Kale"
+   },
+   {
+    "type": "date",
+    "value": "05/10/2026"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-163",
+  "text": "Pt S. R. Kale seen on Monday. Lives at H.No. 85, Shahu Nagar, Daund. Appointment last Friday if free. Medical: hypertension on amlodipine. Concerns tooth 47, sensitive to hot and cold, no spontaneous pain. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "S. R. Kale"
+   },
+   {
+    "type": "date",
+    "value": "on Monday"
+   },
+   {
+    "type": "address",
+    "value": "H.No. 85, Shahu Nagar, Daund"
+   },
+   {
+    "type": "date",
+    "value": "last Friday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-164",
+  "text": "patient: ramesh chavan phone: +91-00000-91673 seen on 23 sep 2026 reach by email thorat.n@example.net the patient's wife v. k. reddy will bring the x-ray for the patient tooth 37: swelling and a draining sinus for three days tooth 37 and 25: deep disatl caries with lingering pain to cold for one week please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ramesh chavan"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-91673"
+   },
+   {
+    "type": "date",
+    "value": "23 sep 2026"
+   },
+   {
+    "type": "email",
+    "value": "thorat.n@example.net"
+   },
+   {
+    "type": "relative",
+    "value": "v. k. reddy"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-165",
+  "text": "nikita kale (+91 00000 74611) came on 11 december 2026 with aai siddharth was with the patient. next visit 11 october 2026. iopa taken, periapical radiolucency seen. tooth 36: sensitive to hot and cold, no spontaneous pain. tooth 25 and 16: pericoronitis, partly erupted, recurrent episodes. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "nikita kale"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 74611"
+   },
+   {
+    "type": "date",
+    "value": "11 december 2026"
+   },
+   {
+    "type": "relative",
+    "value": "siddharth"
+   },
+   {
+    "type": "date",
+    "value": "11 october 2026"
+   }
+  ],
+  "style": [
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-166",
+  "text": "Re: Ms Anita Rane, 80 years. Next visit October 4. Tooth 37: failed crown, recurrent decay at the margin. Concerns tooth 25, mobile after a fall, tender to percussion. Medical: no known allergies. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ms Anita Rane"
+   },
+   {
+    "type": "date",
+    "value": "October 4"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-167",
+  "text": "Kindly see Shri Aniket Shinde, born 3-11-1977, for Tooth 26: sensitive to hot and cold, no spontaneous pain. The patient's wife Kulkarni, Manoj will bring the X-ray for the patient. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Shri Aniket Shinde"
+   },
+   {
+    "type": "dob",
+    "value": "3-11-1977"
+   },
+   {
+    "type": "relative",
+    "value": "Kulkarni, Manoj"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-168",
+  "text": "Patient: Usha Chavan. Phone: +91 00000 40821. Seen on 7/12. tai Kavita was with the patient. Appointment this Friday if free. Runs Laxmi Textiles. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Usha Chavan"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 40821"
+   },
+   {
+    "type": "date",
+    "value": "7/12"
+   },
+   {
+    "type": "relative",
+    "value": "Kavita"
+   },
+   {
+    "type": "date",
+    "value": "this Friday"
+   },
+   {
+    "type": "organization",
+    "value": "Laxmi Textiles"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-169",
+  "text": "OPD OPD 4483 - Arjun Jagtap IOPA taken, periapical radiolucency seen Tooth 47 & 14: sensitive to hot & cold, no spontaneous pain Previously treated at Smile Point Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 4483"
+   },
+   {
+    "type": "name",
+    "value": "Arjun Jagtap"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-170",
+  "text": "Raju tai came today, 24/12/2026. Next visit 19/10/2026. Reach by email kavita.salunke@example.org. The patient's wife Shri Sandeep Gupta will bring the X-ray for the patient. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Raju tai"
+   },
+   {
+    "type": "date",
+    "value": "24/12/2026"
+   },
+   {
+    "type": "date",
+    "value": "19/10/2026"
+   },
+   {
+    "type": "email",
+    "value": "kavita.salunke@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Sandeep Gupta"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-171",
+  "text": "Suresh Pande came to the clinic. Appointment this Thursday if free. IOPA taken, widened ligament space. bhau Smita was with the patient. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Suresh"
+   },
+   {
+    "type": "date",
+    "value": "this Thursday"
+   },
+   {
+    "type": "relative",
+    "value": "Smita"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-172",
+  "text": "kindly see master manoj verma, born 18/04/1950, for reach by email mansi.chavan@example.org. runs sai motors. the patient's son singh, suresh accompanied the patient. regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "master manoj verma"
+   },
+   {
+    "type": "dob",
+    "value": "18/04/1950"
+   },
+   {
+    "type": "email",
+    "value": "mansi.chavan@example.org"
+   },
+   {
+    "type": "organization",
+    "value": "sai motors"
+   },
+   {
+    "type": "relative",
+    "value": "singh, suresh"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-173",
+  "text": "faisal kale came to the clinic. medical: hypertension on amlodipine. next visit 11 dec 2026. thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "faisal"
+   },
+   {
+    "type": "date",
+    "value": "11 dec 2026"
+   }
+  ],
+  "style": [
+   "typo",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-174",
+  "text": "pt a. s. ghule seen last saturday. tooth 45: pericoronitis, partly erupted, recurrent episodes. concerns tth 37, swelling & a draining sinus for three days. appointment this thursday if free. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "a. s. ghule"
+   },
+   {
+    "type": "date",
+    "value": "last saturday"
+   },
+   {
+    "type": "date",
+    "value": "this thursday"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-175",
+  "text": "Ganesh Salunke came to the clinic. Medical: on a blood thinner. Concerns tooth 46, swelling and a draining sinus for three days. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ganesh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-176",
+  "text": "Pt P. R. Nair seen this Friday. Concerns tooth 16, deep distal caries with lingering pain to cold for one week. Previously treated at Smile Point. Appointment this Wednesday if free. Tooth 25 and 36: root filling done elsewhere, dull ache on biting for two weeks. bhau Sandeep was with the patient. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "P. R. Nair"
+   },
+   {
+    "type": "date",
+    "value": "this Friday"
+   },
+   {
+    "type": "organization",
+    "value": "Smile Point"
+   },
+   {
+    "type": "date",
+    "value": "this Wednesday"
+   },
+   {
+    "type": "relative",
+    "value": "Sandeep"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-177",
+  "text": "Patient: Dinesh Patil. Phone: +91 00000 74614. Seen on 27.12.2026. bhau Pallavi was with the patient. Appointment this Saturday if free. Concerns tooth 45, pericoronitis, partly erupted, recurrent episodes. The patient's father Sheetal Reddy came with the patient. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Dinesh Patil"
+   },
+   {
+    "type": "phone",
+    "value": "+91 00000 74614"
+   },
+   {
+    "type": "date",
+    "value": "27.12.2026"
+   },
+   {
+    "type": "relative",
+    "value": "Pallavi"
+   },
+   {
+    "type": "date",
+    "value": "this Saturday"
+   },
+   {
+    "type": "relative",
+    "value": "Sheetal Reddy"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-178",
+  "text": "Golu came today, September 24. School: Saraswati Vidyalaya. Tooth 24: root filling done elsewhere, dull ache on biting for two weeks. The pt's wife Golu came with the pt. Works at Jai Hind Traders. Reach by email pravin88@example.com. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Golu"
+   },
+   {
+    "type": "date",
+    "value": "September 24"
+   },
+   {
+    "type": "organization",
+    "value": "Saraswati Vidyalaya"
+   },
+   {
+    "type": "relative",
+    "value": "Golu"
+   },
+   {
+    "type": "organization",
+    "value": "Jai Hind Traders"
+   },
+   {
+    "type": "email",
+    "value": "pravin88@example.com"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-179",
+  "text": "Imran Pawar (0000 086115) came on 18/09/2026 with Runs Krishna Textiles. Tooth 37 and 25: deep distal caries with lingering pain to cold for one week. Reach by email manoj21@example.com. Lives at opp. Shivaji statue, Ram Mandir Road, Ahmednagar. Previously treated at City Dental Centre. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Imran Pawar"
+   },
+   {
+    "type": "phone",
+    "value": "0000 086115"
+   },
+   {
+    "type": "date",
+    "value": "18/09/2026"
+   },
+   {
+    "type": "organization",
+    "value": "Krishna Textiles"
+   },
+   {
+    "type": "email",
+    "value": "manoj21@example.com"
+   },
+   {
+    "type": "address",
+    "value": "opp. Shivaji statue, Ram Mandir Road, Ahmednagar"
+   },
+   {
+    "type": "organization",
+    "value": "City Dental Centre"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-180",
+  "text": "pt: Amit Verma. Phone: 0000027527. Seen on 11/08/2026. Tooth 36 & 36: root filling done elsewhere, dull ache on biting for two weeks. Reach by email smita22@example.com. The pt's husband Thorat, Jyoti accompanied the pt. Concerns tth 24, pericoronitis, partly erupted, recurrent episodes. Next visit 23-08-26. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Amit Verma"
+   },
+   {
+    "type": "phone",
+    "value": "0000027527"
+   },
+   {
+    "type": "date",
+    "value": "11/08/2026"
+   },
+   {
+    "type": "email",
+    "value": "smita22@example.com"
+   },
+   {
+    "type": "relative",
+    "value": "Thorat, Jyoti"
+   },
+   {
+    "type": "date",
+    "value": "23-08-26"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-181",
+  "text": "OPD OPD 1239 - Madhuri Phadke. Medical: asthma, uses a reliever inhaler. Reach by email kulkarni.s@example.net. Lives at Flat 31, Shivam Residency, Latur. Previously treated at Care Dental Clinic. The patient's husband Mr Anil Salunke will bring the X-ray for the patient. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "OPD 1239"
+   },
+   {
+    "type": "name",
+    "value": "Madhuri Phadke"
+   },
+   {
+    "type": "email",
+    "value": "kulkarni.s@example.net"
+   },
+   {
+    "type": "address",
+    "value": "Flat 31, Shivam Residency, Latur"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   },
+   {
+    "type": "relative",
+    "value": "Mr Anil Salunke"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-182",
+  "text": "OPD MRN 2071889 - Priya Shinde. baba Amit was with the patient. Appointment last Wednesday if free. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "MRN 2071889"
+   },
+   {
+    "type": "name",
+    "value": "Priya Shinde"
+   },
+   {
+    "type": "relative",
+    "value": "Amit"
+   },
+   {
+    "type": "date",
+    "value": "last Wednesday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-183",
+  "text": "re: smt. kavita bhosale, 78 years tooth 25 & 36: pericoronitis, partly erupted, recurrent episodes lives at near shivaji statue, sangamner previously treated at care dental clinic pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "smt. kavita bhosale"
+   },
+   {
+    "type": "address",
+    "value": "near shivaji statue, sangamner"
+   },
+   {
+    "type": "organization",
+    "value": "care dental clinic"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-184",
+  "text": "Prakash Iyer (+91-00000-09640) came on 11/10/2026 with bhau Savita was with the patient. Employed at Shree Medical. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Prakash Iyer"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-09640"
+   },
+   {
+    "type": "date",
+    "value": "11/10/2026"
+   },
+   {
+    "type": "relative",
+    "value": "Savita"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Medical"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-185",
+  "text": "Qureshi, Ashok DOB 24-2-1992 ph +91-00000-14992 School: Vidya Mandir School Reach by email tambe.a@example.net Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Qureshi, Ashok"
+   },
+   {
+    "type": "dob",
+    "value": "24-2-1992"
+   },
+   {
+    "type": "phone",
+    "value": "+91-00000-14992"
+   },
+   {
+    "type": "organization",
+    "value": "Vidya Mandir School"
+   },
+   {
+    "type": "email",
+    "value": "tambe.a@example.net"
+   }
+  ],
+  "style": [
+   "no-punct"
+  ]
+ },
+ {
+  "id": "DENTAL-186",
+  "text": "Jadhav, Manoj; DOB 12-3-1991; ph 00000 95857. Tooth 11 and 46: pericoronitis, partly erupted, recurrent episodes. The patient's wife Shri Reddy came with the patient. Appointment on Saturday if free. IOPA taken, widened ligament space. Previously treated at Ortho Plus clinic. Kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Jadhav, Manoj"
+   },
+   {
+    "type": "dob",
+    "value": "12-3-1991"
+   },
+   {
+    "type": "phone",
+    "value": "00000 95857"
+   },
+   {
+    "type": "relative",
+    "value": "Shri Reddy"
+   },
+   {
+    "type": "date",
+    "value": "on Saturday"
+   },
+   {
+    "type": "organization",
+    "value": "Ortho Plus clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-187",
+  "text": "Mane, Sachin; DOB 13/11/1967; ph 0000096226. Concerns tooth 45, failed crown, recurrent decay at the margin. IOPA taken, widened ligament space. Previously treated at Care Dental Clinic. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mane, Sachin"
+   },
+   {
+    "type": "dob",
+    "value": "13/11/1967"
+   },
+   {
+    "type": "phone",
+    "value": "0000096226"
+   },
+   {
+    "type": "organization",
+    "value": "Care Dental Clinic"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-188",
+  "text": "Re: Mr Arjun Patil, 41 years Appointment this Wednesday if free The pt's son Sandeep Shaikh will bring the X-ray for the pt Pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Arjun Patil"
+   },
+   {
+    "type": "date",
+    "value": "this Wednesday"
+   },
+   {
+    "type": "relative",
+    "value": "Sandeep Shaikh"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-189",
+  "text": "OPD MRN 5042398 - Sandeep Deshmukh. School: New English School. Medical: thyroid, on levothyroxine. Runs Maruti Bakery. Appointment on Wednesday if free. Regards",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "MRN 5042398"
+   },
+   {
+    "type": "name",
+    "value": "Sandeep Deshmukh"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   },
+   {
+    "type": "organization",
+    "value": "Maruti Bakery"
+   },
+   {
+    "type": "date",
+    "value": "on Wednesday"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-190",
+  "text": "OPD SR-8149 - Manoj Rane. Appointment last Monday if free. Reach by email sunil.kulkarni@example.org. Medical: thyroid, on levothyroxine. aai Ganesh was with the pt. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "SR-8149"
+   },
+   {
+    "type": "name",
+    "value": "Manoj Rane"
+   },
+   {
+    "type": "date",
+    "value": "last Monday"
+   },
+   {
+    "type": "email",
+    "value": "sunil.kulkarni@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Ganesh"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-191",
+  "text": "Joshi, Sunil; DOB 26-10-2012; ph (00000) 06056. Reach by email arjun.pawar@example.org. baba Dinesh was with the patient. Medical: diabetic, last HbA1c acceptable. Please evaluate and manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Joshi, Sunil"
+   },
+   {
+    "type": "dob",
+    "value": "26-10-2012"
+   },
+   {
+    "type": "phone",
+    "value": "(00000) 06056"
+   },
+   {
+    "type": "email",
+    "value": "arjun.pawar@example.org"
+   },
+   {
+    "type": "relative",
+    "value": "Dinesh"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-192",
+  "text": "Monu bhau came today, 25 October 2026. Runs Shree Agro. tai Aarti was with the patient. Tooth 16 and 46: failed crown, recurrent decay at the margin. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Monu bhau"
+   },
+   {
+    "type": "date",
+    "value": "25 October 2026"
+   },
+   {
+    "type": "organization",
+    "value": "Shree Agro"
+   },
+   {
+    "type": "relative",
+    "value": "Aarti"
+   }
+  ],
+  "style": [
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-193",
+  "text": "Kindly see Mr Imran Mane, born 11-8-1989, for Concerns tth 25, vertical fracture, unrestoarble by my assessment. Lives at Ganesh Apartments, Gandhi Chowk, Kolhapur. Medical: no known allergies. IOPA taken, no periapical change. Pls evaluate & manage.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mr Imran Mane"
+   },
+   {
+    "type": "dob",
+    "value": "11-8-1989"
+   },
+   {
+    "type": "address",
+    "value": "Ganesh Apartments, Gandhi Chowk, Kolhapur"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo"
+  ]
+ },
+ {
+  "id": "DENTAL-194",
+  "text": "mane, meera; dob 9 november 2004; ph 00000 86790. iopa taken, no periapical change. tai amit was with the pt. reach by email manoj33@example.com. medical: thyroid, on levothyroxine. next visit 28/12/2026. kindly advise.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "mane, meera"
+   },
+   {
+    "type": "dob",
+    "value": "9 november 2004"
+   },
+   {
+    "type": "phone",
+    "value": "00000 86790"
+   },
+   {
+    "type": "relative",
+    "value": "amit"
+   },
+   {
+    "type": "email",
+    "value": "manoj33@example.com"
+   },
+   {
+    "type": "date",
+    "value": "28/12/2026"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-195",
+  "text": "Ansari, Siddharth; DOB 10-7-1952; ph 0000 068326. The patient's father Suresh Shah will bring the X-ray for the patient. Next visit 1 Nov 2026. bhau Kiran was with the patient. Regards",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Ansari, Siddharth"
+   },
+   {
+    "type": "dob",
+    "value": "10-7-1952"
+   },
+   {
+    "type": "phone",
+    "value": "0000 068326"
+   },
+   {
+    "type": "relative",
+    "value": "Suresh Shah"
+   },
+   {
+    "type": "date",
+    "value": "1 Nov 2026"
+   },
+   {
+    "type": "relative",
+    "value": "Kiran"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-196",
+  "text": "Re: Mrs Pallavi Ansari, 36 years. Tooth 25 & 45: swelling & a draining sinus for three days. Reach by email iyer.v@example.net. Runs Om Medical. School: New English School. Next visit December 12. Thanks for your opinion.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Mrs Pallavi Ansari"
+   },
+   {
+    "type": "email",
+    "value": "iyer.v@example.net"
+   },
+   {
+    "type": "organization",
+    "value": "Om Medical"
+   },
+   {
+    "type": "organization",
+    "value": "New English School"
+   },
+   {
+    "type": "date",
+    "value": "December 12"
+   }
+  ],
+  "style": [
+   "abbrev"
+  ]
+ },
+ {
+  "id": "DENTAL-197",
+  "text": "Bagade, Sneha; DOB 16/06/2010; ph 00000 11486. Lives at near petrol pump, Solapur. Appointment this Friday if free. Please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "Bagade, Sneha"
+   },
+   {
+    "type": "dob",
+    "value": "16/06/2010"
+   },
+   {
+    "type": "phone",
+    "value": "00000 11486"
+   },
+   {
+    "type": "address",
+    "value": "near petrol pump, Solapur"
+   },
+   {
+    "type": "date",
+    "value": "this Friday"
+   }
+  ],
+  "style": []
+ },
+ {
+  "id": "DENTAL-198",
+  "text": "chintu tai came today, october 26 bhau sheetal was with the patient reach by email ansari.a@example.net concerns tooth 16, mobile after a fall, tender to percussion please see and report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "chintu tai"
+   },
+   {
+    "type": "date",
+    "value": "october 26"
+   },
+   {
+    "type": "relative",
+    "value": "sheetal"
+   },
+   {
+    "type": "email",
+    "value": "ansari.a@example.net"
+   }
+  ],
+  "style": [
+   "no-punct",
+   "lower"
+  ]
+ },
+ {
+  "id": "DENTAL-199",
+  "text": "pappu kaka came today, 20/11. tooth 25: pericoronitis, partly erupted, recurrent episodes. previously treated at dr. rao's clinic. medical: on a blood thinner. tooth 14 & 47: mobile after a fall, tender to percussion. pls see & report back.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pappu kaka"
+   },
+   {
+    "type": "date",
+    "value": "20/11"
+   },
+   {
+    "type": "organization",
+    "value": "dr. rao's clinic"
+   }
+  ],
+  "style": [
+   "abbrev",
+   "typo",
+   "lower"
+  ]
+ }
+]
