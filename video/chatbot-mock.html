@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shot 1: a chat window (made up)</title>
+<style>
+  :root { --bg:#f4f5f7; --card:#fff; --ink:#1d2330; --muted:#657089; --line:#dde1ea; --user:#e8f0ff; --warn:#fff3cd; --warnink:#6b4e00; --red:#c62828; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#15181f; --card:#1e232d; --ink:#eef0f5; --muted:#9aa5bb; --line:#323a49; --user:#233250; --warn:#3a2f10; --warnink:#ffd98a; --red:#ff6b6b; } }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:18px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .banner { margin:0; padding:10px 20px; background:var(--warn); color:var(--warnink); font-weight:700; text-align:center; }
+  .win { max-width:1000px; margin:22px auto; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .bar { padding:12px 18px; border-bottom:1px solid var(--line); color:var(--muted); font-size:15px; }
+  .msgs { padding:22px 22px 8px; }
+  .you { background:var(--user); border-radius:12px; padding:16px 18px; margin-left:60px; }
+  .who { font-size:13px; color:var(--muted); margin:0 0 6px; letter-spacing:.04em; text-transform:uppercase; }
+  .hl { background:rgba(198,40,40,.16); color:var(--red); border-radius:4px; padding:0 3px; font-weight:700; }
+  .box { margin:18px 22px 22px; border:1px solid var(--line); border-radius:12px; padding:14px 16px; color:var(--muted); display:flex; justify-content:space-between; }
+  .send { color:#fff; background:#5b6b8c; border-radius:8px; padding:2px 14px; }
+  .cap { text-align:center; font-size:30px; font-weight:800; margin:6px 0 0; }
+</style>
+</head>
+<body>
+  <p class="banner">Synthetic data only: made-up patient, made-up chat. Not a real conversation.</p>
+  <div class="win" role="img" aria-label="A generic chat window with a made-up patient note pasted in">
+    <div class="bar">A general-purpose AI chat · new conversation</div>
+    <div class="msgs">
+      <div class="you">
+        <p class="who">You</p>
+        Patient: <span class="hl">Meghnad Sathaye</span>, 52 years. Phone: <span class="hl">00000 61234</span>. Seen on <span class="hl">14/11/2026</span>. His wife <span class="hl">Vasanti Sathaye</span> came with him. Referred for endodontic retreatment of tooth 46: dull ache on biting for two weeks, root filling done elsewhere. Tender to percussion. IOPA attached. Please write a referral letter.
+      </div>
+    </div>
+    <div class="box"><span>Message…</span><span class="send">Send</span></div>
+  </div>
+  <p class="cap">The name goes with it.</p>
+</body>
+</html>

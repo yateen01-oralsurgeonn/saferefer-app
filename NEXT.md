@@ -1,3 +1,6 @@
+> **REMINDER (his choice, 21 Nov): the repo is still PRIVATE. Make it PUBLIC before submitting (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Ask him at the start of every session from 26 Nov. Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
+> **Live now:** https://saferefer-d5175.web.app (deployed, console steps done, App Check enforced, API key restricted). master = origin/master. Video prep is on branch `t14-video`.
+
 # NEXT: T13 is DONE (20 Nov). Now T14 the video
 
 Read `HANDOVER.md`, `CLAUDE.md`, `SUBMISSION.md` section 2 (the demo script), `ACCEPTANCE.md` T14, `RULES.md` (video rules), `LEAK-RESULTS.md` and `T13-REPORT.md` first. Newest branch: **`t13-deploy`** (built on `t12c-gaps`). Everything up to `t12c-gaps` (5163e2a) is pushed; `t13-deploy` is committed locally. Nothing is merged to master.

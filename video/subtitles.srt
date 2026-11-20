@@ -1,0 +1,45 @@
+1
+00:00:01,000 --> 00:00:10,500
+Professionals paste client notes into chatbots.
+The name goes with it.
+
+2
+00:00:13,000 --> 00:00:30,000
+Here the note is cleaned inside the browser first.
+Names, phones, dates and IDs become labels.
+
+3
+00:00:33,000 --> 00:00:50,000
+This is everything the cloud will see.
+No name, no phone, no relative.
+
+4
+00:00:53,000 --> 00:01:08,000
+The cloud writes the letter.
+The browser puts the names back.
+
+5
+00:01:11,000 --> 00:01:26,000
+This is the request, as sent.
+Labels only, no identifiers.
+
+6
+00:01:30,000 --> 00:01:52,000
+Offline, the on-device model still works.
+The letter waits, then sends itself.
+
+7
+00:01:56,000 --> 00:02:18,000
+Same engine, three professions. Amounts and sections stay.
+IDs and settlement sums are hidden.
+
+8
+00:02:21,000 --> 00:02:41,000
+Twenty-five fresh notes. Three of 171 identifiers missed, after two fixes.
+The advocate set, never used to design them, missed none.
+Small set. Every miss is listed.
+
+9
+00:02:43,000 --> 00:02:54,000
+Firebase AI Logic, Gemini Nano, App Check.
+The code is open.
