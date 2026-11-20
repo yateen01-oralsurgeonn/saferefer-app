@@ -42,7 +42,7 @@ Updated 20 Nov 2026 (T13) to match the built app. Items marked `[FILL]` need rea
 
 ## 2. Demo script (target 2:50, hard limit 3:00, English, subtitles)
 
-Record at 1280 x 720 with the synthetic banner in every shot. Use only made-up notes. Chrome with Nano on, then the Wi-Fi shot.
+Everything for recording is in `video/` (runbook, demo notes, voiceover, subtitles, pre-flight, chat mock, architecture page); this table is the summary, `video/voiceover.md` has the final lines. Record at 1280 x 720 with the synthetic banner in every shot. Use only made-up notes. Chrome with Nano on, then the Wi-Fi shot.
 
 | Time | Shot | Voiceover | On-screen text |
 |---|---|---|---|
@@ -53,7 +53,7 @@ Record at 1280 x 720 with the synthetic banner in every shot. Use only made-up n
 | 1:10-1:28 | Chrome network panel, request body open | "The request, as sent. No identifiers." | The actual request body |
 | 1:28-1:55 | Wi-Fi off. Redact, tooth list ("On-device" badge), Send: "Queued". Wi-Fi on: letter arrives | "Offline, the on-device model still works. The letter waits, then sends itself." | Offline: on-device still works → Back online: letter sent |
 | 1:55-2:20 | Switch to Chartered Accountant, then Advocate: same flow, 10 s each | "Same engine, three professions. Amounts and sections stay, IDs and settlement sums are hidden." | CA · Advocate · one engine |
-| 2:20-2:42 | Leak-test page, fresh notes, with Nano | "Tested on notes I had not seen. Misses are listed, not hidden." | 25 fresh notes · 3 of 171 left · `[FILL final numbers]` |
-| 2:42-2:55 | Architecture diagram, repo URL | "Firebase AI Logic, Gemini Nano, App Check. The code is open." | Firebase AI Logic · Gemini Nano · App Check · `[FILL repo URL]` |
+| 2:20-2:42 | Leak-test page on `npm run dev`, fresh notes, with Nano | "Twenty-five fresh notes. Three of 171 identifiers missed, after two fixes. The advocate set, never used to design them, missed none. Small set. Every miss is listed." | 25 fresh notes · 3 of 171 identifiers missed · small set `[FILL if the harness changes the numbers]` |
+| 2:42-2:55 | `video/architecture.html`, repo URL | "Firebase AI Logic, Gemini Nano, App Check. The code is open." | Firebase AI Logic · Gemini Nano · App Check · github.com/yateen01-oralsurgeonn/saferefer |
 
 Cut first if it runs over 3:00: the CA/Advocate shot to 2 x 7 s, then the network-panel shot. Do not cut the Wi-Fi shot or the leak-test shot: they are what no other entry will have. Do not claim a review by a CA or an advocate, and do not say "private" or "compliant".
