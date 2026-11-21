@@ -908,3 +908,26 @@ textarea.preview.letter {
 button.link { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
 .terms-list { list-style: none; padding: 0; margin: 0.4rem 0; }
 .terms-list li { margin: 0.25rem 0; }
+
+/* T17: what was sent receipt */
+.receipt {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+.receipt summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.receipt-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 10rem;
+  overflow: auto;
+  margin: 0.5rem 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.08);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+}

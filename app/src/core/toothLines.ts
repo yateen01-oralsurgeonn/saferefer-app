@@ -92,6 +92,8 @@ function isToothAt(text: string, start: number, end: number, original: string): 
   if (/\]\s*\($/.test(original.slice(0, start)) && /^\)/.test(after)) return false
   // "[PATIENT], 27, was assaulted": an age set off by commas right after the patient.
   if (/\]\s*,\s*$/.test(original.slice(0, start)) && /^\s*,/.test(after)) return false
+  // "Name, 41 M, phone ..." / "[PERSON_1], 34 F,": age and sex written together near the start of the note, after a comma.
+  if (start < 80 && /,\s*$/.test(before) && /^\s*(?:[MF]|[Mm]ale|[Ff]emale)(?![\p{L}])\s*(?:,|\.|\/|$)/u.test(after)) return false
   return true
 }
 

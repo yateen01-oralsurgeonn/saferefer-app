@@ -63,6 +63,7 @@ import { ai } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn, nanoAvailability } from './nanoAdapter'
 import MyTermsPanel from './MyTermsPanel'
+import SentReceipt from './SentReceipt'
 import { createTermsStore } from './myTermsStore'
 import { createQueueStore } from './queueStore'
 import { loadRemoteValues } from './remoteConfig'
@@ -748,6 +749,7 @@ export default function NoteScreen() {
                   ))}
                 </ul>
               )}
+              {approved !== null && <SentReceipt approved={approved} />}
             </>
           ) : (
             <>

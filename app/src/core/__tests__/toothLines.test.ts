@@ -21,6 +21,13 @@ describe('T9 tooth set (code, not model)', () => {
   it('finds single teeth, lists and ranges in note order', () => {
     expect(noteToothSet('Caries 36, 37. Crowns 11-13 planned. Tooth 46 TTP.')).toEqual(['36', '37', '11', '12', '13', '46'])
   })
+  it('age and sex written together ("41 M", "34 F") near the start is not a tooth', () => {
+    expect(noteToothSet('[PERSON_1], 41 M, phone [PHONE]. Bridge 24-26 trial.')).toEqual(['24', '25', '26'])
+    expect(noteToothSet('Ravi Demokar, 41 M, phone [PHONE]. RCT 36 done.')).toEqual(['36'])
+    expect(noteToothSet('[PERSON_1], 34 F, RCT 36 done.')).toEqual(['36'])
+    expect(noteToothSet('[PERSON_1], 41M, 46 tender')).toEqual(['46'])
+    expect(noteToothSet('RCT 36 M surface caries, 46 tender')).toEqual(['36', '46'])
+  })
   it('ACCEPTANCE: "36 years" is not a tooth; ages, doses and durations are left out', () => {
     expect(noteToothSet('A 36 years old lady with pain in 46.')).toEqual(['46'])
     expect(noteToothSet('36-year-old male, 46 tender.')).toEqual(['46'])

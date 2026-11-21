@@ -4,6 +4,19 @@
 
 > **Hackathon prototype for #BuildHybridAI 2026. Synthetic data only.** Do not type real patient or client data into it. It gives no medical, tax or legal advice, and it makes no compliance claim (no DPDP, HIPAA, ICAI or Bar Council claim). The free Gemini Developer API is used, where Google may keep prompts.
 
+## Judge quickstart (about 60 seconds)
+
+Open https://saferefer-d5175.web.app in **desktop Chrome**. Everything below uses a made-up note; do not type a real one.
+
+1. **Pick a profession** (top left: Dentist, Chartered Accountant, Advocate). Paste this note into the left box:
+   `Patient: Meghnad Sathaye, 52 years. Phone: 00000 61234. Seen on 14/11/2026. His wife Vasanti Sathaye came with him. Referred for endodontic retreatment of tooth 46: dull ache on biting for two weeks, root filling done elsewhere. Tender to percussion. Please evaluate and manage.`
+2. **Look at the right panel, "What the cloud will see".** With Gemini Nano the phone, date, name and wife's name all become labels such as `[PHONE]` and `[RELATIVE_1]`. Tooth 46 and the clinical words stay.
+3. **No Gemini Nano in your browser** (most browsers): the code rules still hide the phone, date and IDs, and the app says "The on-device model is not available. Hide every name by hand, then tick the box." Select a name in the right panel, press **Hide selected words**, tick the box. That is the designed fallback, not a bug, and in this mode nothing about the note is ever sent to a model for redaction.
+4. **Approve**, then **Send.** The letter comes back from the cloud model with the names put back. Under the letter, open **"What was sent to the cloud"**: it shows the exact hidden text that left the browser, its size in bytes and its SHA-256. No name should be in it.
+5. **Try breaking it.** Edit the left note after approving (the approval cancels), hide a word by hand and press **Remember** (My terms), turn Wi-Fi off and press Send (the letter queues and sends itself when you are back online).
+
+What to expect honestly: on notes written in a realistic style the redactor leaves a share of identifiers (see the results tables below). The user's check before Approve is the real control.
+
 ## What it does
 
 1. **Hide.** The note is cleaned inside the browser: code rules find phones, emails, IDs, dates and addresses; Gemini Nano (Chrome's on-device model) finds names, relatives, employers and places. Everything found becomes a label such as `[PATIENT]`, `[PHONE]`, `[ID]`.
@@ -122,6 +135,7 @@ What the numbers say, and do not say:
 ## Limitations (please read)
 
 - **The redactor misses things.** The dentist's check before Approve is the real control, not the model. Weak spots we know: a street address typed all in lower case, a nickname with no clue around it, a name glued into a longer word (the send guard stops it, the redactor does not hide it, and the user hides it by hand).
+- **Without Gemini Nano (manual mode) the user's tick is the only control for names.** The code rules still hide phones, emails, IDs, dates and addresses, and the app underlines words that look like names, but an underline is advice, not a block: a user who ticks "I hid every name by hand" without hiding a name will send it. The "What was sent to the cloud" receipt under the letter shows exactly what left the browser, so the mistake is visible afterwards, not prevented. We chose not to add a second blocking tick for underlined words in this version.
 - **"My terms" learns per device, not across users, and only places, labs and ID formats** (never names). Anyone using the same browser profile can see the list in the panel.
 - **Hiding names is not the same as anonymous.** A rare condition, an exact figure or a job title can still point to one person. Clinical, tax and legal details are sent to the cloud on purpose.
 - **Synthetic data only.** This build uses the free Gemini Developer API, where Google may keep and review prompts. No privacy claim is made for real patients or clients.
