@@ -40,13 +40,15 @@ const HAND: Partial<Record<PackId, TestNote[]>> = {
   ca: handFiles['../../data/harness/hand/hand-ca.json'],
   law: handFiles['../../data/harness/hand/hand-law.json'],
 }
-const wantHand = params.get('set') === 'hand'
+// set=hand is batch 1, set=hand2 batch 2 (hand-<pack>-2.json, written for the T16 My terms test). Both counts only.
+const handBatch = params.get('set') === 'hand' ? '' : params.get('set') === 'hand2' ? '-2' : null
+const wantHand = handBatch !== null
 const harnessSet = params.get('set') === 'tune' || params.get('set') === 'locked' ? (params.get('set') as 'tune' | 'locked') : null
 const wantFresh = params.get('set') === 'fresh'
 const freshNotes = FRESH_BY_PACK[pack.id]
-const handNotes = HAND[pack.id]
+const handNotes = handBatch === '-2' ? handFiles[`../../data/harness/hand/hand-${pack.id}-2.json`] : HAND[pack.id]
 const notes = wantHand && handNotes ? handNotes : harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
-const noteSetName = wantHand && handNotes ? 'hand-written notes (Dr. Yatin, 10 per profession, small set)' : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
+const noteSetName = wantHand && handNotes ? `hand-written notes${handBatch === '-2' ? ', batch 2' : ''} (Dr. Yatin, 10 per profession, small set)` : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
 const lists = { drugs, clinicalTerms: terms }
 // T16 (development only): ?terms=<name> loads data/harness/terms/<name>.json, a synthetic "My terms" list, and runs the same
 // path with it. Off by default, so every existing number and the H4 gate are unchanged.
