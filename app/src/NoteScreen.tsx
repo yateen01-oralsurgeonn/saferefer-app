@@ -497,6 +497,9 @@ export default function NoteScreen() {
       return
     }
     setManualHides((prev) => (prev.some((p) => fold(p) === fold(text)) ? prev : [...prev, text]))
+    // Hiding by hand overrides an earlier "show again" of the same words in this note.
+    const t = fold(text)
+    setUnhidden((prev) => prev.filter((p) => !fold(p).includes(t) && !t.includes(fold(p))))
     sel.removeAllRanges()
     setRemember(text.length <= 60 ? text : null)
     setRememberMsg('')
