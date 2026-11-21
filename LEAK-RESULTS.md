@@ -293,7 +293,16 @@ Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are
 - The README and video must quote this number next to the generated ones: "hand-written, 10 notes, 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
 - Screenshot: `Safe refer handwritten dentist notes. .png`. The earlier run on the wrong set (URL typo `set=hand.`; stale dev server) was the 30-note builder set and is not recorded as a hand result.
 
-## T16 "My terms" (built 21 Nov 2026, measurements NOT yet run)
+## T16 "My terms" (built 21 Nov 2026; batch 2 BEFORE run recorded, WITH-terms run pending)
 - Code and tests are done; no leak number for My terms exists yet. Planned runs (T16-PLAN.md section 5): (1) his hand-written batch 2, without terms and with `&terms=yatin-dental`, small set; (2) generated locked set with terms built from TUNE misses only, reported as an upper bound.
 - Not allowed: terms built from any locked or hand-set miss list. Terms files live in `data/harness/terms/<name>.json` (development only; not in the production bundle).
 - Built-in sets, the gate and every baseline are unchanged (`npm run harness` identical to the saved baselines).
+
+### Hand-written dental batch 2: BEFORE (no saved terms), 21 Nov 2026, his Chrome, code + Gemini Nano
+- Set: `data/harness/hand/hand-dental-2.md` / `.json`, 10 notes, 33 marked identifiers, sealed b80e248 before any run (json sha256 fd8fcc8c...). Page `/?leak&pack=dental&set=hand2` (counts only).
+- **Result: 10 of 33 left (30.3%).** Without the one marked `amount` (dentist notes leave amounts visible by design, so it always counts): **9 of 32 (28.1%)**.
+- By type (leaked/total): name 3/8, date 2/7, record_id 2/3, organisation 1/2, address 1/2, amount 1/1; phone 0/4, relative 0/3, dob 0/1, email 0/1, id 0/1.
+- Zero-request checks: PASS (0 requests, 0 App Check calls during the run; with the model removed 0 requests and 10 of 10 notes in manual mode).
+- Worse than batch 1 (7 of 34, 20.6%), mostly names (3/8 vs 1/8). Small sets: the difference between batches is within noise; causes not examined (sealed set).
+- Order caveat: he wrote these notes BEFORE his terms list (the plan asked for the list first). The WITH-terms run will be reported as a best case ("list written after the notes, by the same person"), not a clean test.
+
