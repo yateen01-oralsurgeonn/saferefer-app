@@ -68,6 +68,11 @@ import { createQueueStore } from './queueStore'
 import { loadRemoteValues } from './remoteConfig'
 import { createToothModelFn } from './toothAdapter'
 
+const isPersonType = (t: string) => t === 'PATIENT' || t === 'PERSON' || t === 'RELATIVE'
+function addNameWords(out: Set<string>, text: string) {
+  for (const w of fold(text).split(/[^\p{L}\p{N}]+/u)) if (w.length >= 3) out.add(w)
+}
+
 const lists = { drugs, clinicalTerms: terms }
 const termSet = buildTermSet(lists)
 /** Words that are never "a possible missed name": clinical words, drug names and the shorthand list. */
@@ -140,6 +145,8 @@ export default function NoteScreen() {
   const [orphanLetter, setOrphanLetter] = useState<ParsedLetter | null>(null)
 
   const mapRef = useRef<TokenMap | null>(null)
+  /** Name words Gemini Nano found in this note, kept across re-runs so a later hand hide cannot launder them into "My terms". */
+  const nanoPersonWords = useRef<Set<string>>(new Set())
   const runCounter = useRef(0)
   const approvedRef = useRef<string | null>(null)
   const previewRef = useRef<HTMLDivElement>(null)
@@ -202,6 +209,7 @@ export default function NoteScreen() {
     const timer = setTimeout(async () => {
       const result = await nanoRedact(first.text, first.map, modelFn, lists, { signal: ctrl.signal, noteKind: basePack.nanoNoteKind })
       if (runCounter.current !== runId || result.aborted) return
+      for (const i of result.kept) if (isPersonType(i.type)) addNameWords(nanoPersonWords.current, i.text)
       setNano(result)
       setPreview(unhideTokens(result.text, first.map, unhidden))
       setRunning(false)
@@ -212,7 +220,13 @@ export default function NoteScreen() {
     }
   }, [note, manualHides, unhidden, basePack, savedTerms])
 
-  const review = useMemo(() => (nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed), [nano, stageOneMissed])
+  // A Nano suggestion that is already hidden (by a saved term, the code or a hand hide) is not a miss: drop it from the review list.
+  const review = useMemo(() => {
+    const all = nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed
+    const hidden = new Set<string>()
+    for (const e of mapRef.current?.entries() ?? []) for (const v of e.variants) hidden.add(fold(v))
+    return all.filter((i) => !hidden.has(fold(i.text)))
+  }, [nano, stageOneMissed])
   const needManualTick = nano?.state === 'manual'
   const needReviewTick = review.length > 0 && !running
   const canApprove =
@@ -268,6 +282,7 @@ export default function NoteScreen() {
     if (isNewNote(note, value)) {
       setManualHides([])
       setUnhidden([])
+      nanoPersonWords.current = new Set()
     }
     setNote(value)
   }
@@ -286,6 +301,7 @@ export default function NoteScreen() {
     setNote('')
     setManualHides([])
     setUnhidden([])
+    nanoPersonWords.current = new Set()
     setPackChanged(true)
     setBasePack(next)
   }
@@ -516,14 +532,12 @@ export default function NoteScreen() {
   }, [])
 
   /** Words the app already hid as a person in this note (code or Nano), not the user's own hand hides. */
+  // Hand hides are typed PERSON too, so the code's own finds come from a run without them; Nano's finds are
+  // remembered across re-runs (a hand hide of a name Nano found removes it from Nano's next input).
   function personWordsNow(): Set<string> {
-    const hand = new Set(manualHides.map(fold))
-    const out = new Set<string>()
-    for (const e of mapRef.current?.entries() ?? []) {
-      if (e.type !== 'PATIENT' && e.type !== 'PERSON' && e.type !== 'RELATIVE') continue
-      if (e.variants.some((v) => hand.has(fold(v)))) continue
-      for (const v of e.variants) for (const w of fold(v).split(/[^\p{L}\p{N}]+/u)) if (w.length >= 3) out.add(w)
-    }
+    const out = new Set(nanoPersonWords.current)
+    const codeOnly = redactFirst(note, [], termsToRules(savedTerms, rulesForPack(basePack)), termsToHideItems(savedTerms))
+    for (const e of codeOnly.map.entries()) if (isPersonType(e.type)) for (const v of e.variants) addNameWords(out, v)
     return out
   }
 
