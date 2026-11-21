@@ -294,7 +294,7 @@ Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are
 - The README and video must quote this number next to the generated ones: "10 notes written with an AI assistant (not by the builder), 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
 - Screenshot: `Safe refer handwritten dentist notes. .png`. The earlier run on the wrong set (URL typo `set=hand.`; stale dev server) was the 30-note builder set and is not recorded as a hand result.
 
-## T16 "My terms" (built 21 Nov 2026; batch 2 BEFORE run recorded, WITH-terms run pending)
+## T16 "My terms" (built 21 Nov 2026; batch 2 before and with-terms runs recorded, upper bound only)
 - Code and tests are done; no leak number for My terms exists yet. Planned runs (T16-PLAN.md section 5): (1) his hand-written batch 2, without terms and with `&terms=yatin-dental`, small set; (2) generated locked set with terms built from TUNE misses only, reported as an upper bound.
 - Not allowed: terms built from any locked or hand-set miss list. Terms files live in `data/harness/terms/<name>.json` (development only; not in the production bundle).
 - Built-in sets, the gate and every baseline are unchanged (`npm run harness` identical to the saved baselines).
@@ -312,4 +312,11 @@ Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are
 - So the WITH-terms run measures **an upper bound only**: how much My terms can remove when the list matches the notes exactly. It must never be quoted as a real-world gain, in the README or the video.
 - 12 terms: 6 places, 2 labs, 4 ID formats (op, ort, cr, zc). `pd-163` was refused by the app's own check ("pd" = pocket depth), so record ids with that prefix stay visible.
 - A real test still needs a terms list written by a user from their own work, before seeing the notes it is tested on.
+
+### "Hand" dental batch 2 WITH My terms (`&terms=batch2-list`, 12 terms), 21 Nov 2026, his Chrome, code + Gemini Nano
+- **Result: 7 of 33 left (21.2%)**, before 10 of 33 (30.3%). Without the by-design amount: **6 of 32 (18.8%)**, before 9 of 32 (28.1%).
+- By type, before -> with terms: address 1 -> 0, organisation 1 -> 0, record_id 2 -> 1; name 3 -> 2, date 2 -> 3; amount 1 -> 1; phone, relative, dob, email, id 0 -> 0.
+- What My terms can change: places, labs and ID formats. Those went 4 -> 1 (the record id left is not examined; the refused `pd` prefix is one possible cause, unconfirmed). Names and dates are not saved terms, so their +-1 moves are run-to-run variation (Gemini Nano is not deterministic, and its input changes when more is hidden before it). Net effect of the terms on this set: about 3 identifiers.
+- Zero-request checks: PASS (0 requests, 0 App Check calls; model removed: 0 requests, 10 of 10 manual).
+- **UPPER BOUND ONLY.** The terms list was taken from these same notes by the AI assistant that wrote them. Never quote "30% -> 21%" as a real-world gain. Allowed wording: "when the saved list matches the notes, My terms removed the place, lab and ID misses it can see (4 -> 1 of 33); a test with an independently written list has not been done."
 
