@@ -1,0 +1,192 @@
+[
+ {
+  "id": "HAND-DENTAL-2-001",
+  "text": "gauri tai cha msg 4/11 la aala, 21 varchi temp cap nighali. cap gheun aali, parat basavli. final cap aali ki 00000 63742 var kalva, file fp-218 madhe juna no aahe.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "gauri"
+   },
+   {
+    "type": "date",
+    "value": "4/11"
+   },
+   {
+    "type": "phone",
+    "value": "00000 63742"
+   },
+   {
+    "type": "record_id",
+    "value": "fp-218"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-002",
+  "text": "last tuesday a.b. kaka brought both dentures in the same dabba. khalcha denture boltana halto mhantat, impression ghetla. lab slip dn-063 sent to pivalepaan dental lab, pickup sathi mulga nilu yenar.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "last tuesday"
+   },
+   {
+    "type": "name",
+    "value": "a.b."
+   },
+   {
+    "type": "record_id",
+    "value": "dn-063"
+   },
+   {
+    "type": "organization",
+    "value": "pivalepaan dental lab"
+   },
+   {
+    "type": "relative",
+    "value": "nilu"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-003",
+  "text": "chinu says varcha daat thanda pani pyayla lagto. 14 ani 15 check kele, juni filling 15 la aahe. xray sathi guruvaar jamel mhanto.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "chinu"
+   },
+   {
+    "type": "date",
+    "value": "guruvaar"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-004",
+  "text": "pari chi school slip baghitli, dob 17/8/2017 aahe. aai mhante 64 chya cap madhe ann adakta, floss karun dakhavla. new adress near ganesh mandir, panyachya takisamorcha hirva gate, reminder 00000 48216 var pathva.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pari"
+   },
+   {
+    "type": "dob",
+    "value": "17/8/2017"
+   },
+   {
+    "type": "relative",
+    "value": "aai"
+   },
+   {
+    "type": "address",
+    "value": "near ganesh mandir, panyachya takisamorcha hirva gate"
+   },
+   {
+    "type": "phone",
+    "value": "00000 48216"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-005",
+  "text": "khatana ujvikade gal chavla jato mhantat. filling chi sharp edge polish keli, jibhen firvun pahila tar ata gulgulit vatatay mhantat.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-DENTAL-2-006",
+  "text": "third nov la niks bhau night shift sampvun aala, scaling complete. rs 850 bharle, eng madhe receipt havi office sathi. mail niks.shift@example.test var kara, employee no nv-0418 receipt var pahije mhanto.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "third nov"
+   },
+   {
+    "type": "name",
+    "value": "niks"
+   },
+   {
+    "type": "amount",
+    "value": "rs 850"
+   },
+   {
+    "type": "email",
+    "value": "niks.shift@example.test"
+   },
+   {
+    "type": "id",
+    "value": "nv-0418"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-007",
+  "text": "saru tai cha pano print file madhech rahila. udya yetana gheun jail mhanali, envelope reception la thevlay.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "saru"
+   },
+   {
+    "type": "date",
+    "value": "udya"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-008",
+  "text": "viju cha 46 crown cha shade khidkijaval parat baghitla, a3 final. sonchapha ceramics la shade photo pathavla, slip zc-574. 18 nov chi trial appt confirm karayla 00000 39054 var call kara, dupari bhau zopet asto.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "viju"
+   },
+   {
+    "type": "organization",
+    "value": "sonchapha ceramics"
+   },
+   {
+    "type": "record_id",
+    "value": "zc-574"
+   },
+   {
+    "type": "date",
+    "value": "18 nov"
+   },
+   {
+    "type": "phone",
+    "value": "00000 39054"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-2-009",
+  "text": "tray ghatlyavar gag hot hota, pahili impression nit aali nahi. lahan tray madhe repeat keli, margins ata clear aahet.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-DENTAL-2-010",
+  "text": "21.11 la vedu retainer ghyayla aala with baba kiran. khalcha retainer tight vatla mhanun chair var swatah don vela ghalun kadhla, mag jamla. extra box courier karaycha patta bhairav talavachya mage, june post office shejari ghar 6, parcel sathi no 00000 71538.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "21.11"
+   },
+   {
+    "type": "name",
+    "value": "vedu"
+   },
+   {
+    "type": "relative",
+    "value": "kiran"
+   },
+   {
+    "type": "address",
+    "value": "bhairav talavachya mage, june post office shejari ghar 6"
+   },
+   {
+    "type": "phone",
+    "value": "00000 71538"
+   }
+  ]
+ }
+]

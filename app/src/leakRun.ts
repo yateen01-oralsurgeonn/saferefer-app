@@ -1,12 +1,12 @@
 // T8 helpers for the leak-test page: the same redaction path the screen uses, plus the zero-request checks.
 // Nothing here stores or logs note text. The notes are the 30 synthetic notes in data/notes.json.
-import { nanoRedact, redactFirst, type NanoLists, type NanoModelFn, type RedactRules } from './core'
+import { nanoRedact, redactFirst, type HideItem, type NanoLists, type NanoModelFn, type RedactRules } from './core'
 
 /** The same path as the screen: code redactor first, then Nano if a model function is given. */
-export function makeRedact(modelFn: NanoModelFn | null, lists: NanoLists, noteKind?: string, rules?: RedactRules) {
-  const fallback = (text: string) => redactFirst(text, [], rules).text
+export function makeRedact(modelFn: NanoModelFn | null, lists: NanoLists, noteKind?: string, rules?: RedactRules, saved: HideItem[] = []) {
+  const fallback = (text: string) => redactFirst(text, [], rules, saved).text
   const redact = async (text: string): Promise<string> => {
-    const first = redactFirst(text, [], rules)
+    const first = redactFirst(text, [], rules, saved)
     if (!modelFn) return first.text // code only: the page says so
     const result = await nanoRedact(first.text, first.map, modelFn, lists, { noteKind })
     // A failed Nano run is not "nothing found": the note is listed as failed and scored on the code-only text.
@@ -83,12 +83,13 @@ export async function checkNoModel(
   lists: NanoLists,
   noteKind?: string,
   rules?: RedactRules,
+  saved: HideItem[] = [],
 ): Promise<NoModelCheck> {
   const { value: manual, fetches } = await withFetchCount(() =>
     withoutLanguageModel(async () => {
       let n = 0
       for (const t of texts) {
-        const first = redactFirst(t, [], rules)
+        const first = redactFirst(t, [], rules, saved)
         const r = await nanoRedact(first.text, first.map, modelFn, lists, { noteKind })
         if (r.state === 'manual') n++
       }

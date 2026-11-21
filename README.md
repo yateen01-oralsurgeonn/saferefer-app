@@ -18,6 +18,8 @@ One engine, three **profession packs** (a pack changes only words, never a safet
 | Chartered Accountant | case summary for a specialist CA | PAN, GSTIN, TAN, Aadhaar, bank account, IFSC, CIN, UDIN | amounts, sections, forms, assessment years |
 | Advocate | brief to senior counsel | case, FIR, CNR, cheque and enrolment numbers, police stations, **settlement sums**; the other side is a separate person, never the client | Acts, sections, court names, claim amounts |
 
+**My terms (this device only).** When the user hides a word by hand, the app can offer to remember it as a place, a lab or organisation, or an ID format ("OP" hides OP-12, op 4471, op/9). Next time the code redactor hides it before the model runs. Never a person's name; stored in plain text in this browser, with Delete and Forget all; never sent anywhere.
+
 It also works offline: redaction and the tooth list run on the device; Send then **queues** the (already hidden) letter request in the browser and sends it when the connection returns.
 
 ## How Firebase AI Logic is used
@@ -105,6 +107,7 @@ What the numbers say, and do not say:
 ## Limitations (please read)
 
 - **The redactor misses things.** The dentist's check before Approve is the real control, not the model. Weak spots we know: a street address typed all in lower case, a nickname with no clue around it, a name glued into a longer word (the send guard stops it, the redactor does not hide it, and the user hides it by hand).
+- **"My terms" learns per device, not across users, and only places, labs and ID formats** (never names). Anyone using the same browser profile can see the list in the panel.
 - **Hiding names is not the same as anonymous.** A rare condition, an exact figure or a job title can still point to one person. Clinical, tax and legal details are sent to the cloud on purpose.
 - **Synthetic data only.** This build uses the free Gemini Developer API, where Google may keep and review prompts. No privacy claim is made for real patients or clients.
 - **Automatic hiding needs desktop Chrome 139+** with the on-device model downloaded. On phones and other browsers it is manual mode.

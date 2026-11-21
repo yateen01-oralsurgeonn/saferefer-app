@@ -61,6 +61,7 @@ Hidden by mistake (safe side): a row of probing depths or four file sizes withou
 - Do not loosen a test to make it pass. Do not delete an `it.fails` test; if one starts passing, move it up.
 - Do not change `TOKEN_SOURCE`, the numbering rules, or `restoreLetter` to chained replaces.
 - Do not add words to the leak scorer's stop list to improve the score.
+- T16 "My terms": never save a person's name (D1) and never add a "never hide" list (D2); `allowed` stays filled only by an explicit un-hide click. Saved terms are places, organisations and ID prefixes only; a phrase with no place/organisation word needs the in-page "Yes, it is a place" click, and a word the app hid as a person in the current note is always refused; `myTermsStore.ts` is the second and last file that may touch IndexedDB.
 - New rules are welcome if they come with tests and the 30-note tests still pass.
 
 ## Additions beyond the documents (tell Dr. Yatin if you disagree)

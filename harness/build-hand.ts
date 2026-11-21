@@ -1,13 +1,16 @@
 // Turns Dr. Yatin's hand-written notes (data/harness/hand/hand-<pack>.md, numbered, [[type:text]] markers) into
 // data/harness/hand/hand-<pack>.json for the leak page (?leak&pack=..&set=hand).
-// Run from the repo root:  node harness/build-hand.ts <dental|ca|law>
+// Run from the repo root:  node harness/build-hand.ts <dental|ca|law> [batch]   (batch 2 -> hand-<pack>-2.md / .json)
 // Prints COUNTS and note NUMBERS only, never note text: the builder must not read these notes' contents or misses.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 
 const pack = process.argv[2]
-if (!['dental', 'ca', 'law'].includes(pack)) throw new Error('usage: node harness/build-hand.ts <dental|ca|law>')
-const src = `data/harness/hand/hand-${pack}.md`
+if (!['dental', 'ca', 'law'].includes(pack)) throw new Error('usage: node harness/build-hand.ts <dental|ca|law> [batch]')
+const batch = process.argv[3]
+if (batch !== undefined && !/^[2-9]$/.test(batch)) throw new Error('batch must be a single digit 2-9')
+const name = batch ? `${pack}-${batch}` : pack
+const src = `data/harness/hand/hand-${name}.md`
 if (!existsSync(src)) throw new Error(`${src} not found`)
 
 const TYPES = new Set(['name', 'relative', 'phone', 'email', 'date', 'dob', 'address', 'organization', 'record_id', 'amount', 'id'])
@@ -51,13 +54,13 @@ const out = chunks.map((chunk, i) => {
   const digitRuns = (text.replace(/[\s-]/g, '').match(/\d{9,}/g) ?? []).filter((d) => !marked.replace(/[\s-]/g, '').includes(d))
   if (digitRuns.length) problems.push(`note ${n}: ${digitRuns.length} long number(s) not marked as an identifier`)
   if (/\b\d{4}\s?\d{4}\s?\d{4}\b/.test(text.replace(/[-]/g, '')) && !/\b[01]\d{3}\s?\d{4}\s?\d{4}\b/.test(text)) problems.push(`note ${n}: a 12-digit number not starting 0 or 1 (Aadhaar shape): use a made-up one starting 0 or 1`)
-  return { id: `HAND-${pack.toUpperCase()}-${String(n).padStart(3, '0')}`, text, identifiers }
+  return { id: `HAND-${name.toUpperCase()}-${String(n).padStart(3, '0')}`, text, identifiers }
 })
 
 const byType: Record<string, number> = {}
 for (const note of out) for (const id of note.identifiers) byType[id.type] = (byType[id.type] ?? 0) + 1
 const total = out.reduce((s, x) => s + x.identifiers.length, 0)
-console.log(`${pack}: ${out.length} notes, ${total} marked identifiers`, byType)
+console.log(`${name}: ${out.length} notes, ${total} marked identifiers`, byType)
 console.log('notes with no identifiers:', out.filter((x) => x.identifiers.length === 0).map((x) => x.id.slice(-3)).join(', ') || 'none')
 if (out.length !== 10) problems.push(`expected 10 notes, found ${out.length}`)
 if (problems.length) {
@@ -66,5 +69,5 @@ if (problems.length) {
   process.exit(1)
 }
 const json = JSON.stringify(out, null, 1)
-writeFileSync(`data/harness/hand/hand-${pack}.json`, json)
-console.log(`wrote data/harness/hand/hand-${pack}.json  sha256 ${createHash('sha256').update(json).digest('hex')}`)
+writeFileSync(`data/harness/hand/hand-${name}.json`, json)
+console.log(`wrote data/harness/hand/hand-${name}.json  sha256 ${createHash('sha256').update(json).digest('hex')}`)

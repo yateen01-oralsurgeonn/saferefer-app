@@ -278,7 +278,8 @@ Made from the **TUNE-set misses only** (all 73 structured tune misses had one of
 - The leak counter counts any fetch during the whole run, so a background App Check call landing mid-run fails the check even though redaction made no request. The honest wording for the video and README: "0 requests to the model; one background App Check token call, no note content."
 - Locked advocate spread: single run so far.
 
-## Hand-written set (Dr. Yatin, 21 Nov 2026), reported apart from generated notes
+## "Hand" set batch 1 (21 Nov 2026), reported apart from generated notes
+**Correction (21 Nov 2026, Dr. Yatin):** the "hand" notes (batch 1 and batch 2) were written by an AI assistant, not typed by Dr. Yatin. Call them "notes written with an AI assistant, checked by Dr. Yatin", never "hand-written". They are still unseen by the builder and sealed before any run, but they are not independent of AI writing style.
 Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are not shown and no rule is changed on this set's account.
 
 ### Hand dental, code + Nano, run 1 (his Chrome, Nano on, `npm run dev` on port 5199, DevTools Network open)
@@ -290,5 +291,32 @@ Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are
 - It is far worse than the generated dental sets (locked 1.7%, tune 1.2%): that is the expected gap between templated and hand-typed notes, and the reason this set exists.
 - Every landmark address leaked (3 of 3) and half the record ids (2 of 4); phones, email, DOBs, relatives, the organisation: 0 leaked. Names 1 of 8, dates 1 of 7.
 - Cause of the misses is not examined (locked set), so no claim about why.
-- The README and video must quote this number next to the generated ones: "hand-written, 10 notes, 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
+- The README and video must quote this number next to the generated ones: "10 notes written with an AI assistant (not by the builder), 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
 - Screenshot: `Safe refer handwritten dentist notes. .png`. The earlier run on the wrong set (URL typo `set=hand.`; stale dev server) was the 30-note builder set and is not recorded as a hand result.
+
+## T16 "My terms" (built 21 Nov 2026; batch 2 before and with-terms runs recorded, upper bound only)
+- Code and tests are done; no leak number for My terms exists yet. Planned runs (T16-PLAN.md section 5): (1) his hand-written batch 2, without terms and with `&terms=yatin-dental`, small set; (2) generated locked set with terms built from TUNE misses only, reported as an upper bound.
+- Not allowed: terms built from any locked or hand-set miss list. Terms files live in `data/harness/terms/<name>.json` (development only; not in the production bundle).
+- Built-in sets, the gate and every baseline are unchanged (`npm run harness` identical to the saved baselines).
+
+### "Hand" dental batch 2 (written by an AI assistant): BEFORE (no saved terms), 21 Nov 2026, his Chrome, code + Gemini Nano
+- Set: `data/harness/hand/hand-dental-2.md` / `.json`, 10 notes, 33 marked identifiers, sealed b80e248 before any run (json sha256 fd8fcc8c...). Page `/?leak&pack=dental&set=hand2` (counts only).
+- **Result: 10 of 33 left (30.3%).** Without the one marked `amount` (dentist notes leave amounts visible by design, so it always counts): **9 of 32 (28.1%)**.
+- By type (leaked/total): name 3/8, date 2/7, record_id 2/3, organisation 1/2, address 1/2, amount 1/1; phone 0/4, relative 0/3, dob 0/1, email 0/1, id 0/1.
+- Zero-request checks: PASS (0 requests, 0 App Check calls during the run; with the model removed 0 requests and 10 of 10 notes in manual mode).
+- Worse than batch 1 (7 of 34, 20.6%), mostly names (3/8 vs 1/8). Small sets: the difference between batches is within noise; causes not examined (sealed set).
+- Order caveat: he wrote these notes BEFORE his terms list (the plan asked for the list first). The WITH-terms run will be reported as a best case ("list written after the notes, by the same person"), not a clean test.
+
+### Terms list for the WITH-terms run: `data/harness/terms/batch2-list.json` (sealed, see commit)
+- **Source: taken from the batch-2 notes themselves.** The list was produced by the same AI assistant that wrote the notes ("from memory, these are terms I used in the fictional notes"). It was NOT written from Dr. Yatin's clinic life.
+- So the WITH-terms run measures **an upper bound only**: how much My terms can remove when the list matches the notes exactly. It must never be quoted as a real-world gain, in the README or the video.
+- 12 terms: 6 places, 2 labs, 4 ID formats (op, ort, cr, zc). `pd-163` was refused by the app's own check ("pd" = pocket depth), so record ids with that prefix stay visible.
+- A real test still needs a terms list written by a user from their own work, before seeing the notes it is tested on.
+
+### "Hand" dental batch 2 WITH My terms (`&terms=batch2-list`, 12 terms), 21 Nov 2026, his Chrome, code + Gemini Nano
+- **Result: 7 of 33 left (21.2%)**, before 10 of 33 (30.3%). Without the by-design amount: **6 of 32 (18.8%)**, before 9 of 32 (28.1%).
+- By type, before -> with terms: address 1 -> 0, organisation 1 -> 0, record_id 2 -> 1; name 3 -> 2, date 2 -> 3; amount 1 -> 1; phone, relative, dob, email, id 0 -> 0.
+- What My terms can change: places, labs and ID formats. Those went 4 -> 1 (the record id left is not examined; the refused `pd` prefix is one possible cause, unconfirmed). Names and dates are not saved terms, so their +-1 moves are run-to-run variation (Gemini Nano is not deterministic, and its input changes when more is hidden before it). Net effect of the terms on this set: about 3 identifiers.
+- Zero-request checks: PASS (0 requests, 0 App Check calls; model removed: 0 requests, 10 of 10 manual).
+- **UPPER BOUND ONLY.** The terms list was taken from these same notes by the AI assistant that wrote them. Never quote "30% -> 21%" as a real-world gain. Allowed wording: "when the saved list matches the notes, My terms removed the place, lab and ID misses it can see (4 -> 1 of 33); a test with an independently written list has not been done."
+

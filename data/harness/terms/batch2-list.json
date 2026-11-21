@@ -1,0 +1,50 @@
+[
+ {
+  "kind": "place",
+  "text": "near ganesh mandir"
+ },
+ {
+  "kind": "place",
+  "text": "opp st stand"
+ },
+ {
+  "kind": "place",
+  "text": "near market yard"
+ },
+ {
+  "kind": "place",
+  "text": "bhaji mandai mage"
+ },
+ {
+  "kind": "place",
+  "text": "above flour mill"
+ },
+ {
+  "kind": "place",
+  "text": "near old post office"
+ },
+ {
+  "kind": "org",
+  "text": "chandrakor dental lab"
+ },
+ {
+  "kind": "org",
+  "text": "sonchapha ceramics"
+ },
+ {
+  "kind": "idFormat",
+  "prefix": "op"
+ },
+ {
+  "kind": "idFormat",
+  "prefix": "ort"
+ },
+ {
+  "kind": "idFormat",
+  "prefix": "cr"
+ },
+ {
+  "kind": "idFormat",
+  "prefix": "zc"
+ }
+]

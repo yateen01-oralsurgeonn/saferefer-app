@@ -1,5 +1,7 @@
 # Hand-written locked notes (for Dr. Yatin)
 
+> Note 21 Nov 2026: batches 1 and 2 in this folder were written by an AI assistant for Dr. Yatin. Report them as "written with an AI assistant, checked by Dr. Yatin", not "hand-written".
+
 Purpose: the one test the generator cannot fake. 10 notes per profession, written by you, in your own typing style.
 Rules (written before any note exists):
 - These notes are a **separate locked set**. The builder (Claude) never tunes the code rules on their misses and never reads the miss list. Only totals are reported.
