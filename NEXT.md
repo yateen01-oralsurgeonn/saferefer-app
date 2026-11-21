@@ -1,6 +1,8 @@
 > **REMINDER (his choice, 20 Nov): the repo is still PRIVATE. He wants it made PUBLIC on 25 Nov, before the video is uploaded (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Remind him at the start of the 25 Nov session (and every session after, until done). Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
 > **Live now:** https://saferefer-d5175.web.app (deployed, console steps done, App Check enforced, API key restricted). master = origin/master. Video prep is on branch `t14-video`.
 
+> **DONE 21 Nov 20:30 IST: T16 tested by Dr. Yatin in his Chrome with Nano (6 tests pass; 3 more fixes: hand hide beats show-again, Nano-found names stay refused, already-hidden and label-word suggestions not listed as misses), merged to master (b026850), deployed (live bundle index-DUD9HK--.js), live check pass (My terms present, 0 POSTs while typing, 0 console errors). Next: CA + law note sets, then the video (T14 below).**
+
 # NEXT (21 Nov 2026): T16 built, Opus reviewed, all 3 fixes done; Dr. Yatin tries it, then merge
 
 **T16 "My terms" is built on branch `t16-my-terms` (not merged, not pushed).** Commits: 551cab9 (core/myTerms.ts + redactFirst `saved` param), 7b11ce3 (myTermsStore, B1 test now allows exactly two modules), afbc015 (remember prompt + My terms panel), 3f7752a (leak page `&terms=`), plus the docs/NEXT commit after it.
