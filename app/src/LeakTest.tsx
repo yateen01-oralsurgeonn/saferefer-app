@@ -48,7 +48,7 @@ const wantFresh = params.get('set') === 'fresh'
 const freshNotes = FRESH_BY_PACK[pack.id]
 const handNotes = handBatch === '-2' ? handFiles[`../../data/harness/hand/hand-${pack.id}-2.json`] : HAND[pack.id]
 const notes = wantHand && handNotes ? handNotes : harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
-const noteSetName = wantHand && handNotes ? `hand-written notes${handBatch === '-2' ? ', batch 2' : ''} (Dr. Yatin, 10 per profession, small set)` : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
+const noteSetName = wantHand && handNotes ? `notes written with an AI assistant${handBatch === '-2' ? ', batch 2' : ''} (checked by Dr. Yatin, 10, small set)` : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
 const lists = { drugs, clinicalTerms: terms }
 // T16 (development only): ?terms=<name> loads data/harness/terms/<name>.json, a synthetic "My terms" list, and runs the same
 // path with it. Off by default, so every existing number and the H4 gate are unchanged.
