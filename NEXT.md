@@ -1,23 +1,11 @@
 > **REMINDER (his choice, 20 Nov): the repo is still PRIVATE. He wants it made PUBLIC on 25 Nov, before the video is uploaded (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Remind him at the start of the 25 Nov session (and every session after, until done). Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
 > **Live now:** https://saferefer-d5175.web.app (deployed, console steps done, App Check enforced, API key restricted). master = origin/master. Video prep is on branch `t14-video`.
 
-# NEXT (21 Nov 2026): T16 "My terms", then the video
+# NEXT (21 Nov 2026): T16 built, waiting for Opus review
 
-**Plan: `T16-PLAN.md` (Opus 5.5). Builder: Sonnet 5.5. Branch: `t16-my-terms` (from master). Do not start until Dr. Yatin has
-answered decision D3 in T16-PLAN.md section 3 (recorded at the end of this block).**
-
-```
-Read CLAUDE.md, HANDOVER.md (the "do not change" list), SECURITY.md, T16-PLAN.md. Do task T16 and nothing else, on branch
-t16-my-terms. Follow T16-PLAN.md sections 2, 4, 6, 7 and 8 exactly; decisions D1-D4 are settled, do not reopen them.
-Order: (1) core/myTerms.ts + tests, (2) redactFirst `saved` param + tests (prove byte-identical output with saved=[] on the
-30 builder notes and every harness set), (3) myTermsStore.ts + tests, (4) NoteScreen prompt + My terms panel, (5) leak page
-&terms= mode, (6) Playwright E2E on npm run dev (`npx vite --port 5199`; this dev server goes STALE after edits: restart and
-curl the source before browser checks), (7) docs in section 7. Commit after each step. Run `npm test`, `npm run lint`,
-`npx tsc -b`, `npm run harness` and `npm run build` before the last commit. Never store a note, map, preview or letter; never
-add a name to the list; no window.confirm/alert. Stop and write the problem in NEXT.md if a step would need a "do not change"
-item changed. When done, rewrite this block as "T16 built, waiting for Opus review" with the commit list.
-```
-- D3 answer: **YES** (Dr. Yatin, 21 Nov 2026): plain text in IndexedDB on the device, with Forget all and per-item delete. The build may start.
+**T16 "My terms" is built on branch `t16-my-terms` (not merged, not pushed).** Commits: 551cab9 (core/myTerms.ts + redactFirst `saved` param), 7b11ce3 (myTermsStore, B1 test now allows exactly two modules), afbc015 (remember prompt + My terms panel), 3f7752a (leak page `&terms=`), plus the docs/NEXT commit after it.
+Checks run: `npm test` 621 pass + 12 expected-fail (was 584 + 12); `tsc -b` and lint clean; `npm run harness` identical to the baselines; `npm run build` ok, no leak page or terms data in dist; `indexedDB` only in `queueStore.ts` and `myTermsStore.ts`. Playwright E2E on `npm run dev` passed (hide a lab by hand, save as Organisation, hide op-731, save as ID format; after reload a new note hides both before any click; the panel lists 2; Forget all empties it and the next note shows the words again; only page-load reCAPTCHA/Remote Config requests).
+Not done / for Opus and Dr. Yatin: Opus review; Dr. Yatin tries it once in his Chrome; the section 5 measurements (his terms file and hand batch 2 are his to write); merge, redeploy (`firebase deploy --only hosting`) and live check by 24 Nov. Then the video (T14 notes below). Decision made while building: saved terms are applied AFTER the code redactor (as planned), so a longer saved phrase cannot override a shorter span the code already hid.
 
 ---
 

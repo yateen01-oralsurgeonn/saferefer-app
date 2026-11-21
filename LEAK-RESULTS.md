@@ -292,3 +292,8 @@ Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are
 - Cause of the misses is not examined (locked set), so no claim about why.
 - The README and video must quote this number next to the generated ones: "hand-written, 10 notes, 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
 - Screenshot: `Safe refer handwritten dentist notes. .png`. The earlier run on the wrong set (URL typo `set=hand.`; stale dev server) was the 30-note builder set and is not recorded as a hand result.
+
+## T16 "My terms" (built 21 Nov 2026, measurements NOT yet run)
+- Code and tests are done; no leak number for My terms exists yet. Planned runs (T16-PLAN.md section 5): (1) his hand-written batch 2, without terms and with `&terms=yatin-dental`, small set; (2) generated locked set with terms built from TUNE misses only, reported as an upper bound.
+- Not allowed: terms built from any locked or hand-set miss list. Terms files live in `data/harness/terms/<name>.json` (development only; not in the production bundle).
+- Built-in sets, the gate and every baseline are unchanged (`npm run harness` identical to the saved baselines).
