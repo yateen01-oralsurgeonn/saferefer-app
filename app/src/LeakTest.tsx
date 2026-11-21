@@ -33,11 +33,20 @@ const HARNESS: Record<string, Record<PackId, TestNote[]>> = {
   tune: { dental: tuneDentalJson as TestNote[], ca: tuneCaJson as TestNote[], law: tuneLawJson as TestNote[] },
   locked: { dental: lockedDentalJson as TestNote[], ca: lockedCaJson as TestNote[], law: lockedLawJson as TestNote[] },
 }
+// Hand-written locked set (data/harness/hand/hand-<pack>.json, made by harness/build-hand.ts): counts only, like locked.
+const handFiles = import.meta.glob('../../data/harness/hand/hand-*.json', { eager: true, import: 'default' }) as Record<string, TestNote[]>
+const HAND: Partial<Record<PackId, TestNote[]>> = {
+  dental: handFiles['../../data/harness/hand/hand-dental.json'],
+  ca: handFiles['../../data/harness/hand/hand-ca.json'],
+  law: handFiles['../../data/harness/hand/hand-law.json'],
+}
+const wantHand = params.get('set') === 'hand'
 const harnessSet = params.get('set') === 'tune' || params.get('set') === 'locked' ? (params.get('set') as 'tune' | 'locked') : null
 const wantFresh = params.get('set') === 'fresh'
 const freshNotes = FRESH_BY_PACK[pack.id]
-const notes = harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
-const noteSetName = harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
+const handNotes = HAND[pack.id]
+const notes = wantHand && handNotes ? handNotes : harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
+const noteSetName = wantHand && handNotes ? 'hand-written notes (Dr. Yatin, 10 per profession, small set)' : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
 const rules = rulesForPack(pack)
 const lists = { drugs, clinicalTerms: terms }
 const modelFn = createNanoModelFn(ai)
@@ -159,7 +168,7 @@ export default function LeakTest() {
             </table>
 
             <h3>Every miss ({s.misses.length})</h3>
-            {harnessSet === 'locked' ? (
+            {harnessSet === 'locked' || (wantHand && handNotes) ? (
               // Sealed set: counts only. Showing the misses would let anyone (or a screenshot) tune the rules on them.
               <p data-testid="locked-note">Locked set: the misses are not shown. Report the totals and the table above only.</p>
             ) : s.misses.length === 0 ? (
