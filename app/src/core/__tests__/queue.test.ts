@@ -159,16 +159,16 @@ describe('T10 queue: sending a queued item', () => {
   })
 })
 
-describe('SECURITY B1: storage APIs live in the queue module alone', () => {
+describe('SECURITY B1: storage APIs live in the two storage modules alone', () => {
   const sources = import.meta.glob(['../../**/*.{ts,tsx}', '!../../**/__tests__/**'], { query: '?raw', import: 'default', eager: true }) as Record<
     string,
     string
   >
-  it('indexedDB, localStorage, sessionStorage, the Cache API and cookies appear only in queueStore.ts', () => {
+  it('indexedDB, localStorage, sessionStorage, the Cache API and cookies appear only in queueStore.ts and myTermsStore.ts', () => {
     const offenders = Object.entries(sources)
       .filter(([, text]) => /(?:indexedDB|localStorage|sessionStorage|caches\.|document\.cookie)/.test(text))
       .map(([path]) => path.replace('../../', ''))
     expect(Object.keys(sources).length).toBeGreaterThan(20)
-    expect(offenders).toEqual(['queueStore.ts'])
+    expect(offenders.sort()).toEqual(['myTermsStore.ts', 'queueStore.ts'])
   })
 })
