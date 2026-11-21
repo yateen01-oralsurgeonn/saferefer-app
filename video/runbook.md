@@ -13,7 +13,7 @@ Read `preflight.md` first and tick every box. Notes to paste are in `demo-notes.
 | 5. Network panel, request body | **Yes on the hosted URL**, DevTools docked. | See shot 5 below; the body is `contents > 0 > parts > 0 > text`. |
 | 6. Wi-Fi off, On-device badge, "Queued", Wi-Fi on, letter arrives | **Yes**, tested on his laptop 20 Nov. Real text: "You are offline. The letter is queued and will be sent when you are back online." The queued letter retries every 10 s; allow 20 s after Wi-Fi returns. | **Hosted URL only.** The tooth list "On-device" badge needs Nano. Load the page once online first so the service worker holds the shell. |
 | 7. CA, then Advocate | **Yes**, profession dropdown. | Both notes need **Nano** (see `demo-notes.md`). |
-| 8. Leak-test page, fresh notes, with Nano | **Yes, but only on `npm run dev`** (`/?leak&pack=...&set=fresh`). The page is NOT in the hosted build (the T13 audit removed it on purpose). It has its own banner. | Record this shot on `localhost:5199`, **not** the hosted URL. Run it once off camera to time it. |
+| 8. Leak-test page, locked + hand sets, with Nano | **Yes, but only on `npm run dev`** (`/?leak&pack=...&set=locked` and `set=hand`). The page is NOT in the hosted build (the T13 audit removed it on purpose). It has its own banner. | Record this shot on `localhost:5199`, **not** the hosted URL. Run it once off camera to time it. |
 | 9. Architecture diagram, repo URL | **No diagram existed.** | `video/architecture.html` is new; open it full-window. |
 | Banner "in every shot" | App screens and the leak page: yes. Chat mock and diagram: yes, I put one in each. | Do not crop the top of the window. |
 
@@ -66,8 +66,8 @@ Read `preflight.md` first and tick every box. Notes to paste are in `demo-notes.
 
 ### Shot 8, 2:20-2:42, leak test (record on `npm run dev`)
 - Setup: from `app/` run `npm run dev` (port 5199). Your Chrome with Nano on.
-- Do: open `http://localhost:5199/?leak&pack=law&set=fresh`, click run, show the result **0 of 69**, then briefly `?leak&pack=dental&set=fresh` (1 of 46) and `pack=ca` (2 of 56). If a run is slow, record it and speed it up 4x with the "sped up" caption.
-- On-screen text (add in the edit): **25 fresh notes · 3 of 171 identifiers missed · small set**. Never "private", "safe" or "compliant".
+- Do: (a) open `http://localhost:5199/?leak&pack=law&set=locked`, click run, show the result (about **16 of 558**, 2.9%); the run is long, so record it and speed it up 4x with the "sped up" caption. (b) open `?leak&pack=law&set=hand`, run (10 notes, quick), show **about 15 of 32** (46.9%). Each page title must say what the set is ("generated" or "written with an AI assistant"). Numbers can move by a few between runs; if they differ, say the rounded line 8 numbers only if they still hold, otherwise update the line first.
+- On-screen text (add in the edit): **300 generated notes: 2-3% left · 40 realistic notes written with an AI assistant: about 30% left · small sets**. Never "private", "safe" or "compliant".
 - Say: line 8 **(record last; update the numbers if they changed)**.
 - Do not cut this shot.
 

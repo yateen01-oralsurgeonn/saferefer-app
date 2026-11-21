@@ -35,9 +35,9 @@ IDs and settlement sums are hidden.
 
 8
 00:02:21,000 --> 00:02:41,000
-Twenty-five fresh notes. Three of 171 identifiers missed, after two fixes.
-The advocate set, never used to design them, missed none.
-Small set. Every miss is listed.
+On 300 generated notes, two to three percent of identifiers were left.
+On 40 realistic notes written with an AI assistant, about three in ten.
+Small sets. You check every note before it is sent.
 
 9
 00:02:43,000 --> 00:02:54,000

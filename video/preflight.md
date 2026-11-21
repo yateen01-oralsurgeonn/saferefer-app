@@ -22,7 +22,7 @@
 
 ## D. The leak-test shot
 - [ ] From `BuildHybridAI\app`: `npm run dev` (port 5199; if the page looks stale after any edit, stop it, restart it).
-- [ ] `http://localhost:5199/?leak&pack=law&set=fresh`, click run once **off camera**, note the time it takes. Expected with Nano: advocate **0 of 69**, dentist **1 of 46**, CA **2 of 56** (`LEAK-RESULTS.md`). If your numbers differ, the voiceover line 8 and `LEAK-RESULTS.md` change **before** recording.
+- [ ] `http://localhost:5199/?leak&pack=law&set=locked` and `...&set=hand` (no full stop at the end of the address), click run once **off camera**, note the time it takes. Expected with Nano: locked advocate about **16 of 558**, hand advocate about **15 of 32** (`LEAK-RESULTS.md`). If your numbers differ by more than a few, the voiceover line 8 and `LEAK-RESULTS.md` change **before** recording.
 - [ ] Every request in the zero-request checks says PASS.
 
 ## E. Recording

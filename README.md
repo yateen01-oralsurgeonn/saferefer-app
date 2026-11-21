@@ -83,7 +83,7 @@ npm run dev                 # then open /?leak   (dentist, 30 notes)
                             #      /?leak&pack=ca    /?leak&pack=law
                             #      add &set=fresh for the fresh notes
 ```
-The leak-test page runs the notes through the same redaction path as the app and shows "Identifiers leaked: X of Y" with **every miss listed**. It is only in the development build.
+The leak-test page runs the notes through the same redaction path as the app and shows "Identifiers leaked: X of Y" and, on the tuning sets, every miss. On the locked and hand sets only the totals are shown, so nobody can tune on them. It is only in the development build.
 
 ## Leak-test results (full tables, dates and caveats: [LEAK-RESULTS.md](LEAK-RESULTS.md))
 
@@ -103,6 +103,21 @@ What the numbers say, and do not say:
 - The builder's own notes flattered the code by a wide margin (code-only 3.2% on the builder's notes, 43.5% on fresh ones). The fresh sets are the honest ones. Two gaps showed up (dates written as "3/11" or "Monday", and the words that start an address such as "behind bus stand"); both were fixed, the same fixes were then tested on the advocate set, which had not been used to design them.
 - After the fixes, the 3 identifiers left across 171 were generic words (for example "College:" after the college's name was hidden), not names, numbers or places.
 - **Ten notes per profession is a small set. "0 of 69" does not mean "never leaks".** Notes were typed by one dentist and helpers, in English with Marathi and Hindi words in Roman script.
+
+### Locked and realistic-style sets (21 Nov 2026, code + Gemini Nano, his Chrome)
+| Set | Notes | Identifiers left |
+|---|---|---|
+| Dentist, **locked**, generated | 100 | 7 of 412 (1.7%) |
+| CA, locked, generated | 100 | 10 to 16 of 536 (1.9% to 3.0%, two runs) |
+| Advocate, locked, generated | 100 | 16 of 558 (2.9%) |
+| Dentist, written with an AI assistant, batch 1 | 10 | 7 of 34 (20.6%) |
+| Dentist, written with an AI assistant, batch 2 | 10 | 10 of 33 (30.3%) |
+| CA, written with an AI assistant | 10 | 7 of 33 (21.2%) |
+| Advocate, written with an AI assistant | 10 | 15 of 32 (46.9%) |
+
+- The locked sets come from the same generator that tuned the rules, so they flatter the code. The four small sets were written with an AI assistant in a more realistic style (nicknames, Marathi and Hindi words in Roman script, landmark addresses), sealed in git before any run and never used to change a rule. **Our 3% target is met on the generated sets and not met on any realistic-style set.** The advocate set is the weakest: every address, record id and relative was left.
+- These notes are not real notes and were not written by a dentist, CA or advocate working from real cases. A test with real, anonymised notes from working professionals has not been done.
+- A background App Check token call can land during a run and trip the request counter; the page now counts it apart. The model itself made 0 requests in every run.
 
 ## Limitations (please read)
 
