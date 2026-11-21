@@ -11,10 +11,11 @@ const fold = (s: string) => s.normalize('NFKC').toLowerCase().replace(/\s+/g, ' 
  * Stage one, instant: the code redactor, then the words the dentist hid by hand (they become PERSON).
  * Returns a fresh map. Memory only: the screen keeps it in a React ref.
  */
-export function redactFirst(note: string, manualHides: string[], rules: RedactRules = NO_RULES): { map: TokenMap; text: string; notFound: HideItem[] } {
+export function redactFirst(note: string, manualHides: string[], rules: RedactRules = NO_RULES, saved: HideItem[] = []): { map: TokenMap; text: string; notFound: HideItem[] } {
   const map = new TokenMap()
   const code = redactByCode(note, map, rules)
-  const items: HideItem[] = manualHides.map((text) => ({ text, type: 'PERSON' }))
+  // T16: saved places/organisations come first, then the hand hides. Default [] changes nothing.
+  const items: HideItem[] = [...saved, ...manualHides.map((text) => ({ text, type: 'PERSON' as const }))]
   const hidden = hideValues(code.text, items, map)
   return { map, text: hidden.text, notFound: hidden.notFound }
 }
