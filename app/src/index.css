@@ -904,3 +904,7 @@ textarea.preview.letter {
   border-radius: 3px;
   font-weight: 700;
 }
+
+button.link { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
+.terms-list { list-style: none; padding: 0; margin: 0.4rem 0; }
+.terms-list li { margin: 0.25rem 0; }

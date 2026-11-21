@@ -36,7 +36,14 @@ import {
   type NanoState,
   STATUS,
   readQueued,
+  deriveIdFormat,
+  isProblem,
   redactFirst,
+  termsToHideItems,
+  termsToRules,
+  validateIdFormat,
+  validateTerm,
+  type SavedTerm,
   rulesForPack,
   restoreLetter,
   type Warning,
@@ -54,6 +61,8 @@ import {
 import { ai } from './firebase'
 import { createLetterModelFn } from './letterAdapter'
 import { createNanoModelFn, nanoAvailability } from './nanoAdapter'
+import MyTermsPanel from './MyTermsPanel'
+import { createTermsStore } from './myTermsStore'
 import { createQueueStore } from './queueStore'
 import { loadRemoteValues } from './remoteConfig'
 import { createToothModelFn } from './toothAdapter'
@@ -66,6 +75,8 @@ const guardSafeWords = [...termSet]
 const modelFn = createNanoModelFn(ai)
 /** T10: the offline queue. Holds the approved anonymous text and the profession id only (core/queue.ts). */
 const queueStore = createQueueStore()
+/** T16: remembered places, labs and ID formats. On this device only; never a name (core/myTerms.ts). */
+const termsStore = createTermsStore(termSet)
 const BADGE_TEXT = { 'on-device': 'On-device', cloud: 'Cloud', rules: 'Rules only' } as const
 const NANO_DELAY_MS = 600
 /** How often a queued letter is tried again while the page is open (T10 follow-up, 20 Nov). */
@@ -90,6 +101,11 @@ export default function NoteScreen() {
   const [note, setNote] = useState('')
   const [manualHides, setManualHides] = useState<string[]>([])
   const [unhidden, setUnhidden] = useState<string[]>([])
+  // T16: "My terms". The list is read once from this device; the prompt after a hand hide is cleared by any edit.
+  const [savedTerms, setSavedTerms] = useState<SavedTerm[]>([])
+  const [remember, setRemember] = useState<string | null>(null)
+  const [rememberMsg, setRememberMsg] = useState('')
+  const [showTerms, setShowTerms] = useState(false)
   const [preview, setPreview] = useState('')
   const [stageOneMissed, setStageOneMissed] = useState<HideItem[]>([])
   const [nano, setNano] = useState<NanoResult | null>(null)
@@ -172,7 +188,7 @@ export default function NoteScreen() {
       return
     }
     // Stage one is instant: the code redactor, then the hand-hidden words.
-    const first = redactFirst(note, manualHides, rulesForPack(basePack))
+    const first = redactFirst(note, manualHides, termsToRules(savedTerms, rulesForPack(basePack)), termsToHideItems(savedTerms))
     mapRef.current = first.map
     setPreview(unhideTokens(first.text, first.map, unhidden))
     setStageOneMissed(first.notFound)
@@ -191,7 +207,7 @@ export default function NoteScreen() {
       clearTimeout(timer)
       ctrl.abort()
     }
-  }, [note, manualHides, unhidden, basePack])
+  }, [note, manualHides, unhidden, basePack, savedTerms])
 
   const review = useMemo(() => (nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed), [nano, stageOneMissed])
   const needManualTick = nano?.state === 'manual'
@@ -242,6 +258,8 @@ export default function NoteScreen() {
 
   function onNoteChange(value: string) {
     setPackChanged(false)
+    setRemember(null)
+    setRememberMsg('')
     setNote(value)
   }
 
@@ -471,7 +489,45 @@ export default function NoteScreen() {
     }
     setManualHides((prev) => (prev.some((p) => fold(p) === fold(text)) ? prev : [...prev, text]))
     sel.removeAllRanges()
+    setRemember(text.length <= 60 ? text : null)
+    setRememberMsg('')
   }
+
+  // ---- T16 My terms ----
+  useEffect(() => {
+    let alive = true
+    void termsStore.list().then((t) => alive && setSavedTerms(t))
+    return () => {
+      alive = false
+    }
+  }, [])
+
+  async function saveTerm(kind: 'place' | 'org' | 'idFormat') {
+    if (remember === null) return
+    const v =
+      kind === 'idFormat'
+        ? validateIdFormat(remember, termSet, rulesForPack(basePack).notIdPrefixes, savedTerms)
+        : validateTerm({ kind, text: remember }, termSet, savedTerms)
+    if (isProblem(v)) {
+      setRememberMsg(v.message)
+      return
+    }
+    await termsStore.add(v)
+    setSavedTerms(await termsStore.list())
+    // The words are already hidden by hand in this note; the saved term takes over from the next note on.
+    setRemember(null)
+    setRememberMsg('Remembered on this device.')
+  }
+  async function removeTerm(t: SavedTerm) {
+    await termsStore.remove(t)
+    setSavedTerms(await termsStore.list())
+  }
+  async function forgetAll() {
+    await termsStore.clear()
+    setSavedTerms([])
+  }
+  const savedKeys = useMemo(() => new Set(termsToHideItems(savedTerms).map((i) => fold(i.text))), [savedTerms])
+  const hiddenByTerms = (token: string) => (mapRef.current?.get(token)?.variants ?? []).some((v) => savedKeys.has(fold(v)))
 
   // ---- the status line: one text per state (FINISH.md "States"), all from core/messages.ts ----
   const empty = !note.trim()
@@ -673,7 +729,7 @@ export default function NoteScreen() {
                 ) : (
                   segments.map((s, i) =>
                     s.kind === 'token' ? (
-                      <button key={i} type="button" className="chip" title="Click to show this text again" onClick={() => unhide(s.text)}>
+                      <button key={i} type="button" className="chip" title={hiddenByTerms(s.text) ? 'Hidden by My terms. Click to show this text again (this note only)' : 'Click to show this text again'} onClick={() => unhide(s.text)}>
                         {s.text}
                       </button>
                     ) : s.kind === 'amber' ? (
@@ -698,6 +754,40 @@ export default function NoteScreen() {
                 )}
               </div>
               {hint && <p className="small">{hint}</p>}
+              {remember !== null && (
+                <p className="small remember" data-testid="remember">
+                  Remember &lsquo;{remember}&rsquo; for next time?{' '}
+                  <button type="button" className="secondary" data-testid="remember-place" onClick={() => void saveTerm('place')}>
+                    Place
+                  </button>{' '}
+                  <button type="button" className="secondary" data-testid="remember-org" onClick={() => void saveTerm('org')}>
+                    Lab / organisation
+                  </button>{' '}
+                  {deriveIdFormat(remember, termSet, rulesForPack(basePack).notIdPrefixes) && (
+                    <>
+                      <button type="button" className="secondary" data-testid="remember-id" onClick={() => void saveTerm('idFormat')}>
+                        ID format
+                      </button>{' '}
+                    </>
+                  )}
+                  <button type="button" className="secondary" onClick={() => setRemember(null)}>
+                    No
+                  </button>
+                  <br />
+                  Never save a patient&rsquo;s name. Saved on this device only.
+                </p>
+              )}
+              {rememberMsg && (
+                <p className="small" role="status" data-testid="remember-msg">
+                  {rememberMsg}
+                </p>
+              )}
+              <p className="small">
+                <button type="button" className="link" data-testid="my-terms-link" onClick={() => setShowTerms((v) => !v)}>
+                  My terms ({savedTerms.length})
+                </button>
+              </p>
+              {showTerms && <MyTermsPanel terms={savedTerms} onRemove={(t) => void removeTerm(t)} onClear={() => void forgetAll()} />}
             </>
           )}
 
