@@ -135,6 +135,7 @@ What the numbers say, and do not say:
 ## Limitations (please read)
 
 - **The redactor misses things.** The dentist's check before Approve is the real control, not the model. Weak spots we know: a street address typed all in lower case, a nickname with no clue around it, a name glued into a longer word (the send guard stops it, the redactor does not hide it, and the user hides it by hand).
+- **Without Gemini Nano (manual mode) the user's tick is the only control for names.** The code rules still hide phones, emails, IDs, dates and addresses, and the app underlines words that look like names, but an underline is advice, not a block: a user who ticks "I hid every name by hand" without hiding a name will send it. The "What was sent to the cloud" receipt under the letter shows exactly what left the browser, so the mistake is visible afterwards, not prevented. We chose not to add a second blocking tick for underlined words in this version.
 - **"My terms" learns per device, not across users, and only places, labs and ID formats** (never names). Anyone using the same browser profile can see the list in the panel.
 - **Hiding names is not the same as anonymous.** A rare condition, an exact figure or a job title can still point to one person. Clinical, tax and legal details are sent to the cloud on purpose.
 - **Synthetic data only.** This build uses the free Gemini Developer API, where Google may keep and review prompts. No privacy claim is made for real patients or clients.
