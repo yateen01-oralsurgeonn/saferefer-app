@@ -107,6 +107,8 @@ export default function NoteScreen() {
   const [remember, setRemember] = useState<string | null>(null)
   const [rememberMsg, setRememberMsg] = useState('')
   const [showTerms, setShowTerms] = useState(false)
+  // D1 review fix: a phrase with no place/organisation word needs one more "yes, it is a place" click.
+  const [confirmKind, setConfirmKind] = useState<'place' | 'org' | null>(null)
   const [preview, setPreview] = useState('')
   const [stageOneMissed, setStageOneMissed] = useState<HideItem[]>([])
   const [nano, setNano] = useState<NanoResult | null>(null)
@@ -261,6 +263,7 @@ export default function NoteScreen() {
     setPackChanged(false)
     setRemember(null)
     setRememberMsg('')
+    setConfirmKind(null)
     // A new note (box emptied or all text replaced) starts clean: no hand hides, no un-hides from the last note.
     if (isNewNote(note, value)) {
       setManualHides([])
@@ -497,6 +500,7 @@ export default function NoteScreen() {
     sel.removeAllRanges()
     setRemember(text.length <= 60 ? text : null)
     setRememberMsg('')
+    setConfirmKind(null)
   }
 
   // ---- T16 My terms ----
@@ -508,16 +512,30 @@ export default function NoteScreen() {
     }
   }, [])
 
-  async function saveTerm(kind: 'place' | 'org' | 'idFormat') {
+  /** Words the app already hid as a person in this note (code or Nano), not the user's own hand hides. */
+  function personWordsNow(): Set<string> {
+    const hand = new Set(manualHides.map(fold))
+    const out = new Set<string>()
+    for (const e of mapRef.current?.entries() ?? []) {
+      if (e.type !== 'PATIENT' && e.type !== 'PERSON' && e.type !== 'RELATIVE') continue
+      if (e.variants.some((v) => hand.has(fold(v)))) continue
+      for (const v of e.variants) for (const w of fold(v).split(/[^\p{L}\p{N}]+/u)) if (w.length >= 3) out.add(w)
+    }
+    return out
+  }
+
+  async function saveTerm(kind: 'place' | 'org' | 'idFormat', confirmed = false) {
     if (remember === null) return
     const v =
       kind === 'idFormat'
         ? validateIdFormat(remember, termSet, rulesForPack(basePack).notIdPrefixes, savedTerms)
-        : validateTerm({ kind, text: remember }, termSet, savedTerms)
+        : validateTerm({ kind, text: remember }, termSet, savedTerms, { confirmed, personWords: personWordsNow() })
     if (isProblem(v)) {
+      setConfirmKind(v.problem === 'confirm-place' && kind !== 'idFormat' ? kind : null)
       setRememberMsg(v.message)
       return
     }
+    setConfirmKind(null)
     await termsStore.add(v)
     setSavedTerms(await termsStore.list())
     // The words are already hidden by hand in this note; the saved term takes over from the next note on.
@@ -776,7 +794,15 @@ export default function NoteScreen() {
                       </button>{' '}
                     </>
                   )}
-                  <button type="button" className="secondary" onClick={() => setRemember(null)}>
+                  <button
+                    type="button"
+                    className="secondary"
+                    onClick={() => {
+                      setRemember(null)
+                      setConfirmKind(null)
+                      setRememberMsg('')
+                    }}
+                  >
                     No
                   </button>
                   <br />
@@ -786,6 +812,24 @@ export default function NoteScreen() {
               {rememberMsg && (
                 <p className="small" role="status" data-testid="remember-msg">
                   {rememberMsg}
+                  {confirmKind && remember !== null && (
+                    <>
+                      {' '}
+                      <button type="button" className="secondary" data-testid="confirm-place" onClick={() => void saveTerm(confirmKind, true)}>
+                        Yes, it is {confirmKind === 'place' ? 'a place' : 'an organisation'}
+                      </button>{' '}
+                      <button
+                        type="button"
+                        className="secondary"
+                        onClick={() => {
+                          setConfirmKind(null)
+                          setRememberMsg('')
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </>
+                  )}
                 </p>
               )}
               <p className="small">

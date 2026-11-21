@@ -3,7 +3,7 @@
 // D1: NEVER a person's name. D2: there is no "never hide" list. D4: an ID format is a shape (prefix), never a number.
 import { findDates, findEmails, findPhones, isFdi } from './patterns'
 import { NO_RULES, type RedactRules } from './redactRules'
-import { escapeRegex, HONORIFICS, NAME_ENDING, type Found, type HideItem } from './tokens'
+import { escapeRegex, HONORIFICS, type Found, type HideItem } from './tokens'
 
 export type SavedTerm = { kind: 'place' | 'org'; text: string } | { kind: 'idFormat'; prefix: string }
 
@@ -19,6 +19,7 @@ export type TermProblem =
   | 'tooth-number'
   | 'clinical-term'
   | 'looks-like-name'
+  | 'confirm-place'
   | 'not-an-id-format'
   | 'full'
 
@@ -44,6 +45,7 @@ export const TERM_MESSAGES: Readonly<Record<TermProblem, string>> = {
   'clinical-term': 'That is a clinical or drug word, so it is not remembered.',
   'looks-like-name': 'It looks like a person’s name. Names are never remembered.',
   'not-an-id-format': 'That does not look like an ID such as OP-731.',
+  'confirm-place': 'Is this a place or an organisation, not a person? Names are never remembered.',
   full: 'The list is full (200). Delete one first.',
 }
 
@@ -64,9 +66,45 @@ const TITLE_OR_RELATION = new RegExp(
   String.raw`^(?:${[...HONORIFICS, 'fr', 'rev', 'husband', 'wife', 'son', 'daughter', 'father', 'mother', 'brother', 'sister', 'uncle', 'aunt', 'aai', 'baba', 'bhau', 'tai'].join('|')})\.?\s`,
   'i',
 )
-const NAME_END_WORD = new RegExp(String.raw`[\p{L}]{3,}${NAME_ENDING}$`, 'iu')
+/**
+ * Words that make a phrase a place or an organisation (D1 review fix, 21 Nov). A phrase with one of these is accepted
+ * even when another word ends like a name ("Shivaji Nagar", "Netaji Road"). A phrase without one ("Mumbai", "Sunita")
+ * needs the user to confirm once that it is a place, not a person.
+ */
+const PLACE_ORG_WORDS = new Set(
+  [
+    // streets and buildings
+    'road', 'rd', 'street', 'st', 'lane', 'marg', 'path', 'chowk', 'chauk', 'nagar', 'colony', 'society', 'apartment', 'apartments', 'tower',
+    'towers', 'gali', 'galli', 'peth', 'wadi', 'layout', 'enclave', 'vihar', 'residency', 'heights', 'garden', 'gardens', 'bazaar', 'bazar',
+    'market', 'avenue', 'villa', 'niwas', 'sadan', 'bhavan', 'building', 'bldg', 'plaza', 'arcade', 'estate', 'sector', 'phase', 'plot',
+    'flat', 'house', 'block', 'wing', 'floor', 'complex', 'naka', 'phata', 'gate', 'bridge', 'circle', 'square', 'park', 'ground', 'maidan',
+    'village', 'taluka', 'tal', 'district', 'dist', 'city', 'town', 'camp', 'cantonment', 'midc',
+    // landmarks
+    'near', 'behind', 'opp', 'opposite', 'beside', 'next', 'temple', 'mandir', 'masjid', 'mosque', 'church', 'gurudwara', 'dargah',
+    'station', 'stand', 'depot', 'stop', 'chowki', 'petrol', 'pump', 'tank', 'talav', 'lake', 'river', 'ghat',
+    // organisations
+    'school', 'college', 'university', 'institute', 'academy', 'hospital', 'clinic', 'home', 'works', 'services', 'bank', 'ltd',
+    'limited', 'pvt', 'company', 'co', 'industries', 'enterprises', 'corporation', 'corp', 'inc', 'llp', 'centre', 'center', 'lab', 'labs',
+    'laboratory', 'laboratories', 'pharmacy', 'medical', 'medicals', 'chemist', 'chemists', 'courier', 'couriers', 'motors', 'store',
+    'stores', 'mill', 'mills', 'factory', 'agency', 'agencies', 'associates', 'solutions', 'technologies', 'systems', 'foundation',
+    'trust', 'office', 'insurance', 'infotech', 'software', 'traders', 'trading', 'hotel', 'restaurant', 'garage', 'dairy', 'bakery',
+    'jewellers', 'diagnostics', 'imaging', 'scan', 'dental', 'ortho', 'court', 'police', 'thana', 'tehsil', 'panchayat', 'parishad',
+    'sangh', 'mandal', 'samiti', 'sahakari', 'patsanstha', 'bhandar',
+  ],
+)
+const hasPlaceOrgWord = (text: string) => termKey(text).split(' ').some((w) => PLACE_ORG_WORDS.has(w))
 
-function checkText(raw: string, terms: ReadonlySet<string>): TermProblem | null {
+export interface ValidateOptions {
+  /** The user has already said "yes, this is a place, not a person" for a phrase with no place word. */
+  confirmed?: boolean
+  /**
+   * Folded words the app already hid as a person in the CURRENT note (patient, relative, other person; found by the code
+   * or by Nano, not the user's own hand hides). A term with one of these words is refused outright, even if confirmed.
+   */
+  personWords?: ReadonlySet<string>
+}
+
+function checkText(raw: string, terms: ReadonlySet<string>, options: ValidateOptions): TermProblem | null {
   const text = raw.trim()
   const squashed = text.replace(/[ .,'’/-]/g, '')
   if (/^\d{2}$/.test(squashed) && isFdi(squashed)) return 'tooth-number'
@@ -81,7 +119,10 @@ function checkText(raw: string, terms: ReadonlySet<string>): TermProblem | null 
   if (AMOUNT.test(text)) return 'amount'
   if (terms.has(termKey(text))) return 'clinical-term'
   const words = text.split(/\s+/)
-  if (TITLE_OR_RELATION.test(text) || words.some((w) => NAME_END_WORD.test(w))) return 'looks-like-name'
+  if (TITLE_OR_RELATION.test(text)) return 'looks-like-name'
+  const person = options.personWords
+  if (person && termKey(text).split(' ').some((w) => w.length >= 3 && person.has(w))) return 'looks-like-name'
+  if (words.length > 0 && !hasPlaceOrgWord(text) && !options.confirmed) return 'confirm-place'
   return null
 }
 
@@ -90,10 +131,11 @@ export function validateTerm(
   input: { kind: 'place' | 'org'; text: string },
   termSet: ReadonlySet<string>,
   existing: readonly SavedTerm[] = [],
+  options: ValidateOptions = {},
 ): SavedTerm | Problem {
   const id = `${input.kind}:${foldTerm(input.text)}`
   if (existing.length >= MAX_TERMS && !existing.some((t) => termId(t) === id)) return problem('full')
-  const bad = checkText(input.text, termSet)
+  const bad = checkText(input.text, termSet, options)
   if (bad) return problem(bad)
   return { kind: input.kind, text: input.text.trim().replace(/\s+/g, ' ') }
 }
@@ -153,7 +195,8 @@ export function sanitiseTerms(raw: unknown, termSet: ReadonlySet<string>): Saved
     if (!r || typeof r !== 'object') continue
     const o = r as Record<string, unknown>
     if ((o.kind === 'place' || o.kind === 'org') && typeof o.text === 'string') {
-      const v = validateTerm({ kind: o.kind, text: o.text }, termSet)
+      // Stored terms were confirmed when saved; every other check runs again.
+      const v = validateTerm({ kind: o.kind, text: o.text }, termSet, [], { confirmed: true })
       if (!isProblem(v)) out.push(v)
     } else if (o.kind === 'idFormat' && typeof o.prefix === 'string') {
       const v = deriveIdFormat(`${o.prefix}1`, termSet)

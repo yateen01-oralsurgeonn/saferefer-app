@@ -52,9 +52,33 @@ describe('T16 validateTerm', () => {
     ['Dr Testpatil', 'looks-like-name'],
     ['Mr Arvind', 'looks-like-name'],
     ['husband Ramesh', 'looks-like-name'],
-    ['Rameshbhai', 'looks-like-name'],
   ])('refuses %s (%s)', (text, why) => {
     expect(reason(place(text))).toBe(why)
+  })
+
+  it.each(['Shivaji Nagar', 'Sambhaji Chowk', 'Netaji Road', 'near Datta Mandir', 'Lokmanya Tilak Road', 'Sai Dental Lab'])(
+    'D1 review fix: accepts %s at once (it has a place or organisation word)',
+    (text) => {
+      expect(reason(place(text))).toBe('ok')
+    },
+  )
+
+  it.each(['Mumbai', 'Indapur', 'Sunita', 'Asha Testpatil', 'Rameshbhai'])('D1 review fix: %s needs one "yes, it is a place" first', (text) => {
+    expect(reason(place(text))).toBe('confirm-place')
+    expect(reason(validateTerm({ kind: 'place', text }, termSet, [], { confirmed: true }))).toBe('ok')
+  })
+
+  it('D1 review fix: a word the app hid as a person in this note is refused, even confirmed or with a place word', () => {
+    const personWords = new Set(['asha', 'testpatil'])
+    for (const text of ['Asha Testpatil', 'Testpatil', 'Testpatil Road'])
+      expect(reason(validateTerm({ kind: 'place', text }, termSet, [], { confirmed: true, personWords }))).toBe('looks-like-name')
+    // Other words are not affected, and short words never match.
+    expect(reason(validateTerm({ kind: 'place', text: 'Shivaji Nagar' }, termSet, [], { personWords }))).toBe('ok')
+  })
+
+  it('D1 review fix: a title or relation word is refused even when confirmed', () => {
+    for (const text of ['Dr Testpatil', 'husband Ramesh', 'Mrs Asha Road'])
+      expect(reason(validateTerm({ kind: 'place', text }, termSet, [], { confirmed: true }))).toBe('looks-like-name')
   })
 
   it('refuses a drug or clinical word', () => {
@@ -84,6 +108,8 @@ describe('T16 validateTerm', () => {
     const raw = [{ kind: 'place', text: 'Ganesh Mandir' }, { kind: 'place', text: '00000 55501' }, { kind: 'name', text: 'Asha' }, 5, null, { kind: 'idFormat', prefix: 'rct' }, { kind: 'idFormat', prefix: 'op' }]
     expect(sanitiseTerms(raw, termSet)).toEqual([{ kind: 'place', text: 'Ganesh Mandir' }, { kind: 'idFormat', prefix: 'op' }])
     expect(sanitiseTerms('nope', termSet)).toEqual([])
+    // A one-word place confirmed when saved ("Mumbai") survives a reload; a title never does.
+    expect(sanitiseTerms([{ kind: 'place', text: 'Mumbai' }, { kind: 'place', text: 'Dr Testpatil' }], termSet)).toEqual([{ kind: 'place', text: 'Mumbai' }])
   })
 })
 
