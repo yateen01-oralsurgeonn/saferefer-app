@@ -16,3 +16,4 @@ dist/
 .idea/
 harness/out/
 video/voice/
+video/raw/
