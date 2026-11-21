@@ -1,0 +1,196 @@
+[
+ {
+  "id": "HAND-DENTAL-001",
+  "text": "3/11 rohu aala with aai, 36 chi juni filling tutli. temp filling keli, review sathi 00000 55123 var msg kara. navin patta near ganesh mandir, nilya gatechya bajula, file op-731 madhe update kela.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "3/11"
+   },
+   {
+    "type": "name",
+    "value": "rohu"
+   },
+   {
+    "type": "relative",
+    "value": "aai"
+   },
+   {
+    "type": "phone",
+    "value": "00000 55123"
+   },
+   {
+    "type": "address",
+    "value": "near ganesh mandir, nilya gatechya bajula"
+   },
+   {
+    "type": "record_id",
+    "value": "op-731"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-002",
+  "text": "third nov p.k. kaka brought lower denture, bhakri khatana left side la lagtay. sore spot adj kela, ata bara mhantat. receipt rs 300 chi manu la pathva, tyacha mail manu.k@example.test.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "third nov"
+   },
+   {
+    "type": "name",
+    "value": "p.k."
+   },
+   {
+    "type": "relative",
+    "value": "manu"
+   },
+   {
+    "type": "email",
+    "value": "manu.k@example.test"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-003",
+  "text": "pinky tai cha call last tuesday aala hota, chikki khatana cap nighali. dada cap gheun aala pan tai ajun school madhe, tichach no 00000 28416 aahe. file var gharacha patta old water tank mage, shevatcha hirva darwaja taka.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "pinky"
+   },
+   {
+    "type": "date",
+    "value": "last tuesday"
+   },
+   {
+    "type": "relative",
+    "value": "dada"
+   },
+   {
+    "type": "phone",
+    "value": "00000 28416"
+   },
+   {
+    "type": "address",
+    "value": "old water tank mage, shevatcha hirva darwaja"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-004",
+  "text": "05-11 la sonu cha wire right side la tochत hota, end trim kela. aai mhanali dob file madhe chuklay, barobar 8 aug 2012 aahe. file ort-048 var call sathi 00000 41682 theva.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "05-11"
+   },
+   {
+    "type": "name",
+    "value": "sonu"
+   },
+   {
+    "type": "relative",
+    "value": "aai"
+   },
+   {
+    "type": "dob",
+    "value": "8 aug 2012"
+   },
+   {
+    "type": "record_id",
+    "value": "ort-048"
+   },
+   {
+    "type": "phone",
+    "value": "00000 41682"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-005",
+  "text": "amol bhau cha 46 crown trial zala, bite jara high vatla tyala. adj karun lab slip cr-209 sobat chandrakor dental lab la parat dila, pickup 14 nov la. baki rs 1800 cementation veli denar.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "amol"
+   },
+   {
+    "type": "record_id",
+    "value": "cr-209"
+   },
+   {
+    "type": "organization",
+    "value": "chandrakor dental lab"
+   },
+   {
+    "type": "date",
+    "value": "14 nov"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-006",
+  "text": "7.11 minu aali with mavshi, reception la don juni files sapadlya. dob 2/6/2015 ani patta bhaji mandai mage, pithachya girni shejari baghun file pd-163 ghetli. aaj mirror ni baghu dila, chair var ektila basaycha navhta.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "7.11"
+   },
+   {
+    "type": "name",
+    "value": "minu"
+   },
+   {
+    "type": "relative",
+    "value": "mavshi"
+   },
+   {
+    "type": "dob",
+    "value": "2/6/2015"
+   },
+   {
+    "type": "address",
+    "value": "bhaji mandai mage, pithachya girni shejari"
+   },
+   {
+    "type": "record_id",
+    "value": "pd-163"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-007",
+  "text": "rj cha msg aala, bus late hai bolta. scaling chi appt friday sakali shift keli.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "rj"
+   },
+   {
+    "type": "date",
+    "value": "friday sakali"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-008",
+  "text": "nehu tai mhante 26 ani 27 madhe jevan adakta. xray dakhavla, filling sathi vel baghun kalavte mhanali.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "nehu"
+   }
+  ]
+ },
+ {
+  "id": "HAND-DENTAL-009",
+  "text": "lower denture dabtey mhantat pan denture gharich rahili. pudhchya veli ghalun ya sangitla, nemka kuthe lagtay te dakhavta yeil.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-DENTAL-010",
+  "text": "retainer fit barobar, kadhayla thoda vel lagat hota. don vela swatah kadhlay ani parat basavlay, box matra reception lach visarla.",
+  "identifiers": []
+ }
+]
