@@ -13,10 +13,19 @@ if (!existsSync(src)) throw new Error(`${src} not found`)
 const TYPES = new Set(['name', 'relative', 'phone', 'email', 'date', 'dob', 'address', 'organization', 'record_id', 'amount', 'id'])
 const raw = readFileSync(src, 'utf8').replace(/\r\n/g, '\n')
 // Notes start at a line beginning "N." or "N)"; a note may continue on following lines until the next number.
+// Identifiers can be marked inline ([[type:text]]) or listed under the note, one per line: "name: savita kolhe".
 const chunks: string[] = []
+const listed: { type: string; value: string }[][] = []
+const LISTED = /^\s*[-*]?\s*([a-z_]+)\s*:\s*(.+?)\s*$/
 for (const line of raw.split('\n')) {
-  if (/^\s*\d{1,3}[.)]\s/.test(line)) chunks.push(line.replace(/^\s*\d{1,3}[.)]\s+/, ''))
-  else if (chunks.length && line.trim() && !/^#/.test(line)) chunks[chunks.length - 1] += ' ' + line.trim()
+  if (/^\s*\d{1,3}[.)]\s/.test(line)) {
+    chunks.push(line.replace(/^\s*\d{1,3}[.)]\s+/, ''))
+    listed.push([])
+  } else if (chunks.length && line.trim() && !/^#/.test(line)) {
+    const m = LISTED.exec(line)
+    if (m && TYPES.has(m[1])) listed[listed.length - 1].push({ type: m[1], value: m[2] })
+    else chunks[chunks.length - 1] += ' ' + line.trim()
+  }
 }
 
 const problems: string[] = []
