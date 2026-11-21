@@ -1,0 +1,188 @@
+[
+ {
+  "id": "HAND-LAW-001",
+  "text": "taavri v bhiruk, cheque 068794 image has fold over signature. nalya has original at kavduli pulley mart. ring 00000 83469 before leaving for JMFC Indapur.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "taavri"
+   },
+   {
+    "type": "name",
+    "value": "bhiruk"
+   },
+   {
+    "type": "id",
+    "value": "068794"
+   },
+   {
+    "type": "name",
+    "value": "nalya"
+   },
+   {
+    "type": "organization",
+    "value": "kavduli pulley mart"
+   },
+   {
+    "type": "phone",
+    "value": "00000 83469"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-002",
+  "text": "cross - ask which gate he used. can't see the latch from where he says he stood.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-LAW-003",
+  "text": "CIV-B/86 draft says front room, sketch shows rear. sonkali to mark her bit in pencil. her son piku will bring sketch from third arch behind the indigo kiln 12.12.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "CIV-B/86"
+   },
+   {
+    "type": "name",
+    "value": "sonkali"
+   },
+   {
+    "type": "relative",
+    "value": "her son piku"
+   },
+   {
+    "type": "address",
+    "value": "third arch behind the indigo kiln"
+   },
+   {
+    "type": "date",
+    "value": "12.12"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-004",
+  "text": "udya take extra copy of say, last set has alternate pages upside down.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "udya"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-005",
+  "text": "claim 3,80,000 still in plaint. govindya ok at 2,65,000 full n final if paid in one go. zhilpa asking for instalments. keep consent terms in draft, fourth dec call both.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "govindya"
+   },
+   {
+    "type": "amount",
+    "value": "2,65,000"
+   },
+   {
+    "type": "name",
+    "value": "zhilpa"
+   },
+   {
+    "type": "date",
+    "value": "fourth dec"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-006",
+  "text": "FIR 87/2026, aboli saheb spotted diff in seizure time. witness timru free after shop shuts, msg on 00000 76938. meet at tin awning beside the old seed weighbridge.",
+  "identifiers": [
+   {
+    "type": "id",
+    "value": "87/2026"
+   },
+   {
+    "type": "name",
+    "value": "aboli saheb"
+   },
+   {
+    "type": "name",
+    "value": "timru"
+   },
+   {
+    "type": "phone",
+    "value": "00000 76938"
+   },
+   {
+    "type": "address",
+    "value": "tin awning beside the old seed weighbridge"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-007",
+  "text": "evidence over. get exhibit list copied before bundling loose papers, carbon copy barely readable.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-LAW-008",
+  "text": "kivda sent society reply from kivda.desk@example.test, attachment blank. ask morghum angan society for inward page too. keep under SOC.274, not with conveyance papers.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "kivda"
+   },
+   {
+    "type": "email",
+    "value": "kivda.desk@example.test"
+   },
+   {
+    "type": "organization",
+    "value": "morghum angan society"
+   },
+   {
+    "type": "record_id",
+    "value": "SOC.274"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-009",
+  "text": "ghumya signed vakalatnama on back by mistake. fresh one in flap.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ghumya"
+   }
+  ]
+ },
+ {
+  "id": "HAND-LAW-010",
+  "text": "RCS 286/2026 summons came back door locked. revatya says daglu shifted to room above the green flour mill, last turn at pebble chowk. daglu's sister gave this on last thursday, get pin before fresh process.",
+  "identifiers": [
+   {
+    "type": "id",
+    "value": "RCS 286/2026"
+   },
+   {
+    "type": "name",
+    "value": "revatya"
+   },
+   {
+    "type": "name",
+    "value": "daglu"
+   },
+   {
+    "type": "address",
+    "value": "room above the green flour mill, last turn at pebble chowk"
+   },
+   {
+    "type": "relative",
+    "value": "daglu's sister"
+   },
+   {
+    "type": "date",
+    "value": "last thursday"
+   }
+  ]
+ }
+]

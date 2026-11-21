@@ -1,0 +1,192 @@
+[
+ {
+  "id": "HAND-CA-001",
+  "text": "ketki tai brought the shuttered shop file BK/418. board still says dhundvel spool house, gst login has 27QVXZK3846L1Z8. ask for rent agrmt for blue shutter lane, behind the brass water tank before changing address.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "ketki tai"
+   },
+   {
+    "type": "record_id",
+    "value": "BK/418"
+   },
+   {
+    "type": "organization",
+    "value": "dhundvel spool house"
+   },
+   {
+    "type": "id",
+    "value": "27QVXZK3846L1Z8"
+   },
+   {
+    "type": "address",
+    "value": "blue shutter lane, behind the brass water tank"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-002",
+  "text": "Q2 purchase diff sorted. same bill came in twice, once with a space in invoice no. redo GSTR-3B working.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-CA-003",
+  "text": "chintuk sent Form 16 photos out of order again. PAN VXQZL6842N, dob 14.08.1987 per copy. send draft to chintuk.slip@example.test, ring 00000 72846 only if pdf bounces.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "chintuk"
+   },
+   {
+    "type": "id",
+    "value": "VXQZL6842N"
+   },
+   {
+    "type": "dob",
+    "value": "14.08.1987"
+   },
+   {
+    "type": "email",
+    "value": "chintuk.slip@example.test"
+   },
+   {
+    "type": "phone",
+    "value": "00000 72846"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-004",
+  "text": "9/12 tally backup ghyaycha from V.D..",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "9/12"
+   },
+   {
+    "type": "name",
+    "value": "V.D."
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-005",
+  "text": "refund stuck, a/c 009837640251 closed per mrudang. new passbook with his wife zilu, she'll leave it at palasghun co-op bank, loom naka branch udya. refund 8,740 as per intimation.",
+  "identifiers": [
+   {
+    "type": "id",
+    "value": "009837640251"
+   },
+   {
+    "type": "name",
+    "value": "mrudang"
+   },
+   {
+    "type": "relative",
+    "value": "his wife zilu"
+   },
+   {
+    "type": "organization",
+    "value": "palasghun co-op bank, loom naka branch"
+   },
+   {
+    "type": "date",
+    "value": "udya"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-006",
+  "text": "IT-R/63 aadhaar scan cuts off last box. baba read it out as 0837 4926 5184, get full copy from ovika on 00000 68319 before saving.",
+  "identifiers": [
+   {
+    "type": "record_id",
+    "value": "IT-R/63"
+   },
+   {
+    "type": "relative",
+    "value": "baba"
+   },
+   {
+    "type": "id",
+    "value": "0837 4926 5184"
+   },
+   {
+    "type": "name",
+    "value": "ovika"
+   },
+   {
+    "type": "phone",
+    "value": "00000 68319"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-007",
+  "text": "44AD sheet still picks up own transfers as receipts. fix formula then check total against bank.",
+  "identifiers": []
+ },
+ {
+  "id": "HAND-CA-008",
+  "text": "dhavlu kaka says no cash sales last wednesday, but rough book has a whole page. book kept at tapori reed works, side door opposite the broken sundial. pilu has key.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "dhavlu kaka"
+   },
+   {
+    "type": "date",
+    "value": "last wednesday"
+   },
+   {
+    "type": "organization",
+    "value": "tapori reed works"
+   },
+   {
+    "type": "address",
+    "value": "side door opposite the broken sundial"
+   },
+   {
+    "type": "name",
+    "value": "pilu"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-009",
+  "text": "143(1) diff is just rounding per chivu. leave pencil tick till checked.",
+  "identifiers": [
+   {
+    "type": "name",
+    "value": "chivu"
+   }
+  ]
+ },
+ {
+  "id": "HAND-CA-010",
+  "text": "seventh dec pickup for velkadi bobbin stores. jhilmil wants ITR-3 ack only, no computation in envelope. file RET.829, call 00000 94728 from downstairs, bell doesnt work.",
+  "identifiers": [
+   {
+    "type": "date",
+    "value": "seventh dec"
+   },
+   {
+    "type": "organization",
+    "value": "velkadi bobbin stores"
+   },
+   {
+    "type": "name",
+    "value": "jhilmil"
+   },
+   {
+    "type": "record_id",
+    "value": "RET.829"
+   },
+   {
+    "type": "phone",
+    "value": "00000 94728"
+   }
+  ]
+ }
+]
