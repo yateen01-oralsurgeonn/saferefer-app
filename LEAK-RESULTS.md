@@ -201,3 +201,68 @@ Made from the **TUNE-set misses only** (all 73 structured tune misses had one of
 - **Caveat:** the locked notes come from the same generator as the tune notes, so this improvement was expected; it shows the fixes did not over-fit single notes, not that they generalise to real notes. Hand-written locked notes are the real test.
 - **Earlier sets unchanged** (code only, checked before and after the fix): builder notes 4/124, CA 2/55, law 4/70; fresh notes 11/46, 21/56, 11/69. The text passed to Nano on those notes is the same, so the fresh-note Nano results (1/46, 2/56, 0/69) still stand.
 - **Not live yet:** the hosted site runs the build from before these fixes. A redeploy after merging to master puts them live (then repeat the live check).
+
+## Nano passes, 21 Nov 2026 (his Chrome, Nano on, `npm run dev`)
+| Set | Mode | Identifiers | Leaked | Names | Address | Org | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|
+| tune dental (200 notes) | code + Nano, run 1 | 888 | 11 (1.2%) | 3 | 7 | 1 | 0 PASS | 200/200 PASS |
+
+- Nano failed on 1 note (DENTAL-000); that note was scored on code only. Its miss is "Sonu bhau" (name).
+- Code-only on the same set after the rule fixes was 255 of 888 (28.7%), so Nano removed about 96% of what the code rules left.
+- Misses are mostly partial addresses ("near", "Market Yard", "Hadapsar") and partial surnames (ghule, phadke). Zero phones, emails, dates, DOBs, record IDs.
+- TUNE set only: the targets in LEAK-TARGETS section B apply to the LOCKED sets. Single run; the spread over 3 runs is not measured yet.
+
+### Locked dental, code + Nano, run 1 (21 Nov 2026)
+| Set | Identifiers | Leaked | name | phone | email | record_id | date | dob | org | address | relative | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| locked dental (100 notes) | 412 | 7 (1.7%) | 1/100 | 0/21 | 0/30 | 0/13 | 1/98 | 0/14 | 2/72 | 2/21 | 1/43 | 0 PASS | 100/100 PASS |
+
+- Against LEAK-TARGETS section B: overall 1.7% is under the 3% limit (PASS); zero-request checks PASS; phones, emails, ID numbers 0 (PASS); **names left = 1, target 0: MISSED by 1 name** (one name or part of one). One date also left (code-rule target for dates is at most 2%: 1/98 = 1.0%, within it).
+- Nano did not fail on any note this time. Misses not shown (locked set), so the cause of the name miss is unknown. Single run, spread over 3 runs not yet measured; 7 in 412 means "under about 2.8 per 100 identifiers" at 95% confidence is not claimed, only the count.
+- The README and video must say: dental locked, 7 of 412 leaked (1.7%), one name missed against a target of zero.
+
+### Tune CA, code + Nano, run 1 (21 Nov 2026)
+| Set | Identifiers | Leaked | name | org | address | other types | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|
+| tune CA (200 notes) | 1,104 | 23 (2.1%) | 8/176 | 4/103 | 11/53 | 0 (record_id 323, date 158, phone 82, dob 51, relative 108, email 50) | **1 FAIL (must be 0)** | 200/200 PASS |
+
+- **The zero-request check FAILED: 1 request.** Cause NOT yet known. The counter (`withFetchCount` in `app/src/leakRun.ts`) wraps `globalThis.fetch` for the whole run (minutes), so it counts ANY fetch the page makes, including background Firebase App Check / Remote Config calls, not only redaction. Not assumed harmless: to be re-run with the DevTools Network tab open to see the URL, before this set counts as a pass. Reported as a FAIL until then.
+- Leaks: mostly partial office addresses and partial surnames after "File:". Zero phones, emails, IDs, dates.
+
+### Tune CA, code + Nano, run 2 (21 Nov 2026, DevTools Network open, Preserve log on, Fetch/XHR, filter "firebasevertexai")
+| Set | Identifiers | Leaked | name | org | address | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|
+| tune CA, run 2 | 1,104 | 28 (2.5%) | 15/176 | 1/103 | 12/53 | 0 PASS | 200/200 PASS |
+
+- Run 1 gave 23 (2.1%) and 1 request (FAIL); run 2 gave 28 (2.5%) and 0 requests. **Nano spread on this set: 23 to 28; names 8 to 15.** Nano is not repeatable, so quote ranges.
+- Network panel screenshot (`Pictures/Screenshots/Network list screenshot .png`): 0 of 73 requests match "firebasevertexai", i.e. nothing went to the cloud model endpoint. Because the filter was on, it does NOT show what the single request in run 1 was; run 1 was done without the Network tab open. **The cause of run 1's 1 request is still unproven** (most likely a background Firebase call counted by the whole-run fetch counter). Dental tune, dental locked and CA tune run 2 all show 0.
+
+### Request-source check with Playwright (21 Nov 2026, code-only, no Nano in that browser)
+- Ran tune CA on `npm run dev` with a logger on fetch, XHR and sendBeacon installed before the run: **0 calls during the run**; page result 176 of 1,104 (15.9%), identical to the code-only baseline; both zero-request checks PASS.
+- The whole browser session made exactly one network request that is not a static file: a POST to `content-firebaseappcheck.googleapis.com/.../exchangeDebugToken` at page load (App Check debug-token exchange in dev mode). It carries no note text. Most likely explanation of run 1's single request in his Chrome: a background App Check call landing inside the run window, which the whole-run fetch counter also counts. This is an inference from the dev setup, not proof, since run 1 was not watched.
+
+### Locked CA, code + Nano, run 1 (21 Nov 2026)
+| Set | Identifiers | Leaked | name | org | address | relative | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|
+| locked CA (100 notes) | 536 | 16 (3.0%; 2.985%) | 6/83 | 3/53 | 6/26 | 1/48 | **1 FAIL (must be 0)** | 100/100 PASS |
+
+- Against LEAK-TARGETS section B: overall 16/536 = 2.985%, just inside "at most 3%" (PASS, no margin); phones, emails, record IDs, dates, DOBs 0 (PASS); **names left 6, target 0: MISSED**; **zero-request check FAILED (1 request), cause not identified.**
+- The Network screenshot for this run shows nothing usable: the filter box still read "firebasevertexai" and the panel was empty ("Currently recording", timeline from 10 ms), i.e. the log was cleared or started after the run. It proves neither a request nor its absence.
+
+### Locked CA, code + Nano, run 2 (21 Nov 2026, page reloaded with DevTools open, Preserve log on)
+| Set | Identifiers | Leaked | name | address | relative | org | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|
+| locked CA, run 2 | 536 | 10 (1.9%) | 4/83 | 5/26 | 1/48 | 0/53 | 0 PASS | 100/100 PASS |
+
+- **Locked CA spread over 2 runs: 10 to 16 leaked (1.9% to 3.0%); names 4 to 6 (target 0, missed in both); requests 1 then 0.**
+- Network panel for this run (`Recent screenshot of network of safe refer .png`): recorded from page load, 148 requests, filter still "firebasevertexai" (not cleared), 0 match. So nothing went to the cloud model endpoint; other requests were hidden by the filter. The request that failed run 1 is still unidentified.
+
+### Tune advocate, code + Nano, run 1 (21 Nov 2026, DevTools Network open from page load, Keep log on, filter empty, Fetch/XHR)
+| Set | Identifiers | Leaked | name | address | org | relative | other types | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|---|
+| tune advocate (200 notes) | 1,080 | 39 (3.6%) | 17/167 | 15/85 | 4/33 | 3/198 | 0 (phone 63, email 50, date 197, record_id 204, dob 40, amount 43) | 0 PASS | 200/200 PASS |
+
+- Network panel (`saferefer advocate screenshot 1 .png`): 0 of 74 requests under Fetch/XHR with the filter box empty, recorded from page load. A watched clean run.
+- Nano failed on 1 note (LAW-000), scored on code only (same first-note failure as tune dental DENTAL-000: probably the model warming up, not confirmed).
+- Misses: partial surnames after "Matter:"/"File:" (More, Jadhav, Gokhale, Ghule, Phadke, Chavan...), lower-case given names in brackets ("sheetal (", "seema ("), landmark addresses ("behind sabzi mandi", "opp. shivaji statue", "H.No. 94"), and "<name> Electricals/Constructions/Hardware (client)" business names. Zero phones, emails, dates, DOBs, record IDs, amounts.
+- 3.6% is above the 3% line, but that line in LEAK-TARGETS section B applies to the LOCKED sets; this is the tune set (misses shown, may be used for fixes).
