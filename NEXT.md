@@ -1,6 +1,26 @@
 > **REMINDER (his choice, 20 Nov): the repo is still PRIVATE. He wants it made PUBLIC on 25 Nov, before the video is uploaded (submit 28 Nov; hard deadline 1 Dec 2026 3:30 AM IST). Remind him at the start of the 25 Nov session (and every session after, until done). Command, only on his yes: `gh repo edit yateen01-oralsurgeonn/saferefer --visibility public --accept-visibility-change-consequences`, then open the repo logged-out and check README, licence and that no secret shows.**
 > **Live now:** https://saferefer-d5175.web.app (deployed, console steps done, App Check enforced, API key restricted). master = origin/master. Video prep is on branch `t14-video`.
 
+# NEXT (21 Nov 2026): T16 "My terms", then the video
+
+**Plan: `T16-PLAN.md` (Opus 5.5). Builder: Sonnet 5.5. Branch: `t16-my-terms` (from master). Do not start until Dr. Yatin has
+answered decision D3 in T16-PLAN.md section 3 (recorded at the end of this block).**
+
+```
+Read CLAUDE.md, HANDOVER.md (the "do not change" list), SECURITY.md, T16-PLAN.md. Do task T16 and nothing else, on branch
+t16-my-terms. Follow T16-PLAN.md sections 2, 4, 6, 7 and 8 exactly; decisions D1-D4 are settled, do not reopen them.
+Order: (1) core/myTerms.ts + tests, (2) redactFirst `saved` param + tests (prove byte-identical output with saved=[] on the
+30 builder notes and every harness set), (3) myTermsStore.ts + tests, (4) NoteScreen prompt + My terms panel, (5) leak page
+&terms= mode, (6) Playwright E2E on npm run dev (`npx vite --port 5199`; this dev server goes STALE after edits: restart and
+curl the source before browser checks), (7) docs in section 7. Commit after each step. Run `npm test`, `npm run lint`,
+`npx tsc -b`, `npm run harness` and `npm run build` before the last commit. Never store a note, map, preview or letter; never
+add a name to the list; no window.confirm/alert. Stop and write the problem in NEXT.md if a step would need a "do not change"
+item changed. When done, rewrite this block as "T16 built, waiting for Opus review" with the commit list.
+```
+- D3 answer: (pending)
+
+---
+
 # NEXT: T13 is DONE (20 Nov). Now T14 the video
 
 Read `HANDOVER.md`, `CLAUDE.md`, `SUBMISSION.md` section 2 (the demo script), `ACCEPTANCE.md` T14, `RULES.md` (video rules), `LEAK-RESULTS.md` and `T13-REPORT.md` first. Newest branch: **`t13-deploy`** (built on `t12c-gaps`). Everything up to `t12c-gaps` (5163e2a) is pushed; `t13-deploy` is committed locally. Nothing is merged to master.
