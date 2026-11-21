@@ -5,7 +5,7 @@ import drugs from '../../../data/drugs.json'
 import terms from '../../../data/clinical-terms.json'
 import notesJson from '../../../data/notes.json'
 import { runLeakTest, type TestNote } from '../core'
-import { checkNoModel, makeRedact, withFetchCount } from '../leakRun'
+import { checkNoModel, isAppCheckCall, makeRedact, withFetchCount } from '../leakRun'
 import { createNanoModelFn } from '../nanoAdapter'
 
 const notes = notesJson as TestNote[]
@@ -61,5 +61,24 @@ describe('T8 page helpers', () => {
     })
     expect(fetches).toBe(2)
     expect(globalThis.fetch).toBe(fetchSpy)
+  })
+
+  it('withFetchCount counts App Check token calls separately, other calls as requests', async () => {
+    const { fetches, appCheck } = await withFetchCount(async () => {
+      await fetch('https://firebaseappcheck.googleapis.com/v1/projects/p/apps/1:2:web:3:exchangeRecaptchaEnterpriseToken').catch(() => {})
+      await fetch('https://content-firebaseappcheck.googleapis.com/v1/x').catch(() => {})
+      await fetch('https://firebasevertexai.googleapis.com/v1beta/projects/p:generateContent').catch(() => {})
+      await fetch('https://example.com/?u=firebaseappcheck.googleapis.com').catch(() => {})
+    })
+    expect(appCheck).toBe(2)
+    expect(fetches).toBe(2)
+  })
+
+  it('isAppCheckCall matches the host only, not a look-alike', () => {
+    expect(isAppCheckCall('https://firebaseappcheck.googleapis.com/v1/a')).toBe(true)
+    expect(isAppCheckCall(new URL('https://content-firebaseappcheck.googleapis.com/v1/a'))).toBe(true)
+    expect(isAppCheckCall('https://firebaseappcheck.googleapis.com.evil.test/v1/a')).toBe(false)
+    expect(isAppCheckCall('https://firebasevertexai.googleapis.com/v1/a')).toBe(false)
+    expect(isAppCheckCall(undefined)).toBe(false)
   })
 })

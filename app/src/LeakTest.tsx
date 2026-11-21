@@ -47,6 +47,7 @@ interface Report {
   failedNotes: string[]
   mode: 'nano' | 'code-only'
   fetches: number
+  appCheck: number
   noModel: NoModelCheck
 }
 
@@ -64,7 +65,7 @@ export default function LeakTest() {
       const ready = await nanoIsReady()
       const { redact, fallback } = makeRedact(ready ? modelFn : null, lists, pack.nanoNoteKind, rules)
       // Pass 1: the full run, counting every fetch. Redaction must make none.
-      const { value, fetches } = await withFetchCount(() =>
+      const { value, fetches, appCheck } = await withFetchCount(() =>
         runLeakTest(notes, redact, fallback, (done, total) => setProgress(`Note ${done} of ${total}`)),
       )
       if (value.error !== null) {
@@ -80,7 +81,7 @@ export default function LeakTest() {
         pack.nanoNoteKind,
         rules,
       )
-      setReport({ summary: value.summary, failedNotes: value.failedNotes, mode: ready ? 'nano' : 'code-only', fetches, noModel })
+      setReport({ summary: value.summary, failedNotes: value.failedNotes, mode: ready ? 'nano' : 'code-only', fetches, appCheck, noModel })
     } catch {
       setError('The test could not finish.')
     } finally {
@@ -129,7 +130,7 @@ export default function LeakTest() {
 
             <ul className="checks" data-testid="checks">
               <li className={report.fetches === 0 ? 'ok' : 'error'}>
-                {report.fetches === 0 ? 'PASS' : 'FAIL'}: requests made during the whole run: {report.fetches} (must be 0)
+                {report.fetches === 0 ? 'PASS' : 'FAIL'}: requests made during the whole run: {report.fetches} (must be 0); background App Check token calls, no note text, counted apart: {report.appCheck}
               </li>
               <li className={report.noModel.pass ? 'ok' : 'error'}>
                 {report.noModel.pass ? 'PASS' : 'FAIL'}: with the on-device model removed, {report.noModel.fetches} requests and{' '}

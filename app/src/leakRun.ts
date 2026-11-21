@@ -16,16 +16,40 @@ export function makeRedact(modelFn: NanoModelFn | null, lists: NanoLists, noteKi
   return { redact, fallback }
 }
 
-/** Run `fn` while counting every fetch call made through globalThis.fetch. */
-export async function withFetchCount<T>(fn: () => Promise<T>): Promise<{ value: T; fetches: number }> {
+/** Background App Check token calls: no note text, made by the Firebase SDK on its own timer. */
+export function isAppCheckCall(input: unknown): boolean {
+  const url =
+    typeof input === 'string'
+      ? input
+      : input instanceof URL
+        ? input.href
+        : input instanceof Request
+          ? input.url
+          : ''
+  try {
+    return new URL(url, 'https://x.invalid').hostname.endsWith('firebaseappcheck.googleapis.com')
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Run `fn` while counting fetch calls made through globalThis.fetch. App Check token calls are counted
+ * separately (`appCheck`), never hidden: redaction must make zero other requests.
+ */
+export async function withFetchCount<T>(
+  fn: () => Promise<T>,
+): Promise<{ value: T; fetches: number; appCheck: number }> {
   const original = globalThis.fetch
   let fetches = 0
+  let appCheck = 0
   globalThis.fetch = ((...args: Parameters<typeof fetch>) => {
-    fetches++
+    if (isAppCheckCall(args[0])) appCheck++
+    else fetches++
     return original.apply(globalThis, args)
   }) as typeof fetch
   try {
-    return { value: await fn(), fetches }
+    return { value: await fn(), fetches, appCheck }
   } finally {
     globalThis.fetch = original
   }
