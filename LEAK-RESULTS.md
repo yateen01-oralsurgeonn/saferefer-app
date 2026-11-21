@@ -266,3 +266,14 @@ Made from the **TUNE-set misses only** (all 73 structured tune misses had one of
 - Nano failed on 1 note (LAW-000), scored on code only (same first-note failure as tune dental DENTAL-000: probably the model warming up, not confirmed).
 - Misses: partial surnames after "Matter:"/"File:" (More, Jadhav, Gokhale, Ghule, Phadke, Chavan...), lower-case given names in brackets ("sheetal (", "seema ("), landmark addresses ("behind sabzi mandi", "opp. shivaji statue", "H.No. 94"), and "<name> Electricals/Constructions/Hardware (client)" business names. Zero phones, emails, dates, DOBs, record IDs, amounts.
 - 3.6% is above the 3% line, but that line in LEAK-TARGETS section B applies to the LOCKED sets; this is the tune set (misses shown, may be used for fixes).
+
+### Locked advocate, code + Nano, run 1 (21 Nov 2026, DevTools Network open, Keep log on, filter empty, Fetch/XHR)
+| Set | Identifiers | Leaked | name | address | relative | other types | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|
+| locked advocate (100 notes) | 558 | 16 (2.9%; 2.87%) | 12/87 | 3/43 | 1/96 | 0 (date 118, record_id 113, phone 32, dob 24, email 19, amount 13, org 13) | **1 (counter FAIL; request identified, see below)** | 100/100 PASS |
+
+- Against LEAK-TARGETS section B: overall 2.87% is inside "at most 3%" (PASS, narrow margin); phones, emails, IDs, dates, DOBs 0 (PASS); **names left 12, target 0: MISSED**.
+- **The one request is identified** (`saferefer to advocate screenshot 2. .png`, Network panel, Fetch/XHR, filter empty): a `fetch`, status 200, 0.8 kB, 668 ms, URL beginning `1:456312324293:web:dd6313b1fe42a7207470ac:excha...` = the Firebase App Check token exchange (`...:exchange...Token`). It is not the cloud model endpoint and carries no note text. The panel shows the whole session at 148 requests with this as the only Fetch/XHR entry. The "Initiator: leakRun.ts:25" is the fetch counter wrapper itself, not the source of the call.
+- This is the same kind of background call suspected for tune CA run 1 and locked CA run 1 (1 request each, unwatched). Those two are now very probably the same cause, still an inference for them because they were not watched.
+- The leak counter counts any fetch during the whole run, so a background App Check call landing mid-run fails the check even though redaction made no request. The honest wording for the video and README: "0 requests to the model; one background App Check token call, no note content."
+- Locked advocate spread: single run so far.
