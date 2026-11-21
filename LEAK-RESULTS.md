@@ -277,3 +277,18 @@ Made from the **TUNE-set misses only** (all 73 structured tune misses had one of
 - This is the same kind of background call suspected for tune CA run 1 and locked CA run 1 (1 request each, unwatched). Those two are now very probably the same cause, still an inference for them because they were not watched.
 - The leak counter counts any fetch during the whole run, so a background App Check call landing mid-run fails the check even though redaction made no request. The honest wording for the video and README: "0 requests to the model; one background App Check token call, no note content."
 - Locked advocate spread: single run so far.
+
+## Hand-written set (Dr. Yatin, 21 Nov 2026), reported apart from generated notes
+Set sealed in git before the first run (0380cd2, sha256 35e635e5...). Misses are not shown and no rule is changed on this set's account.
+
+### Hand dental, code + Nano, run 1 (his Chrome, Nano on, `npm run dev` on port 5199, DevTools Network open)
+| Set | Identifiers | Leaked | date | name | address | record_id | other types | Requests | Manual-mode check |
+|---|---|---|---|---|---|---|---|---|---|
+| hand dental (10 notes) | 34 | **7 (20.6%)** | 1/7 | 1/8 | **3/3** | **2/4** | 0 (relative 5, phone 3, email 1, dob 2, org 1) | 0 PASS (App Check calls 0) | 10/10 PASS |
+
+- **Small set: 10 notes, 34 identifiers. A single run.** One identifier is about 3 percentage points here, so the figure is very rough.
+- It is far worse than the generated dental sets (locked 1.7%, tune 1.2%): that is the expected gap between templated and hand-typed notes, and the reason this set exists.
+- Every landmark address leaked (3 of 3) and half the record ids (2 of 4); phones, email, DOBs, relatives, the organisation: 0 leaked. Names 1 of 8, dates 1 of 7.
+- Cause of the misses is not examined (locked set), so no claim about why.
+- The README and video must quote this number next to the generated ones: "hand-written, 10 notes, 7 of 34 identifiers left (20.6%), mostly addresses and record ids". Never quote the generated percentages alone.
+- Screenshot: `Safe refer handwritten dentist notes. .png`. The earlier run on the wrong set (URL typo `set=hand.`; stale dev server) was the 30-note builder set and is not recorded as a hand result.
