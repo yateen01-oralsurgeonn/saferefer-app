@@ -224,7 +224,12 @@ export default function NoteScreen() {
   const review = useMemo(() => {
     const all = nano ? [...itemsToReview(nano), ...stageOneMissed] : stageOneMissed
     const hidden = new Set<string>()
-    for (const e of mapRef.current?.entries() ?? []) for (const v of e.variants) hidden.add(fold(v))
+    for (const e of mapRef.current?.entries() ?? []) {
+      for (const v of e.variants) hidden.add(fold(v))
+      // Nano sometimes echoes a label it sees ("ADDRESS" from "[ADDRESS_2]"): a label word hides nothing.
+      hidden.add(fold(e.token.replace(/^\[|\]$/g, '').replace(/_\d+$/, '')))
+      hidden.add(fold(e.token.replace(/^\[|\]$/g, '')))
+    }
     return all.filter((i) => !hidden.has(fold(i.text)))
   }, [nano, stageOneMissed])
   const needManualTick = nano?.state === 'manual'
