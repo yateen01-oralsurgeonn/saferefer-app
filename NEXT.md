@@ -17,7 +17,7 @@ curl the source before browser checks), (7) docs in section 7. Commit after each
 add a name to the list; no window.confirm/alert. Stop and write the problem in NEXT.md if a step would need a "do not change"
 item changed. When done, rewrite this block as "T16 built, waiting for Opus review" with the commit list.
 ```
-- D3 answer: (pending)
+- D3 answer: **YES** (Dr. Yatin, 21 Nov 2026): plain text in IndexedDB on the device, with Forget all and per-item delete. The build may start.
 
 ---
 

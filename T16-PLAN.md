@@ -20,7 +20,7 @@ The generator's notes hid this. A user who corrects a miss once should not have 
 |---|---|---|---|
 | D1 | What can be saved | **Places, organisations and ID formats only. Never a person's name.** | Places/labs/ID formats recur and are what leaked; a saved list of patient names on a clinic computer is a new privacy risk. Names are already the code+Nano strength (1/8 leaked). |
 | D2 | "Never hide this" (for false alarms like a drug name) | **Not in T16.** | HANDOVER: `allowed` is filled only by an explicit un-hide click. An auto un-hide list would break that rule, and its failure mode is a leak. A false alarm only costs letter wording; the per-note un-hide click stays. |
-| D3 | Where the list lives | **IndexedDB on the device, in plain text, with "Forget all" and per-item delete.** SECURITY B1 is amended to allow exactly one more storage module. | Hashing does not protect a place/org list (a dictionary reverses it) and encryption needs a passphrase: too heavy for 3 days. Places/orgs/ID shapes are low-sensitivity; names are excluded by D1. |
+| D3 | Where the list lives (**approved by Dr. Yatin 21 Nov**) | **IndexedDB on the device, in plain text, with "Forget all" and per-item delete.** SECURITY B1 is amended to allow exactly one more storage module. | Hashing does not protect a place/org list (a dictionary reverses it) and encryption needs a passphrase: too heavy for 3 days. Places/orgs/ID shapes are low-sensitivity; names are excluded by D1. |
 | D4 | ID formats | Stored as a **shape**, not a number: "op-731" saves prefix `op` -> hides `op-12`, `OP 4471`, `op/9`. | The number itself is never stored. |
 
 ## 4. Design (files)
