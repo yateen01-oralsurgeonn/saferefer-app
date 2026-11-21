@@ -29,6 +29,10 @@ const out = chunks.map((chunk, i) => {
     identifiers.push({ type, value })
     return value
   })
+  for (const l of listed[i]) {
+    if (!text.includes(l.value)) problems.push(`note ${n}: listed ${l.type} is not found in the note exactly as written (copy it character for character)`)
+    else identifiers.push(l)
+  }
   if (/\[\[|\]\]/.test(text)) problems.push(`note ${n}: a [[ or ]] is left over (unbalanced marker)`)
   for (const id of identifiers) {
     if (id.type === 'phone' && !/^\D*0{5}/.test(id.value.replace(/^\+?91[\s-]*/, ''))) problems.push(`note ${n}: a phone does not start with five zeros`)
