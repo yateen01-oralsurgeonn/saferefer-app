@@ -16,7 +16,7 @@ import tuneLawJson from '../../data/harness/tune-law.json'
 import lockedDentalJson from '../../data/harness/locked-dental.json'
 import lockedCaJson from '../../data/harness/locked-ca.json'
 import lockedLawJson from '../../data/harness/locked-law.json'
-import { getPack, rulesForPack, runLeakTest, type LeakSummary, type PackId, type TestNote } from './core'
+import { getPack, rulesForPack, runLeakTest, sanitiseTerms, termsToHideItems, termsToRules, buildTermSet, type LeakSummary, type PackId, type TestNote } from './core'
 import { ai } from './firebase'
 import { checkNoModel, makeRedact, withFetchCount, type NoModelCheck } from './leakRun'
 import { createNanoModelFn, nanoIsReady } from './nanoAdapter'
@@ -47,8 +47,15 @@ const freshNotes = FRESH_BY_PACK[pack.id]
 const handNotes = HAND[pack.id]
 const notes = wantHand && handNotes ? handNotes : harnessSet ? HARNESS[harnessSet][pack.id] : wantFresh && freshNotes ? freshNotes : NOTES_BY_PACK[pack.id]
 const noteSetName = wantHand && handNotes ? 'hand-written notes (Dr. Yatin, 10 per profession, small set)' : harnessSet ? `harness ${harnessSet} notes (generated)` : wantFresh && freshNotes ? 'fresh notes' : 'builder notes'
-const rules = rulesForPack(pack)
 const lists = { drugs, clinicalTerms: terms }
+// T16 (development only): ?terms=<name> loads data/harness/terms/<name>.json, a synthetic "My terms" list, and runs the same
+// path with it. Off by default, so every existing number and the H4 gate are unchanged.
+const termFiles = import.meta.glob('../../data/harness/terms/*.json', { eager: true, import: 'default' }) as Record<string, unknown>
+const termsName = params.get('terms')
+const termsRaw = termsName ? termFiles[`../../data/harness/terms/${termsName.replace(/[^a-z0-9-]/gi, '')}.json`] : undefined
+const savedTerms = termsName ? sanitiseTerms(termsRaw, buildTermSet(lists)) : []
+const rules = termsName ? termsToRules(savedTerms, rulesForPack(pack)) : rulesForPack(pack)
+const savedItems = termsToHideItems(savedTerms)
 const modelFn = createNanoModelFn(ai)
 
 interface Report {
@@ -72,7 +79,7 @@ export default function LeakTest() {
     setReport(null)
     try {
       const ready = await nanoIsReady()
-      const { redact, fallback } = makeRedact(ready ? modelFn : null, lists, pack.nanoNoteKind, rules)
+      const { redact, fallback } = makeRedact(ready ? modelFn : null, lists, pack.nanoNoteKind, rules, savedItems)
       // Pass 1: the full run, counting every fetch. Redaction must make none.
       const { value, fetches, appCheck } = await withFetchCount(() =>
         runLeakTest(notes, redact, fallback, (done, total) => setProgress(`Note ${done} of ${total}`)),
@@ -89,6 +96,7 @@ export default function LeakTest() {
         lists,
         pack.nanoNoteKind,
         rules,
+        savedItems,
       )
       setReport({ summary: value.summary, failedNotes: value.failedNotes, mode: ready ? 'nano' : 'code-only', fetches, appCheck, noModel })
     } catch {
@@ -104,7 +112,7 @@ export default function LeakTest() {
     <div className="app" role="main" data-testid="leak-page">
       <header className="top">
         <h1>
-          SafeRefer leak test: {pack.label} ({noteSetName})
+          SafeRefer leak test: {pack.label} ({noteSetName}){termsName ? ` with My terms: ${termsName} (${savedTerms.length} terms)` : ''}
         </h1>
         <p className="banner">Synthetic data only: the {notes.length} test notes</p>
       </header>
