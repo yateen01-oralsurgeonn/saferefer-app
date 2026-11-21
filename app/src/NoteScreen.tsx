@@ -38,6 +38,7 @@ import {
   readQueued,
   deriveIdFormat,
   isProblem,
+  isNewNote,
   redactFirst,
   termsToHideItems,
   termsToRules,
@@ -260,6 +261,11 @@ export default function NoteScreen() {
     setPackChanged(false)
     setRemember(null)
     setRememberMsg('')
+    // A new note (box emptied or all text replaced) starts clean: no hand hides, no un-hides from the last note.
+    if (isNewNote(note, value)) {
+      setManualHides([])
+      setUnhidden([])
+    }
     setNote(value)
   }
 

@@ -11,6 +11,7 @@ import {
   checkSend,
   dedupeTerms,
   deriveIdFormat,
+  isNewNote,
   isProblem,
   MAX_TERMS,
   redactFirst,
@@ -112,12 +113,34 @@ describe('T16 ID formats keep the shape, never the number', () => {
     expect(r.text).toContain('opal 12')
   })
 
+  it('review fix: an ID prefix never eats post-op / pre-op wording or a duration', () => {
+    const rules = termsToRules([{ kind: 'idFormat', prefix: 'op' }])
+    for (const n of ['Post-op 3 days pain free.', 'Review post op 2 weeks.', 'Pre-op 1 dose given.', 'op 3 times a day', 'POST-OP 10 days'])
+      expect(redactFirst(n, [], rules).text).toBe(n)
+    // Real IDs are still hidden, including one followed by a word that is not a time unit.
+    expect(redactFirst('File op-731 attached. OP 4471 seen.', [], rules).text).toBe('File [ID] attached. [ID_2] seen.')
+  })
+
   it('termsToRules only adds: no ID format gives the same object, base finders stay', () => {
     const base = rulesForPack(PACKS.ca)
     expect(termsToRules([{ kind: 'place', text: 'Mock Road' }], base)).toBe(base)
     const merged = termsToRules([{ kind: 'idFormat', prefix: 'op' }], base)
     expect(merged.extraIds!.length).toBe((base.extraIds?.length ?? 0) + 1)
     expect(merged.notIdPrefixes).toBe(base.notIdPrefixes)
+  })
+})
+
+describe('review fix: isNewNote (hand hides and un-hides belong to one note)', () => {
+  it.each([
+    ['Asha came today.', '', true],
+    ['Asha came today.', '   ', true],
+    ['', 'Asha', false],
+    ['Asha came today.', 'Asha came today. Pain.', false],
+    ['Asha came today.', 'Ash came today.', false],
+    ['Asha came today.', 'Mohan, 40, toothache', true],
+    ['Asha came today.', 'Asha', false],
+  ])('%j -> %j is new: %s', (prev, next, want) => {
+    expect(isNewNote(prev, next)).toBe(want)
   })
 })
 

@@ -177,7 +177,11 @@ export function termsToHideItems(terms: readonly SavedTerm[]): HideItem[] {
 export function termsToRules(terms: readonly SavedTerm[], base: RedactRules = NO_RULES): RedactRules {
   const prefixes = [...new Set(terms.flatMap((t) => (t.kind === 'idFormat' ? [t.prefix.toLowerCase()] : [])))]
   if (prefixes.length === 0) return base
-  const re = new RegExp(String.raw`(?<![\p{L}\p{N}])(?:${prefixes.map(escapeRegex).join('|')})[-/ ]?\d{1,6}(?!\p{N})`, 'giu')
+  // Not after "post"/"pre" ("post-op 3", "pre op 2") and not before a time unit ("op 2 weeks"): clinical wording, not an ID.
+  const re = new RegExp(
+    String.raw`(?<![\p{L}\p{N}])(?<!(?:post|pre)[- ]?)(?:${prefixes.map(escapeRegex).join('|')})[-/ ]?\d{1,6}(?!\p{N})(?![ \t]*(?:d|days?|wks?|weeks?|mths?|months?|hrs?|hours?|yrs?|years?|times?|x)(?![\p{L}]))`,
+    'giu',
+  )
   const finder = (text: string, taken: Array<{ start: number; end: number }>): Found[] => {
     const out: Found[] = []
     for (const m of text.matchAll(re)) {
