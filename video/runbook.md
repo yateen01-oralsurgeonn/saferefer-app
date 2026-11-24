@@ -73,7 +73,7 @@ Read `preflight.md` first and tick every box. Notes to paste are in `demo-notes.
 
 ### Shot 9, 2:42-2:55, architecture and repo
 - Screen: `video/architecture.html` full window.
-- On-screen: repo URL https://github.com/yateen01-oralsurgeonn/saferefer (the repo must be public by now).
+- On-screen: repo URL https://github.com/yateen01-oralsurgeonn/saferefer-app (the repo must be public by now).
 - Say: line 9.
 
 ## 2. After recording (the builder checks, you upload)

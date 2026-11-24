@@ -72,7 +72,7 @@ typed note
 ## Run it yourself
 
 ```bash
-git clone https://github.com/yateen01-oralsurgeonn/saferefer.git && cd saferefer/app
+git clone https://github.com/yateen01-oralsurgeonn/saferefer-app.git && cd saferefer-app/app
 npm install
 cp .env.example .env.local      # then fill in your own Firebase values
 npm run dev                     # http://localhost:5173
