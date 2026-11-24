@@ -42,4 +42,4 @@ Small sets. You check every note before it is sent.
 9
 00:02:43,000 --> 00:02:54,000
 Firebase AI Logic, Gemini Nano, App Check.
-The code is open.
+Try it at the link below.
