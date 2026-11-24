@@ -66,7 +66,7 @@ export function restoreLetter(letter: string, map: TokenMap): RestoreResult {
     if (token) {
       const entry = map.get(token)!
       if (token !== m[0]) repaired++
-      if (entry.type === 'PATIENT') patientSeen = true
+      if (entry.type === 'PATIENT' || entry.type === 'CLIENT') patientSeen = true
       out += entry.value
     } else {
       warnings.push({
@@ -83,7 +83,7 @@ export function restoreLetter(letter: string, map: TokenMap): RestoreResult {
   out += letter.slice(pos)
 
   // A token that lost its brackets ("RELATIVE_1", "PATIENT") cannot be repaired safely.
-  const bare = new RegExp(`(?<![\\[\\p{L}\\p{N}_])(?:(?:${TYPE_ALT})_\\d{1,2}|PATIENT)(?![\\]\\p{L}\\p{N}_])`, 'gu')
+  const bare = new RegExp(`(?<![\\[\\p{L}\\p{N}_])(?:(?:${TYPE_ALT})_\\d{1,2}|PATIENT|CLIENT)(?![\\]\\p{L}\\p{N}_])`, 'gu')
   for (const m of out.matchAll(bare)) {
     warnings.push({
       level: 'red',
@@ -94,9 +94,10 @@ export function restoreLetter(letter: string, map: TokenMap): RestoreResult {
     })
   }
 
-  const hasPatient = map.entries().some((e) => e.type === 'PATIENT')
-  if (hasPatient && !patientSeen) {
-    warnings.push({ level: 'amber', kind: 'patient-missing', message: 'Patient name is missing.', text: '', index: 0 })
+  const mainEntry = map.entries().find((e) => e.type === 'PATIENT' || e.type === 'CLIENT')
+  if (mainEntry && !patientSeen) {
+    const word = mainEntry.type === 'CLIENT' ? 'Client' : 'Patient'
+    warnings.push({ level: 'amber', kind: 'patient-missing', message: `${word} name is missing.`, text: '', index: 0 })
   }
   return { text: out, warnings, repaired }
 }

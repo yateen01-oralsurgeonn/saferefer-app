@@ -93,6 +93,7 @@ function findNames(text: string, rules: RedactRules = NO_RULES): NameHit[] {
   const hits: NameHit[] = []
   const taken = (s: number, e: number) => hits.some((h) => h.start < e && s < h.end)
   let patientSet = false
+  const main: TokenType = rules.mainPerson ?? 'PATIENT'
   const push = (start: number, end: number, type: TokenType) => {
     if (end <= start || taken(start, end)) return false
     hits.push({ start, end, value: text.slice(start, end), type })
@@ -111,7 +112,7 @@ function findNames(text: string, rules: RedactRules = NO_RULES): NameHit[] {
     let end = readName(text, start, 4, false)
     // With an explicit "name:" label, a name typed without capitals is accepted too.
     if (end === start && label.includes('name')) end = readName(text, start, 4, true)
-    if (push(start, end, isRole || patientSet ? 'PERSON' : 'PATIENT') && !isRole) patientSet = true
+    if (push(start, end, isRole || patientSet ? 'PERSON' : main) && !isRole) patientSet = true
   }
 
   // 2. Title then name: "Mr Dinesh Mockwani", "Mr.Ramesh", "Dr Neha Testgupta", "Baby Zoya Testkhan", "Sau. Lata"
@@ -126,7 +127,7 @@ function findNames(text: string, rules: RedactRules = NO_RULES): NameHit[] {
     if (title !== 'dr' && title !== 'prof' && title !== 'fr' && title !== 'rev') {
       if (relationBefore.test(text.slice(Math.max(0, m.index - 30), m.index))) type = 'RELATIVE'
       else if (!patientSet) {
-        type = 'PATIENT'
+        type = main
         patientSet = true
       }
     }
@@ -138,7 +139,7 @@ function findNames(text: string, rules: RedactRules = NO_RULES): NameHit[] {
     const m = new RegExp(String.raw`^\s*(${NAME_WORD}(?:[ \t]{1,2}${NAME_WORD}){1,2})(?=,?\s*\(?\d{1,3}\s*(?:,|\)|\/\s*[MFmf](?![\p{L}])|y(?:rs?|ears?|\/o|o)?(?![\p{L}])))`, 'u').exec(text)
     if (m && !m[1].split(/\s+/).some(notName)) {
       const start = m.index + m[0].length - m[1].length
-      if (push(start, start + m[1].length, 'PATIENT')) patientSet = true
+      if (push(start, start + m[1].length, main)) patientSet = true
     }
   }
 

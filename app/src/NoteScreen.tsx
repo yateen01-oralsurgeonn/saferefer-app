@@ -69,7 +69,7 @@ import { createQueueStore } from './queueStore'
 import { loadRemoteValues } from './remoteConfig'
 import { createToothModelFn } from './toothAdapter'
 
-const isPersonType = (t: string) => t === 'PATIENT' || t === 'PERSON' || t === 'RELATIVE'
+const isPersonType = (t: string) => t === 'PATIENT' || t === 'CLIENT' || t === 'PERSON' || t === 'RELATIVE'
 function addNameWords(out: Set<string>, text: string) {
   for (const w of fold(text).split(/[^\p{L}\p{N}]+/u)) if (w.length >= 3) out.add(w)
 }
@@ -247,9 +247,9 @@ export default function NoteScreen() {
     const map = mapRef.current
     const timer = setTimeout(() => {
       const a = map ? restoreLetter(letterText, map).warnings.filter((w) => w.kind !== 'patient-missing') : []
-      const patient = map?.entries().find((e) => e.type === 'PATIENT')
+      const patient = map?.entries().find((e) => e.type === 'PATIENT' || e.type === 'CLIENT')
       if (patient && !letterText.toLowerCase().includes(patient.value.toLowerCase())) {
-        a.push({ level: 'amber', kind: 'patient-missing', message: 'Patient name is missing.', text: '', index: 0 })
+        a.push({ level: 'amber', kind: 'patient-missing', message: `${patient.type === 'CLIENT' ? 'Client' : 'Patient'} name is missing.`, text: '', index: 0 })
       }
       setTokenWarnings(a)
       setFactWarnings(checkFacts(letterText, note, pack.facts === 'dental' ? factLists : genericFactLists, {
@@ -760,7 +760,7 @@ export default function NoteScreen() {
                     <ol>
                       <li>
                         Names, phones, dates and IDs are hidden <b>here, in your browser</b> and become labels such as{' '}
-                        <span className="chip-static">[PATIENT]</span>.
+                        <span className="chip-static">{pack.id === 'dental' ? '[PATIENT]' : '[CLIENT]'}</span>.
                       </li>
                       <li>
                         <b>Only this hidden text</b> goes to the cloud, which drafts the letter.

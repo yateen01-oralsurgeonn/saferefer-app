@@ -16,9 +16,11 @@ export interface RedactRules {
   headers?: readonly string[]
   /**
    * Role labels for OTHER people in the matter ("Accused: ...", "defendant ..."). Their names are hidden as PERSON and
-   * never as the main person, so [PATIENT] always means the client. Letters, spaces and hyphens only.
+   * never as the main person, so the main-person token ([CLIENT]) always means the client. Letters, spaces and hyphens only.
    */
   roles?: readonly string[]
+  /** Token type for the main person: PATIENT for a dentist (the default), CLIENT for an accountant or an advocate. */
+  mainPerson?: 'PATIENT' | 'CLIENT'
   /** Short forms that look like an ID but are not ("GSTR-3B"). */
   notIdPrefixes?: readonly string[]
 }

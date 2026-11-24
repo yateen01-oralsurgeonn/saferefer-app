@@ -96,14 +96,14 @@ export const CA_LETTER: LetterText = {
     "keep the accountant's own words for facts and for any conclusion they recorded. Fix grammar. Expand shorthand only when the meaning is certain; otherwise keep it as written.",
   numbersRule:
     'Figures and references: keep every amount, section number, form name, assessment year and rate exactly as written. Never convert, round, add up or recompute.',
-  personRule: "Refer to the client as [PATIENT] or \"the client\". Do not guess the client's sex.",
+  personRule: "Refer to the client as [CLIENT] or \"the client\". Do not guess the client's sex.",
   noAdviceRule: 'No tax or legal opinion, no recommendation, no advice to the client, no estimate of liability.',
   noteKind: 'a chartered accountant client note',
   writer: 'the accountant',
   formatNote: "Each section is one line that starts with its heading and a colon, for example \"Matter: text\". Never replace the colon with a comma or a full stop, and keep every heading exactly as listed.",
   template: [
     'Dear Colleague,',
-    'Re: [PATIENT], the client',
+    'Re: [CLIENT], the client',
     'Matter',
     'Facts recorded',
     'Documents on file',
@@ -138,14 +138,14 @@ export const LAW_LETTER: LetterText = {
     "keep the advocate's own words for facts and for any ground they recorded. Fix grammar. Expand shorthand only when the meaning is certain; otherwise keep it as written.",
   numbersRule:
     'Sections, Acts, courts, amounts and references: keep every section number, Act name, court name, hearing stage and amount exactly as written. Never cite, add or recall any case law or authority.',
-  personRule: "Refer to the client as [PATIENT] or \"the client\". Do not guess the client's sex.",
+  personRule: "Refer to the client as [CLIENT] or \"the client\". Do not guess the client's sex.",
   noAdviceRule: 'No legal opinion, no prediction of the outcome, no recommendation, no advice to the client.',
   noteKind: 'an advocate case note',
   writer: 'the advocate',
   formatNote: "Each section is one line that starts with its heading and a colon, for example \"Matter: text\". Never replace the colon with a comma or a full stop, and keep every heading exactly as listed.",
   template: [
     'Dear Counsel,',
-    'Re: [PATIENT], the client',
+    'Re: [CLIENT], the client',
     'Forum and stage',
     'Facts recorded',
     'Documents on file',
@@ -164,7 +164,7 @@ export const LAW_PACK: Pack = {
   redaction: {
     relations: ['opposite party', 'advocate', 'counsel', 'arbitrator', 'mediator', 'director', 'surety', 'victim'],
     headers: ['client', 'litigant', 'client name'],
-    // Other people in the matter: hidden as PERSON, never as [PATIENT] (the client).
+    // Other people in the matter: hidden as PERSON, never as [CLIENT] (the client).
     roles: ['petitioner', 'respondent', 'accused', 'complainant', 'witness', 'plaintiff', 'defendant'],
     ids: 'law',
   },
@@ -185,11 +185,11 @@ const PACK_KEYS = ['id', 'label', 'noteLabel', 'placeholder', 'nanoNoteKind', 'l
 const LETTER_KEYS = ['intro', 'neverAdd', 'wordsRule', 'numbersRule', 'personRule', 'noAdviceRule', 'noteKind', 'writer', 'template', 'formatNote']
 const MAX_TEXT = 400
 /** Only these bracket words may appear in pack text: they are real tokens the model must copy. */
-const ALLOWED_BRACKETS = /\[(?:PATIENT)\]/g
+const ALLOWED_BRACKETS = /\[(?:PATIENT|CLIENT)\]/g
 
 /**
  * The one text check for anything that goes into the letter prompt (pack text and remote templates): a string with
- * content, at most `max` characters, no brackets other than [PATIENT], no braces, angle brackets or backticks, and no
+ * content, at most `max` characters, no brackets other than [PATIENT] or [CLIENT], no braces, angle brackets or backticks, and no
  * words that try to override the fixed rules.
  */
 export function isCleanText(v: unknown, max: number = MAX_TEXT): v is string {

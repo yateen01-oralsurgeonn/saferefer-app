@@ -131,22 +131,22 @@ describe('P3 settlement sums are hidden, other sums are not', () => {
 })
 
 describe('P3 names and labels', () => {
-  it('only the client labels start [PATIENT]: "Client:", "Litigant:" and "client name -"', () => {
-    expect(law('Client: Ganesh Testpawar is here.').text).toBe('Client: [PATIENT] is here.')
-    expect(law('Litigant: Mina Testgore is here.').text).toBe('Litigant: [PATIENT] is here.')
-    expect(law('client name - ravi testmore. ok').text).toBe('client name - [PATIENT]. ok')
+  it('only the client labels start [CLIENT]: "Client:", "Litigant:" and "client name -"', () => {
+    expect(law('Client: Ganesh Testpawar is here.').text).toBe('Client: [CLIENT] is here.')
+    expect(law('Litigant: Mina Testgore is here.').text).toBe('Litigant: [CLIENT] is here.')
+    expect(law('client name - ravi testmore. ok').text).toBe('client name - [CLIENT]. ok')
   })
-  it('the other side is never [PATIENT], even when it is the first person in the note', () => {
+  it('the other side is never [CLIENT], even when it is the first person in the note', () => {
     expect(law('Accused: Rahul Mocktambe is here.').text).toBe('Accused: [PERSON_1] is here.')
     expect(law('Petitioner Mrs Lata Mockbhosale seeks relief.').text).toBe('Petitioner Mrs [PERSON_1] seeks relief.')
     const out = law('M/s Sample Builders Pvt Ltd (client) sued the defendant Imran Testkhan; witness Suresh Fakeghodke').text
     expect(out).toContain('defendant [PERSON_1]')
     expect(out).toContain('witness [PERSON_2]')
-    expect(out).not.toContain('[PATIENT]')
+    expect(out).not.toContain('[CLIENT]')
   })
-  it('the client keeps [PATIENT] when the other side comes later', () => {
+  it('the client keeps [CLIENT] when the other side comes later', () => {
     const out = law('Client: Ganesh Testpawar. Complainant: Rahul Mocktambe. The accused Ganesh Testpawar denies it.').text
-    expect(out).toBe('Client: [PATIENT]. Complainant: [PERSON_2]. The accused [PATIENT] denies it.'.replace('[PERSON_2]', out.match(/Complainant: (\[PERSON_\d\])/)![1]))
+    expect(out).toBe('Client: [CLIENT]. Complainant: [PERSON_2]. The accused [CLIENT] denies it.'.replace('[PERSON_2]', out.match(/Complainant: (\[PERSON_\d\])/)![1]))
   })
   it('the advocate becomes a RELATIVE token', () => {
     const out = law('his advocate Rekha Fakedeshpande appeared').text

@@ -51,12 +51,12 @@ export function parseTemplate(raw: unknown): readonly string[] | null {
   if (!Array.isArray(lines) || lines.length < MIN_TEMPLATE_LINES || lines.length > MAX_TEMPLATE_LINES) return null
   const out: string[] = []
   for (const l of lines) {
-    // Same text rules as every pack text (brackets other than [PATIENT], braces, angle brackets, backticks,
+    // Same text rules as every pack text (brackets other than [PATIENT] or [CLIENT], braces, angle brackets, backticks,
     // override words, empty, too long), and the tighter line cap.
     if (typeof l !== 'string' || !isCleanText(l, MAX_TEMPLATE_LINE) || /[\r\n]/.test(l)) return null
     const line = l.trim()
-    // [PATIENT] may appear only in a "Re:" line, where the default templates have it.
-    if (line.includes('[PATIENT]') && !/^Re:/i.test(line)) return null
+    // [PATIENT] or [CLIENT] may appear only in a "Re:" line, where the default templates have it.
+    if ((line.includes('[PATIENT]') || line.includes('[CLIENT]')) && !/^Re:/i.test(line)) return null
     out.push(line)
   }
   return out

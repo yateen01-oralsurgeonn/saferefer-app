@@ -7,8 +7,10 @@ import { NO_RULES, type RedactRules } from './redactRules'
 
 export function rulesForPack(pack: Pack): RedactRules {
   const { relations, headers, roles, ids } = pack.redaction
-  if (ids === 'none' && !relations.length && !headers.length && !roles.length) return NO_RULES
+  const mainPerson = pack.id === 'dental' ? undefined : ('CLIENT' as const)
+  if (ids === 'none' && !relations.length && !headers.length && !roles.length && !mainPerson) return NO_RULES
   return {
+    ...(mainPerson ? { mainPerson } : {}),
     relations,
     headers,
     roles,

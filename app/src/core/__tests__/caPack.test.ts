@@ -7,6 +7,8 @@ import {
   checkSend,
   checkTestData,
   DENTAL_PACK,
+  LAW_PACK,
+  restoreLetter,
   findAmounts,
   findCaIds,
   getPack,
@@ -109,10 +111,10 @@ describe('P2 amounts and references stay (PACKS.md decision 1)', () => {
 
 describe('P2 names and labels', () => {
   it('"Client:", "Assessee:" and "client name -" start the main person', () => {
-    expect(ca('Client: Rajesh Testshah. Rs 5,000.').text).toBe('Client: [PATIENT]. Rs 5,000.')
-    expect(ca('Assessee: Meena Testkulkarni. ok').text).toBe('Assessee: [PATIENT]. ok')
-    expect(ca('client name - sharda mocklele. ok').text).toBe('client name - [PATIENT]. ok')
-    expect(ca('Salaried client Dinesh Mockpawar asked.').text).toBe('Salaried client [PATIENT] asked.')
+    expect(ca('Client: Rajesh Testshah. Rs 5,000.').text).toBe('Client: [CLIENT]. Rs 5,000.')
+    expect(ca('Assessee: Meena Testkulkarni. ok').text).toBe('Assessee: [CLIENT]. ok')
+    expect(ca('client name - sharda mocklele. ok').text).toBe('client name - [CLIENT]. ok')
+    expect(ca('Salaried client Dinesh Mockpawar asked.').text).toBe('Salaried client [CLIENT] asked.')
   })
   it('"director", "proprietor" and "auditor" make the next name a RELATIVE token', () => {
     expect(ca('Her director husband Anil Mockdesai signs. The auditor Sanjay Testmehta agrees.').text).toMatch(/\[RELATIVE_1\].*\[RELATIVE_2\]/)
@@ -224,5 +226,27 @@ describe('P2 a letter returned on one line is put back into sections (layout onl
   it('parseLetterReply applies it with the pack template', () => {
     const r = parseLetterReply(JSON.stringify({ letter: flat, not_recorded: [] }), CA_PACK.letter.template)
     expect(r?.letter.split('\n')).toHaveLength(8)
+  })
+})
+
+describe('main-person token by profession (T18)', () => {
+  it('an accountant or advocate note says [CLIENT], a dentist note still says [PATIENT]', () => {
+    const ca = redactByCode('Client: Rajesh Testshah. Rs 5,000.', new TokenMap(), rulesForPack(CA_PACK)).text
+    const law = redactByCode('Client: Ganesh Testpawar is here.', new TokenMap(), rulesForPack(LAW_PACK)).text
+    const dental = redactByCode('Patient: Asha Testpatil, 36.', new TokenMap(), rulesForPack(DENTAL_PACK)).text
+    expect(ca).toContain('[CLIENT]')
+    expect(ca).not.toContain('[PATIENT]')
+    expect(law).toContain('[CLIENT]')
+    expect(law).not.toContain('[PATIENT]')
+    expect(dental).toContain('[PATIENT]')
+    expect(dental).not.toContain('[CLIENT]')
+  })
+  it('the letter restores [CLIENT] and warns "Client name is missing." when the letter drops it', () => {
+    const map = new TokenMap()
+    map.assign('CLIENT', 'Rajesh Testshah')
+    expect(restoreLetter('Re: [CLIENT], the client', map).text).toBe('Re: Rajesh Testshah, the client')
+    const w = restoreLetter('Re: the client', map).warnings.find((x) => x.kind === 'patient-missing')
+    expect(w?.message).toBe('Client name is missing.')
+    expect(restoreLetter('Re: [Client]', map).text).toBe('Re: Rajesh Testshah')
   })
 })

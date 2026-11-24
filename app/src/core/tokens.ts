@@ -4,6 +4,7 @@
 
 export const TOKEN_TYPES = [
   'PATIENT',
+  'CLIENT',
   'PHONE',
   'EMAIL',
   'DATE',
@@ -17,12 +18,12 @@ export const TOKEN_TYPES = [
 export type TokenType = (typeof TOKEN_TYPES)[number]
 
 /** Regex source for one valid token, as written in PROMPTS.md section 2. */
-export const TOKEN_SOURCE = String.raw`\[(PATIENT|PHONE|EMAIL|DATE|RELATIVE|PERSON|EMPLOYER|ADDRESS|ORG|ID)(_[1-9]\d?)?\]`
+export const TOKEN_SOURCE = String.raw`\[(PATIENT|CLIENT|PHONE|EMAIL|DATE|RELATIVE|PERSON|EMPLOYER|ADDRESS|ORG|ID)(_[1-9]\d?)?\]`
 export const tokenRegex = () => new RegExp(TOKEN_SOURCE, 'g')
 
 const ALWAYS_NUMBERED: ReadonlySet<TokenType> = new Set(['RELATIVE', 'PERSON', 'DATE'])
-/** PATIENT, RELATIVE and PERSON share one key space: the same person gets one token. */
-const PERSON_TYPES: ReadonlySet<TokenType> = new Set(['PATIENT', 'RELATIVE', 'PERSON'])
+/** PATIENT (dentist) or CLIENT (accountant, advocate), RELATIVE and PERSON share one key space: the same person gets one token. */
+const PERSON_TYPES: ReadonlySet<TokenType> = new Set(['PATIENT', 'CLIENT', 'RELATIVE', 'PERSON'])
 export const isPersonType = (t: TokenType) => PERSON_TYPES.has(t)
 
 /** Titles that are dropped when two names are compared. */
