@@ -11,7 +11,7 @@ Pace: about 150 words per minute, with the screen doing the work between lines. 
 | 4 | 0:52-1:10 | 11 | The cloud writes the letter. The browser puts the names back. |
 | 5 | 1:10-1:28 | 10 | This is the request, as sent. Labels only, no identifiers. |
 | 6 | 1:28-1:55 | 12 | Offline, the on-device model still works. The letter waits, then sends itself. |
-| 7 | 1:55-2:20 | 14 | Same engine, three professions. Amounts and sections stay. IDs and settlement sums are hidden. |
+| 7 | 1:52-2:07 | 20 | (CA shot) Same engine, three professions. For the accountant, amounts and sections stay visible. (advocate shot) For the advocate, IDs and settlement sums are hidden. |
 | 8 | 2:20-2:42 | 35 | On 300 generated notes, about two to four percent of identifiers were left. On 40 realistic notes written with an AI assistant, about three in ten. Small sets. You check every note before it is sent. |
 | 9 | 2:42-2:55 | 13 | Firebase AI Logic, Gemini Nano, App Check. Try it at the link below. |
 

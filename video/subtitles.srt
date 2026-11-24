@@ -34,17 +34,21 @@ Offline, the on-device model still works.
 The letter waits, then sends itself.
 
 8
-00:01:53,147 --> 00:01:59,939
-Same engine, three professions. Amounts and sections stay.
-IDs and settlement sums are hidden.
+00:01:52,147 --> 00:01:58,192
+Same engine, three professions.
+For the accountant, amounts and sections stay visible.
 
 9
+00:02:03,647 --> 00:02:07,559
+For the advocate, IDs and settlement sums are hidden.
+
+10
 00:02:23,290 --> 00:02:37,997
 On 300 generated notes, about two to four percent of identifiers were left.
 On 40 realistic notes written with an AI assistant, about three in ten.
 Small sets. You check every note before it is sent.
 
-10
+11
 00:02:40,190 --> 00:02:46,001
 Firebase AI Logic, Gemini Nano, App Check.
 Try it at the link below.
