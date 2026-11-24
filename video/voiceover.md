@@ -4,6 +4,7 @@ Pace: about 150 words per minute, with the screen doing the work between lines. 
 
 | # | Window | Words | Line |
 |---|---|---|---|
+| 0 | 0:03-0:10 | 17 | Dentists, accountants and advocates are trusted with client details. One chatbot paste can give them away. |
 | 1 | 0:00-0:12 | 11 | Professionals paste client notes into chatbots. The name goes with it. |
 | 2 | 0:12-0:32 | 16 | Here the note is cleaned inside the browser first. Names, phones, dates and IDs become labels. |
 | 3 | 0:32-0:52 | 13 | This is everything the cloud will see. No name, no phone, no relative. |
@@ -11,7 +12,7 @@ Pace: about 150 words per minute, with the screen doing the work between lines. 
 | 5 | 1:10-1:28 | 10 | This is the request, as sent. Labels only, no identifiers. |
 | 6 | 1:28-1:55 | 12 | Offline, the on-device model still works. The letter waits, then sends itself. |
 | 7 | 1:55-2:20 | 14 | Same engine, three professions. Amounts and sections stay. IDs and settlement sums are hidden. |
-| 8 | 2:20-2:42 | 35 | On 300 generated notes, two to three percent of identifiers were left. On 40 realistic notes written with an AI assistant, about three in ten. Small sets. You check every note before it is sent. |
+| 8 | 2:20-2:42 | 35 | On 300 generated notes, about two to four percent of identifiers were left. On 40 realistic notes written with an AI assistant, about three in ten. Small sets. You check every note before it is sent. |
 | 9 | 2:42-2:55 | 13 | Firebase AI Logic, Gemini Nano, App Check. Try it at the link below. |
 
 **Total: 135 words, about 53 seconds of speech inside 2:55.** That leaves the screen to carry the rest, which is intended: the Wi-Fi and leak-test shots are mostly watching.

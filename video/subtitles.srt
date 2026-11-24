@@ -1,45 +1,50 @@
 1
-00:00:01,000 --> 00:00:10,500
+00:00:03,000 --> 00:00:10,688
+Dentists, accountants and advocates are trusted with client details.
+One chatbot paste can give them away.
+
+2
+00:00:11,300 --> 00:00:16,236
 Professionals paste client notes into chatbots.
 The name goes with it.
 
-2
-00:00:13,000 --> 00:00:30,000
+3
+00:00:23,100 --> 00:00:30,425
 Here the note is cleaned inside the browser first.
 Names, phones, dates and IDs become labels.
 
-3
-00:00:33,000 --> 00:00:50,000
+4
+00:00:31,600 --> 00:00:36,984
 This is everything the cloud will see.
 No name, no phone, no relative.
 
-4
-00:00:53,000 --> 00:01:08,000
+5
+00:00:51,600 --> 00:00:55,768
 The cloud writes the letter.
 The browser puts the names back.
 
-5
-00:01:11,000 --> 00:01:26,000
+6
+00:01:09,997 --> 00:01:14,997
 This is the request, as sent.
 Labels only, no identifiers.
 
-6
-00:01:30,000 --> 00:01:52,000
+7
+00:01:35,997 --> 00:01:41,594
 Offline, the on-device model still works.
 The letter waits, then sends itself.
 
-7
-00:01:56,000 --> 00:02:18,000
+8
+00:01:53,147 --> 00:01:59,939
 Same engine, three professions. Amounts and sections stay.
 IDs and settlement sums are hidden.
 
-8
-00:02:21,000 --> 00:02:41,000
-On 300 generated notes, two to three percent of identifiers were left.
+9
+00:02:23,290 --> 00:02:37,997
+On 300 generated notes, about two to four percent of identifiers were left.
 On 40 realistic notes written with an AI assistant, about three in ten.
 Small sets. You check every note before it is sent.
 
-9
-00:02:43,000 --> 00:02:54,000
+10
+00:02:40,190 --> 00:02:46,001
 Firebase AI Logic, Gemini Nano, App Check.
 Try it at the link below.
