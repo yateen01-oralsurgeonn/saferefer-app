@@ -137,7 +137,7 @@ All three runs: zero requests (PASS); 10 of 10 notes manual with the model remov
   - Dentist F07: the word "College:" after "Pravara College" was hidden.
   - CA F02: "She stays near" (the landmark after it was hidden; the lead-in words alone carry no information).
   - CA F07: the word "boutique" in "her boutique" after "Nikita Boutique, Kopargaon" was hidden.
-- **How to quote this honestly:** "On 25 fresh synthetic notes written by a dentist and a helper, 3 of 171 identifiers were left (1.8%) with the code rules plus Gemini Nano; the three leftovers were generic words, not names, numbers or places." Add: only the advocate set (0 of 69) is a test of fixes written without seeing it; 10 notes per profession is a small set; 0 leaked on it is not "never leaks"; the dentist's check before Approve is the real control.
+- **How to quote this honestly:** "On 25 fresh synthetic notes written with an AI assistant and checked by Dr. Yatin, 3 of 171 identifiers were left (1.8%) with the code rules plus Gemini Nano; the three leftovers were generic words, not names, numbers or places." Add: only the advocate set (0 of 69) is a test of fixes written without seeing it; 10 notes per profession is a small set; 0 leaked on it is not "never leaks"; the dentist's check before Approve is the real control.
 - **Still true:** the numbers are for English notes with Roman-script Marathi/Hindi words, typed by one dentist and helpers; a real clinic note can be messier.
 
 ## All results at a glance (code + Gemini Nano on Dr. Yatin's Chrome unless stated)
