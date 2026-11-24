@@ -63,7 +63,7 @@ firebase deploy --only hosting         # prints the live URL, usually https://sa
 - A real CA and a real advocate have not reviewed the letters; the README says "reviewed by the builder only".
 
 ## Decisions and deployment (20 Nov 2026)
-- **Decision 1 (author on the 60 commits): A, accepted.** `[real name and personal email: removed]` stays on every commit and goes public with the repo. No history rewrite.
+- **Decision 1 (author on the 60 commits): A, accepted.** `[real name and personal email: removed]` stays on every commit and goes public with the repo. No history rewrite. **Update 24 Nov: reversed. The author name and email were later removed from every commit by a history rewrite (all commits now show "SafeRefer").**
 - **Decision 2 (old made-up Aadhaar sample in 8fdb69a and e5dae38): left in history.** The current code uses `0123 4567 8901`, which is never a real number.
 - **Deployed:** Firebase Hosting, https://saferefer-d5175.web.app (project `saferefer-d5175`).
 - **Console:** reCAPTCHA Enterprise key allows both hosting domains; App Check **enforced** for Firebase AI Logic (66 of 66 requests verified, 0 unverified); web API key restricted to the two hosting domains plus `localhost` and `localhost:5199`, and to the 25 Firebase APIs; Google Analytics not connected; AI monitoring off; template-only mode unenforced.
