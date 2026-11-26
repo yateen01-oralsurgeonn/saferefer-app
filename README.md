@@ -64,7 +64,7 @@ typed note
 
 ## Try it
 
-- Live app: https://saferefer-d5175.web.app · Video: https://youtu.be/cta1eScR0R4
+- Live app: https://saferefer-d5175.web.app · Video: https://youtu.be/HHAUkDhs8p0
 - Use **Chrome 139 or newer on a computer.** For automatic name hiding the on-device model must be present: if `await LanguageModel.availability()` in the console does not say `available`, enable `chrome://flags/#prompt-api-for-gemini-nano-multimodal-input`, restart, and give Chrome a few minutes to download the model once.
 - Without Nano (a phone, Edge, Firefox): **manual mode.** You select the words to hide, tick a box, then approve. The app says so in plain words. The tooth list falls back to the cloud, with the hidden text only.
 - Use only the example notes in `data/` or your own made-up notes.
